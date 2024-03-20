@@ -1,15 +1,39 @@
-version: '3'
+version: '3.5'
+
 services:
-  app:
+  laravel-app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: '.'
+      args:
+        uid: ${UID}
+    container_name: laravel-app
     ports:
-      - "8000:9000"
+      - 8000:80
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
     volumes:
       - .:/var/www/html
     networks:
-      - laravel_network
+      backend:
+        aliases:
+          - app
+
+  mysql-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    volumes:
+      - ./run/var:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=securerootpassword
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    networks:
+      backend:
+        aliases:
+          - mysql-db
+
 networks:
-  laravel_network:
-    driver: bridge
+  backend:
+    name: backend-network
