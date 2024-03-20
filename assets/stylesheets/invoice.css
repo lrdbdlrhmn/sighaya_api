@@ -1,0 +1,58 @@
+img {
+  width: 120px;
+  height: 120px;
+}
+body {
+  font-size: 16px !important;
+}
+
+.table-borderless, .table-borderless tr, .table-borderless tr td{
+  border: none!important;
+}
+
+footer {
+  border-top: 4px #555 dotted;
+}
+
+td{
+  text-align: center;
+  vertical-align: middle;
+  padding: 0!important;
+  width: 33.333333%;
+  font-size: 16px;
+}
+table tr td{
+  padding: 0!important;
+}
+tr td:last-child{
+  text-align: left;
+  direction: ltr;
+}
+tr td:first-child{
+  direction: rtl;
+  text-align: right;
+}
+tr td:last-child, tr td:first-child{
+  font-weight: bold;
+}
+thead tr td{
+  font-weight: bold;
+}
+
+.body-one table,.body-one table tr,.body-one table tr td{
+  vertical-align: middle!important;
+  text-align: center!important;
+}
+.table-bordered,.table-bordered tr,.table-bordered tr td{
+  border-color: black!important;
+}
+table.table-borderless,table.table-borderless tr,table.table-borderless tr td, table.table-borderless thead, table.table-borderless tbody, .white-borers, .white-borers>tr, .white-borers>tr>td{
+  border-color: white!important;
+}
+
+.body-one tbody{
+  border-top-width: 1px!important;
+}
+.body-one .tbody tr td{
+  font-weight: normal;
+}
