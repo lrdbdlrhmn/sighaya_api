@@ -26,9 +26,9 @@ services:
       - ./run/var:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=securerootpassword
-      - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_USER=${DB_USERNAME}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=sighaya
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=securerootpassword
     networks:
       backend:
         aliases:
