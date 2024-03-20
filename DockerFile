@@ -1,33 +1,53 @@
-# Use the official PHP image as the base image
-FROM php:8.2-fpm
+FROM php:8.2-apache
 
-# Set the working directory inside the container
-WORKDIR /var/www/html
-
-# Install dependencies
+# 1. Install development packages and clean up apt cache.
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg-dev \
+    curl \
+    g++ \
+    git \
+    libbz2-dev \
     libfreetype6-dev \
-    zip \
+    libicu-dev \
+    libjpeg-dev \
+    libmcrypt-dev \
+    libpng-dev \
+    libreadline-dev \
+    sudo \
     unzip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo_mysql
+    zip \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# 2. Apache configs + document root.
+RUN echo "ServerName laravel-app.local" >> /etc/apache2/apache2.conf
 
-# Copy the application files to the container
-COPY . .
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+# 3. mod_rewrite for URL rewrite and mod_headers for .htaccess extra headers like Access-Control-Allow-Origin-
+RUN a2enmod rewrite headers
 
-# Set permissions
-RUN chown -R www-data:www-data storage bootstrap/cache
+# 4. Start with base PHP config, then add extensions.
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-# Expose port 9000 to communicate with the web server
-EXPOSE 9000
+RUN docker-php-ext-install \
+    bcmath \
+    bz2 \
+    calendar \
+    iconv \
+    intl \
+    mbstring \
+    opcache \
+    pdo_mysql \
+    zip
 
-# Start PHP-FPM
-CMD ["php-fpm"]
+# 5. Composer.
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# 6. We need a user with the same UID/GID as the host user
+# so when we execute CLI commands, all the host file's permissions and ownership remain intact.
+# Otherwise commands from inside the container would create root-owned files and directories.
+ARG uid
+RUN useradd -G www-data,root -u $uid -d /home/sighaya sighaya
+RUN mkdir -p /home/sighaya/.composer && \
+    chown -R sighaya:sighaya /home/sighaya
