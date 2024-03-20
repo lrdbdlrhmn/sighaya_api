@@ -5,7 +5,7 @@ services:
     build:
       context: '.'
       args:
-        uid: ${UID}
+        uid: HdC0IYTODOfnSs6rVvWw1ghuwXjghUFIKIt1mCI5+7I=
     container_name: laravel-app
     ports:
       - 8000:8001
