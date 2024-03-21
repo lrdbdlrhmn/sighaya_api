@@ -1,39 +1,17 @@
-version: '3.5'
+version: "3.8"
 
 services:
-  laravel-app:
-    build:
-      context: '.'
-      args:
-        uid: HdC0IYTODOfnSs6rVvWw1ghuwXjghUFIKIt1mCI5+7I=
-    container_name: laravel-app
-    ports:
-      - 8000:8001
-    environment:
-      - APACHE_RUN_USER=#1000
-      - APACHE_RUN_GROUP=#1000
+  php:
+    build: .
     volumes:
       - .:/var/www/html
-    networks:
-      backend:
-        aliases:
-          - app
-
-  mysql-db:
-    image: mysql:5.7
-    container_name: mysql-db
-    volumes:
-      - ./run/var:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=securerootpassword
-      - MYSQL_DATABASE=sighaya
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=securerootpassword
-    networks:
-      backend:
-        aliases:
-          - mysql-db
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=sighaya
+      - DB_USERNAME=root
+      - DB_PASSWORD=securerootpassword
 
-networks:
-  backend:
-    name: backend-network
+  nginx:
+    build: ./nginx
