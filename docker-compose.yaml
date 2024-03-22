@@ -12,10 +12,10 @@ services:
       - ./:/var/www/html
 
   database:
-    image: mysql
+    image: mariadb
     restart: always
     ports:
-      - 3306:33061
+      - 33061:3306
     environment:
       MYSQL_ROOT_PASSWORD: securerootpassword
     volumes:
