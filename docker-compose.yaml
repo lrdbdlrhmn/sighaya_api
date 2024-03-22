@@ -1,11 +1,22 @@
 version: '3'
 
 services:
-  app:
+  web:
+    environment:
+      - APACHE_RUN_USER=#1000
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./docker/web
     ports:
-      - "8000:9000" # Change port as per your requirement
+      - 8000:80
     volumes:
-      - .:/var/www/html
+      - ./:/var/www/html
+
+  database:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:33061
+    environment:
+      MYSQL_ROOT_PASSWORD: securerootpassword
+    volumes:
+      - ./docker/database:/var/lib/mysql

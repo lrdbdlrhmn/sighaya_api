@@ -1,35 +1,44 @@
-# Use the official PHP image
-FROM php:8.1-fpm
+FROM php:8.1-apache
 
-# Set working directory
-WORKDIR /var/www/html
-
-# Install dependencies
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    libpng-dev \
-    libjpeg-dev \
     libfreetype6-dev \
+    libpng-dev \
+    libwebp-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
     libzip-dev \
     zip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql zip
+    git \
+    mysql-client \
+    && docker-php-ext-install \
+    pdo_mysql \
+    gd \
+    zip \
+    && a2enmod \
+    rewrite
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Add the user UID:1000, GID:1000, home at /app
+RUN groupadd -r app -g 1000 && useradd -u 1000 -r -g app -m -d /app -s /sbin/nologin -c "App user" app && \
+    chmod 755 /var/www/html
 
-# Copy Laravel files
-COPY . .
+RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
-# Install Laravel dependencies
-RUN composer install
+#upload
+RUN echo "file_uploads = On\n" \
+    "memory_limit = 500M\n" \
+    "upload_max_filesize = 500M\n" \
+    "post_max_size = 500M\n" \
+    "max_execution_time = 600\n" \
+    > /usr/local/etc/php/conf.d/uploads.ini
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+USER app
 
-# Expose port
-EXPOSE 8000
+WORKDIR /var/www/html
 
-# Start PHP-FPM server
-CMD ["php-fpm"]
+USER root
+
+COPY default.conf /etc/apache2/sites-enabled/000-default.conf
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+EXPOSE 80
