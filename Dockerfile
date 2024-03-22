@@ -29,7 +29,7 @@ RUN composer install
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port
-EXPOSE 9000
+EXPOSE 8000
 
 # Start PHP-FPM server
 CMD ["php-fpm"]
