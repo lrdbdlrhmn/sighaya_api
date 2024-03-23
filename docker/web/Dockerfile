@@ -1,5 +1,7 @@
 FROM php:8.1-apache
 
+WORKDIR /var/www/html
+
 RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libpng-dev \
@@ -33,7 +35,7 @@ RUN echo "file_uploads = On\n" \
 
 USER app
 
-WORKDIR /var/www/html
+
 
 USER root
 
