@@ -39,6 +39,6 @@ USER root
 
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
 
 EXPOSE 80
