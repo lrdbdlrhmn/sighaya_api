@@ -3,20 +3,20 @@ version: '3'
 services:
   web:
     environment:
-      - APACHE_RUN_USER=#1000
+    - APACHE_RUN_USER=#1000
     build:
       context: ./docker/web
     ports:
-      - 8000:80
+    - 10000:80
     volumes:
-      - ./:/var/www/html
+    - ./:/var/www/html
 
   database:
-    image: mysql
+    image: mariadb
     restart: always
     ports:
-      - 3306:33061
+    - 33061:3306
     environment:
-      MYSQL_ROOT_PASSWORD: securerootpassword
+      MYSQL_ROOT_PASSWORD: 123
     volumes:
       - ./docker/database:/var/lib/mysql

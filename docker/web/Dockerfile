@@ -1,17 +1,15 @@
 FROM php:8.1-apache
 
-WORKDIR /var/www/html
-
 RUN apt-get update && apt-get install -y \
-    libfreetype6-dev \
-    libpng-dev \
-    libwebp-dev \
-    libjpeg62-turbo-dev \
-    libmcrypt-dev \
-    libzip-dev \
-    zip \
-    git \
-    mariadb-client \
+    		libfreetype6-dev \
+    		libpng-dev \
+    		libwebp-dev \
+    		libjpeg62-turbo-dev \
+    		libmcrypt-dev \
+    		libzip-dev \
+            zip \
+    		git \
+    		mysql-client \
     && docker-php-ext-install \
     pdo_mysql \
     gd \
@@ -27,15 +25,20 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 
 #upload
 RUN echo "file_uploads = On\n" \
-    "memory_limit = 500M\n" \
-    "upload_max_filesize = 500M\n" \
-    "post_max_size = 500M\n" \
-    "max_execution_time = 600\n" \
-    > /usr/local/etc/php/conf.d/uploads.ini
+         "memory_limit = 500M\n" \
+         "upload_max_filesize = 500M\n" \
+         "post_max_size = 500M\n" \
+         "max_execution_time = 600\n" \
+         > /usr/local/etc/php/conf.d/uploads.ini
 
 USER app
+
+WORKDIR /var/www/html
 
 USER root
 
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
+
+CMD ["BACKGROUND"]
+
 EXPOSE 80
