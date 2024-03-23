@@ -18,3 +18,5 @@ services:
       - 33061:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123
+    volumes:
+      - ./docker/database:/var/lib/mysql
