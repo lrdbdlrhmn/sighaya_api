@@ -14,7 +14,7 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - [network-name]
+      - laravel
   db:
     image: mysql:8.0
     container_name: db
@@ -29,7 +29,7 @@ services:
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
-      - mysql_db
+      - laravel
   nginx:
     image: nginx:alpine
     container_name: nginx
@@ -40,7 +40,7 @@ services:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
-      - nginx_webs
+      - laravel
 networks:
   laravel :
     driver: bridge
