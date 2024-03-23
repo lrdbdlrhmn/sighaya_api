@@ -1,22 +1,46 @@
-version: '3'
-
+version: "3.7"
 services:
-  web:
-    environment:
-    - APACHE_RUN_USER=#1000
+  app:
     build:
-      context: ./docker/web
-    ports:
-    - 8010:80
+      args:
+        user: sighaya
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: web
+    container_name: app
+    restart: unless-stopped
+    working_dir: /var/www/
     volumes:
-    - ./:/var/www/html
-
-  database:
-    image: mariadb
-    restart: always
-    ports:
-    - 33061:3306
+      - ./:/var/www
+    networks:
+      - [network-name]
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: sighaya
+      MYSQL_ROOT_PASSWORD: sighaya123
+      MYSQL_PASSWORD: sighaya123
+      MYSQL_USER: sighaya
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
     volumes:
-      - ./docker/database:/var/lib/mysql
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - mysql_db
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - nginx_webs
+networks:
+  laravel :
+    driver: bridge
