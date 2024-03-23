@@ -39,6 +39,5 @@ USER root
 
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
 
-CMD ["BACKGROUND"]
 
 EXPOSE 80
