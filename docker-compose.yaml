@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:9000" # Change port as per your requirement
+      - "8100:9000" # Change port as per your requirement
     volumes:
       - .:/var/www/html
