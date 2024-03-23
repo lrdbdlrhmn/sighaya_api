@@ -7,7 +7,7 @@ services:
     build:
       context: ./docker/web
     ports:
-      - 8100:81010
+      - 10000:80
     volumes:
       - ./:/var/www/html
 
