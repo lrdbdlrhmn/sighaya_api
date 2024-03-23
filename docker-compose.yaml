@@ -1,22 +1,11 @@
 version: '3'
 
 services:
-  web:
-    environment:
-    - APACHE_RUN_USER=#1000
+  app:
     build:
-      context: ./docker/web
+      context: .
+      dockerfile: Dockerfile
     ports:
-    - 8010:8100
+      - "8000:9000" # Change port as per your requirement
     volumes:
-    - ./:/var/www/html
-
-  database:
-    image: mariadb
-    restart: always
-    ports:
-    - 33061:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: sighaya123
-    volumes:
-      - ./docker/database:/var/lib/mysql
+      - .:/var/www/html
