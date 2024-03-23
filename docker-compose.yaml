@@ -19,4 +19,4 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123
     volumes:
-      - ./docker/database:/var/lib/mysql
+      - ./docker/mariadb:/var/lib/mysql
