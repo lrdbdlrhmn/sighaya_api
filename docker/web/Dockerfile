@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     git \
-    mariadb-client \
+    default-mysql-client \
     && docker-php-ext-install \
     pdo_mysql \
     gd \
