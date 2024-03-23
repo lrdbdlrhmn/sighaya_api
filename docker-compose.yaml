@@ -10,13 +10,3 @@ services:
       - 8020:8010
     volumes:
       - ./:/var/www/html
-
-  database:
-    image: mariadb
-    restart: always
-    ports:
-      - 33061:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: 123
-    volumes:
-      - ./docker/mariadb:/var/lib/mysql
