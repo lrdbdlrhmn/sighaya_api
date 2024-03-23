@@ -35,12 +35,9 @@ RUN echo "file_uploads = On\n" \
 
 USER app
 
-
-
 USER root
 
 COPY default.conf /etc/apache2/sites-enabled/000-default.conf
 
-
-
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 EXPOSE 80

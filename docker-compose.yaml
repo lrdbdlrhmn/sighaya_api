@@ -1,33 +1,22 @@
 version: '3'
 
 services:
-  laravel-app:
+  web:
+    environment:
+      - APACHE_RUN_USER=#1000
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./docker/web
     ports:
-      - "8010:80"
+      - 8000:80
     volumes:
-      - .:/var/www/html
-    depends_on:
-      - mariadb
-    environment:
-      DB_CONNECTION: mysql
-      DB_HOST: mariadb
-      DB_PORT: 3306
-      DB_DATABASE: sighaya
-      DB_USERNAME: sighaya
-      DB_PASSWORD: sighaya123
+      - ./:/var/www/html
 
-  mariadb:
-    image: mariadb:latest
+  database:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:33061
     environment:
-      MYSQL_ROOT_PASSWORD: sighaya123
-      MYSQL_DATABASE: sighaya
-      MYSQL_USER: sighaya
-      MYSQL_PASSWORD: sighaya123
+      MYSQL_ROOT_PASSWORD: securerootpassword
     volumes:
-      - mariadb_data:/var/lib/mysql
-
-volumes:
-  mariadb_data:
+      - ./docker/database:/var/lib/mysql
