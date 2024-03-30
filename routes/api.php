@@ -26,9 +26,9 @@ Route::middleware("localization")->group(function () {
 
 
     
-    Route::get('header/{vref}', [App\Http\Controllers\Api\ApiController::class,'header']);
-    Route::get('details/{vref}', [App\Http\Controllers\Api\ApiController::class,'details']);
-    Route::get('home', [App\Controllers\Api\HomeController::class,'index']);
+    Route::get('check_balance/{id}', [App\Http\Controllers\Api\ImageController::class,'check_balance']);
+    
+    Route::get('invoice/{id}', [App\Http\Controllers\Api\ImageController::class,'invoiceHtml']);
     Route::controller(App\Http\Controllers\Api\AuthController::class)->group(function(){
 
         Route::post('register', 'register');
@@ -41,9 +41,7 @@ Route::middleware("localization")->group(function () {
     
     Route::middleware("auth:sanctum")->group(function () {
         Route::controller(App\Http\Controllers\Api\AuthController::class)->group(function(){
-            Route::get('check_balance/{id}', [App\Http\Controllers\Api\ImageController::class,'check_balance']);
-    
-            Route::get('invoice/{id}', [App\Http\Controllers\Api\ImageController::class,'invoiceHtml']);
+            
             Route::post('reports', [App\Http\Controllers\Api\ReportController::class,'store']);
             Route::get('/', [App\Http\Controllers\Api\HomeController::class,'index']);
             Route::get('/reports', [App\Http\Controllers\Api\ReportController::class,'index']);
