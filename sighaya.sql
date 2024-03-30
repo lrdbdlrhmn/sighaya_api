@@ -2,14 +2,11 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 18, 2024 at 07:23 PM
--- Server version: 10.5.21-MariaDB
--- PHP Version: 7.4.33
+-- Host: 127.0.0.1
+-- Generation Time: Mar 29, 2024 at 04:55 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,120 +15,118 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wkzpvgnj_sighaya`
+-- Database: sighaya
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cities`
+-- Table structure for table cities
 --
 
-CREATE TABLE `cities` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `name_fr` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `state_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE cities (
+  id bigint  NOT NULL,
+  name varchar(255) NOT NULL,
+  name_fr varchar(255) NOT NULL,
+  state_id bigint  NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `cities`
+-- Dumping data for table cities
 --
 
-INSERT INTO `cities` (`id`, `name`, `description`, `name_fr`, `status`, `state_id`, `created_at`, `updated_at`) VALUES
-(101, 'النعمة', 'le captale de wilaya', 'Néma', 1, 1, NULL, '2023-01-07 18:56:26'),
-(102, 'آمورج', NULL, 'Amourj', 1, 1, NULL, NULL),
-(103, 'باسكنو', NULL, 'Bassiknou', 1, 1, NULL, NULL),
-(104, 'دجيكني', NULL, 'Djigueni', 1, 1, NULL, NULL),
-(105, 'تمبدغه', NULL, 'Timbédra', 1, 1, NULL, NULL),
-(106, 'ولاته', NULL, 'Oualata', 1, 1, NULL, NULL),
-(201, 'العيون', NULL, 'Aioun', 1, 2, NULL, NULL),
-(202, 'تامشكط', NULL, 'Tamchekett', 1, 2, NULL, NULL),
-(203, 'كوبني', NULL, 'Kobeni', 1, 2, NULL, NULL),
-(204, 'الطينطان', NULL, 'Tintane', 1, 2, NULL, NULL),
-(301, 'كيفة', NULL, 'Kiffa', 1, 3, NULL, NULL),
-(302, 'كنكوصة', NULL, 'Kankossa', 1, 3, NULL, NULL),
-(303, 'بومديد', NULL, 'Boumdeid', 1, 3, NULL, NULL),
-(304, 'كرو', NULL, 'Guerou', 1, 3, NULL, NULL),
-(305, 'باركيول', NULL, 'Barkeol', 1, 3, NULL, NULL),
-(401, 'كيهيدي', NULL, 'Kaedi', 1, 4, NULL, NULL),
-(402, 'مونكل', NULL, 'Monguel', 1, 4, NULL, NULL),
-(403, 'مقامة', NULL, 'Maghama', 1, 4, NULL, NULL),
-(404, 'امبود', NULL, 'M\'Bout', 1, 4, NULL, NULL),
-(501, 'الاك', NULL, 'Aleg', 1, 5, NULL, NULL),
-(502, 'ببابه', NULL, 'Bababe', 1, 5, NULL, NULL),
-(503, 'امبان', NULL, 'M\'Bagne', 1, 5, NULL, NULL),
-(504, 'مقطع لحجار', NULL, 'Magta-Lahjar', 1, 5, NULL, NULL),
-(505, 'بوكي', NULL, 'Boghe', 1, 5, NULL, NULL),
-(601, 'روصو', NULL, 'Rosso', 1, 6, NULL, NULL),
-(602, 'وادالناكة', NULL, 'Wad Naga', 1, 6, NULL, NULL),
-(603, 'كرمسين', NULL, 'Keur-Macen', 1, 6, NULL, NULL),
-(604, 'اركيز', NULL, 'R\'Kiz', 1, 6, NULL, NULL),
-(605, 'بوتلميت', NULL, 'Boutilimit', 1, 6, NULL, NULL),
-(606, 'المذرذرة', NULL, 'Mederdra', 1, 6, NULL, NULL),
-(701, 'اطار', NULL, 'Atar', 1, 7, NULL, NULL),
-(702, 'اوجفت', NULL, 'Aoujeft', 1, 7, NULL, NULL),
-(703, 'ودان', NULL, 'Ouadane', 1, 7, NULL, NULL),
-(704, 'شنقيط', NULL, 'Chinguitti', 1, 7, NULL, NULL),
-(801, 'انواذيبو', NULL, 'Nouadhibou', 1, 8, NULL, NULL),
-(901, 'تجكجه', NULL, 'Tidjikja', 1, 9, NULL, NULL),
-(902, 'المجرية', NULL, 'Moudjeria', 1, 9, NULL, NULL),
-(903, 'تيشيت', NULL, 'Tichitt', 1, 9, NULL, NULL),
-(1001, 'سيلبابي', NULL, 'Selibaby', 1, 10, NULL, NULL),
-(1002, 'ول ينجه', NULL, 'Ould Yenge', 1, 10, NULL, NULL),
-(1101, 'ازويرات', NULL, 'Zoueratt', 1, 11, NULL, NULL),
-(1102, 'افديرك', NULL, 'F\'Deirik', 1, 11, NULL, NULL),
-(1103, 'بيرام اكرين', NULL, 'Bir Mogrein', 1, 11, NULL, NULL),
-(1201, 'اكجوجت', NULL, 'Akjoujt', 1, 12, NULL, NULL),
-(1301, 'تفرغ زينه', NULL, 'T.Zeina', 1, 13, NULL, NULL),
-(1302, 'السبخه', NULL, 'Sebkha', 1, 13, NULL, NULL),
-(1303, 'الميناء', NULL, 'El Mina', 1, 13, NULL, NULL),
-(1304, 'الرياض', NULL, 'Riad', 1, 13, NULL, NULL),
-(1305, 'عرفات', NULL, 'Arafat', 1, 13, NULL, NULL),
-(1306, 'توجنين', NULL, 'Toujounine', 1, 13, NULL, NULL),
-(1307, 'دارالنعيم', NULL, 'Dar.Naim', 1, 13, NULL, NULL),
-(1308, 'لكصر', NULL, 'Ksar', 1, 13, NULL, NULL),
-(1309, 'تيارت', NULL, 'Teyarett', 1, 13, NULL, NULL);
+INSERT INTO cities (id, name, name_fr, state_id, created_at, updated_at) VALUES
+(101, 'النعمة', 'Néma', 1, NULL, '2023-01-07 18:56:26'),
+(102, 'آمورج', 'Amourj', 1, NULL, NULL),
+(103, 'باسكنو', 'Bassiknou', 1, NULL, NULL),
+(104, 'دجيكني', 'Djigueni', 1, NULL, NULL),
+(105, 'تمبدغه', 'Timbédra', 1, NULL, NULL),
+(106, 'ولاته', 'Oualata', 1, NULL, NULL),
+(201, 'العيون', 'Aioun', 2, NULL, NULL),
+(202, 'تامشكط', 'Tamchekett', 2, NULL, NULL),
+(203, 'كوبني', 'Kobeni', 2, NULL, NULL),
+(204, 'الطينطان', 'Tintane', 2, NULL, NULL),
+(301, 'كيفة', 'Kiffa', 3, NULL, NULL),
+(302, 'كنكوصة', 'Kankossa', 3, NULL, NULL),
+(303, 'بومديد', 'Boumdeid', 3, NULL, NULL),
+(304, 'كرو', 'Guerou', 3, NULL, NULL),
+(305, 'باركيول', 'Barkeol', 3, NULL, NULL),
+(401, 'كيهيدي', 'Kaedi', 4, NULL, NULL),
+(402, 'مونكل', 'Monguel', 4, NULL, NULL),
+(403, 'مقامة', 'Maghama', 4, NULL, NULL),
+(404, 'امبود', 'MBout', 4, NULL, NULL),
+(501, 'الاك', 'Aleg', 5, NULL, NULL),
+(502, 'ببابه', 'Bababe', 5, NULL, NULL),
+(503, 'امبان', 'MBagne', 5, NULL, NULL),
+(504, 'مقطع لحجار', 'Magta-Lahjar', 5, NULL, NULL),
+(505, 'بوكي', 'Boghe', 5, NULL, NULL),
+(601, 'روصو', 'Rosso', 6, NULL, NULL),
+(602, 'وادالناكة', 'Wad Naga', 6, NULL, NULL),
+(603, 'كرمسين', 'Keur-Macen', 6, NULL, NULL),
+(604, 'اركيز', 'RKiz', 6, NULL, NULL),
+(605, 'بوتلميت', 'Boutilimit', 6, NULL, NULL),
+(606, 'المذرذرة', 'Mederdra', 6, NULL, NULL),
+(701, 'اطار', 'Atar', 7, NULL, NULL),
+(702, 'اوجفت', 'Aoujeft', 7, NULL, NULL),
+(703, 'ودان', 'Ouadane', 7, NULL, NULL),
+(704, 'شنقيط', 'Chinguitti', 7, NULL, NULL),
+(801, 'انواذيبو', 'Nouadhibou', 8, NULL, NULL),
+(901, 'تجكجه', 'Tidjikja', 9, NULL, NULL),
+(902, 'المجرية', 'Moudjeria', 9, NULL, NULL),
+(903, 'تيشيت', 'Tichitt', 9, NULL, NULL),
+(1001, 'سيلبابي', 'Selibaby', 10, NULL, NULL),
+(1002, 'ول ينجه', 'Ould Yenge', 10, NULL, NULL),
+(1101, 'ازويرات', 'Zoueratt', 11, NULL, NULL),
+(1102, 'افديرك', 'FDeirik', 11, NULL, NULL),
+(1103, 'بيرام اكرين', 'Bir Mogrein', 11, NULL, NULL),
+(1201, 'اكجوجت', 'Akjoujt', 12, NULL, NULL),
+(1301, 'تفرغ زينه', 'T.Zeina', 13, NULL, NULL),
+(1302, 'السبخه', 'Sebkha', 13, NULL, NULL),
+(1303, 'الميناء', 'El Mina', 13, NULL, NULL),
+(1304, 'الرياض', 'Riad', 13, NULL, NULL),
+(1305, 'عرفات', 'Arafat', 13, NULL, NULL),
+(1306, 'توجنين', 'Toujounine', 13, NULL, NULL),
+(1307, 'دارالنعيم', 'Dar.Naim', 13, NULL, NULL),
+(1308, 'لكصر', 'Ksar', 13, NULL, NULL),
+(1309, 'تيارت', 'Teyarett', 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Table structure for table failed_jobs
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE failed_jobs (
+  id bigint  NOT NULL,
+  uuid varchar(255) NOT NULL,
+  connection text NOT NULL,
+  queue text NOT NULL,
+  payload text NOT NULL,
+  exception text NOT NULL,
+  failed_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `manager_regions`
+-- Table structure for table manager_regions
 --
 
-CREATE TABLE `manager_regions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `region_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE manager_regions (
+  id bigint  NOT NULL,
+  region_id bigint  NOT NULL,
+  user_id bigint  NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `manager_regions`
+-- Dumping data for table manager_regions
 --
 
-INSERT INTO `manager_regions` (`id`, `region_id`, `user_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO manager_regions (id, region_id, user_id, created_at, updated_at) VALUES
 (4, 10106, 5, '2023-01-09 10:11:00', '2023-01-09 10:11:00'),
 (5, 130808, 55, '2023-04-10 14:27:23', '2023-04-10 14:27:23'),
 (6, 130909, 47, '2023-04-10 14:29:41', '2023-04-10 14:29:41'),
@@ -140,20 +135,20 @@ INSERT INTO `manager_regions` (`id`, `region_id`, `user_id`, `created_at`, `upda
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Table structure for table migrations
 --
 
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE migrations (
+  id int  NOT NULL,
+  migration varchar(255) NOT NULL,
+  batch int NOT NULL
+) ;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data for table migrations
 --
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO migrations (id, migration, batch) VALUES
 (1, '2014_10_12_100000_create_password_resets_table', 1),
 (2, '2019_08_19_000000_create_failed_jobs_table', 1),
 (3, '2019_12_14_000001_create_personal_access_tokens_table', 1),
@@ -166,20 +161,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Table structure for table password_resets
 --
 
-CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE password_resets (
+  email varchar(255) NOT NULL,
+  token varchar(255) NOT NULL,
+  created_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `password_resets`
+-- Dumping data for table password_resets
 --
 
-INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+INSERT INTO password_resets (email, token, created_at) VALUES
 ('lrdbdlrhmn@gmail.com', '421246', '2022-11-29 12:09:52'),
 ('lrdbdlrhmn@gmail.com', '420416', '2022-11-29 12:10:10'),
 ('lrdbdlrhmn@gmail.com', '946521', '2022-11-29 12:10:25');
@@ -187,27 +182,27 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Table structure for table personal_access_tokens
 --
 
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE personal_access_tokens (
+  id bigint  NOT NULL,
+  tokenable_type varchar(255) NOT NULL,
+  tokenable_id bigint  NOT NULL,
+  name varchar(255) NOT NULL,
+  token varchar(64) NOT NULL,
+  abilities text DEFAULT NULL,
+  last_used_at timestamp NULL DEFAULT NULL,
+  expires_at timestamp NULL DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `personal_access_tokens`
+-- Dumping data for table personal_access_tokens
 --
 
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (8, 'App\\Models\\User', 6, 'MyApp', 'f0a8a64012138d31de8ae4d85b14bcdbd020f7040e326d164388a684745fccee', '[\"*\"]', NULL, NULL, '2022-09-27 05:18:12', '2022-09-27 05:18:12'),
 (9, 'App\\Models\\User', 8, 'MyApp', 'dca2399b2aa9a9bbe508fc19f6b5f515f39e02c7f343126d92e3cd161fe6fbdf', '[\"*\"]', NULL, NULL, '2022-09-27 05:20:08', '2022-09-27 05:20:08'),
 (10, 'App\\Models\\User', 8, 'MyApp', '8f9afbfbea68f309c4e270e774e51c7cd7e5bdd50d9492fabeaebc1572f2e990', '[\"*\"]', NULL, NULL, '2022-09-27 05:21:27', '2022-09-27 05:21:27'),
@@ -475,7 +470,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (273, 'App\\Models\\User', 70, 'MyApp', 'a358da2aaad866b5fae7a5bfa9ee468c6917e5b144259a9e9cec851f2229fd00', '[\"*\"]', '2024-02-05 14:22:27', NULL, '2023-02-23 13:51:42', '2024-02-05 14:22:27'),
 (274, 'App\\Models\\User', 8, 'MyApp', 'a728548d06252696e6465ed2cfc1c1d8b5e115fe340377c78950a68a5aa60617', '[\"*\"]', '2023-03-24 11:23:16', NULL, '2023-02-23 19:42:15', '2023-03-24 11:23:16'),
 (275, 'App\\Models\\User', 68, 'MyApp', '7a1f0cdaac421bbcfe38ba3b873b22be9da9cd909ccf425ef4a41500ef4626da', '[\"*\"]', '2023-03-01 23:24:53', NULL, '2023-02-23 23:52:57', '2023-03-01 23:24:53');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (276, 'App\\Models\\User', 8, 'MyApp', '94bb44a29f83bfcda2d1257cda4c06d267bac622c99be3af3609b1938717f23f', '[\"*\"]', '2023-02-25 17:11:11', NULL, '2023-02-25 16:51:40', '2023-02-25 17:11:11'),
 (277, 'App\\Models\\User', 8, 'MyApp', '5d9759f8b1be6af27b1bd8304051c59a680a4616661b00deab9ca5672b627a70', '[\"*\"]', '2023-02-25 17:37:48', NULL, '2023-02-25 17:25:49', '2023-02-25 17:37:48'),
 (278, 'App\\Models\\User', 8, 'MyApp', '287d57ba32ea09a5886caea02e98ccaee1ac9aa96ec9b45c35335e7ab470a81c', '[\"*\"]', '2023-02-25 17:55:04', NULL, '2023-02-25 17:55:03', '2023-02-25 17:55:04'),
@@ -733,7 +728,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (530, 'App\\Models\\User', 514, 'MyApp', '45213cf88480d478ff8c6fd198eeab2f97e4fa440dea7465c2e5098b4e7d8541', '[\"*\"]', '2023-12-07 10:21:36', NULL, '2023-06-15 21:10:41', '2023-12-07 10:21:36'),
 (531, 'App\\Models\\User', 515, 'MyApp', '45d3eb6ac8477d2cf3f1ad94ccb24657619d90f33aa13c755de304e8784ff7b8', '[\"*\"]', '2023-07-29 11:17:43', NULL, '2023-06-15 21:15:49', '2023-07-29 11:17:43'),
 (532, 'App\\Models\\User', 516, 'MyApp', 'c9285d41f3e8cfedb01c83c2f9d3a38f44b90e4a41de31440f021bbf5a21b077', '[\"*\"]', '2024-01-02 11:35:43', NULL, '2023-06-15 22:44:36', '2024-01-02 11:35:43');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (533, 'App\\Models\\User', 66, 'MyApp', 'e76ca1f3cdfb35957cd4e51246d3a39556a9342531db85007a8beb8c363176ab', '[\"*\"]', '2023-08-04 19:17:52', NULL, '2023-06-16 09:40:40', '2023-08-04 19:17:52'),
 (534, 'App\\Models\\User', 517, 'MyApp', 'aa1f3910f65d08ef9b6fdb9a794738ac5d5178216e58cecfd8e22ca8e1819d8d', '[\"*\"]', '2023-12-21 22:46:28', NULL, '2023-06-16 12:32:21', '2023-12-21 22:46:28'),
 (535, 'App\\Models\\User', 518, 'MyApp', '10103e641fdc42d339acbabb3e127af0913c30201133d585f6639050c187158c', '[\"*\"]', '2023-06-17 07:02:33', NULL, '2023-06-16 16:01:29', '2023-06-17 07:02:33'),
@@ -990,7 +985,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (786, 'App\\Models\\User', 999, 'MyApp', '9cbcfc0c953140407eb70ae75d07fe01a8faf728475b7e301df1d951e60051b5', '[\"*\"]', '2023-08-11 08:59:01', NULL, '2023-08-11 06:08:25', '2023-08-11 08:59:01'),
 (787, 'App\\Models\\User', 1000, 'MyApp', '1395b4ff03f7c3e8f34f94189f7a6cf2b1367f25129bde3bfacd1f9e8e6a8d81', '[\"*\"]', '2023-08-11 06:10:53', NULL, '2023-08-11 06:08:56', '2023-08-11 06:10:53'),
 (788, 'App\\Models\\User', 1001, 'MyApp', '253e4260f1e7a166659f6849466df048e58e47e043f3724da926de60968c1623', '[\"*\"]', '2023-08-11 06:09:19', NULL, '2023-08-11 06:09:19', '2023-08-11 06:09:19');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (789, 'App\\Models\\User', 1002, 'MyApp', '968ad246057777e08a241e14b1c8c8cf06f7b2fdd3fbd97408bd4fabc086e577', '[\"*\"]', '2024-01-09 22:27:04', NULL, '2023-08-11 06:11:54', '2024-01-09 22:27:04'),
 (790, 'App\\Models\\User', 1003, 'MyApp', 'c61f2a677f0bf7cfb4edfbb0c8c6393153370580cf1385bccffa56fff4738543', '[\"*\"]', '2023-08-11 06:19:38', NULL, '2023-08-11 06:18:29', '2023-08-11 06:19:38'),
 (791, 'App\\Models\\User', 1004, 'MyApp', '6596b7ace4a9a71fba6891e32812cebb23b833e2726d585cc9fe71f557a09801', '[\"*\"]', '2023-08-11 13:30:30', NULL, '2023-08-11 06:19:13', '2023-08-11 13:30:30'),
@@ -1246,7 +1241,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (1041, 'App\\Models\\User', 1244, 'MyApp', '3f6528463995069a21c0474e24e2d38668a158883d7b5538821fdedf59575ae6', '[\"*\"]', '2023-08-11 10:10:57', NULL, '2023-08-11 10:10:50', '2023-08-11 10:10:57'),
 (1042, 'App\\Models\\User', 1245, 'MyApp', '108c451b02e712d7cc9227e1058a8bb9d027b4d81f52fe0cc423aea5d42c2402', '[\"*\"]', '2023-09-17 18:47:36', NULL, '2023-08-11 10:12:15', '2023-09-17 18:47:36'),
 (1043, 'App\\Models\\User', 1246, 'MyApp', 'f0edbfdcc4c6db475cd96f1916da38a8088d8424a0c1022bec452fd954a37f87', '[\"*\"]', '2023-08-19 04:07:29', NULL, '2023-08-11 10:12:40', '2023-08-19 04:07:29');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (1044, 'App\\Models\\User', 1247, 'MyApp', '7584614e80d609eb3f820e35f375c89e5a48c35ecfb249b1169cd53f445853cb', '[\"*\"]', '2023-09-10 22:56:56', NULL, '2023-08-11 10:12:46', '2023-09-10 22:56:56'),
 (1045, 'App\\Models\\User', 1248, 'MyApp', '1413208023ef7ea0165273c2d2685dd4adb03f5130acf9e33345835a88d94b57', '[\"*\"]', '2024-01-24 18:52:30', NULL, '2023-08-11 10:12:49', '2024-01-24 18:52:30'),
 (1046, 'App\\Models\\User', 1249, 'MyApp', 'a2e9377c6ca214b6aeac19fb4f3ec1066ca279d414909b3e74624d774d01821a', '[\"*\"]', '2023-08-12 08:34:34', NULL, '2023-08-11 10:12:56', '2023-08-12 08:34:34'),
@@ -1501,7 +1496,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (1295, 'App\\Models\\User', 1486, 'MyApp', '8eaa5b7e9180baa26fafa1aeeb20e4f1f8bfa4502f53d2c3ed543d27b0fd6524', '[\"*\"]', '2023-08-11 13:20:14', NULL, '2023-08-11 13:18:46', '2023-08-11 13:20:14'),
 (1296, 'App\\Models\\User', 1487, 'MyApp', '4f19ff5fbfcef3125c01bc76f37bf4a79a8f90844e247bba05a7e29acaf4848b', '[\"*\"]', '2023-08-11 13:44:15', NULL, '2023-08-11 13:19:51', '2023-08-11 13:44:15'),
 (1297, 'App\\Models\\User', 1488, 'MyApp', '375c9c3d12b7a5801e9107bebc49dc6d5e79f78b64b05d3a765b9db08a64102e', '[\"*\"]', '2023-08-11 13:26:28', NULL, '2023-08-11 13:20:20', '2023-08-11 13:26:28');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (1298, 'App\\Models\\User', 1489, 'MyApp', 'd37c2c0229e0d212d13ed0b353bc5624b74d8bc214b9029b73a4af3cafdce6bd', '[\"*\"]', '2023-08-11 13:27:37', NULL, '2023-08-11 13:20:51', '2023-08-11 13:27:37'),
 (1299, 'App\\Models\\User', 1490, 'MyApp', 'c40bde41d7e6a940b4340c8178d02669de94f2487f0ee043da9dd7cff85bf2e9', '[\"*\"]', '2023-09-17 16:31:36', NULL, '2023-08-11 13:21:12', '2023-09-17 16:31:36'),
 (1300, 'App\\Models\\User', 1491, 'MyApp', 'ff7635b008455153721e326d0612d144423e5348f46b95de5d746376a35f1466', '[\"*\"]', '2023-08-11 13:23:43', NULL, '2023-08-11 13:21:33', '2023-08-11 13:23:43'),
@@ -1756,7 +1751,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (1549, 'App\\Models\\User', 1725, 'MyApp', '4816f9a2e15f4aa5975fb41f659bfcd4d57c70c24129fb584a3a6588b46e6f22', '[\"*\"]', '2023-08-19 19:55:10', NULL, '2023-08-11 18:52:16', '2023-08-19 19:55:10'),
 (1550, 'App\\Models\\User', 1726, 'MyApp', 'ab2e2eb2c0a29a6b1cc4fb28108707f4b584caade65d8893eeefbe27372bacbb', '[\"*\"]', '2023-08-11 18:54:49', NULL, '2023-08-11 18:52:17', '2023-08-11 18:54:49'),
 (1551, 'App\\Models\\User', 1727, 'MyApp', '0be5f7f3713ed552370ea8153713190f1f9c019aa8a87dd09b0bb2b55c109aa7', '[\"*\"]', '2023-08-11 18:55:28', NULL, '2023-08-11 18:54:30', '2023-08-11 18:55:28');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (1552, 'App\\Models\\User', 1728, 'MyApp', '23feb30b72494bd173c7423f0db662077f568a821a553c2f3ff8156d61167c3e', '[\"*\"]', '2023-09-11 03:15:31', NULL, '2023-08-11 18:55:30', '2023-09-11 03:15:31'),
 (1553, 'App\\Models\\User', 1729, 'MyApp', 'fd5dbab7a6d2b6065eef2f65dfefa986d141edc99461b204f976275d7d98c684', '[\"*\"]', '2024-01-15 22:37:51', NULL, '2023-08-11 18:56:03', '2024-01-15 22:37:51'),
 (1554, 'App\\Models\\User', 1730, 'MyApp', '7b952f47889641fd9abc6e64e9c0d9c84c7f9b4451e92774de9e00e54cda5ecd', '[\"*\"]', '2023-08-11 18:57:31', NULL, '2023-08-11 18:56:37', '2023-08-11 18:57:31'),
@@ -2011,7 +2006,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (1803, 'App\\Models\\User', 1993, 'MyApp', '97e15cba50ccb9512b2ad9c99cd147e2b90d193ac1324b22c28a268e9af65f67', '[\"*\"]', '2023-08-12 16:47:54', NULL, '2023-08-12 16:46:56', '2023-08-12 16:47:54'),
 (1804, 'App\\Models\\User', 1994, 'MyApp', '6f985270a0c051a85c91973d1253f106d29fbe4e53463593c37473d82b887572', '[\"*\"]', '2023-08-18 12:57:08', NULL, '2023-08-12 16:47:05', '2023-08-18 12:57:08'),
 (1805, 'App\\Models\\User', 1995, 'MyApp', 'b62861e56660951fe8fbe9a5fa4b31ad2a2bfd21b519c70411b6f6f99020a17f', '[\"*\"]', '2023-08-12 16:49:00', NULL, '2023-08-12 16:48:59', '2023-08-12 16:49:00');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (1806, 'App\\Models\\User', 1996, 'MyApp', 'a02c43430f86b99a51ef21ee8fffc3355771d8edb68f0008fa7bfef689eb308c', '[\"*\"]', '2023-08-12 17:15:53', NULL, '2023-08-12 16:49:07', '2023-08-12 17:15:53'),
 (1807, 'App\\Models\\User', 1997, 'MyApp', 'dbd71b06a1dd8039f264d309ca97d6c255f96c97029ff3fe0e10c3a53c7d3b2a', '[\"*\"]', '2023-08-14 08:27:25', NULL, '2023-08-12 16:51:26', '2023-08-14 08:27:25'),
 (1808, 'App\\Models\\User', 1998, 'MyApp', '6808bb88d0707f9793f08a08e15c478cafe7112928d5a0ad1e5707c7b5f5ef4a', '[\"*\"]', '2024-01-12 22:19:23', NULL, '2023-08-12 16:51:33', '2024-01-12 22:19:23'),
@@ -2266,7 +2261,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (2057, 'App\\Models\\User', 1077, 'MyApp', '6874bd3744d7026d87566ef42e359cdf961eef8ba3b0c970debbebddf51a63fe', '[\"*\"]', '2023-08-14 17:18:07', NULL, '2023-08-14 17:18:06', '2023-08-14 17:18:07'),
 (2058, 'App\\Models\\User', 2299, 'MyApp', 'eb5ea90e300a0746f5ab2a512c6534881a6da6aadc70c5bf9e885c63ccba70d8', '[\"*\"]', '2023-08-14 17:53:05', NULL, '2023-08-14 17:52:20', '2023-08-14 17:53:05'),
 (2059, 'App\\Models\\User', 2300, 'MyApp', 'e62b2c2fba62b6cf2b310d9f46fd5580318e14fd90f4595ebbec6a60b0578a03', '[\"*\"]', '2023-08-16 18:58:37', NULL, '2023-08-14 18:00:12', '2023-08-16 18:58:37');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (2060, 'App\\Models\\User', 2301, 'MyApp', '61888a32ec012647a901319f95b9db5f490bb01ecb3765adf750ac743668d16f', '[\"*\"]', '2023-12-12 02:02:32', NULL, '2023-08-14 18:35:34', '2023-12-12 02:02:32'),
 (2061, 'App\\Models\\User', 2302, 'MyApp', '13dd8b7ccf2887343ae5552f478e1e838a1e7ff0ed7984f1296b1d65c4bab87b', '[\"*\"]', '2023-08-14 18:56:46', NULL, '2023-08-14 18:51:30', '2023-08-14 18:56:46'),
 (2062, 'App\\Models\\User', 2303, 'MyApp', '43a34a31a1d03a03c9ad71fc760c6c83d62058d0986ebf2cb0fb461e6df5cd5d', '[\"*\"]', '2023-08-14 18:56:15', NULL, '2023-08-14 18:56:05', '2023-08-14 18:56:15'),
@@ -2521,7 +2516,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (2311, 'App\\Models\\User', 2601, 'MyApp', 'de877560c2053413c7de4b0e09d60f10a7ef3cee4477d3a8ec96150abbff5172', '[\"*\"]', '2024-02-15 19:24:38', NULL, '2023-09-01 07:57:47', '2024-02-15 19:24:38'),
 (2312, 'App\\Models\\User', 2602, 'MyApp', '7791f027116621ec5b00f9a3af4f6fa0c0f19d3ebb9fb6403e7a92eeefa9fac1', '[\"*\"]', '2023-09-03 18:30:44', NULL, '2023-09-01 10:08:01', '2023-09-03 18:30:44'),
 (2313, 'App\\Models\\User', 224, 'MyApp', 'aef7cf9cb9348ec7ca0fff4203f2684f83cb3582b6dbd06330f45ab6afce1f9b', '[\"*\"]', '2023-09-18 10:28:52', NULL, '2023-09-01 13:25:34', '2023-09-18 10:28:52');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (2314, 'App\\Models\\User', 2611, 'MyApp', 'd98dd673f2b4f864339a3caf9f68bbd9f13e27b850ed7016144c927d639695f4', '[\"*\"]', '2023-11-10 11:10:50', NULL, '2023-09-01 14:13:58', '2023-11-10 11:10:50'),
 (2315, 'App\\Models\\User', 2612, 'MyApp', '55d0b05c46dcec009ab57bd42518f8f6c4a6954e2e0141536d2d12b1809f471d', '[\"*\"]', '2023-09-01 15:03:47', NULL, '2023-09-01 14:56:01', '2023-09-01 15:03:47'),
 (2316, 'App\\Models\\User', 2613, 'MyApp', '6c02b516a481f3fa7d5b85ad97a520a71e37fd1196511df39144ab81442c71fd', '[\"*\"]', '2023-09-01 14:59:45', NULL, '2023-09-01 14:56:49', '2023-09-01 14:59:45'),
@@ -2776,7 +2771,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (2565, 'App\\Models\\User', 4151, 'MyApp', 'f3a61909681a0b7a7b834a49c5a9f303b15419f0042d8bfa66dc0276986a1dae', '[\"*\"]', '2024-02-08 12:49:12', NULL, '2023-11-30 11:40:10', '2024-02-08 12:49:12'),
 (2566, 'App\\Models\\User', 341, 'MyApp', '76e2e878b8ccb71d66e97e5a99913268d3723612c8c41cb13ee8b0dbc816c764', '[\"*\"]', '2024-01-29 10:48:36', NULL, '2023-11-30 13:39:41', '2024-01-29 10:48:36'),
 (2567, 'App\\Models\\User', 4163, 'MyApp', 'd92617cb8a4d8bc6b429ab62a88459d5ac9c5d9c4d8ab4a8e09f7b7e20e1bf07', '[\"*\"]', '2023-11-30 14:50:46', NULL, '2023-11-30 14:38:34', '2023-11-30 14:50:46');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (2568, 'App\\Models\\User', 4169, 'MyApp', '4295060a7e8f52d0197ae4be9158c18cf12c4e8cb7425618e4e4b9b58ffceb9e', '[\"*\"]', '2024-01-16 21:11:05', NULL, '2023-11-30 16:16:36', '2024-01-16 21:11:05'),
 (2569, 'App\\Models\\User', 166, 'MyApp', '169f43d166b270e8c485bf25bcb4732396acf49b2911a3ff7a1cb06810f6eea2', '[\"*\"]', '2024-01-09 19:39:56', NULL, '2023-11-30 17:11:48', '2024-01-09 19:39:56'),
 (2570, 'App\\Models\\User', 4170, 'MyApp', 'c82178ea9c2f49e544e5b232674983eb99f0e1829a074f058dc70b53ecbc1cc5', '[\"*\"]', '2024-01-22 21:24:07', NULL, '2023-12-01 08:49:30', '2024-01-22 21:24:07'),
@@ -3031,7 +3026,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (2819, 'App\\Models\\User', 4589, 'MyApp', 'd58a404cdeafa48ced44b32d3aa657918c32a225dceabd284b4253165992bfb5', '[\"*\"]', '2024-01-09 18:46:56', NULL, '2023-12-23 12:15:49', '2024-01-09 18:46:56'),
 (2820, 'App\\Models\\User', 307, 'MyApp', 'b2d252ce1dd691b72501d32e617c48e0d02c437d52547fa1dcfe6b47075a7569', '[\"*\"]', '2024-01-12 21:26:06', NULL, '2023-12-23 12:23:50', '2024-01-12 21:26:06'),
 (2821, 'App\\Models\\User', 1957, 'MyApp', '259bfd4e71d8297bd0ca64e8f52f0204900183d7492ddbdcaceae7fa7168a9df', '[\"*\"]', '2023-12-23 17:18:31', NULL, '2023-12-23 12:48:50', '2023-12-23 17:18:31');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (2822, 'App\\Models\\User', 3363, 'MyApp', '474eb98ecb44e96ab3aa662c7346b71d3ddb3bf0e3763d4d20c720d9745b948a', '[\"*\"]', '2023-12-23 12:54:22', NULL, '2023-12-23 12:54:21', '2023-12-23 12:54:22'),
 (2823, 'App\\Models\\User', 3363, 'MyApp', 'fa379750c27227ca96f5feed179af14ac6b25c1bc54d7d238a6a89f12b45e94f', '[\"*\"]', '2023-12-25 00:03:08', NULL, '2023-12-23 12:55:03', '2023-12-25 00:03:08'),
 (2824, 'App\\Models\\User', 2515, 'MyApp', '25542066c58f14e2cf53c463ef80cc14816245662062673ea1bcf55713f37af3', '[\"*\"]', '2023-12-25 14:01:11', NULL, '2023-12-23 12:56:48', '2023-12-25 14:01:11'),
@@ -3286,7 +3281,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (3073, 'App\\Models\\User', 592, 'MyApp', '0b90a41ec8936d838846e71d88eb6dee4626438fa222636b6e84fdc653112275', '[\"*\"]', '2024-01-03 21:46:47', NULL, '2024-01-03 21:46:46', '2024-01-03 21:46:47'),
 (3074, 'App\\Models\\User', 5254, 'MyApp', '8a40a84af02048ee13ebfd1dcb3ff982374daacb7414726f8480900f4ac83780', '[\"*\"]', '2024-01-03 23:01:55', NULL, '2024-01-03 23:01:54', '2024-01-03 23:01:55'),
 (3075, 'App\\Models\\User', 5294, 'MyApp', 'fcb469f97837bd881902ecd532b076c1ea4e38a2073e45436df706313828b1fe', '[\"*\"]', '2024-01-04 07:09:08', NULL, '2024-01-04 07:09:06', '2024-01-04 07:09:08');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (3076, 'App\\Models\\User', 5254, 'MyApp', 'c6f6c0b03dbcc237dd50c76cd0f96ced22b68267ed258539787fc1f72636de26', '[\"*\"]', '2024-01-05 09:29:47', NULL, '2024-01-04 07:13:40', '2024-01-05 09:29:47'),
 (3077, 'App\\Models\\User', 5294, 'MyApp', 'ed207738cb6ce8c5f3c5b77c75e418686f5568f7de72b38af3b46643fe4c0fbd', '[\"*\"]', '2024-01-04 10:49:13', NULL, '2024-01-04 07:14:41', '2024-01-04 10:49:13'),
 (3078, 'App\\Models\\User', 5295, 'MyApp', '1e2dae068fe72619c48d87858e61998bc42f40c76bd3f76c9ab1744eb8da4170', '[\"*\"]', '2024-01-04 07:25:44', NULL, '2024-01-04 07:23:02', '2024-01-04 07:25:44'),
@@ -3541,7 +3536,7 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (3327, 'App\\Models\\User', 5717, 'MyApp', 'd69c65337a1cbe8911a5b1d57718d0cca2c1941f5b7ebaad82ee579b5eb8de9c', '[\"*\"]', '2024-01-25 23:28:09', NULL, '2024-01-25 20:57:31', '2024-01-25 23:28:09'),
 (3328, 'App\\Models\\User', 1521, 'MyApp', '4eb900bf092bd596559c6cc1428f9074f59912cf19626faf1a2b240c448b30cf', '[\"*\"]', '2024-01-25 21:39:27', NULL, '2024-01-25 21:39:26', '2024-01-25 21:39:27'),
 (3329, 'App\\Models\\User', 1521, 'MyApp', 'd45d40b674f9b38209a764e04f85343a81bc550f6388e468bc38ef1fd7cfba32', '[\"*\"]', '2024-01-26 07:03:09', NULL, '2024-01-25 21:40:19', '2024-01-26 07:03:09');
-INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) VALUES
 (3330, 'App\\Models\\User', 2176, 'MyApp', '88a6abe0cacc32a6ba112b20fe80154e08d62a56728ae2756a107be768f43691', '[\"*\"]', '2024-01-25 22:37:46', NULL, '2024-01-25 22:37:25', '2024-01-25 22:37:46'),
 (3331, 'App\\Models\\User', 5718, 'MyApp', 'b8d54deae15231be45f0d19df5ab03f35563f4568b0cda976e0db558b36350e1', '[\"*\"]', '2024-01-25 22:41:51', NULL, '2024-01-25 22:41:15', '2024-01-25 22:41:51'),
 (3332, 'App\\Models\\User', 2176, 'MyApp', 'a099daec8edee3c0e578ae86ff1ba4f3cc284fa7a652b0a9aa3ac8cf19c55b07', '[\"*\"]', '2024-02-06 21:43:36', NULL, '2024-01-25 22:45:04', '2024-02-06 21:43:36'),
@@ -3789,271 +3784,270 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `regions`
+-- Table structure for table regions
 --
 
-CREATE TABLE `regions` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `name_fr` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `city_id` bigint(20) UNSIGNED NOT NULL,
-  `state_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE regions (
+  id bigint  NOT NULL,
+  name varchar(255) NOT NULL,
+  name_fr varchar(255) NOT NULL,
+  city_id bigint  NOT NULL,
+  state_id bigint  NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `regions`
+-- Dumping data for table regions
 --
 
-INSERT INTO `regions` (`id`, `name`, `name_fr`, `description`, `status`, `city_id`, `state_id`, `created_at`, `updated_at`) VALUES
-(10101, 'النعمة', 'Nema', NULL, 1, 101, 1, NULL, NULL),
-(10102, 'آشميم', 'Achemim', NULL, 1, 101, 1, NULL, NULL),
-(10103, 'جريف', 'Jreif', NULL, 1, 101, 1, NULL, NULL),
-(10104, 'بنكو', 'Bangou', NULL, 1, 101, 1, NULL, NULL),
-(10105, 'حاسي آتيل', 'Hassi Atile', NULL, 1, 101, 1, NULL, NULL),
-(10106, 'ام افنادش', 'Oum Avnadech', NULL, 1, 101, 1, NULL, NULL),
-(10107, 'المبروك', 'Mabrouk', NULL, 1, 101, 1, NULL, NULL),
-(10108, 'بير باف', 'Beribavat', NULL, 1, 101, 1, NULL, NULL),
-(10109, 'نوال', 'Noual', NULL, 1, 101, 1, NULL, NULL),
-(10110, 'آكوينيت', 'Agoueinit', NULL, 1, 101, 1, NULL, NULL),
-(10201, 'آمورج', 'Amourj', NULL, 1, 102, 1, NULL, NULL),
-(10202, 'عدل بكر', 'Adel Bagrou', NULL, 1, 102, 1, NULL, NULL),
-(10203, 'بوكادوم', 'Bougadoum', NULL, 1, 102, 1, NULL, NULL),
-(10301, 'باسكنو', 'Bassiknou', NULL, 1, 103, 1, NULL, NULL),
-(10302, 'المكفه', 'El Megve', NULL, 1, 103, 1, NULL, NULL),
-(10303, 'فصالة انيير', 'Fassala - Néré', NULL, 1, 103, 1, NULL, NULL),
-(10304, 'اظهر', 'Dhar', NULL, 1, 103, 1, NULL, NULL),
-(10401, 'جيكني', 'Djiguenni', NULL, 1, 104, 1, NULL, NULL),
-(10402, 'مبروك', 'Mabrouk', NULL, 1, 104, 1, NULL, NULL),
-(10403, 'افيرني', 'Feireni', NULL, 1, 104, 1, NULL, NULL),
-(10404, 'بنعمان', 'Beneamane', NULL, 1, 104, 1, NULL, NULL),
-(10405, 'عوينات ازبل', 'Aoueinat Zbel', NULL, 1, 104, 1, NULL, NULL),
-(10406, 'اغليك اهل بيه', 'Ghlig Ehel Boye', NULL, 1, 104, 1, NULL, NULL),
-(10407, 'كصرالبركه', 'Ksar El Barka', NULL, 1, 104, 1, NULL, NULL),
-(10501, 'تمبدغه', 'Timbédra', NULL, 1, 105, 1, NULL, NULL),
-(10502, 'اطويل', 'Twil', NULL, 1, 105, 1, NULL, NULL),
-(10503, 'كمبي صالح', 'Koumbi Saleh', NULL, 1, 105, 1, NULL, NULL),
-(10504, 'بوسطيل', 'Bousteila', NULL, 1, 105, 1, NULL, NULL),
-(10505, 'حاس امهادي', 'Hassi M\'Hadi', NULL, 1, 105, 1, NULL, NULL),
-(10601, 'ولاتة', 'Oualata', NULL, 1, 106, 1, NULL, NULL),
-(20101, 'لعيون', 'Aioun', NULL, 1, 201, 2, NULL, NULL),
-(20102, 'ام لحياظ', 'Oum Lahyadh', NULL, 1, 201, 2, NULL, NULL),
-(20103, 'ادويرارة', 'Doueirare', NULL, 1, 201, 2, NULL, NULL),
-(20104, 'تنحماد', 'Ten Hemad', NULL, 1, 201, 2, NULL, NULL),
-(20105, 'انصفني', 'N\'saveni', NULL, 1, 201, 2, NULL, NULL),
-(20106, 'بنعمان', 'Beneamane', NULL, 1, 201, 2, NULL, NULL),
-(20107, 'اكجرت', 'Egjert', NULL, 1, 201, 2, NULL, NULL),
-(20201, 'تامشكط', 'Tamchekett', NULL, 1, 202, 2, NULL, NULL),
-(20202, 'الراظي', 'Radhi', NULL, 1, 202, 2, NULL, NULL),
-(20203, 'الصفا', 'Sava', NULL, 1, 202, 2, NULL, NULL),
-(20204, 'المبروك', 'El Mabrouk', NULL, 1, 202, 2, NULL, NULL),
-(20205, 'كطع التيدوم', 'Guetae Teidoume', NULL, 1, 202, 2, NULL, NULL),
-(20301, 'كوبن', 'Kobeni', NULL, 1, 203, 2, NULL, NULL),
-(20302, 'تيمزين', 'Timzine', NULL, 1, 203, 2, NULL, NULL),
-(20303, 'لغليك', 'Leghligue', NULL, 1, 203, 2, NULL, NULL),
-(20304, 'كوكي الزمال', 'Gogui Zemmal', NULL, 1, 203, 2, NULL, NULL),
-(20305, 'الفلانية', 'Voulaniya', NULL, 1, 203, 2, NULL, NULL),
-(20306, 'مدبوكو', 'Medbougou', NULL, 1, 203, 2, NULL, NULL),
-(20307, 'حاسي اهل احمد بشنه', 'Hassi Ehel Ahmed Bechne', NULL, 1, 203, 2, NULL, NULL),
-(20401, 'الطينطان', 'Tintane', NULL, 1, 204, 2, NULL, NULL),
-(20402, 'لحريجات', 'Lehreijatt', NULL, 1, 204, 2, NULL, NULL),
-(20403, 'الدفعة', 'Devaa', NULL, 1, 204, 2, NULL, NULL),
-(20404, 'اغرغار', 'Agharghar', NULL, 1, 204, 2, NULL, NULL),
-(20405, 'عين فربه', 'Ain Farba', NULL, 1, 204, 2, NULL, NULL),
-(20406, 'اعوينات الطل', 'Loueinatt', NULL, 1, 204, 2, NULL, NULL),
-(20407, 'اطويل', 'Touil', NULL, 1, 204, 2, NULL, NULL),
-(20408, 'حاسي عبد الله', 'Hassi Abdalla', NULL, 1, 204, 2, NULL, NULL),
-(30101, 'كيفة', 'Kiffa', NULL, 1, 301, 3, NULL, NULL),
-(30102, 'انواملين', 'Nouamlein', NULL, 1, 301, 3, NULL, NULL),
-(30103, 'اغورط', 'Aghoratt', NULL, 1, 301, 3, NULL, NULL),
-(30104, 'الملك', 'El Melgue', NULL, 1, 301, 3, NULL, NULL),
-(30105, 'كورودل', 'Kouroudjel', NULL, 1, 301, 3, NULL, NULL),
-(30106, 'لكران', 'Legrane', NULL, 1, 301, 3, NULL, NULL),
-(30201, 'كنكوصه', 'Kankossa', NULL, 1, 302, 3, NULL, NULL),
-(30202, 'ابلاجميل', 'Blajmil', NULL, 1, 302, 3, NULL, NULL),
-(30203, 'هامد', 'Hamod', NULL, 1, 302, 3, NULL, NULL),
-(30204, 'ساني', 'Sani', NULL, 1, 302, 3, NULL, NULL),
-(30205, 'تناها', 'Tenaha', NULL, 1, 302, 3, NULL, NULL),
-(30301, 'بومديد', 'Boumdeid', NULL, 1, 303, 3, NULL, NULL),
-(30302, 'لفطح', 'Laftah', NULL, 1, 303, 3, NULL, NULL),
-(30303, 'حاسي الطين', 'Hsey Tine', NULL, 1, 303, 3, NULL, NULL),
-(30401, 'كرو', 'Guerou', NULL, 1, 304, 3, NULL, NULL),
-(30402, 'كامور', 'Kamour', NULL, 1, 304, 3, NULL, NULL),
-(30403, 'ادي اجريد', 'Oueid Jrid', NULL, 1, 304, 3, NULL, NULL),
-(30404, 'الغايرة', 'El Ghaire', NULL, 1, 304, 3, NULL, NULL),
-(30501, 'باركيول', 'Barkeol', NULL, 1, 305, 3, NULL, NULL),
-(30502, 'كليره', 'Gueller', NULL, 1, 305, 3, NULL, NULL),
-(30503, 'دغفك', 'Daghveg', NULL, 1, 305, 3, NULL, NULL),
-(30504, 'ارظيظيع', 'R\'Didhih', NULL, 1, 305, 3, NULL, NULL),
-(30505, 'لبحير', 'Lebheir', NULL, 1, 305, 3, NULL, NULL),
-(30506, 'لعويسي', 'Leouïssy', NULL, 1, 305, 3, NULL, NULL),
-(30507, 'الغبرة', 'El Ghabra', NULL, 1, 305, 3, NULL, NULL),
-(30508, 'بولحراث', 'Bou Lahrath', NULL, 1, 305, 3, NULL, NULL),
-(40101, 'كيهيدى', 'Kaedi', NULL, 1, 401, 4, NULL, NULL),
-(40102, 'نير والو', 'Nere Walo', NULL, 1, 401, 4, NULL, NULL),
-(40103, 'غنكى', 'Ganki', NULL, 1, 401, 4, NULL, NULL),
-(40104, 'جول', 'Djewol', NULL, 1, 401, 4, NULL, NULL),
-(40105, 'لكصيبه', 'Lexeiba', NULL, 1, 401, 4, NULL, NULL),
-(40106, 'توكومادي', 'Tokomadji', NULL, 1, 401, 4, NULL, NULL),
-(40107, 'تفونده سيفه', 'Tufunde Cive', NULL, 1, 401, 4, NULL, NULL),
-(40201, 'مونكل', 'Monguel', NULL, 1, 402, 4, NULL, NULL),
-(40202, 'بطحت ميت', 'Bathet Meit', NULL, 1, 402, 4, NULL, NULL),
-(40203, 'بكل', 'Bokkol', NULL, 1, 402, 4, NULL, NULL),
-(40204, 'ملزم تيشط', 'Melzem Teichett', NULL, 1, 402, 4, NULL, NULL),
-(40205, 'ازغيلم التياب', 'Azgueilem tiyab', NULL, 1, 402, 4, NULL, NULL),
-(40301, 'مقامه', 'Maghama', NULL, 1, 403, 4, NULL, NULL),
-(40302, 'دلل سيفه', 'Dodol Cive', NULL, 1, 403, 4, NULL, NULL),
-(40303, 'ضو', 'Daw', NULL, 1, 403, 4, NULL, NULL),
-(40304, 'بيلكت ليتامه', 'Beileguet Litama', NULL, 1, 403, 4, NULL, NULL),
-(40305, 'افريع ليتامه', 'Vrea Litama', NULL, 1, 403, 4, NULL, NULL),
-(40306, 'تولل', 'Toutel', NULL, 1, 403, 4, NULL, NULL),
-(40307, 'صانيه', 'Sagne', NULL, 1, 403, 4, NULL, NULL),
-(40308, 'والى', 'Wali', NULL, 1, 403, 4, NULL, NULL),
-(40401, 'امبود', 'M\'Bout', NULL, 1, 404, 4, NULL, NULL),
-(40402, 'تك وبره', 'Tikobra', NULL, 1, 404, 4, NULL, NULL),
-(40403, 'تارنكت اهل ملاي اعل', 'Tarenguet Ehel Moulaye Ely', NULL, 1, 404, 4, NULL, NULL),
-(40404, 'انجا جبنى كاندكا', 'N\'Djadjbenni Gandega', NULL, 1, 404, 4, NULL, NULL),
-(40405, 'ادباى اهل غلاي', 'Edebaye Ehl Guelay', NULL, 1, 404, 4, NULL, NULL),
-(40406, 'فم لكليته', 'Foum Gleita', NULL, 1, 404, 4, NULL, NULL),
-(40407, 'شلخت التياب', 'Chelkhet Tiyab', NULL, 1, 404, 4, NULL, NULL),
-(40408, 'لحرش', 'Lahrach', NULL, 1, 404, 4, NULL, NULL),
-(40409, 'سوفه', 'Soufa', NULL, 1, 404, 4, NULL, NULL),
-(50101, 'الاك', 'Aleg', NULL, 1, 501, 5, NULL, NULL),
-(50102, 'شكار', 'Cheggar', NULL, 1, 501, 5, NULL, NULL),
-(50103, 'اغشوركيت', 'Aghchourguit', NULL, 1, 501, 5, NULL, NULL),
-(50104, 'مال', 'Maale', NULL, 1, 501, 5, NULL, NULL),
-(50105, 'بوحديده', 'Bouhdida', NULL, 1, 501, 5, NULL, NULL),
-(50106, 'جلوار', 'Djelwar', NULL, 1, 501, 5, NULL, NULL),
-(50201, 'ببابه', 'Bababe', NULL, 1, 502, 5, NULL, NULL),
-(50202, 'هايره امبار', 'Aere M\'Bar', NULL, 1, 502, 5, NULL, NULL),
-(50203, 'الفرع', 'El Verea', NULL, 1, 502, 5, NULL, NULL),
-(50301, 'امبان', 'M\'Bagne', NULL, 1, 503, 5, NULL, NULL),
-(50302, 'ادباى الحجاج', 'Edbaye El Hejaj', NULL, 1, 503, 5, NULL, NULL),
-(50303, 'باكودين', 'Bagodine', NULL, 1, 503, 5, NULL, NULL),
-(50304, 'انيابينه', 'Niabina', NULL, 1, 503, 5, NULL, NULL),
-(50401, 'مقطع لحجار', 'Magta-Lahjar', NULL, 1, 504, 5, NULL, NULL),
-(50402, 'واد امور', 'Wad Amour', NULL, 1, 504, 5, NULL, NULL),
-(50403, 'جونابه', 'Dionaba', NULL, 1, 504, 5, NULL, NULL),
-(50404, 'صنكرافه', 'Sangrave', NULL, 1, 504, 5, NULL, NULL),
-(50501, 'بوكى', 'Boghe', NULL, 1, 505, 5, NULL, NULL),
-(50502, 'دار البركه', 'Dar El Barka', NULL, 1, 505, 5, NULL, NULL),
-(50503, 'ولدبيرم اولولوكو', 'Ould Birem', NULL, 1, 505, 5, NULL, NULL),
-(50504, 'دار العافية', 'Dar El Avia', NULL, 1, 505, 5, NULL, NULL),
-(60101, 'روصو', 'Rosso', NULL, 1, 601, 6, NULL, NULL),
-(60102, 'جدرالمحكن', 'Jedrel Mohguen', NULL, 1, 601, 6, NULL, NULL),
-(60201, 'واد الناقه', 'Wad-Naga', NULL, 1, 602, 6, NULL, NULL),
-(60202, 'العرية', 'El Arya', NULL, 1, 602, 6, NULL, NULL),
-(60203, 'آوليكات', 'Aouleigatt', NULL, 1, 602, 6, NULL, NULL),
-(60301, 'كرمسين', 'Keur-Macen', NULL, 1, 603, 6, NULL, NULL),
-(60302, 'انجاكو', 'N\'Diago', NULL, 1, 603, 6, NULL, NULL),
-(60303, 'امبلل', 'M\'Balal', NULL, 1, 603, 6, NULL, NULL),
-(60401, 'اركيز', 'R\'Kiz', NULL, 1, 604, 6, NULL, NULL),
-(60402, 'بوطلحايه', 'Boutalhaya', NULL, 1, 604, 6, NULL, NULL),
-(60403, 'لكصيبه', 'Lexeiba', NULL, 1, 604, 6, NULL, NULL),
-(60404, 'بارينه', 'Bareina', NULL, 1, 604, 6, NULL, NULL),
-(60405, 'انتيكان', 'Tekane', NULL, 1, 604, 6, NULL, NULL),
-(60501, 'بوتيلميت', 'Boutilimit', NULL, 1, 605, 6, NULL, NULL),
-(60502, 'علب آدرس', 'Elb Adress', NULL, 1, 605, 6, NULL, NULL),
-(60503, 'تنقدج', 'Tenghadej', NULL, 1, 605, 6, NULL, NULL),
-(60504, 'انتيشط', 'N\'Teichett', NULL, 1, 605, 6, NULL, NULL),
-(60505, 'الميسر', 'El Mouyessar', NULL, 1, 605, 6, NULL, NULL),
-(60506, 'اجوير', 'Ajouer', NULL, 1, 605, 6, NULL, NULL),
-(60507, 'النباغيه', 'Nebaghiya', NULL, 1, 605, 6, NULL, NULL),
-(60601, 'المذرذرة', 'Mederdra', NULL, 1, 606, 6, NULL, NULL),
-(60602, 'ابير التورس', 'Beir Toress', NULL, 1, 606, 6, NULL, NULL),
-(60603, 'تيكنت', 'Tiguent', NULL, 1, 606, 6, NULL, NULL),
-(60604, 'التاكلالت', 'Taguilalet', NULL, 1, 606, 6, NULL, NULL),
-(60605, 'الخط', 'El Khatt', NULL, 1, 606, 6, NULL, NULL),
-(70101, 'اطار', 'Atar', NULL, 1, 701, 7, NULL, NULL),
-(70102, 'اطواز', 'Tawaz', NULL, 1, 701, 7, NULL, NULL),
-(70103, 'عين اهل الطايع', 'Ain Ehl Taya', NULL, 1, 701, 7, NULL, NULL),
-(70104, 'شوم', 'Choum', NULL, 1, 701, 7, NULL, NULL),
-(70201, 'اوجفت', 'Aoujeft', NULL, 1, 702, 7, NULL, NULL),
-(70202, 'المعدن', 'Maaden', NULL, 1, 702, 7, NULL, NULL),
-(70203, 'المداح', 'El Medah', NULL, 1, 702, 7, NULL, NULL),
-(70204, 'انتركنت', 'N\'Trguent', NULL, 1, 702, 7, NULL, NULL),
-(70301, 'ودان', 'Ouadane', NULL, 1, 703, 7, NULL, NULL),
-(70401, 'شنقيطى', 'Chinguitti', NULL, 1, 704, 7, NULL, NULL),
-(70402, 'العين الصفره', 'Ain Savra', NULL, 1, 704, 7, NULL, NULL),
-(80101, 'انواذيبو', 'Nouadhibou', NULL, 1, 801, 8, NULL, NULL),
-(80102, 'بولنوار', 'Boulenouar', NULL, 1, 801, 8, NULL, NULL),
-(80103, 'اتميمشات', 'T\'Meimichatt', NULL, 1, 801, 8, NULL, NULL),
-(80104, 'انال', 'Inal', NULL, 1, 801, 8, NULL, NULL),
-(80105, 'انوامغار', 'Nouamghar', NULL, 1, 801, 8, NULL, NULL),
-(90101, 'تجكجة', 'Tidjikja', NULL, 1, 901, 9, NULL, NULL),
-(90102, 'الواحات', 'El Wahat', NULL, 1, 901, 9, NULL, NULL),
-(90103, 'بوبكر بن عامر', 'Boubacar Ben Amer', NULL, 1, 901, 9, NULL, NULL),
-(90104, 'التنسيق', 'Tensigh', NULL, 1, 901, 9, NULL, NULL),
-(90105, 'لحصيره', 'Lehsira', NULL, 1, 901, 9, NULL, NULL),
-(90201, 'المجريه', 'Moudjeria', NULL, 1, 902, 9, NULL, NULL),
-(90202, 'السدود', 'Soudoud', NULL, 1, 902, 9, NULL, NULL),
-(90203, 'انبيكه', 'N\'Beika', NULL, 1, 902, 9, NULL, NULL),
-(90301, 'تيشيت', 'Tichitt', NULL, 1, 903, 9, NULL, NULL),
-(90302, 'لخشب', 'Lekhcheb', NULL, 1, 903, 9, NULL, NULL),
-(100101, 'سيلبابى', 'Selibaby', NULL, 1, 1001, 10, NULL, NULL),
-(100102, 'اجار', 'Ajar', NULL, 1, 1001, 10, NULL, NULL),
-(100103, 'غابو', 'Ghabou', NULL, 1, 1001, 10, NULL, NULL),
-(100104, 'عر', 'Arr', NULL, 1, 1001, 10, NULL, NULL),
-(100105, 'ول امبن', 'Ould M\'Bouni', NULL, 1, 1001, 10, NULL, NULL),
-(100106, 'حاسى شكار', 'Hassi Chegar', NULL, 1, 1001, 10, NULL, NULL),
-(100107, 'التاشوط', 'Tachott', NULL, 1, 1001, 10, NULL, NULL),
-(100108, 'الصوفى', 'Souvi', NULL, 1, 1001, 10, NULL, NULL),
-(100109, 'بيجام', 'Baidjam', NULL, 1, 1001, 10, NULL, NULL),
-(100110, 'كوراى', 'Gouraye', NULL, 1, 1001, 10, NULL, NULL),
-(100111, 'ومبو', 'Wompou', NULL, 1, 1001, 10, NULL, NULL),
-(100201, 'ول ينجه', 'Ould Yenge', NULL, 1, 1002, 10, NULL, NULL),
-(100202, 'لعبلي', 'Boulli', NULL, 1, 1002, 10, NULL, NULL),
-(100203, 'لعوينات', 'Aweinatt', NULL, 1, 1002, 10, NULL, NULL),
-(100204, 'التكتاكة', 'Tektaka', NULL, 1, 1002, 10, NULL, NULL),
-(100205, 'لحرج', 'Lehraj', NULL, 1, 1002, 10, NULL, NULL),
-(100206, 'الدافوع', 'Dafour', NULL, 1, 1002, 10, NULL, NULL),
-(100207, 'بوعنز', 'Bouanze', NULL, 1, 1002, 10, NULL, NULL),
-(110101, 'ازويرات', 'Zoueratt', NULL, 1, 1101, 11, NULL, NULL),
-(110201, 'افديرك', 'F\'Deirik', NULL, 1, 1102, 11, NULL, NULL),
-(110301, 'بير ام اكرين', 'Bir Mogrein', NULL, 1, 1103, 11, NULL, NULL),
-(120101, 'اكجوجت', 'Akjoujt', NULL, 1, 1201, 12, NULL, NULL),
-(120102, 'بنشاب', 'Benichab', NULL, 1, 1201, 12, NULL, NULL),
-(130101, 'تفرغ زينه', 'Tevragh-Zeina', NULL, 1, 1301, 13, NULL, NULL),
-(130202, 'السبخه', 'Sebkha', NULL, 1, 1302, 13, NULL, NULL),
-(130303, 'الميناء', 'El Mina', NULL, 1, 1303, 13, NULL, NULL),
-(130404, 'الرياض', 'Riad', NULL, 1, 1304, 13, NULL, NULL),
-(130505, 'عرفات', 'Arafat', NULL, 1, 1305, 13, NULL, NULL),
-(130606, 'توجنين', 'Toujounine', NULL, 1, 1306, 13, NULL, NULL),
-(130707, 'دار النعيم', 'Dar-Naim', NULL, 1, 1307, 13, NULL, NULL),
-(130808, 'لكصر', 'Ksar', NULL, 1, 1308, 13, NULL, NULL),
-(130909, 'تيارت', 'Teyarett', NULL, 1, 1309, 13, NULL, NULL);
+INSERT INTO regions (id, name, name_fr, city_id, state_id, created_at, updated_at) VALUES
+(10101, 'النعمة', 'Nema', 101, 1, NULL, NULL),
+(10102, 'آشميم', 'Achemim', 101, 1, NULL, NULL),
+(10103, 'جريف', 'Jreif', 101, 1, NULL, NULL),
+(10104, 'بنكو', 'Bangou', 101, 1, NULL, NULL),
+(10105, 'حاسي آتيل', 'Hassi Atile', 101, 1, NULL, NULL),
+(10106, 'ام افنادش', 'Oum Avnadech', 101, 1, NULL, NULL),
+(10107, 'المبروك', 'Mabrouk', 101, 1, NULL, NULL),
+(10108, 'بير باف', 'Beribavat', 101, 1, NULL, NULL),
+(10109, 'نوال', 'Noual', 101, 1, NULL, NULL),
+(10110, 'آكوينيت', 'Agoueinit', 101, 1, NULL, NULL),
+(10201, 'آمورج', 'Amourj', 102, 1, NULL, NULL),
+(10202, 'عدل بكر', 'Adel Bagrou', 102, 1, NULL, NULL),
+(10203, 'بوكادوم', 'Bougadoum', 102, 1, NULL, NULL),
+(10301, 'باسكنو', 'Bassiknou', 103, 1, NULL, NULL),
+(10302, 'المكفه', 'El Megve', 103, 1, NULL, NULL),
+(10303, 'فصالة انيير', 'Fassala - Néré', 103, 1, NULL, NULL),
+(10304, 'اظهر', 'Dhar', 103, 1, NULL, NULL),
+(10401, 'جيكني', 'Djiguenni', 104, 1, NULL, NULL),
+(10402, 'مبروك', 'Mabrouk', 104, 1, NULL, NULL),
+(10403, 'افيرني', 'Feireni', 104, 1, NULL, NULL),
+(10404, 'بنعمان', 'Beneamane', 104, 1, NULL, NULL),
+(10405, 'عوينات ازبل', 'Aoueinat Zbel', 104, 1, NULL, NULL),
+(10406, 'اغليك اهل بيه', 'Ghlig Ehel Boye', 104, 1, NULL, NULL),
+(10407, 'كصرالبركه', 'Ksar El Barka', 104, 1, NULL, NULL),
+(10501, 'تمبدغه', 'Timbédra', 105, 1, NULL, NULL),
+(10502, 'اطويل', 'Twil', 105, 1, NULL, NULL),
+(10503, 'كمبي صالح', 'Koumbi Saleh', 105, 1, NULL, NULL),
+(10504, 'بوسطيل', 'Bousteila', 105, 1, NULL, NULL),
+(10505, 'حاس امهادي', 'Hassi MHadi', 105, 1, NULL, NULL),
+(10601, 'ولاتة', 'Oualata', 106, 1, NULL, NULL),
+(20101, 'لعيون', 'Aioun', 201, 2, NULL, NULL),
+(20102, 'ام لحياظ', 'Oum Lahyadh', 201, 2, NULL, NULL),
+(20103, 'ادويرارة', 'Doueirare', 201, 2, NULL, NULL),
+(20104, 'تنحماد', 'Ten Hemad', 201, 2, NULL, NULL),
+(20105, 'انصفني', 'Nsaveni', 201, 2, NULL, NULL),
+(20106, 'بنعمان', 'Beneamane', 201, 2, NULL, NULL),
+(20107, 'اكجرت', 'Egjert', 201, 2, NULL, NULL),
+(20201, 'تامشكط', 'Tamchekett', 202, 2, NULL, NULL),
+(20202, 'الراظي', 'Radhi', 202, 2, NULL, NULL),
+(20203, 'الصفا', 'Sava', 202, 2, NULL, NULL),
+(20204, 'المبروك', 'El Mabrouk', 202, 2, NULL, NULL),
+(20205, 'كطع التيدوم', 'Guetae Teidoume', 202, 2, NULL, NULL),
+(20301, 'كوبن', 'Kobeni', 203, 2, NULL, NULL),
+(20302, 'تيمزين', 'Timzine', 203, 2, NULL, NULL),
+(20303, 'لغليك', 'Leghligue', 203, 2, NULL, NULL),
+(20304, 'كوكي الزمال', 'Gogui Zemmal', 203, 2, NULL, NULL),
+(20305, 'الفلانية', 'Voulaniya', 203, 2, NULL, NULL),
+(20306, 'مدبوكو', 'Medbougou', 203, 2, NULL, NULL),
+(20307, 'حاسي اهل احمد بشنه', 'Hassi Ehel Ahmed Bechne', 203, 2, NULL, NULL),
+(20401, 'الطينطان', 'Tintane', 204, 2, NULL, NULL),
+(20402, 'لحريجات', 'Lehreijatt', 204, 2, NULL, NULL),
+(20403, 'الدفعة', 'Devaa', 204, 2, NULL, NULL),
+(20404, 'اغرغار', 'Agharghar', 204, 2, NULL, NULL),
+(20405, 'عين فربه', 'Ain Farba', 204, 2, NULL, NULL),
+(20406, 'اعوينات الطل', 'Loueinatt', 204, 2, NULL, NULL),
+(20407, 'اطويل', 'Touil', 204, 2, NULL, NULL),
+(20408, 'حاسي عبد الله', 'Hassi Abdalla', 204, 2, NULL, NULL),
+(30101, 'كيفة', 'Kiffa', 301, 3, NULL, NULL),
+(30102, 'انواملين', 'Nouamlein', 301, 3, NULL, NULL),
+(30103, 'اغورط', 'Aghoratt', 301, 3, NULL, NULL),
+(30104, 'الملك', 'El Melgue', 301, 3, NULL, NULL),
+(30105, 'كورودل', 'Kouroudjel', 301, 3, NULL, NULL),
+(30106, 'لكران', 'Legrane', 301, 3, NULL, NULL),
+(30201, 'كنكوصه', 'Kankossa', 302, 3, NULL, NULL),
+(30202, 'ابلاجميل', 'Blajmil', 302, 3, NULL, NULL),
+(30203, 'هامد', 'Hamod', 302, 3, NULL, NULL),
+(30204, 'ساني', 'Sani', 302, 3, NULL, NULL),
+(30205, 'تناها', 'Tenaha', 302, 3, NULL, NULL),
+(30301, 'بومديد', 'Boumdeid', 303, 3, NULL, NULL),
+(30302, 'لفطح', 'Laftah', 303, 3, NULL, NULL),
+(30303, 'حاسي الطين', 'Hsey Tine', 303, 3, NULL, NULL),
+(30401, 'كرو', 'Guerou', 304, 3, NULL, NULL),
+(30402, 'كامور', 'Kamour', 304, 3, NULL, NULL),
+(30403, 'ادي اجريد', 'Oueid Jrid', 304, 3, NULL, NULL),
+(30404, 'الغايرة', 'El Ghaire', 304, 3, NULL, NULL),
+(30501, 'باركيول', 'Barkeol', 305, 3, NULL, NULL),
+(30502, 'كليره', 'Gueller', 305, 3, NULL, NULL),
+(30503, 'دغفك', 'Daghveg', 305, 3, NULL, NULL),
+(30504, 'ارظيظيع', 'RDidhih', 305, 3, NULL, NULL),
+(30505, 'لبحير', 'Lebheir', 305, 3, NULL, NULL),
+(30506, 'لعويسي', 'Leouïssy', 305, 3, NULL, NULL),
+(30507, 'الغبرة', 'El Ghabra', 305, 3, NULL, NULL),
+(30508, 'بولحراث', 'Bou Lahrath', 305, 3, NULL, NULL),
+(40101, 'كيهيدى', 'Kaedi', 401, 4, NULL, NULL),
+(40102, 'نير والو', 'Nere Walo', 401, 4, NULL, NULL),
+(40103, 'غنكى', 'Ganki', 401, 4, NULL, NULL),
+(40104, 'جول', 'Djewol', 401, 4, NULL, NULL),
+(40105, 'لكصيبه', 'Lexeiba', 401, 4, NULL, NULL),
+(40106, 'توكومادي', 'Tokomadji', 401, 4, NULL, NULL),
+(40107, 'تفونده سيفه', 'Tufunde Cive', 401, 4, NULL, NULL),
+(40201, 'مونكل', 'Monguel', 402, 4, NULL, NULL),
+(40202, 'بطحت ميت', 'Bathet Meit', 402, 4, NULL, NULL),
+(40203, 'بكل', 'Bokkol', 402, 4, NULL, NULL),
+(40204, 'ملزم تيشط', 'Melzem Teichett', 402, 4, NULL, NULL),
+(40205, 'ازغيلم التياب', 'Azgueilem tiyab', 402, 4, NULL, NULL),
+(40301, 'مقامه', 'Maghama', 403, 4, NULL, NULL),
+(40302, 'دلل سيفه', 'Dodol Cive', 403, 4, NULL, NULL),
+(40303, 'ضو', 'Daw', 403, 4, NULL, NULL),
+(40304, 'بيلكت ليتامه', 'Beileguet Litama', 403, 4, NULL, NULL),
+(40305, 'افريع ليتامه', 'Vrea Litama', 403, 4, NULL, NULL),
+(40306, 'تولل', 'Toutel', 403, 4, NULL, NULL),
+(40307, 'صانيه', 'Sagne', 403, 4, NULL, NULL),
+(40308, 'والى', 'Wali', 403, 4, NULL, NULL),
+(40401, 'امبود', 'MBout', 404, 4, NULL, NULL),
+(40402, 'تك وبره', 'Tikobra', 404, 4, NULL, NULL),
+(40403, 'تارنكت اهل ملاي اعل', 'Tarenguet Ehel Moulaye Ely', 404, 4, NULL, NULL),
+(40404, 'انجا جبنى كاندكا', 'NDjadjbenni Gandega', 404, 4, NULL, NULL),
+(40405, 'ادباى اهل غلاي', 'Edebaye Ehl Guelay', 404, 4, NULL, NULL),
+(40406, 'فم لكليته', 'Foum Gleita', 404, 4, NULL, NULL),
+(40407, 'شلخت التياب', 'Chelkhet Tiyab', 404, 4, NULL, NULL),
+(40408, 'لحرش', 'Lahrach', 404, 4, NULL, NULL),
+(40409, 'سوفه', 'Soufa', 404, 4, NULL, NULL),
+(50101, 'الاك', 'Aleg', 501, 5, NULL, NULL),
+(50102, 'شكار', 'Cheggar', 501, 5, NULL, NULL),
+(50103, 'اغشوركيت', 'Aghchourguit', 501, 5, NULL, NULL),
+(50104, 'مال', 'Maale', 501, 5, NULL, NULL),
+(50105, 'بوحديده', 'Bouhdida', 501, 5, NULL, NULL),
+(50106, 'جلوار', 'Djelwar', 501, 5, NULL, NULL),
+(50201, 'ببابه', 'Bababe', 502, 5, NULL, NULL),
+(50202, 'هايره امبار', 'Aere MBar', 502, 5, NULL, NULL),
+(50203, 'الفرع', 'El Verea', 502, 5, NULL, NULL),
+(50301, 'امبان', 'MBagne', 503, 5, NULL, NULL),
+(50302, 'ادباى الحجاج', 'Edbaye El Hejaj', 503, 5, NULL, NULL),
+(50303, 'باكودين', 'Bagodine', 503, 5, NULL, NULL),
+(50304, 'انيابينه', 'Niabina', 503, 5, NULL, NULL),
+(50401, 'مقطع لحجار', 'Magta-Lahjar', 504, 5, NULL, NULL),
+(50402, 'واد امور', 'Wad Amour', 504, 5, NULL, NULL),
+(50403, 'جونابه', 'Dionaba', 504, 5, NULL, NULL),
+(50404, 'صنكرافه', 'Sangrave', 504, 5, NULL, NULL),
+(50501, 'بوكى', 'Boghe', 505, 5, NULL, NULL),
+(50502, 'دار البركه', 'Dar El Barka', 505, 5, NULL, NULL),
+(50503, 'ولدبيرم اولولوكو', 'Ould Birem', 505, 5, NULL, NULL),
+(50504, 'دار العافية', 'Dar El Avia', 505, 5, NULL, NULL),
+(60101, 'روصو', 'Rosso', 601, 6, NULL, NULL),
+(60102, 'جدرالمحكن', 'Jedrel Mohguen', 601, 6, NULL, NULL),
+(60201, 'واد الناقه', 'Wad-Naga', 602, 6, NULL, NULL),
+(60202, 'العرية', 'El Arya', 602, 6, NULL, NULL),
+(60203, 'آوليكات', 'Aouleigatt', 602, 6, NULL, NULL),
+(60301, 'كرمسين', 'Keur-Macen', 603, 6, NULL, NULL),
+(60302, 'انجاكو', 'NDiago', 603, 6, NULL, NULL),
+(60303, 'امبلل', 'MBalal', 603, 6, NULL, NULL),
+(60401, 'اركيز', 'RKiz', 604, 6, NULL, NULL),
+(60402, 'بوطلحايه', 'Boutalhaya', 604, 6, NULL, NULL),
+(60403, 'لكصيبه', 'Lexeiba', 604, 6, NULL, NULL),
+(60404, 'بارينه', 'Bareina', 604, 6, NULL, NULL),
+(60405, 'انتيكان', 'Tekane', 604, 6, NULL, NULL),
+(60501, 'بوتيلميت', 'Boutilimit', 605, 6, NULL, NULL),
+(60502, 'علب آدرس', 'Elb Adress', 605, 6, NULL, NULL),
+(60503, 'تنقدج', 'Tenghadej', 605, 6, NULL, NULL),
+(60504, 'انتيشط', 'NTeichett', 605, 6, NULL, NULL),
+(60505, 'الميسر', 'El Mouyessar', 605, 6, NULL, NULL),
+(60506, 'اجوير', 'Ajouer', 605, 6, NULL, NULL),
+(60507, 'النباغيه', 'Nebaghiya', 605, 6, NULL, NULL),
+(60601, 'المذرذرة', 'Mederdra', 606, 6, NULL, NULL),
+(60602, 'ابير التورس', 'Beir Toress', 606, 6, NULL, NULL),
+(60603, 'تيكنت', 'Tiguent', 606, 6, NULL, NULL),
+(60604, 'التاكلالت', 'Taguilalet', 606, 6, NULL, NULL),
+(60605, 'الخط', 'El Khatt', 606, 6, NULL, NULL),
+(70101, 'اطار', 'Atar', 701, 7, NULL, NULL),
+(70102, 'اطواز', 'Tawaz', 701, 7, NULL, NULL),
+(70103, 'عين اهل الطايع', 'Ain Ehl Taya', 701, 7, NULL, NULL),
+(70104, 'شوم', 'Choum', 701, 7, NULL, NULL),
+(70201, 'اوجفت', 'Aoujeft', 702, 7, NULL, NULL),
+(70202, 'المعدن', 'Maaden', 702, 7, NULL, NULL),
+(70203, 'المداح', 'El Medah', 702, 7, NULL, NULL),
+(70204, 'انتركنت', 'NTrguent', 702, 7, NULL, NULL),
+(70301, 'ودان', 'Ouadane', 703, 7, NULL, NULL),
+(70401, 'شنقيطى', 'Chinguitti', 704, 7, NULL, NULL),
+(70402, 'العين الصفره', 'Ain Savra', 704, 7, NULL, NULL),
+(80101, 'انواذيبو', 'Nouadhibou', 801, 8, NULL, NULL),
+(80102, 'بولنوار', 'Boulenouar', 801, 8, NULL, NULL),
+(80103, 'اتميمشات', 'TMeimichatt', 801, 8, NULL, NULL),
+(80104, 'انال', 'Inal', 801, 8, NULL, NULL),
+(80105, 'انوامغار', 'Nouamghar', 801, 8, NULL, NULL),
+(90101, 'تجكجة', 'Tidjikja', 901, 9, NULL, NULL),
+(90102, 'الواحات', 'El Wahat', 901, 9, NULL, NULL),
+(90103, 'بوبكر بن عامر', 'Boubacar Ben Amer', 901, 9, NULL, NULL),
+(90104, 'التنسيق', 'Tensigh', 901, 9, NULL, NULL),
+(90105, 'لحصيره', 'Lehsira', 901, 9, NULL, NULL),
+(90201, 'المجريه', 'Moudjeria', 902, 9, NULL, NULL),
+(90202, 'السدود', 'Soudoud', 902, 9, NULL, NULL),
+(90203, 'انبيكه', 'NBeika', 902, 9, NULL, NULL),
+(90301, 'تيشيت', 'Tichitt', 903, 9, NULL, NULL),
+(90302, 'لخشب', 'Lekhcheb', 903, 9, NULL, NULL),
+(100101, 'سيلبابى', 'Selibaby', 1001, 10, NULL, NULL),
+(100102, 'اجار', 'Ajar', 1001, 10, NULL, NULL),
+(100103, 'غابو', 'Ghabou', 1001, 10, NULL, NULL),
+(100104, 'عر', 'Arr', 1001, 10, NULL, NULL),
+(100105, 'ول امبن', 'Ould MBouni', 1001, 10, NULL, NULL),
+(100106, 'حاسى شكار', 'Hassi Chegar', 1001, 10, NULL, NULL),
+(100107, 'التاشوط', 'Tachott', 1001, 10, NULL, NULL),
+(100108, 'الصوفى', 'Souvi', 1001, 10, NULL, NULL),
+(100109, 'بيجام', 'Baidjam', 1001, 10, NULL, NULL),
+(100110, 'كوراى', 'Gouraye', 1001, 10, NULL, NULL),
+(100111, 'ومبو', 'Wompou', 1001, 10, NULL, NULL),
+(100201, 'ول ينجه', 'Ould Yenge', 1002, 10, NULL, NULL),
+(100202, 'لعبلي', 'Boulli', 1002, 10, NULL, NULL),
+(100203, 'لعوينات', 'Aweinatt', 1002, 10, NULL, NULL),
+(100204, 'التكتاكة', 'Tektaka', 1002, 10, NULL, NULL),
+(100205, 'لحرج', 'Lehraj', 1002, 10, NULL, NULL),
+(100206, 'الدافوع', 'Dafour', 1002, 10, NULL, NULL),
+(100207, 'بوعنز', 'Bouanze', 1002, 10, NULL, NULL),
+(110101, 'ازويرات', 'Zoueratt', 1101, 11, NULL, NULL),
+(110201, 'افديرك', 'FDeirik', 1102, 11, NULL, NULL),
+(110301, 'بير ام اكرين', 'Bir Mogrein', 1103, 11, NULL, NULL),
+(120101, 'اكجوجت', 'Akjoujt', 1201, 12, NULL, NULL),
+(120102, 'بنشاب', 'Benichab', 1201, 12, NULL, NULL),
+(130101, 'تفرغ زينه', 'Tevragh-Zeina', 1301, 13, NULL, NULL),
+(130202, 'السبخه', 'Sebkha', 1302, 13, NULL, NULL),
+(130303, 'الميناء', 'El Mina', 1303, 13, NULL, NULL),
+(130404, 'الرياض', 'Riad', 1304, 13, NULL, NULL),
+(130505, 'عرفات', 'Arafat', 1305, 13, NULL, NULL),
+(130606, 'توجنين', 'Toujounine', 1306, 13, NULL, NULL),
+(130707, 'دار النعيم', 'Dar-Naim', 1307, 13, NULL, NULL),
+(130808, 'لكصر', 'Ksar', 1308, 13, NULL, NULL),
+(130909, 'تيارت', 'Teyarett', 1309, 13, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reports`
+-- Table structure for table reports
+--
+CREATE TYPE report_type_enum AS ENUM ('reason1','reason2','reason3','reason4','reason5','reason6');
+CREATE TYPE report_status_enum AS ENUM ('new','technical','solved','fake');
+CREATE TABLE reports (
+  id bigint  NOT NULL,
+  report_type report_type_enum NOT NULL,
+  latlng varchar(255) NOT NULL,
+  description text NOT NULL,
+  status report_status_enum NOT NULL DEFAULT 'new',
+  image varchar(255) NOT NULL,
+  city_id bigint  NOT NULL,
+  state_id bigint  NOT NULL,
+  user_id bigint  DEFAULT NULL,
+  created_at date DEFAULT NULL,
+  updated_at date DEFAULT NULL,
+  region_id bigint  NOT NULL,
+  technical_id int DEFAULT NULL,
+  manager_id int DEFAULT NULL
+) ;
+
+--
+-- Dumping data for table reports
 --
 
-CREATE TABLE `reports` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `report_type` enum('reason1','reason2','reason3','reason4','reason5','reason6') NOT NULL,
-  `latlng` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `status` enum('new','technical','solved','fake') NOT NULL DEFAULT 'new',
-  `image` varchar(255) NOT NULL,
-  `city_id` bigint(20) UNSIGNED NOT NULL,
-  `state_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `region_id` bigint(20) UNSIGNED NOT NULL,
-  `technical_id` int(11) DEFAULT NULL,
-  `manager_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `reports`
---
-
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (69, 'reason3', '16.53069,-15.7746339', 'test', 'solved', '1672862999.jpg', 601, 6, 5, '2023-01-04', '2023-01-05', 60101, 9, 5),
 (70, 'reason3', '16.53069,-15.7746339', 'test', 'technical', '1672863000.jpg', 601, 6, 5, '2023-01-04', '2023-01-07', 60101, 9, 5),
 (71, 'reason3', '16.53069,-15.7746339', 'test', 'solved', '1672863001.jpg', 601, 6, 5, '2023-01-04', '2023-01-05', 60101, 9, 5),
@@ -4063,29 +4057,29 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (75, 'reason6', '16.5305187,-15.7746372', 'tets', 'new', '1672865114.jpg', 601, 6, 5, '2023-01-04', '2023-01-04', 60101, NULL, NULL),
 (76, 'reason4', '16.530663,-15.7746864', 'test', 'new', '1672867435.jpg', 601, 6, 5, '2023-01-04', '2023-01-04', 60101, NULL, NULL),
 (77, 'reason3', '18.0735022,-15.9586409', 'test', 'solved', '1673392896.jpg', 601, 6, 8, '2023-01-10', '2023-01-10', 60101, 9, 5),
-(78, 'reason2', '18.0729841,-15.9466876', 'A côté du dispensaire T\'en Soueilem', 'new', '1676646317.jpg', 1307, 13, 67, '2023-02-17', '2023-02-17', 130707, NULL, NULL),
+(78, 'reason2', '18.0729841,-15.9466876', 'A côté du dispensaire Ten Soueilem', 'new', '1676646317.jpg', 1307, 13, 67, '2023-02-17', '2023-02-17', 130707, NULL, NULL),
 (79, 'reason2', '16.5144375,-15.7925228', 'y', 'new', '1677185050.jpg', 702, 7, 8, '2023-02-23', '2023-02-23', 70202, NULL, NULL),
 (80, 'reason2', '16.5144375,-15.7925228', 'y', 'new', '1677185055.jpg', 702, 7, 8, '2023-02-23', '2023-02-23', 70202, NULL, NULL),
 (81, 'reason1', '18.07045,-15.967465', 'دار البركة و عين الطلحة', 'new', '1680549148.jpg', 1309, 13, 29, '2023-04-03', '2023-04-03', 130909, NULL, NULL),
 (82, 'reason1', '18.0704499,-15.9674647', 'دار البركة و عين الطلحة', 'new', '1680549153.jpg', 1309, 13, 29, '2023-04-03', '2023-04-03', 130909, NULL, NULL),
 (83, 'reason1', '18.0704667,-15.9674949', 'دار البركة و عين الطلحة', 'new', '1680549178.jpg', 1309, 13, 29, '2023-04-03', '2023-04-03', 130909, NULL, NULL),
-(87, 'reason2', '18.0555541,-15.9709316', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725170.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(88, 'reason2', '18.0555574,-15.9709255', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725206.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(89, 'reason2', '18.0556012,-15.9708758', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725221.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(90, 'reason2', '18.055583,-15.9708931', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725274.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(91, 'reason2', '18.055583,-15.9708931', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725276.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(92, 'reason2', '18.0555985,-15.9708787', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725285.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(93, 'reason2', '18.05559,-15.9708854', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725328.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(94, 'reason2', '18.05559,-15.9708854', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725329.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(95, 'reason2', '18.0556039,-15.9708723', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725339.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(96, 'reason2', '18.0555982,-15.9708798', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725480.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(97, 'reason2', '18.0555645,-15.9709153', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725565.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(98, 'reason2', '18.0555645,-15.9709153', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725566.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(99, 'reason2', '18.0555852,-15.9708902', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725576.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(100, 'reason2', '18.0555546,-15.9709275', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725584.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(101, 'reason2', '18.0555724,-15.9709073', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725594.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(102, 'reason2', '18.055557,-15.9709259', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725689.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
-(103, 'reason2', '18.0555698,-15.9709108', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour l\'installation du nouveau réseau', 'new', '1681725697.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(87, 'reason2', '18.0555541,-15.9709316', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725170.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(88, 'reason2', '18.0555574,-15.9709255', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725206.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(89, 'reason2', '18.0556012,-15.9708758', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725221.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(90, 'reason2', '18.055583,-15.9708931', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725274.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(91, 'reason2', '18.055583,-15.9708931', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725276.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(92, 'reason2', '18.0555985,-15.9708787', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725285.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(93, 'reason2', '18.05559,-15.9708854', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725328.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(94, 'reason2', '18.05559,-15.9708854', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725329.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(95, 'reason2', '18.0556039,-15.9708723', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725339.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(96, 'reason2', '18.0555982,-15.9708798', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725480.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(97, 'reason2', '18.0555645,-15.9709153', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725565.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(98, 'reason2', '18.0555645,-15.9709153', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725566.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(99, 'reason2', '18.0555852,-15.9708902', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725576.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(100, 'reason2', '18.0555546,-15.9709275', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725584.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(101, 'reason2', '18.0555724,-15.9709073', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725594.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(102, 'reason2', '18.055557,-15.9709259', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725689.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
+(103, 'reason2', '18.0555698,-15.9709108', 'depuis trois jours les ouvriers de la société ont cassé plusieurs tuyaux pour linstallation du nouveau réseau', 'new', '1681725697.jpg', 1305, 13, 165, '2023-04-17', '2023-04-17', 130505, NULL, NULL),
 (104, 'reason1', '18.13727424893682,-15.935719459054077', 'مگطوع عني الما', 'new', '1683831063.jpg', 1309, 13, 293, '2023-05-11', '2023-05-11', 130909, NULL, NULL),
 (105, 'reason1', '18.137258078204066,-15.935721804050257', 'مگطوع عني الما', 'new', '1683831065.jpg', 1309, 13, 293, '2023-05-11', '2023-05-11', 130909, NULL, NULL),
 (106, 'reason2', '18.1509446,-15.9281667', 'تسرب مياه من أمبوب في شارع أمام المنزل', 'new', '1684521859.jpg', 1309, 13, 324, '2023-05-19', '2023-05-19', 130909, NULL, NULL),
@@ -4133,7 +4127,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (148, 'reason1', '18.1339245,-15.9540303', 'لايوجد لدينا الماء منذ 4  أشهر نعسانين إنقطاع تام للمياه.        478429604610رقم الإشتراك', 'new', '1689342582.jpg', 1309, 13, 501, '2023-07-14', '2023-07-14', 130909, NULL, NULL),
 (149, 'reason4', '18.0607836,-15.9510422', 'لماذا تم إرسال فاتورة بهذه القيمة مع أني كل فترة أدفع في الوقت عن طريق بنكيلي ولماذا لاترسل الفاتورة ولماذا يتم تقدير الفاتورة لكي يحصل هذا وماهي طريقة تفادي ذلك.', 'new', '1689351864.jpg', 1305, 13, 590, '2023-07-14', '2023-07-14', 130505, NULL, NULL),
 (150, 'reason4', '18.0607836,-15.9510422', 'لماذا تم إرسال فاتورة بهذه القيمة مع أني كل فترة أدفع في الوقت عن طريق بنكيلي ولماذا لاترسل الفاتورة ولماذا يتم تقدير الفاتورة لكي يحصل هذا وماهي طريقة تفادي ذلك.', 'new', '1689351867.jpg', 1305, 13, 590, '2023-07-14', '2023-07-14', 130505, NULL, NULL),
-(151, 'reason2', '18.1485428,-15.928129', 'يوجد  تسرب أنبوب المياه في الشارع الرسمي\' منذ أمس في حيي.  لم تتدخل مصالح الشركة لإصلاح هذا العطر حتي الأن  I4 extension teyarett', 'new', '1689430207.jpg', 1309, 13, 501, '2023-07-15', '2023-07-15', 130909, NULL, NULL),
+(151, 'reason2', '18.1485428,-15.928129', 'يوجد  تسرب أنبوب المياه في الشارع الرسمي منذ أمس في حيي.  لم تتدخل مصالح الشركة لإصلاح هذا العطر حتي الأن  I4 extension teyarett', 'new', '1689430207.jpg', 1309, 13, 501, '2023-07-15', '2023-07-15', 130909, NULL, NULL),
 (152, 'reason3', 'unknown_error', 'حي حظ سعيد', 'new', '1690027364.jpg', 1306, 13, 573, '2023-07-22', '2023-07-22', 130606, NULL, NULL),
 (153, 'reason4', '18.099701975129936,-16.004635378075005', 'Facture mal calculée (l’avant dernière facture a visiblement été estimée, et elle était très basse. Donc la dernière fois comme il y a eu relève, y avait une grosse conso, donc le tarif 2 a été appliqué de manière injuste.', 'new', '1690479506.jpg', 1301, 13, 800, '2023-07-27', '2023-07-27', 130101, NULL, NULL),
 (154, 'reason4', '18.0997027639044,-16.004624078828837', 'Facture mal calculée (l’avant dernière facture a visiblement été estimée, et elle était très basse. Donc la dernière fois comme il y a eu relève, y avait une grosse conso, donc le tarif 2 a été appliqué de manière injuste.', 'new', '1690479511.jpg', 1301, 13, 800, '2023-07-27', '2023-07-27', 130101, NULL, NULL),
@@ -4179,17 +4173,17 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (194, 'reason1', '18.1370507,-15.9494588', 'انقطاع الماء', 'new', '1691717698.jpg', 1309, 13, 887, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (195, 'reason1', '18.1370507,-15.9494588', 'انقطاع الماء', 'new', '1691717701.jpg', 1309, 13, 887, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (196, 'reason1', '18.1370481,-15.9494633', 'انقطاع الماء', 'new', '1691717705.jpg', 1309, 13, 887, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
-(197, 'reason1', '18.0997181,-15.9942545', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718600.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(198, 'reason1', '18.0997181,-15.9942545', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718605.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(199, 'reason1', '18.0997139,-15.9942588', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718611.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(200, 'reason1', '18.0997139,-15.9942588', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718615.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(201, 'reason1', '18.0997744,-15.9942672', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718636.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(202, 'reason1', '18.0997744,-15.9942672', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718640.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(203, 'reason1', '18.0997173,-15.9942577', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718645.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(204, 'reason1', '18.0997173,-15.9942577', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718647.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(205, 'reason1', '18.0997127,-15.9942555', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718664.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(206, 'reason1', '18.0997127,-15.9942555', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718669.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(207, 'reason1', '18.0997196,-15.9942666', 'Pas d\'eau tous les jours. Dans certains cas, il est faible', 'new', '1691718674.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(197, 'reason1', '18.0997181,-15.9942545', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718600.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(198, 'reason1', '18.0997181,-15.9942545', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718605.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(199, 'reason1', '18.0997139,-15.9942588', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718611.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(200, 'reason1', '18.0997139,-15.9942588', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718615.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(201, 'reason1', '18.0997744,-15.9942672', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718636.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(202, 'reason1', '18.0997744,-15.9942672', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718640.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(203, 'reason1', '18.0997173,-15.9942577', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718645.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(204, 'reason1', '18.0997173,-15.9942577', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718647.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(205, 'reason1', '18.0997127,-15.9942555', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718664.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(206, 'reason1', '18.0997127,-15.9942555', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718669.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(207, 'reason1', '18.0997196,-15.9942666', 'Pas deau tous les jours. Dans certains cas, il est faible', 'new', '1691718674.jpg', 1305, 13, 892, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (208, 'reason1', '18.1397068,-15.9452394', 'لاتوجد قطرة ماء احيانا ونادرا تأتي الساعة الواحدة والنصف صباحا لمدة ربع ساعة', 'new', '1691719730.jpg', 1309, 13, 911, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (209, 'reason1', '18.1397062,-15.945156', 'لاتوجد قطرة ماء احيانا ونادرا تأتي الساعة الواحدة والنصف صباحا لمدة ربع ساعة', 'new', '1691719743.jpg', 1309, 13, 911, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (210, 'reason1', 'unknown_error', 'سلام من فضلكم حلولنا مشكلة الماء انواكشوط كامل عطشان يهدينا و يهديكم', 'new', '1691721117.jpg', 1307, 13, 930, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
@@ -4285,17 +4279,17 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (300, 'reason4', '18.0836442,-15.9125834', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691746811.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (301, 'reason4', '18.0836442,-15.9125834', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691746819.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (302, 'reason4', '18.0836436,-15.9125834', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691746854.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
-(303, 'reason1', '18.1423824,-15.9643888', 'pas de l\'eau خالينا لعطش', 'new', '1691746948.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
-(304, 'reason1', '18.143087,-15.9637312', 'pas de l\'eau خالينا لعطش', 'new', '1691746969.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(303, 'reason1', '18.1423824,-15.9643888', 'pas de leau خالينا لعطش', 'new', '1691746948.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(304, 'reason1', '18.143087,-15.9637312', 'pas de leau خالينا لعطش', 'new', '1691746969.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (305, 'reason6', '18.0385507,-15.9709608', 'نريد صهريج ماء', 'new', '1691746972.jpg', 1301, 13, 1027, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(306, 'reason1', '18.1430876,-15.9637306', 'pas de l\'eau خالينا لعطش', 'new', '1691747010.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(306, 'reason1', '18.1430876,-15.9637306', 'pas de leau خالينا لعطش', 'new', '1691747010.jpg', 1309, 13, 1075, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (307, 'reason6', 'unknown_error', 'Mon compteur est disparu. si possible vérifier si vos services l’ont récupéré ou bien il fait état de vol.', 'new', '1691747221.jpg', 1301, 13, 1054, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (308, 'reason6', 'unknown_error', 'Mon compteur est disparu. si possible vérifier si vos services l’ont récupéré ou bien il fait état de vol.', 'new', '1691747237.jpg', 1301, 13, 1054, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (309, 'reason4', '18.0789426,-15.954779', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691748525.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (310, 'reason4', '18.0789494,-15.9547787', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691748549.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (311, 'reason4', '18.0789494,-15.9547787', 'عندي كمية زائدة لم تقوموا بإحتسابها', 'new', '1691748564.jpg', 1306, 13, 1066, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (312, 'reason3', '18.1045532,-15.9746693', 'لم نستلم اي فاتوره للماء منذ شهرين ء', 'new', '1691748652.jpg', 1309, 13, 1106, '2023-08-11', '2023-08-11', 130909, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (313, 'reason3', '18.1045571,-15.9746683', 'لم نستلم اي فاتوره للماء منذ شهرين ء', 'new', '1691748660.jpg', 1309, 13, 1106, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (314, 'reason1', '18.1334345,-15.9476524', 'انقطاع كلي للماء من عدة أيام', 'new', '1691749065.jpg', 1309, 13, 1108, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (315, 'reason1', '18.1334345,-15.9476524', 'انقطاع كلي للماء من عدة أيام', 'new', '1691749065.jpg', 1309, 13, 1108, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
@@ -4307,10 +4301,10 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (321, 'reason1', '16.653715,-9.6253767', 'نحن سكان حي البيطرة نعاني موجة عطش غير مسبوقة إنقطاع عام في المياه لفترات تتجاوز ثلاثة أشهر مستمرة في بعض الأحيان', 'new', '1691749168.jpg', 201, 2, 1004, '2023-08-11', '2023-08-11', 20101, NULL, NULL),
 (322, 'reason1', '16.6538647,-9.6255946', 'نحن سكان حي البيطرة نعاني موجة عطش غير مسبوقة إنقطاع عام في المياه لفترات تتجاوز ثلاثة أشهر مستمرة في بعض الأحيان', 'new', '1691749197.jpg', 201, 2, 1004, '2023-08-11', '2023-08-11', 20101, NULL, NULL),
 (323, 'reason1', '16.6538647,-9.6255946', 'نحن سكان حي البيطرة نعاني موجة عطش غير مسبوقة إنقطاع عام في المياه لفترات تتجاوز ثلاثة أشهر مستمرة في بعض الأحيان', 'new', '1691749199.jpg', 201, 2, 1004, '2023-08-11', '2023-08-11', 20101, NULL, NULL),
-(324, 'reason1', '18.1302174,-15.9881714', 'depuis 5 pas d\'aux', 'new', '1691749272.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(325, 'reason1', '18.1302213,-15.9881502', 'depuis 5 pas d\'aux', 'new', '1691749277.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(324, 'reason1', '18.1302174,-15.9881714', 'depuis 5 pas daux', 'new', '1691749272.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(325, 'reason1', '18.1302213,-15.9881502', 'depuis 5 pas daux', 'new', '1691749277.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (326, 'reason1', '16.6538783,-9.625575', 'نحن سكان حي البيطرة نعاني موجة عطش غير مسبوقة إنقطاع عام في المياه لفترات تتجاوز ثلاثة أشهر مستمرة في بعض الأحيان', 'new', '1691749281.jpg', 201, 2, 1004, '2023-08-11', '2023-08-11', 20101, NULL, NULL),
-(327, 'reason1', '18.1302409,-15.9881523', 'depuis 5 pas d\'aux', 'new', '1691749284.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(327, 'reason1', '18.1302409,-15.9881523', 'depuis 5 pas daux', 'new', '1691749284.jpg', 1301, 13, 1117, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (328, 'reason1', '16.6538783,-9.625575', 'نحن سكان حي البيطرة نعاني موجة عطش غير مسبوقة إنقطاع عام في المياه لفترات تتجاوز ثلاثة أشهر مستمرة في بعض الأحيان', 'new', '1691749319.jpg', 201, 2, 1004, '2023-08-11', '2023-08-11', 20101, NULL, NULL),
 (329, 'reason1', '17.5062783,-13.1105976', 'مگطع لحجار بلا ماء', 'new', '1691749400.jpg', 504, 5, 1125, '2023-08-11', '2023-08-11', 50401, NULL, NULL),
 (330, 'reason1', '17.5062531,-13.1106362', 'مگطع لحجار بلا ماء', 'new', '1691749411.jpg', 504, 5, 1125, '2023-08-11', '2023-08-11', 50401, NULL, NULL),
@@ -4355,15 +4349,15 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (369, 'reason6', '18.1263279,-15.9786535', 'نريد صهريج ماء', 'new', '1691753046.jpg', 1301, 13, 1027, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (370, 'reason6', '18.1263402,-15.97864', 'نريد صهريج ماء', 'new', '1691753049.jpg', 1301, 13, 1027, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (371, 'reason6', '18.1263325,-15.9786256', 'نريد صهريج ماء', 'new', '1691753060.jpg', 1301, 13, 1027, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(372, 'reason1', '18.107035,-15.964055', 'manque d\'eau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(373, 'reason1', '18.107035,-15.964055', 'manque d\'eau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(374, 'reason1', '18.107035,-15.964055', 'manque d\'eau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(372, 'reason1', '18.107035,-15.964055', 'manque deau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(373, 'reason1', '18.107035,-15.964055', 'manque deau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(374, 'reason1', '18.107035,-15.964055', 'manque deau', 'new', '1691753358.jpg', 1301, 13, 1192, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (375, 'reason1', '18.0553554,-15.9751027', 'انقطاع الماء', 'new', '1691754626.jpg', 1305, 13, 1217, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (376, 'reason1', '18.0553553,-15.9751027', 'انقطاع الماء', 'new', '1691754634.jpg', 1305, 13, 1217, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(377, 'reason1', '18.0735368,-15.9612718', 'Depuis une semaine on rencontre une rupture d\'eau.', 'new', '1691754875.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(378, 'reason1', '18.0735368,-15.9612718', 'Depuis une semaine on rencontre une rupture d\'eau.', 'new', '1691754880.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(379, 'reason1', '18.073601,-15.9614607', 'Depuis une semaine on rencontre une rupture d\'eau.', 'new', '1691754886.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(380, 'reason1', '18.073601,-15.9614607', 'Depuis une semaine on rencontre une rupture d\'eau.', 'new', '1691754890.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(377, 'reason1', '18.0735368,-15.9612718', 'Depuis une semaine on rencontre une rupture deau.', 'new', '1691754875.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(378, 'reason1', '18.0735368,-15.9612718', 'Depuis une semaine on rencontre une rupture deau.', 'new', '1691754880.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(379, 'reason1', '18.073601,-15.9614607', 'Depuis une semaine on rencontre une rupture deau.', 'new', '1691754886.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(380, 'reason1', '18.073601,-15.9614607', 'Depuis une semaine on rencontre une rupture deau.', 'new', '1691754890.jpg', 1305, 13, 1222, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (381, 'reason1', '17.179101,-16.052968', 'ضعف المياه', 'new', '1691755328.jpg', 606, 6, 1230, '2023-08-11', '2023-08-11', 60603, NULL, NULL),
 (382, 'reason1', '17.1790901,-16.0529914', 'ضعف المياه', 'new', '1691755359.jpg', 606, 6, 1230, '2023-08-11', '2023-08-11', 60603, NULL, NULL),
 (383, 'reason1', '17.1790956,-16.0530065', 'ضعف', 'new', '1691755405.jpg', 606, 6, 1230, '2023-08-11', '2023-08-11', 60603, NULL, NULL),
@@ -4421,16 +4415,16 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (435, 'reason1', '18.0759995,-15.9653413', 'الماء ماهو خالك \nنحن هون فى كارفور من كد شارع بوليس بل شركة الماء القديم مانجبرو الماء لنا زمن', 'new', '1691759746.jpg', 1305, 13, 1287, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (436, 'reason4', '17.3235464,-13.9646168', 'السلام عليكم ورحمة الله. لقد حدث خطأ في أخذ الرقم من طرف عاملكم حيث كتب 830 بدل 163 وقمنا بإبلاغ المركز الذي نتبع له في انواذيب الحنفية رقم ٥ وسجلوا الملاحظة على الفاتورة المرفقة.Ref eau 804101887102نرجو منكم تصحيح الخطأ في أسرع وقت ممكن. العنوان PH4 897B. رقم   العداد .13745', 'new', '1691759747.jpg', 801, 8, 1284, '2023-08-11', '2023-08-11', 80101, NULL, NULL),
 (437, 'reason1', '18.5508983,-11.41781', 'نقص حاد في المياه بحيث نمضي عس ة ايام دون ماء وعند ما يانينا لا بتجزو مدته اثني عسره ساعه وهذالا يكفي لناخذ ما يكغي لمدة عشر ايام.', 'new', '1691759799.jpg', 901, 9, 1313, '2023-08-11', '2023-08-11', 90101, NULL, NULL),
-(438, 'reason1', 'unknown_error', 'manque d\'eau depuis 4 jours', 'new', '1691759994.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(439, 'reason1', '18.0555472,-15.9616561', 'manque d\'eau depuis 4 jours', 'new', '1691759994.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(440, 'reason1', '18.0556159,-15.9616048', 'manque d\'eau depuis 4 jours', 'new', '1691759998.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(438, 'reason1', 'unknown_error', 'manque deau depuis 4 jours', 'new', '1691759994.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(439, 'reason1', '18.0555472,-15.9616561', 'manque deau depuis 4 jours', 'new', '1691759994.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(440, 'reason1', '18.0556159,-15.9616048', 'manque deau depuis 4 jours', 'new', '1691759998.jpg', 1305, 13, 1329, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (441, 'reason1', '18.5508983,-11.41781', 'نقص حاد في المياه بحيث نمضي عس ة ايام دون ماء وعند ما يانينا لا بتجزو مدته اثني عسره ساعه وهذالا يكفي لناخذ ما يكغي لمدة عشر ايام.', 'new', '1691760043.jpg', 901, 9, 1313, '2023-08-11', '2023-08-11', 90101, NULL, NULL),
 (442, 'reason1', '18.11175,-15.9112767', 'إنقطاع  دايم للماء.', 'new', '1691760058.jpg', 1307, 13, 1322, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (443, 'reason1', '18.11175,-15.9112767', 'إنقطاع  دايم للماء.', 'new', '1691760059.jpg', 1307, 13, 1322, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (444, 'reason1', '18.1107518,-15.9132982', 'إنقطاع  دايم للماء.', 'new', '1691760067.jpg', 1307, 13, 1322, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (445, 'reason6', '17.511445,-14.6340359', 'نقص فى المياه', 'new', '1691760188.jpg', 605, 6, 1328, '2023-08-11', '2023-08-11', 60501, NULL, NULL),
-(446, 'reason1', '18.1301203,-15.9648303', 'je ne reçois plus d\'eau depuis les tuyaux et cela depuis plusieurs mois.', 'new', '1691760412.jpg', 1301, 13, 1336, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
-(447, 'reason1', '18.1301204,-15.9648251', 'je ne reçois plus d\'eau depuis les tuyaux et cela depuis plusieurs mois.', 'new', '1691760419.jpg', 1301, 13, 1336, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(446, 'reason1', '18.1301203,-15.9648303', 'je ne reçois plus deau depuis les tuyaux et cela depuis plusieurs mois.', 'new', '1691760412.jpg', 1301, 13, 1336, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
+(447, 'reason1', '18.1301204,-15.9648251', 'je ne reçois plus deau depuis les tuyaux et cela depuis plusieurs mois.', 'new', '1691760419.jpg', 1301, 13, 1336, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (448, 'reason1', '18.1143809,-15.9504636', 'منذ عدة اشهر ولا قطرة ماء نحن المنطقة المقابلة لستاسيوه توتال قرب بيسيرى الصين', 'new', '1691760457.jpg', 1308, 13, 1338, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (449, 'reason1', 'unknown_error', 'ترحيل 16 بلا ماء', 'new', '1691760465.jpg', 1304, 13, 1339, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
 (450, 'reason1', '17.5114419,-14.6340895', 'ترحيل 16 بلا ماء', 'new', '1691760466.jpg', 1304, 13, 1339, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
@@ -4464,7 +4458,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (478, 'reason1', '18.090553,-15.932603', 'القطاع الماء مذو عددة السابيع', 'new', '1691761008.jpg', 1307, 13, 1343, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (479, 'reason1', '18.0905602,-15.9325952', 'القطاع الماء مذو عددة السابيع', 'new', '1691761011.jpg', 1307, 13, 1343, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (480, 'reason1', '18.1144333,-15.9503017', 'منذ عدة اشهر ولا قطرة ماء نحن المنطقة المقابلة لستاسيوه توتال قرب بيسيرى الصين', 'new', '1691761130.jpg', 1308, 13, 1338, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
-(481, 'reason1', '18.11144,-15.910775', 'une coupure continue  de  l\'eau  et très ancienne', 'new', '1691761200.jpg', 1307, 13, 1322, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(481, 'reason1', '18.11144,-15.910775', 'une coupure continue  de  leau  et très ancienne', 'new', '1691761200.jpg', 1307, 13, 1322, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (482, 'reason1', '18.1296167,-15.9253583', 'خليتون با بعطش', 'new', '1691761202.jpg', 1307, 13, 1356, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (483, 'reason1', '18.1296167,-15.9253583', 'خليتون با بعطش', 'new', '1691761205.jpg', 1307, 13, 1356, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (484, 'reason1', '18.1293537,-15.9250957', 'خليتون با بعطش', 'new', '1691761213.jpg', 1307, 13, 1356, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
@@ -4542,7 +4536,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (556, 'reason1', '18.072439,-15.9878602', 'من ايام ونحن لم نجد الماء', 'new', '1691765580.jpg', 1305, 13, 1444, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (557, 'reason1', '18.072439,-15.9878602', 'من ايام ونحن لم نجد الماء', 'new', '1691765580.jpg', 1305, 13, 1444, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (558, 'reason1', '18.07207207207207,-15.93949543588773', 'الماء ماهو خالك', 'new', '1691765589.jpg', 1307, 13, 1269, '2023-08-11', '2023-08-11', 130707, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (559, 'reason1', '18.07207207207207,-15.93949543588773', 'الماء ماهو خالك', 'new', '1691765598.jpg', 1307, 13, 1269, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (560, 'reason1', 'unknown_error', 'nous n’avons pas d’eau', 'new', '1691765601.jpg', 1308, 13, 1447, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (561, 'reason1', 'unknown_error', 'nous n’avons pas d’eau', 'new', '1691765604.jpg', 1308, 13, 1447, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
@@ -4585,7 +4579,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (598, 'reason1', 'unknown_error', 'l’eau du réseau ne vient pas chez nous il y a 6 mois', 'new', '1691767716.jpg', 1309, 13, 1064, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (599, 'reason1', 'unknown_error', 'l’eau du réseau ne vient pas chez nous il y a 6 mois', 'new', '1691767722.jpg', 1309, 13, 1064, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (600, 'reason1', 'unknown_error', 'نحن عطاش', 'new', '1691767776.jpg', 1309, 13, 1064, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
-(601, 'reason1', '18.1425944,-15.9264777', 'pas d\'eau', 'new', '1691767841.jpg', 1309, 13, 1500, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(601, 'reason1', '18.1425944,-15.9264777', 'pas deau', 'new', '1691767841.jpg', 1309, 13, 1500, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (602, 'reason1', '18.1403203,-15.9278507', 'السلام عليكم نعاني منذ خمسة أيام من الانقطاع التام  للماء في منطقة دار البركة حي البسطامي DB VB 1165', 'new', '1691768025.jpg', 1309, 13, 1496, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (603, 'reason1', '18.1403203,-15.9278507', 'السلام عليكم نعاني منذ خمسة أيام من الانقطاع التام  للماء في منطقة دار البركة حي البسطامي DB VB 1165', 'new', '1691768033.jpg', 1309, 13, 1496, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (604, 'reason1', '18.140195,-15.9280916', 'السلام عليكم نعاني منذ خمسة أيام من الانقطاع التام  للماء في منطقة دار البركة حي البسطامي DB VB 1165', 'new', '1691768087.jpg', 1309, 13, 1496, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
@@ -4670,8 +4664,8 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (683, 'reason1', '18.1250533,-15.9494133', 'إنقطاع تام للمياه', 'new', '1691779748.jpg', 1309, 13, 1672, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (684, 'reason1', '18.1250533,-15.9494133', 'إنقطاع تام للمياه', 'new', '1691779748.jpg', 1309, 13, 1672, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (685, 'reason1', '18.1250533,-15.9494133', 'إنقطاع تام للمياه', 'new', '1691779751.jpg', 1309, 13, 1672, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
-(686, 'reason6', '18.1331038,-15.9533145', 'coupure totale d\'eau le quartier souffre', 'new', '1691780603.jpg', 1309, 13, 1677, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
-(687, 'reason6', '18.1331314,-15.953297', 'coupure totale d\'eau le quartier souffre', 'new', '1691780611.jpg', 1309, 13, 1677, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(686, 'reason6', '18.1331038,-15.9533145', 'coupure totale deau le quartier souffre', 'new', '1691780603.jpg', 1309, 13, 1677, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
+(687, 'reason6', '18.1331314,-15.953297', 'coupure totale deau le quartier souffre', 'new', '1691780611.jpg', 1309, 13, 1677, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (688, 'reason1', '18.138070497678722,-15.990067999824872', 'd’habitude une petite quantité coulé dans notre réserve tard la nuit, mais depuis bientôt un mois aucune goutte n’as coulée dans nos robinets.', 'new', '1691780987.jpg', 1301, 13, 1676, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (689, 'reason1', '18.138079550134147,-15.990104377284636', 'd’habitude une petite quantité coulé dans notre réserve tard la nuit, mais depuis bientôt un mois aucune goutte n’as coulée dans nos robinets.', 'new', '1691780992.jpg', 1301, 13, 1676, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (690, 'reason1', '18.13808671665939,-15.990110747531046', 'd’habitude une petite quantité coulé dans notre réserve tard la nuit, mais depuis bientôt un mois aucune goutte n’as coulée dans nos robinets.', 'new', '1691780998.jpg', 1301, 13, 1676, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
@@ -4696,24 +4690,24 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (709, 'reason1', '18.1371213,-15.9482204', 'لم ماه خالك', 'new', '1691782345.jpg', 1305, 13, 1376, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (710, 'reason1', '18.1371213,-15.9482204', 'لم ماه خالك', 'new', '1691782345.jpg', 1305, 13, 1376, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (711, 'reason1', '18.1371213,-15.9482204', 'لم ماه خالك', 'new', '1691782349.jpg', 1305, 13, 1376, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(712, 'reason1', '16.5715069,-15.8091502', 'coupure d\'eau PK 7 depuis hier !', 'new', '1691784441.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
-(713, 'reason1', '16.5712956,-15.8092186', 'coupure d\'eau PK 7 depuis hier !', 'new', '1691784464.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
-(714, 'reason1', '16.5714011,-15.8091729', 'coupure d\'eau PK 7 depuis hier !', 'new', '1691784492.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
-(715, 'reason1', '18.096365,-15.9255883', 'coupure successivement d\'eau', 'new', '1691785018.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(716, 'reason1', '18.096365,-15.9255883', 'coupure successivement d\'eau', 'new', '1691785018.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(717, 'reason1', '18.096365,-15.9255883', 'coupure successivement d\'eau', 'new', '1691785023.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(718, 'reason1', '18.096365,-15.9255883', 'coupure successivement d\'eau', 'new', '1691785027.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(719, 'reason1', '18.0963426,-15.9253096', 'coupure successivement d\'eau', 'new', '1691785038.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(720, 'reason1', '18.0963263,-15.9253122', 'coupure successivement d\'eau', 'new', '1691785043.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(721, 'reason1', '18.0961477,-15.9253531', 'coupure successivement d\'eau', 'new', '1691785052.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(722, 'reason1', '18.09634,-15.9252614', 'coupure successivement d\'eau', 'new', '1691785072.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(723, 'reason1', '18.09634,-15.9252614', 'coupure successivement d\'eau', 'new', '1691785073.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(724, 'reason1', '18.096582,-15.9250728', 'coupure successivement d\'eau', 'new', '1691785088.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(725, 'reason1', '18.0947158,-15.9224393', 'coupure successivement d\'eau', 'new', '1691785226.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(726, 'reason1', '18.0204519,-15.9620186', 'pas de l\'eau  de 1 mois', 'new', '1691785311.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
-(727, 'reason1', '18.0204518,-15.9620183', 'pas de l\'eau  de 1 mois', 'new', '1691785320.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
-(728, 'reason1', '18.0204517,-15.9620183', 'pas de l\'eau  de 1 mois', 'new', '1691785333.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
-(729, 'reason1', '18.0204517,-15.9620183', 'pas de l\'eau  de 1 mois', 'new', '1691785363.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(712, 'reason1', '16.5715069,-15.8091502', 'coupure deau PK 7 depuis hier !', 'new', '1691784441.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
+(713, 'reason1', '16.5712956,-15.8092186', 'coupure deau PK 7 depuis hier !', 'new', '1691784464.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
+(714, 'reason1', '16.5714011,-15.8091729', 'coupure deau PK 7 depuis hier !', 'new', '1691784492.jpg', 601, 6, 1700, '2023-08-11', '2023-08-11', 60101, NULL, NULL),
+(715, 'reason1', '18.096365,-15.9255883', 'coupure successivement deau', 'new', '1691785018.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(716, 'reason1', '18.096365,-15.9255883', 'coupure successivement deau', 'new', '1691785018.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(717, 'reason1', '18.096365,-15.9255883', 'coupure successivement deau', 'new', '1691785023.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(718, 'reason1', '18.096365,-15.9255883', 'coupure successivement deau', 'new', '1691785027.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(719, 'reason1', '18.0963426,-15.9253096', 'coupure successivement deau', 'new', '1691785038.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(720, 'reason1', '18.0963263,-15.9253122', 'coupure successivement deau', 'new', '1691785043.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(721, 'reason1', '18.0961477,-15.9253531', 'coupure successivement deau', 'new', '1691785052.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(722, 'reason1', '18.09634,-15.9252614', 'coupure successivement deau', 'new', '1691785072.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(723, 'reason1', '18.09634,-15.9252614', 'coupure successivement deau', 'new', '1691785073.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(724, 'reason1', '18.096582,-15.9250728', 'coupure successivement deau', 'new', '1691785088.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(725, 'reason1', '18.0947158,-15.9224393', 'coupure successivement deau', 'new', '1691785226.jpg', 1307, 13, 1707, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
+(726, 'reason1', '18.0204519,-15.9620186', 'pas de leau  de 1 mois', 'new', '1691785311.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(727, 'reason1', '18.0204518,-15.9620183', 'pas de leau  de 1 mois', 'new', '1691785320.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(728, 'reason1', '18.0204517,-15.9620183', 'pas de leau  de 1 mois', 'new', '1691785333.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(729, 'reason1', '18.0204517,-15.9620183', 'pas de leau  de 1 mois', 'new', '1691785363.jpg', 1304, 13, 1711, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
 (730, 'reason1', '18.0943516,-15.9302549', 'نقص الماء منذ أربعة أيام ولله الحمد', 'new', '1691786337.jpg', 1307, 13, 1719, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (731, 'reason1', '18.0943517,-15.9302549', 'نقص الماء منذ أربعة أيام ولله الحمد', 'new', '1691786348.jpg', 1307, 13, 1719, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (732, 'reason1', '18.0943517,-15.9302549', 'نقص الماء منذ أربعة أيام ولله الحمد', 'new', '1691786357.jpg', 1307, 13, 1719, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
@@ -4744,8 +4738,8 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (757, 'reason1', '18.103374825640564,-16.01182425613216', 'coupure d’eau depuis 1 semaine', 'new', '1691787008.jpg', 1301, 13, 997, '2023-08-11', '2023-08-11', 130101, NULL, NULL),
 (758, 'reason1', '18.0943486,-15.930254', 'انقطاع مستمر في النهار', 'new', '1691787338.jpg', 1307, 13, 1704, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
 (759, 'reason1', '18.0943477,-15.9302539', 'انقطاع مستمر في النهار', 'new', '1691787356.jpg', 1307, 13, 1704, '2023-08-11', '2023-08-11', 130707, NULL, NULL),
-(760, 'reason1', '20.5684784,-15.485163', 'pas d\'eau', 'new', '1691787460.jpg', 1305, 13, 1475, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
-(761, 'reason1', '20.5688757,-15.4848711', 'pas d\'eau', 'new', '1691787466.jpg', 1305, 13, 1475, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(760, 'reason1', '20.5684784,-15.485163', 'pas deau', 'new', '1691787460.jpg', 1305, 13, 1475, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
+(761, 'reason1', '20.5688757,-15.4848711', 'pas deau', 'new', '1691787466.jpg', 1305, 13, 1475, '2023-08-11', '2023-08-11', 130505, NULL, NULL),
 (762, 'reason3', '18.0618295,-15.915919', 'رانبلت الحاكم', 'new', '1691787827.jpg', 1306, 13, 573, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (763, 'reason3', '18.0618295,-15.915919', 'رانبلت الحاكم', 'new', '1691787830.jpg', 1306, 13, 573, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (764, 'reason3', '18.0618295,-15.915919', 'رانبلت الحاكم', 'new', '1691787830.jpg', 1306, 13, 573, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
@@ -4785,8 +4779,8 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (798, 'reason1', '18.07230722310827,-15.908324611544607', 'انقطاع للمياه في الحي الإداري بتوجنين قريب من إعدادية توجنين ٢', 'new', '1691791371.jpg', 1306, 13, 1323, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (799, 'reason1', '18.072497555239373,-15.908338933809162', 'انقطاع للمياه في الحي الإداري بتوجنين قريب من إعدادية توجنين ٢', 'new', '1691791396.jpg', 1306, 13, 1323, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
 (800, 'reason1', '18.072537917508186,-15.908206386744192', 'انقطاع للمياه في الحي الإداري بتوجنين قريب من إعدادية توجنين ٢', 'new', '1691791412.jpg', 1306, 13, 1323, '2023-08-11', '2023-08-11', 130606, NULL, NULL),
-(801, 'reason1', '17.9983184,-15.9635961', 'on a un manque d\'eau depuis 3 mois aucune goutte ne coule les gens qui installent le nouveau réseau  nous on coupé l\'accès au moins ils doivent ouvrir même si c\'est par nuit', 'new', '1691791661.jpg', 1304, 13, 1749, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
-(802, 'reason1', '17.9983185,-15.9635956', 'on a un manque d\'eau depuis 3 mois aucune goutte ne coule les gens qui installent le nouveau réseau  nous on coupé l\'accès au moins ils doivent ouvrir même si c\'est par nuit', 'new', '1691791678.jpg', 1304, 13, 1749, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(801, 'reason1', '17.9983184,-15.9635961', 'on a un manque deau depuis 3 mois aucune goutte ne coule les gens qui installent le nouveau réseau  nous on coupé laccès au moins ils doivent ouvrir même si cest par nuit', 'new', '1691791661.jpg', 1304, 13, 1749, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
+(802, 'reason1', '17.9983185,-15.9635956', 'on a un manque deau depuis 3 mois aucune goutte ne coule les gens qui installent le nouveau réseau  nous on coupé laccès au moins ils doivent ouvrir même si cest par nuit', 'new', '1691791678.jpg', 1304, 13, 1749, '2023-08-11', '2023-08-11', 130404, NULL, NULL),
 (803, 'reason1', '18.1268947791679,-15.947211815195226', 'J4', 'new', '1691792740.jpg', 1309, 13, 1751, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (804, 'reason1', '18.12873225639382,-15.944648411237226', 'J4', 'new', '1691792753.jpg', 1309, 13, 1751, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
 (805, 'reason1', '18.128682563233895,-15.944713863769756', 'J4', 'new', '1691792758.jpg', 1309, 13, 1751, '2023-08-11', '2023-08-11', 130909, NULL, NULL),
@@ -4804,7 +4798,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (817, 'reason1', '18.114558319024653,-15.949078680402115', 'ليس عندنا ماء', 'new', '1691793892.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (818, 'reason1', '18.11455769005563,-15.949079143714938', 'ليس عندنا ماء', 'new', '1691793894.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (819, 'reason1', 'unknown_error', 'ليس عندنا ماء', 'new', '1691793937.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (820, 'reason1', 'unknown_error', 'ليس عندنا ماء', 'new', '1691793939.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (821, 'reason1', 'unknown_error', 'ليس عندنا ماء', 'new', '1691793942.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
 (822, 'reason1', '18.114561482111643,-15.949097940088611', 'ليس عندنا ماء', 'new', '1691793952.jpg', 1308, 13, 1743, '2023-08-11', '2023-08-11', 130808, NULL, NULL),
@@ -4986,9 +4980,9 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (998, 'reason6', '18.10774778624044,-15.96531745439285', 'fuite tuyau d’eau dans la rue', 'new', '1691859685.jpg', 1308, 13, 1973, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
 (999, 'reason6', '18.10774778624044,-15.96531745439285', 'fuite tuyau d’eau dans la rue', 'new', '1691859697.jpg', 1308, 13, 1973, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
 (1000, 'reason6', '18.10774778624044,-15.96531745439285', 'fuite tuyau d’eau dans la rue', 'new', '1691859705.jpg', 1308, 13, 1973, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
-(1001, 'reason1', '17.9477582,-15.9756717', 'PK14 y a pas d\'eau sa fait quelques jours', 'new', '1691860428.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
-(1002, 'reason1', '17.9477597,-15.9756705', 'PK14 y a pas d\'eau sa fait quelques jours', 'new', '1691860433.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
-(1003, 'reason1', '17.9477585,-15.9756716', 'PK14 y a pas d\'eau sa fait quelques jours', 'new', '1691860437.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
+(1001, 'reason1', '17.9477582,-15.9756717', 'PK14 y a pas deau sa fait quelques jours', 'new', '1691860428.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
+(1002, 'reason1', '17.9477597,-15.9756705', 'PK14 y a pas deau sa fait quelques jours', 'new', '1691860433.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
+(1003, 'reason1', '17.9477585,-15.9756716', 'PK14 y a pas deau sa fait quelques jours', 'new', '1691860437.jpg', 1304, 13, 1975, '2023-08-12', '2023-08-12', 130404, NULL, NULL),
 (1004, 'reason6', '20.9915719,-17.0292198', 'تصلني فواتير الماء على بنكيلي  36771023.لمنزل كنت استأجره أريدها أن لا ترسل لي بعد اليوم', 'new', '1691860638.jpg', 801, 8, 1976, '2023-08-12', '2023-08-12', 80101, NULL, NULL),
 (1005, 'reason6', '20.9915719,-17.0292208', 'تصلني فواتير الماء على بنكيلي  36771023.لمنزل كنت استأجره أريدها أن لا ترسل لي بعد اليوم', 'new', '1691860645.jpg', 801, 8, 1976, '2023-08-12', '2023-08-12', 80101, NULL, NULL),
 (1006, 'reason6', '20.9915565,-17.0292342', 'شروط الإستخدام باللغة الفرنسية', 'new', '1691860709.jpg', 801, 8, 1976, '2023-08-12', '2023-08-12', 80101, NULL, NULL),
@@ -5067,7 +5061,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1079, 'reason1', '18.116659904889516,-15.949087449739137', 'انقطاع المياه منذ الشههر التاسع من 2022', 'new', '1691878322.jpg', 1308, 13, 2062, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
 (1080, 'reason1', '18.11663944352475,-15.949022521535742', 'انقطاع المياه منذ الشههر التاسع من 2022', 'new', '1691878324.jpg', 1308, 13, 2062, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
 (1081, 'reason1', '18.116656411454098,-15.948998685941056', 'انقطاع المياه منذ الشههر التاسع من 2022', 'new', '1691878326.jpg', 1308, 13, 2062, '2023-08-12', '2023-08-12', 130808, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (1082, 'reason1', '18.116659904889516,-15.949087449739137', 'انقطاع المياه منذ الشههر التاسع من 2022', 'new', '1691878360.jpg', 1308, 13, 2062, '2023-08-12', '2023-08-12', 130808, NULL, NULL),
 (1083, 'reason6', 'unknown_error', 'الرجاء تصحيح اسم التطبيق بالعربية. حيث يظهر دائما بحروف الفرنسية رغم أن باقي الواجهة بالعربية. وشكرا.', 'new', '1691881498.jpg', 1305, 13, 1938, '2023-08-12', '2023-08-12', 130505, NULL, NULL),
 (1084, 'reason6', 'unknown_error', 'الرجاء تصحيح اسم التطبيق بالعربية. حيث يظهر دائما بحروف الفرنسية رغم أن باقي الواجهة بالعربية. وشكرا.', 'new', '1691881516.jpg', 1305, 13, 1938, '2023-08-12', '2023-08-12', 130505, NULL, NULL),
@@ -5159,9 +5153,9 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1170, 'reason1', 'unknown_error', 'جل مناطق العاصمة تعاني من العطش', 'new', '1691943204.jpg', 1309, 13, 2183, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
 (1171, 'reason1', 'unknown_error', 'جل مناطق العاصمة تعاني من العطش', 'new', '1691943206.jpg', 1309, 13, 2183, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
 (1172, 'reason1', 'unknown_error', 'الماء غير موجود في جل مناطق العاصمة', 'new', '1691943396.jpg', 1309, 13, 2183, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
-(1173, 'reason1', '18.1356013,-15.9496658', 'Nous n\'avons pas d\'eau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948189.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
-(1174, 'reason1', '18.1355978,-15.9496552', 'Nous n\'avons pas d\'eau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948198.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
-(1175, 'reason1', '18.1356008,-15.9496654', 'Nous n\'avons pas d\'eau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948274.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
+(1173, 'reason1', '18.1356013,-15.9496658', 'Nous navons pas deau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948189.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
+(1174, 'reason1', '18.1355978,-15.9496552', 'Nous navons pas deau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948198.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
+(1175, 'reason1', '18.1356008,-15.9496654', 'Nous navons pas deau depuis plusieurs jours et nous trouvons pas de citerne à vendre.', 'new', '1691948274.jpg', 1309, 13, 2187, '2023-08-13', '2023-08-13', 130909, NULL, NULL),
 (1176, 'reason1', '18.132188,-15.9916197', 'لايوجد لدينا ماء في الخزان وسيارات الماء غالية جدا نرجوا منكم المساعدة', 'new', '1691948459.jpg', 1301, 13, 2188, '2023-08-13', '2023-08-13', 130101, NULL, NULL),
 (1177, 'reason1', '18.132188,-15.9916197', 'لايوجد لدينا ماء في الخزان وسيارات الماء غالية جدا نرجوا منكم المساعدة', 'new', '1691948463.jpg', 1301, 13, 2188, '2023-08-13', '2023-08-13', 130101, NULL, NULL),
 (1178, 'reason1', '18.1315024,-15.9916474', 'لايوجد لدينا ماء في الخزان وسيارات الماء غالية جدا نرجوا منكم المساعدة', 'new', '1691948500.jpg', 1301, 13, 2188, '2023-08-13', '2023-08-13', 130101, NULL, NULL),
@@ -5289,7 +5283,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1300, 'reason1', '16.377527,-10.1539365', 'نحن في الطينطان نعاني من أزمة في المياه حيث أن الماء ينقطع عنا مدة شهر أو يزيد ثم يطلق لنا فترة محدودة والناس الضعاف الذين ليس لديهم ما يخزنون فيه الماء يتعرضون للعطش ويرغمون على شراء الماء وهذه مشكلة بحد ذاتها نرجو منكم أن تقومو بحلها وعلى الأقل عليكم نقصان فترة الإنقطاع إلى مدة أسبوع فقط إن لم توفرو الماء يوميا وننوه هنا أن مدينة الطينطان تتوفر على بحيرة جوفية كبيرة فمشكلة ليست في توفر الماء إنما المشكلة في ضعف قدرة الخزان وقدرة كذلك الضخ نرجو منكم حل هذه المشكلة والسلام عليكم', 'new', '1692011698.jpg', 204, 2, 2250, '2023-08-14', '2023-08-14', 20401, NULL, NULL),
 (1301, 'reason1', '18.1315485,-15.9920506', 'تم أخذ عداد الماء منذ فترة ولايوجد لدينا ماء نهائيا وسيارات الماء غالية جدا جدا نرجوا منكم التدخل السريع', 'new', '1692013609.jpg', 1301, 13, 2188, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1302, 'reason1', '18.1315485,-15.9920506', 'تم أخذ عداد الماء منذ فترة ولايوجد لدينا ماء نهائيا وسيارات الماء غالية جدا جدا نرجوا منكم التدخل السريع', 'new', '1692013609.jpg', 1301, 13, 2188, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
-(1303, 'reason1', '18.053759,-15.9861904', 'manque d\'eau depuis plus de 2semaine', 'new', '1692018369.jpg', 1303, 13, 2275, '2023-08-14', '2023-08-14', 130303, NULL, NULL),
+(1303, 'reason1', '18.053759,-15.9861904', 'manque deau depuis plus de 2semaine', 'new', '1692018369.jpg', 1303, 13, 2275, '2023-08-14', '2023-08-14', 130303, NULL, NULL),
 (1304, 'reason1', '18.129512314603407,-15.946357474442006', 'نواجه انقطاع في المياه دام اسبوع او اكثر بالقرب من بقالة الشباب و نرجو النظر في المشكلة', 'new', '1692019590.jpg', 1309, 13, 2281, '2023-08-14', '2023-08-14', 130909, NULL, NULL),
 (1305, 'reason1', '18.129512314603407,-15.946357474442006', 'نواجه انقطاع في المياه دام اسبوع او اكثر بالقرب من بقالة الشباب و نرجو النظر في المشكلة', 'new', '1692019595.jpg', 1309, 13, 2281, '2023-08-14', '2023-08-14', 130909, NULL, NULL),
 (1306, 'reason1', '18.129512314603407,-15.946357474442006', 'نواجه انقطاع في المياه دام اسبوع او اكثر بالقرب من بقالة الشباب و نرجو النظر في المشكلة', 'new', '1692019601.jpg', 1309, 13, 2281, '2023-08-14', '2023-08-14', 130909, NULL, NULL),
@@ -5303,7 +5297,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1314, 'reason4', '18.095165425412286,-15.963330065834027', 'compteur bloqué et changé sur demande. dernière facture affiche un faux index de 632 alors que le compteur affiche 325. l’agence ksar reffuse de rectifier.', 'new', '1692020308.jpg', 1308, 13, 2284, '2023-08-14', '2023-08-14', 130808, NULL, NULL),
 (1315, 'reason4', '18.095168539251553,-15.963806335073365', 'compteur bloqué et changé sur demande. dernière facture affiche un faux index de 632 alors que le compteur affiche 325. l’agence ksar reffuse de rectifier.', 'new', '1692020354.jpg', 1308, 13, 2284, '2023-08-14', '2023-08-14', 130808, NULL, NULL),
 (1316, 'reason4', '18.095171742984245,-15.963820065400165', 'compteur bloqué et changé sur demande. dernière facture affiche un faux index de 632 alors que le compteur affiche 325. l’agence ksar reffuse de rectifier.', 'new', '1692020358.jpg', 1308, 13, 2284, '2023-08-14', '2023-08-14', 130808, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (1317, 'reason1', '18.1309018,-15.966675', 'السلام عليكم ..النجدة ..النجدة ..منذ شهر لا يوجد لدينا ماء ..الماء مقطوع عنا منذ شهر لا نجد مياه للشرب ..الرجاء نجدتنا بصهريج من الماء.والامر عاجل ومؤكد...وشكرا', 'new', '1692021421.jpg', 1301, 13, 2286, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1318, 'reason1', '18.1308955,-15.9666665', 'السلام عليكم ..النجدة ..النجدة ..منذ شهر لا يوجد لدينا ماء ..الماء مقطوع عنا منذ شهر لا نجد مياه للشرب ..الرجاء نجدتنا بصهريج من الماء.والامر عاجل ومؤكد...وشكرا', 'new', '1692021424.jpg', 1301, 13, 2286, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1319, 'reason1', '18.1308732,-15.9667083', 'السلام عليكم ..النجدة ..النجدة ..منذ شهر لا يوجد لدينا ماء ..الماء مقطوع عنا منذ شهر لا نجد مياه للشرب ..الرجاء نجدتنا بصهريج من الماء.والامر عاجل ومؤكد...وشكرا', 'new', '1692021429.jpg', 1301, 13, 2286, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
@@ -5323,9 +5317,9 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1333, 'reason1', '18.12502369259899,-15.98018963518415', 'pas d’eau depuis 6 mois dans la zone de sahraoui lot 1522', 'new', '1692032943.jpg', 1301, 13, 2294, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1334, 'reason2', 'unknown_error', 'انفجار أمبوب', 'new', '1692035300.jpg', 1301, 13, 1773, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1335, 'reason2', 'unknown_error', 'انفجار أمبوب', 'new', '1692035306.jpg', 1301, 13, 1773, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
-(1336, 'reason1', '18.1159621,-15.9938744', 'nous avons un manque d\'eau dans la zone université maison 308', 'new', '1692035782.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
-(1337, 'reason1', '18.1160111,-15.9938453', 'nous avons un manque d\'eau dans la zone université maison 308', 'new', '1692035796.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
-(1338, 'reason1', '18.1160111,-15.9938453', 'nous avons un manque d\'eau dans la zone université maison 308', 'new', '1692035811.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
+(1336, 'reason1', '18.1159621,-15.9938744', 'nous avons un manque deau dans la zone université maison 308', 'new', '1692035782.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
+(1337, 'reason1', '18.1160111,-15.9938453', 'nous avons un manque deau dans la zone université maison 308', 'new', '1692035796.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
+(1338, 'reason1', '18.1160111,-15.9938453', 'nous avons un manque deau dans la zone université maison 308', 'new', '1692035811.jpg', 1301, 13, 2296, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1339, 'reason2', 'unknown_error', 'تسرب في أنابيب المياه', 'new', '1692037404.jpg', 1301, 13, 1773, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1340, 'reason2', 'unknown_error', 'تسرب في أنابيب المياه', 'new', '1692037411.jpg', 1301, 13, 1773, '2023-08-14', '2023-08-14', 130101, NULL, NULL),
 (1341, 'reason1', '18.017655,-15.9532033', 'نحن سكان حي ترحيل لادي لا تجد عندنا قطرة ماء منذ خمسة عشر يوم منطقة16B', 'new', '1692084376.jpg', 1304, 13, 2235, '2023-08-15', '2023-08-15', 130404, NULL, NULL),
@@ -5359,8 +5353,8 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1369, 'reason1', '18.1144245,-15.9558844', 'المياه منقطعة من قبل رمضان الأخير. من الأرجح أنه قام أحد بتخريب عداد المياه', 'new', '1692098770.jpg', 1308, 13, 2106, '2023-08-15', '2023-08-15', 130808, NULL, NULL),
 (1370, 'reason1', '18.114463,-15.955934', 'المياه منقطعة من قبل رمضان الأخير. من الأرجح أنه قام أحد بتخريب عداد المياه', 'new', '1692098783.jpg', 1308, 13, 2106, '2023-08-15', '2023-08-15', 130808, NULL, NULL),
 (1371, 'reason1', '18.114463,-15.955934', 'المياه منقطعة من قبل رمضان الأخير. من الأرجح أنه قام أحد بتخريب عداد المياه', 'new', '1692098783.jpg', 1308, 13, 2106, '2023-08-15', '2023-08-15', 130808, NULL, NULL),
-(1372, 'reason1', '22.7389187,-12.4680429', 'manque d\'eau', 'new', '1692101494.jpg', 1101, 11, 2327, '2023-08-15', '2023-08-15', 110101, NULL, NULL),
-(1373, 'reason1', '22.7389169,-12.4680429', 'manque d\'eau', 'new', '1692101510.jpg', 1101, 11, 2327, '2023-08-15', '2023-08-15', 110101, NULL, NULL),
+(1372, 'reason1', '22.7389187,-12.4680429', 'manque deau', 'new', '1692101494.jpg', 1101, 11, 2327, '2023-08-15', '2023-08-15', 110101, NULL, NULL),
+(1373, 'reason1', '22.7389169,-12.4680429', 'manque deau', 'new', '1692101510.jpg', 1101, 11, 2327, '2023-08-15', '2023-08-15', 110101, NULL, NULL),
 (1374, 'reason6', '18.0843793,-15.9787028', 'مشكلة في التطبيق ندخل رقم الفكتير يغير مانعرف فيه كم مايظهرل شي .', 'new', '1692104133.jpg', 1307, 13, 2318, '2023-08-15', '2023-08-15', 130707, NULL, NULL),
 (1375, 'reason6', '18.0843653,-15.9786955', 'مشكلة في التطبيق ندخل رقم الفكتير يغير مانعرف فيه كم مايظهرل شي .', 'new', '1692104146.jpg', 1307, 13, 2318, '2023-08-15', '2023-08-15', 130707, NULL, NULL),
 (1376, 'reason6', '18.0843477,-15.97869', 'مشكلة في التطبيق ندخل رقم الفكتير يغير مانعرف فيه كم مايظهرل شي .', 'new', '1692104163.jpg', 1307, 13, 2318, '2023-08-15', '2023-08-15', 130707, NULL, NULL),
@@ -5378,8 +5372,8 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1388, 'reason1', 'unknown_error', 'ماكط جانا الماءسنتين ماشفناه', 'new', '1692115464.jpg', 1301, 13, 2343, '2023-08-15', '2023-08-15', 130101, NULL, NULL),
 (1389, 'reason1', '18.1267467,-15.927275', 'انقطاع تام للماء', 'new', '1692126974.jpg', 1307, 13, 1199, '2023-08-15', '2023-08-15', 130707, NULL, NULL),
 (1390, 'reason1', '18.1264714,-15.9275287', 'انقطاع تام للماء', 'new', '1692126982.jpg', 1307, 13, 1199, '2023-08-15', '2023-08-15', 130707, NULL, NULL),
-(1391, 'reason1', '20.9183328,-17.0538058', 'manque d\'eaux', 'new', '1692145170.jpg', 801, 8, 2360, '2023-08-16', '2023-08-16', 80101, NULL, NULL),
-(1392, 'reason1', '20.9183328,-17.0538058', 'manque d\'eaux', 'new', '1692145170.jpg', 801, 8, 2360, '2023-08-16', '2023-08-16', 80101, NULL, NULL),
+(1391, 'reason1', '20.9183328,-17.0538058', 'manque deaux', 'new', '1692145170.jpg', 801, 8, 2360, '2023-08-16', '2023-08-16', 80101, NULL, NULL),
+(1392, 'reason1', '20.9183328,-17.0538058', 'manque deaux', 'new', '1692145170.jpg', 801, 8, 2360, '2023-08-16', '2023-08-16', 80101, NULL, NULL),
 (1393, 'reason1', '18.0631176,-15.9599447', 'من حوالي ١٠أيام ونحن في انقطاع تام عن ماهو عصب الحياة', 'new', '1692148730.jpg', 1305, 13, 2361, '2023-08-16', '2023-08-16', 130505, NULL, NULL),
 (1394, 'reason1', '18.063122,-15.9597682', 'من حوالي ١٠أيام ونحن في انقطاع تام عن ماهو عصب الحياة', 'new', '1692148761.jpg', 1305, 13, 2361, '2023-08-16', '2023-08-16', 130505, NULL, NULL),
 (1395, 'reason1', '18.129416156511795,-15.991526333882412', 'عدم وجود الماء منذ أيام', 'new', '1692153355.jpg', 1301, 13, 2362, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
@@ -5389,10 +5383,10 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1399, 'reason1', '18.128069226249057,-15.990790378922117', 'عدم وجود الماء منذ أيام', 'new', '1692153370.jpg', 1301, 13, 2362, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
 (1400, 'reason1', '18.128030409202417,-15.990769169510754', 'عدم وجود الماء منذ أيام', 'new', '1692153378.jpg', 1301, 13, 2362, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
 (1401, 'reason1', '18.127922822233337,-15.990710384608715', 'عدم وجود المياه', 'new', '1692153487.jpg', 1301, 13, 2362, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
-(1402, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne d\'eau', 'new', '1692153947.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
-(1403, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne d\'eau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
-(1404, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne d\'eau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
-(1405, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne d\'eau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
+(1402, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne deau', 'new', '1692153947.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
+(1403, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne deau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
+(1404, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne deau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
+(1405, 'reason1', '18.1302225,-15.9918579', 'on veux une siterne deau', 'new', '1692153948.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
 (1406, 'reason1', '18.1302168,-15.9918787', 'نري', 'new', '1692153992.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
 (1407, 'reason1', '18.130217,-15.9918797', 'نريد', 'new', '1692153994.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
 (1408, 'reason1', '18.1302166,-15.9918835', 'نريد صهريج مياه', 'new', '1692154014.jpg', 1301, 13, 2363, '2023-08-16', '2023-08-16', 130101, NULL, NULL),
@@ -5520,7 +5514,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1530, 'reason1', '18.14509916128646,-15.935907596635905', 'انقطاع المياه  عين الطلح', 'new', '1692378906.jpg', 1309, 13, 2426, '2023-08-18', '2023-08-18', 130909, NULL, NULL),
 (1531, 'reason1', '18.145096420452976,-15.935915724610563', 'on es pas de l’eau depuis le mois passé', 'new', '1692379110.jpg', 1309, 13, 2426, '2023-08-18', '2023-08-18', 130909, NULL, NULL),
 (1532, 'reason1', '18.14509470416508,-15.9359341221121', 'on es pas de l’eau depuis le mois passé', 'new', '1692379114.jpg', 1309, 13, 2426, '2023-08-18', '2023-08-18', 130909, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (1533, 'reason1', '18.14509504862976,-15.93593098446019', 'on es pas de l’eau depuis le mois passé', 'new', '1692379116.jpg', 1309, 13, 2426, '2023-08-18', '2023-08-18', 130909, NULL, NULL),
 (1534, 'reason2', '18.1169095,-15.9569166', 'تدفق أنبوب', 'new', '1692384468.jpg', 1308, 13, 2443, '2023-08-18', '2023-08-18', 130808, NULL, NULL),
 (1535, 'reason2', '18.1167,-15.9569479', 'تسرب في أنابيب المياه', 'new', '1692384500.jpg', 1308, 13, 2443, '2023-08-18', '2023-08-18', 130808, NULL, NULL),
@@ -5618,7 +5612,7 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1627, 'reason1', '18.0337315,-15.9216079', 'انقطاع شبه تام للماء منذ أيام لا يأتي إلا في ساعات متأخرة من الليل ويقطع فجرا هنا في الترحيل 18 جنوب شرق المفوضية', 'new', '1692960440.jpg', 1306, 13, 1570, '2023-08-25', '2023-08-25', 130606, NULL, NULL),
 (1628, 'reason1', '18.0337317,-15.9216083', 'انق', 'new', '1692960720.jpg', 1306, 13, 1570, '2023-08-25', '2023-08-25', 130606, NULL, NULL),
 (1629, 'reason1', '18.0755794,-15.9653903', 'كرفور شارع بوليس بدون ماء', 'new', '1693151660.jpg', 1305, 13, 1125, '2023-08-27', '2023-08-27', 130505, NULL, NULL),
-(1630, 'reason4', '18.787373,-11.6900559', 'Couple bills have been claimed on my address as confirmed used m3, while no one of your team come by our counter and it\'s on 10m3 as per the attached picture.', 'new', '1693166914.jpg', 1306, 13, 2394, '2023-08-27', '2023-08-27', 130606, NULL, NULL),
+(1630, 'reason4', '18.787373,-11.6900559', 'Couple bills have been claimed on my address as confirmed used m3, while no one of your team come by our counter and its on 10m3 as per the attached picture.', 'new', '1693166914.jpg', 1306, 13, 2394, '2023-08-27', '2023-08-27', 130606, NULL, NULL),
 (1631, 'reason1', '18.133783317649566,-15.944430482516555', 'الماء ما جانا لو يومين', 'new', '1693233597.jpg', 1309, 13, 1453, '2023-08-28', '2023-08-28', 130909, NULL, NULL),
 (1632, 'reason1', '18.01801801801802,-15.934597083129278', 'أزبد. من. 48. ساعه.  الماء. مقطوع. عنا.   في. الترحيل القطاع. 18', 'new', '1693293313.jpg', 1304, 13, 1058, '2023-08-29', '2023-08-29', 130404, NULL, NULL),
 (1633, 'reason1', '18.01801801801802,-15.934597083129278', 'أزبد. من. 48. ساعه.  الماء. مقطوع. عنا.   في. الترحيل القطاع. 18', 'new', '1693293322.jpg', 1304, 13, 1058, '2023-08-29', '2023-08-29', 130404, NULL, NULL),
@@ -5645,27 +5639,27 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1654, 'reason1', '20.9540267,-17.0334534', 'من فضلكم نحتاج للماء', 'new', '1693433949.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
 (1655, 'reason1', '20.953982,-17.0335719', 'من فضلكم نحتاج للماء', 'new', '1693433966.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
 (1656, 'reason1', '20.953982,-17.0335719', 'من فضلكم نحتاج للماء', 'new', '1693433969.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
-(1657, 'reason1', '20.9539813,-17.03357', 'Nous vous en supplions, nous avons besoin d\'eau', 'new', '1693434185.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
-(1658, 'reason1', '20.9539813,-17.03357', 'Nous vous en supplions, nous avons besoin d\'eau', 'new', '1693434192.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
-(1659, 'reason1', '20.9539807,-17.0335693', 'Nous vous en supplions, nous avons besoin d\'eau', 'new', '1693434193.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
-(1660, 'reason1', '18.1129238,-15.9198695', 'pa\'s d aux', 'new', '1693587607.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
-(1661, 'reason1', '18.1104217,-15.9156', 'pa\'s d aux', 'new', '1693587620.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
+(1657, 'reason1', '20.9539813,-17.03357', 'Nous vous en supplions, nous avons besoin deau', 'new', '1693434185.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
+(1658, 'reason1', '20.9539813,-17.03357', 'Nous vous en supplions, nous avons besoin deau', 'new', '1693434192.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
+(1659, 'reason1', '20.9539807,-17.0335693', 'Nous vous en supplions, nous avons besoin deau', 'new', '1693434193.jpg', 801, 8, 2597, '2023-08-30', '2023-08-30', 80101, NULL, NULL),
+(1660, 'reason1', '18.1129238,-15.9198695', 'pas d aux', 'new', '1693587607.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
+(1661, 'reason1', '18.1104217,-15.9156', 'pas d aux', 'new', '1693587620.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
 (1662, 'reason1', '18.1103334,-15.9154147', 'manaue d eau', 'new', '1693587801.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
 (1663, 'reason1', '18.110335,-15.9157983', 'manaue d eau', 'new', '1693587818.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
 (1664, 'reason1', '18.110335,-15.9157983', 'manaue d eau', 'new', '1693587818.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
 (1665, 'reason1', '18.110335,-15.9157983', 'manaue d eau', 'new', '1693587818.jpg', 1307, 13, 2612, '2023-09-01', '2023-09-01', 130707, NULL, NULL),
 (1666, 'reason2', 'unknown_error', 'الحنفية الخامسة', 'new', '1693681176.jpg', 801, 8, 2401, '2023-09-02', '2023-09-02', 80101, NULL, NULL),
 (1667, 'reason2', 'unknown_error', 'الحنفية الخامسة', 'new', '1693681331.jpg', 801, 8, 2401, '2023-09-02', '2023-09-02', 80101, NULL, NULL),
-(1668, 'reason2', '18.1180568,-15.9495004', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733208.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1669, 'reason2', '18.1180539,-15.9495003', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733216.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1670, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733325.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1671, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733325.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1672, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733329.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1673, 'reason2', '18.1180465,-15.9494917', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733373.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1674, 'reason2', '18.1180465,-15.9494917', 'Il y a une rue pleine d\'eau dans notre quartier et chaque fois que l\'eau arrive, elle se remplit.', 'new', '1693733376.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
-(1675, 'reason1', '17.9983185,-15.9635959', 'on nous a coupé l\'eau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736230.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
-(1676, 'reason1', '17.9983186,-15.9635956', 'on nous a coupé l\'eau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736236.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
-(1677, 'reason1', '17.9983184,-15.9635961', 'on nous a coupé l\'eau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736250.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
+(1668, 'reason2', '18.1180568,-15.9495004', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733208.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1669, 'reason2', '18.1180539,-15.9495003', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733216.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1670, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733325.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1671, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733325.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1672, 'reason2', '18.1180465,-15.9494915', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733329.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1673, 'reason2', '18.1180465,-15.9494917', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733373.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1674, 'reason2', '18.1180465,-15.9494917', 'Il y a une rue pleine deau dans notre quartier et chaque fois que leau arrive, elle se remplit.', 'new', '1693733376.jpg', 1308, 13, 2618, '2023-09-03', '2023-09-03', 130808, NULL, NULL),
+(1675, 'reason1', '17.9983185,-15.9635959', 'on nous a coupé leau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736230.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
+(1676, 'reason1', '17.9983186,-15.9635956', 'on nous a coupé leau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736236.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
+(1677, 'reason1', '17.9983184,-15.9635961', 'on nous a coupé leau depuis 3 mois et on nous amène des factures  élève à pk10 extension', 'new', '1693736250.jpg', 1304, 13, 1749, '2023-09-03', '2023-09-03', 130404, NULL, NULL),
 (1678, 'reason6', '18.088344569999993,-15.938896169999996', 'لعطش لعطش', 'new', '1693830177.jpg', 1307, 13, 2206, '2023-09-04', '2023-09-04', 130707, NULL, NULL),
 (1679, 'reason6', '18.088344569999993,-15.938896169999996', 'لعطش لعطش', 'new', '1693830181.jpg', 1307, 13, 2206, '2023-09-04', '2023-09-04', 130707, NULL, NULL),
 (1680, 'reason2', '18.135713319578553,-15.944938998784938', 'grande fuite d’eau', 'new', '1693902009.jpg', 1309, 13, 1595, '2023-09-05', '2023-09-05', 130909, NULL, NULL),
@@ -5737,9 +5731,9 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1746, 'reason2', '18.0548432,-15.9773645', 'تسرب من أنبوب شرق مصنع الواحة للمعكرونة شمال غرب معهد تكوين خريجي المحاظر', 'new', '1698919326.jpg', 1303, 13, 2516, '2023-11-02', '2023-11-02', 130303, NULL, NULL),
 (1747, 'reason2', '18.0547333,-15.9772487', 'تسرب من أنبوب شرق مصنع الواحة للمعكرونة شمال غرب معهد تكوين خريجي المحاظر', 'new', '1698919335.jpg', 1303, 13, 2516, '2023-11-02', '2023-11-02', 130303, NULL, NULL),
 (1748, 'reason2', '18.0547833,-15.97736', 'تسرب من أنبوب شرق مصنع الواحة للمعكرونة شمال غرب معهد تكوين خريجي المحاظر', 'new', '1698919366.jpg', 1303, 13, 2516, '2023-11-02', '2023-11-02', 130303, NULL, NULL),
-(1749, 'reason2', '18.1044867,-16.0195024', 'fuite dans la conduite d\'eau à la cité plage près du logement 444.', 'new', '1698948586.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
-(1750, 'reason2', '18.1044786,-16.0195024', 'fuite dans la conduite d\'eau à la cité plage près du logement 444.', 'new', '1698948609.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
-(1751, 'reason2', '18.1044844,-16.0194996', 'fuite dans la conduite d\'eau à la cité plage près du logement 444.', 'new', '1698948659.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
+(1749, 'reason2', '18.1044867,-16.0195024', 'fuite dans la conduite deau à la cité plage près du logement 444.', 'new', '1698948586.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
+(1750, 'reason2', '18.1044786,-16.0195024', 'fuite dans la conduite deau à la cité plage près du logement 444.', 'new', '1698948609.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
+(1751, 'reason2', '18.1044844,-16.0194996', 'fuite dans la conduite deau à la cité plage près du logement 444.', 'new', '1698948659.jpg', 1301, 13, 1847, '2023-11-02', '2023-11-02', 130101, NULL, NULL),
 (1752, 'reason2', '18.0388563,-15.9363905', 'تسرب مياه', 'new', '1699353667.jpg', 1306, 13, 2390, '2023-11-07', '2023-11-07', 130606, NULL, NULL),
 (1753, 'reason2', '18.0388563,-15.9363905', 'تسرب مياه', 'new', '1699353695.jpg', 1306, 13, 2390, '2023-11-07', '2023-11-07', 130606, NULL, NULL),
 (1754, 'reason2', '18.0490733,-15.927252', 'تسرب مياه', 'new', '1699353749.jpg', 1306, 13, 2390, '2023-11-07', '2023-11-07', 130606, NULL, NULL),
@@ -5752,30 +5746,30 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1761, 'reason2', '18.009775165704976,-15.969718979574044', 'تسريب في انبوب المياه', 'new', '1699820985.jpg', 1304, 13, 2885, '2023-11-12', '2023-11-12', 130404, NULL, NULL),
 (1762, 'reason2', '18.00953103696742,-15.97071368248758', 'تسريب في انبوب المياه', 'new', '1699820992.jpg', 1304, 13, 2885, '2023-11-12', '2023-11-12', 130404, NULL, NULL),
 (1763, 'reason2', '18.009537449121446,-15.970699097976064', 'تسريب في انبوب المياه', 'new', '1699821005.jpg', 1304, 13, 2885, '2023-11-12', '2023-11-12', 130404, NULL, NULL),
-(1764, 'reason6', '20.951854,-17.0325333', 'compteur bloqué on a signaler plusieurs fois c\'est des faux rendez-vous et rien du sérieux', 'new', '1699971290.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1765, 'reason6', '20.951855,-17.0325333', 'compteur bloqué on a signaler plusieurs fois c\'est des faux rendez-vous et rien du sérieux', 'new', '1699971304.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1766, 'reason4', '20.951845,-17.0325167', 'compteur bloqué on a signaler plusieurs fois c\'est des faux rendez-vous et rien du sérieux', 'new', '1699971323.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1767, 'reason4', '20.950916,-17.0328064', 'compteur bloqué on a signaler plusieurs fois c\'est des faux rendez-vous et rien du sérieux', 'new', '1699971871.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1768, 'reason4', '20.9508667,-17.0327967', 'compteur bloqué on a signaler plusieurs fois c\'est des faux rendez-vous et rien du sérieux', 'new', '1699971895.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1769, 'reason4', 'unknown_error', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972313.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1770, 'reason4', 'unknown_error', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972314.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1771, 'reason4', '20.9503641,-17.0353044', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972335.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1772, 'reason4', '20.9503641,-17.0353044', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972335.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1773, 'reason4', '20.9525079,-17.0336195', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972359.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1774, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972379.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1775, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972386.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1776, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972388.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1777, 'reason4', '20.9525034,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972409.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1778, 'reason4', '20.9525034,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972410.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1779, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972422.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1780, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972422.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1781, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1782, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
-(1783, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, y\'a même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1764, 'reason6', '20.951854,-17.0325333', 'compteur bloqué on a signaler plusieurs fois cest des faux rendez-vous et rien du sérieux', 'new', '1699971290.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1765, 'reason6', '20.951855,-17.0325333', 'compteur bloqué on a signaler plusieurs fois cest des faux rendez-vous et rien du sérieux', 'new', '1699971304.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1766, 'reason4', '20.951845,-17.0325167', 'compteur bloqué on a signaler plusieurs fois cest des faux rendez-vous et rien du sérieux', 'new', '1699971323.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1767, 'reason4', '20.950916,-17.0328064', 'compteur bloqué on a signaler plusieurs fois cest des faux rendez-vous et rien du sérieux', 'new', '1699971871.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1768, 'reason4', '20.9508667,-17.0327967', 'compteur bloqué on a signaler plusieurs fois cest des faux rendez-vous et rien du sérieux', 'new', '1699971895.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1769, 'reason4', 'unknown_error', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972313.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1770, 'reason4', 'unknown_error', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972314.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1771, 'reason4', '20.9503641,-17.0353044', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972335.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1772, 'reason4', '20.9503641,-17.0353044', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972335.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1773, 'reason4', '20.9525079,-17.0336195', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972359.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1774, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972379.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1775, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972386.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1776, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972388.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1777, 'reason4', '20.9525034,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972409.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1778, 'reason4', '20.9525034,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972410.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1779, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972422.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1780, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972422.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1781, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1782, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
+(1783, 'reason4', '20.9525035,-17.0336198', 'compteur bloqué depuis nous avons passé plus de 30 de fois signaler mais en vein, ya même pas du sérieux dans le traitement de nos demandes et chaque fois on a une facture surestime pour une consommation domiciale', 'new', '1699972423.jpg', 801, 8, 2900, '2023-11-14', '2023-11-14', 80101, NULL, NULL),
 (1784, 'reason3', '17.1651777,-10.6267192', 'يوجد أكثر من عداد في بلدية الصفا المركزية لم يستلم أصحابها فواتير منذ اشتراكهم، بعضهم مشترك منذ أزيد من سنتان، ولا استلموا عقد الإشتراك من نفسه،لذا نرجوكم الانتباه للأمر فنفوس الساكنة غير مطمئنة بل تحدثها بأن هنالك عمليات احتيال كبيرة.', 'new', '1700152282.jpg', 202, 2, 1288, '2023-11-16', '2023-11-16', 20203, NULL, NULL),
 (1785, 'reason3', '17.1650831,-10.6267051', 'يوجد أكثر من عداد في بلدية الصفا المركزية لم يستلم أصحابها فواتير منذ اشتراكهم، بعضهم مشترك منذ أزيد من سنتان، ولا استلموا عقد الإشتراك من نفسه،لذا نرجوكم الانتباه للأمر فنفوس الساكنة غير مطمئنة بل تحدثها بأن هنالك عمليات احتيال كبيرة.', 'new', '1700152289.jpg', 202, 2, 1288, '2023-11-16', '2023-11-16', 20203, NULL, NULL),
 (1786, 'reason2', '18.0698187,-15.9355328', 'عند الرابع و العشرين', 'new', '1700155197.jpg', 1306, 13, 3345, '2023-11-16', '2023-11-16', 130606, NULL, NULL);
-INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `image`, `city_id`, `state_id`, `user_id`, `created_at`, `updated_at`, `region_id`, `technical_id`, `manager_id`) VALUES
+INSERT INTO reports (id, report_type, latlng, description, status, image, city_id, state_id, user_id, created_at, updated_at, region_id, technical_id, manager_id) VALUES
 (1787, 'reason2', '18.0697919,-15.935385', 'عند الرابع و العشرين', 'new', '1700155198.jpg', 1306, 13, 3345, '2023-11-16', '2023-11-16', 130606, NULL, NULL),
 (1788, 'reason2', '18.0698136,-15.935309', 'عند الرابع و العشرين', 'new', '1700155213.jpg', 1306, 13, 3345, '2023-11-16', '2023-11-16', 130606, NULL, NULL),
 (1789, 'reason1', '18.118553797130655,-15.980201173807474', 'coupure d’eau depuis 5 jours', 'new', '1700176829.jpg', 1301, 13, 2852, '2023-11-16', '2023-11-16', 130101, NULL, NULL),
@@ -5796,29 +5790,29 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1804, 'reason2', '18.0642583,-15.9246583', 'جنوب مصحة الخليل', 'new', '1700686946.jpg', 1306, 13, 1138, '2023-11-22', '2023-11-22', 130606, NULL, NULL),
 (1805, 'reason2', '18.0642583,-15.9246583', 'جنوب مصحة الخليل', 'new', '1700686957.jpg', 1306, 13, 1138, '2023-11-22', '2023-11-22', 130606, NULL, NULL),
 (1806, 'reason2', '18.07207207207207,-15.93949543588773', 'بوحديده الربينه 3', 'new', '1700689695.jpg', 1306, 13, 1138, '2023-11-22', '2023-11-22', 130606, NULL, NULL),
-(1807, 'reason1', '18.11977,-15.9496084', 'الم نجد ماء منذ يوم الجمعة  référence d\'abonnement : 14341510. Adresse C5 N317', 'new', '1700721851.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1808, 'reason1', '18.11977,-15.9496084', 'الم نجد ماء منذ يوم الجمعة  référence d\'abonnement : 14341510. Adresse C5 N317', 'new', '1700721861.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1809, 'reason1', '18.11977,-15.9496084', 'manque d\'eau depuis le vendredi passé jusqu\'à aujourd\'hui Adresse : C5 N317', 'new', '1700722052.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1810, 'reason1', '18.1203217,-15.9509349', 'manque d\'eau depuis le vendredi passé jusqu\'à aujourd\'hui Adresse : C5 N317', 'new', '1700722056.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1811, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722661.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1812, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722664.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1813, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722675.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1814, 'reason1', '18.1203178,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722775.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1815, 'reason1', '18.1203179,-15.9510035', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722844.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1816, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722865.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1817, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722867.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1818, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722867.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1819, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722868.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1820, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722906.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1821, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722907.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1822, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722908.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1823, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722909.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1824, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722910.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1825, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722910.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1826, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722911.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1827, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722912.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1828, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722912.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
-(1829, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusqu\'à aujourd\'hui on n\' est pas trouvé de l\'eau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722913.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1807, 'reason1', '18.11977,-15.9496084', 'الم نجد ماء منذ يوم الجمعة  référence dabonnement : 14341510. Adresse C5 N317', 'new', '1700721851.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1808, 'reason1', '18.11977,-15.9496084', 'الم نجد ماء منذ يوم الجمعة  référence dabonnement : 14341510. Adresse C5 N317', 'new', '1700721861.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1809, 'reason1', '18.11977,-15.9496084', 'manque deau depuis le vendredi passé jusquà aujourdhui Adresse : C5 N317', 'new', '1700722052.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1810, 'reason1', '18.1203217,-15.9509349', 'manque deau depuis le vendredi passé jusquà aujourdhui Adresse : C5 N317', 'new', '1700722056.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1811, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722661.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1812, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722664.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1813, 'reason1', '18.1203175,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722675.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1814, 'reason1', '18.1203178,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722775.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1815, 'reason1', '18.1203179,-15.9510035', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722844.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1816, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722865.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1817, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722867.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1818, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722867.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1819, 'reason1', '18.1203174,-15.9510034', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722868.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1820, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722906.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1821, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722907.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1822, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722908.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1823, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722909.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1824, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722910.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1825, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722910.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1826, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722911.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1827, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722912.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1828, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722912.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
+(1829, 'reason1', '18.1203148,-15.9510122', 'Urgent: depuis vendredi passé le 17/11/23\nJusquà aujourdhui on n est pas trouvé de leau \nAdresse: C5 N317\nRéf Abonnement :14341510', 'new', '1700722913.jpg', 1309, 13, 3587, '2023-11-23', '2023-11-23', 130909, NULL, NULL),
 (1830, 'reason2', '18.1136895,-15.9110474', 'تسرب مياه الأنابيب', 'new', '1700722977.jpg', 1307, 13, 1430, '2023-11-23', '2023-11-23', 130707, NULL, NULL),
 (1831, 'reason2', '18.1135256,-15.9110429', 'تسرب مياه الأنابيب', 'new', '1700723003.jpg', 1307, 13, 1430, '2023-11-23', '2023-11-23', 130707, NULL, NULL),
 (1832, 'reason2', '18.1135256,-15.9110429', 'تسرب مياه الأنابيب', 'new', '1700723006.jpg', 1307, 13, 1430, '2023-11-23', '2023-11-23', 130707, NULL, NULL),
@@ -5826,13 +5820,13 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1834, 'reason2', '18.1134303,-15.9111535', 'تسرب مياه الأنابيب', 'new', '1700723024.jpg', 1307, 13, 1430, '2023-11-23', '2023-11-23', 130707, NULL, NULL),
 (1835, 'reason2', '18.1133032,-15.9110923', 'تسرب مياه الأنابيب', 'new', '1700723468.jpg', 1307, 13, 1430, '2023-11-23', '2023-11-23', 130707, NULL, NULL),
 (1836, 'reason6', '18.55855855855856,-11.403822561210914', 'رقم الحاسوب 293351', 'new', '1701296395.jpg', 901, 9, 2178, '2023-11-29', '2023-11-29', 90101, NULL, NULL),
-(1837, 'reason2', '18.0614356,-15.9688487', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359027.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1838, 'reason2', '18.0614356,-15.9688487', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359055.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1839, 'reason2', '18.0614238,-15.9688101', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359062.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1840, 'reason2', '18.0614247,-15.9687952', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359075.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1841, 'reason2', '18.0614211,-15.9687903', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359087.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1842, 'reason2', '18.0614233,-15.9687779', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359100.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
-(1843, 'reason2', '18.0614233,-15.9687779', 'une fuite d\'eau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359106.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1837, 'reason2', '18.0614356,-15.9688487', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359027.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1838, 'reason2', '18.0614356,-15.9688487', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359055.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1839, 'reason2', '18.0614238,-15.9688101', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359062.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1840, 'reason2', '18.0614247,-15.9687952', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359075.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1841, 'reason2', '18.0614211,-15.9687903', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359087.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1842, 'reason2', '18.0614233,-15.9687779', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359100.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
+(1843, 'reason2', '18.0614233,-15.9687779', 'une fuite deau dans le réseau SNDE à côté dela mosquée 🕌  elbir arafat', 'new', '1701359106.jpg', 1305, 13, 4163, '2023-11-30', '2023-11-30', 130505, NULL, NULL),
 (1844, 'reason1', '-8.9324921,13.1617506', 'السلام عليكم ورحمة الله وبركاته.    منذ أيام و منزلنا لا تأتيه قطرة ماء علما أن الفاتورة مدفوعة و لا توجد فيها أوقية واحدة.       سكتير 7 ملح رقم الفاتورة 15071080', 'new', '1701860165.jpg', 1306, 13, 1033, '2023-12-06', '2023-12-06', 130606, NULL, NULL),
 (1845, 'reason1', '-8.9324921,13.1617506', 'السلام عليكم ورحمة الله وبركاته.    منذ أيام و منزلنا لا تأتيه قطرة ماء علما أن الفاتورة مدفوعة و لا توجد فيها أوقية واحدة.       سكتير 7 ملح رقم الفاتورة 15071080', 'new', '1701860166.jpg', 1306, 13, 1033, '2023-12-06', '2023-12-06', 130606, NULL, NULL),
 (1846, 'reason1', '-8.9324921,13.1617506', 'السلام عليكم ورحمة الله وبركاته.    منذ أيام و منزلنا لا تأتيه قطرة ماء علما أن الفاتورة مدفوعة و لا توجد فيها أوقية واحدة.       سكتير 7 ملح رقم الفاتورة 15071080', 'new', '1701860177.jpg', 1306, 13, 1033, '2023-12-06', '2023-12-06', 130606, NULL, NULL),
@@ -5840,16 +5834,16 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1848, 'reason2', 'unknown_error', 'تسرب في حد الأنابيب الرئيسية بين العمود السادس و السابع', 'new', '1701938294.jpg', 1305, 13, 1156, '2023-12-07', '2023-12-07', 130505, NULL, NULL),
 (1849, 'reason2', 'unknown_error', 'تسرب في حد الأنابيب الرئيسية بين العمود السادس و السابع', 'new', '1701938296.jpg', 1305, 13, 1156, '2023-12-07', '2023-12-07', 130505, NULL, NULL),
 (1850, 'reason2', 'unknown_error', 'تسرب في حد الأنابيب الرئيسية بين العمود السادس و السابع', 'new', '1701938301.jpg', 1305, 13, 1156, '2023-12-07', '2023-12-07', 130505, NULL, NULL),
-(1851, 'reason2', '18.1327507,-16.0004061', 'Petite fuite d\'un tuyau dans la rue', 'new', '1702046481.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1852, 'reason2', '18.132808,-16.0003204', 'Petite fuite d\'un tuyau dans la rue', 'new', '1702046504.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1853, 'reason2', '18.132784,-16.0003193', 'Petite fuite d\'un tuyau dans la rue', 'new', '1702046512.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1854, 'reason2', '18.1327778,-16.0003262', 'Petite fuite d\'un tuyau dans la rue', 'new', '1702046519.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1855, 'reason2', '18.1327778,-16.0003262', 'Petite fuite d\'un tuyau dans la rue', 'new', '1702046522.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1856, 'reason2', '18.1327632,-16.0003313', 'Fuite d\'un tuyau dans la rue', 'new', '1702046549.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1857, 'reason2', '18.1327584,-16.0003273', 'Fuite d\'un tuyau dans la rue', 'new', '1702046570.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1858, 'reason2', '18.1327539,-16.0003269', 'Fuite d\'un tuyau dans la rue', 'new', '1702046581.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1859, 'reason2', '18.1327539,-16.0003269', 'Fuite d\'un tuyau dans la rue', 'new', '1702046585.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
-(1860, 'reason2', '18.1327539,-16.0003269', 'Fuite d\'un tuyau dans la rue', 'new', '1702046588.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1851, 'reason2', '18.1327507,-16.0004061', 'Petite fuite dun tuyau dans la rue', 'new', '1702046481.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1852, 'reason2', '18.132808,-16.0003204', 'Petite fuite dun tuyau dans la rue', 'new', '1702046504.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1853, 'reason2', '18.132784,-16.0003193', 'Petite fuite dun tuyau dans la rue', 'new', '1702046512.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1854, 'reason2', '18.1327778,-16.0003262', 'Petite fuite dun tuyau dans la rue', 'new', '1702046519.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1855, 'reason2', '18.1327778,-16.0003262', 'Petite fuite dun tuyau dans la rue', 'new', '1702046522.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1856, 'reason2', '18.1327632,-16.0003313', 'Fuite dun tuyau dans la rue', 'new', '1702046549.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1857, 'reason2', '18.1327584,-16.0003273', 'Fuite dun tuyau dans la rue', 'new', '1702046570.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1858, 'reason2', '18.1327539,-16.0003269', 'Fuite dun tuyau dans la rue', 'new', '1702046581.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1859, 'reason2', '18.1327539,-16.0003269', 'Fuite dun tuyau dans la rue', 'new', '1702046585.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
+(1860, 'reason2', '18.1327539,-16.0003269', 'Fuite dun tuyau dans la rue', 'new', '1702046588.jpg', 1301, 13, 1515, '2023-12-08', '2023-12-08', 130101, NULL, NULL),
 (1861, 'reason2', 'unknown_error', 'هنالك تسرب في المياه', 'new', '1702346966.jpg', 1305, 13, 1204, '2023-12-12', '2023-12-12', 130505, NULL, NULL),
 (1862, 'reason2', 'unknown_error', 'هنالك تسرب في المياه', 'new', '1702346971.jpg', 1305, 13, 1204, '2023-12-12', '2023-12-12', 130505, NULL, NULL),
 (1863, 'reason2', 'unknown_error', 'هنالك تسرب في المياه', 'new', '1702346974.jpg', 1305, 13, 1204, '2023-12-12', '2023-12-12', 130505, NULL, NULL),
@@ -5940,16 +5934,16 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1948, 'reason3', 'unknown_error', 'لا تصل', 'new', '1703611179.jpg', 1301, 13, 843, '2023-12-26', '2023-12-26', 130101, NULL, NULL),
 (1949, 'reason3', 'unknown_error', 'لا تصل', 'new', '1703611182.jpg', 1301, 13, 843, '2023-12-26', '2023-12-26', 130101, NULL, NULL),
 (1950, 'reason3', 'unknown_error', 'لا تصل', 'new', '1703611184.jpg', 1301, 13, 843, '2023-12-26', '2023-12-26', 130101, NULL, NULL),
-(1951, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088026.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1952, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088035.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1953, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088038.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1954, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088041.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1955, 'reason4', '18.100473723350394,-15.995929487925409', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088053.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1956, 'reason4', '18.100473118350266,-15.995928246313529', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088077.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1957, 'reason4', '18.100473118505565,-15.995928246632243', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088083.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1958, 'reason4', '18.100473118467686,-15.995928246554506', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088085.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1959, 'reason4', '18.100472882376707,-15.99592855427557', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088087.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
-(1960, 'reason4', '18.100472826798214,-15.99592862670707', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture s\'élève à 4700 MRU.', 'new', '1705088089.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1951, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088026.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1952, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088035.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1953, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088038.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1954, 'reason4', '18.100475534374784,-15.99593320460132', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088041.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1955, 'reason4', '18.100473723350394,-15.995929487925409', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088053.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1956, 'reason4', '18.100473118350266,-15.995928246313529', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088077.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1957, 'reason4', '18.100473118505565,-15.995928246632243', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088083.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1958, 'reason4', '18.100473118467686,-15.995928246554506', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088085.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1959, 'reason4', '18.100472882376707,-15.99592855427557', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088087.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
+(1960, 'reason4', '18.100472826798214,-15.99592862670707', 'Je subis une erreur des releveurs sur le tonnage car ma consommation est constante depuis longtemps, elle ne dépasse pas les 300 MRU par facture alors que la dernière facture sélève à 4700 MRU.', 'new', '1705088089.jpg', 1301, 13, 5374, '2024-01-12', '2024-01-12', 130101, NULL, NULL),
 (1961, 'reason2', '18.11846047007586,-15.94955673332227', 'تسرب في أنبوب مياه يتبع للشركة الموطنية للمياه SNDE وينتج عنه ضياع كبير للمياه.', 'new', '1705931466.jpg', 1308, 13, 247, '2024-01-22', '2024-01-22', 130808, NULL, NULL),
 (1962, 'reason2', '18.11844796833325,-15.949468819433553', 'تسرب في أنبوب مياه يتبع للشركة الموطنية للمياه SNDE وينتج عنه ضياع كبير للمياه.', 'new', '1705931472.jpg', 1308, 13, 247, '2024-01-22', '2024-01-22', 130808, NULL, NULL),
 (1963, 'reason2', '18.11853120790709,-15.949674474172282', 'تسرب في أنبوب مياه يتبع للشركة الموطنية للمياه SNDE وينتج عنه ضياع كبير للمياه.', 'new', '1705931537.jpg', 1308, 13, 247, '2024-01-22', '2024-01-22', 130808, NULL, NULL),
@@ -5991,76 +5985,74 @@ INSERT INTO `reports` (`id`, `report_type`, `latlng`, `description`, `status`, `
 (1999, 'reason6', '18.14607743641189,-15.94543419779832', 'changement compteur bloqué dont la référence 15086820', 'new', '1708021276.jpg', 1309, 13, 6675, '2024-02-15', '2024-02-15', 130909, NULL, NULL),
 (2000, 'reason6', '18.14601268620989,-15.945335710436055', 'changement compteur bloqué dont la référence 15086820', 'new', '1708021278.jpg', 1309, 13, 6675, '2024-02-15', '2024-02-15', 130909, NULL, NULL),
 (2001, 'reason6', '18.146023163588854,-15.94535012730951', 'changement compteur bloqué dont la référence 15086820', 'new', '1708021280.jpg', 1309, 13, 6675, '2024-02-15', '2024-02-15', 130909, NULL, NULL),
-(2002, 'reason2', '18.1505006,-15.9283025', 'coulement intense de l\'eau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085487.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL),
-(2003, 'reason2', '18.1496845,-15.9286778', 'coulement intense de l\'eau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085599.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL),
-(2004, 'reason2', '18.1496845,-15.9286778', 'coulement intense de l\'eau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085603.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL);
+(2002, 'reason2', '18.1505006,-15.9283025', 'coulement intense de leau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085487.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL),
+(2003, 'reason2', '18.1496845,-15.9286778', 'coulement intense de leau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085599.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL),
+(2004, 'reason2', '18.1496845,-15.9286778', 'coulement intense de leau du tuyau principal .a côté de genius 2 goudron teitan', 'new', '1708085603.jpg', 1309, 13, 324, '2024-02-16', '2024-02-16', 130909, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `states`
+-- Table structure for table states
 --
 
-CREATE TABLE `states` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name_fr` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE states (
+  id bigint  NOT NULL,
+  name_fr varchar(255) NOT NULL,
+  name varchar(255) NOT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `states`
+-- Dumping data for table states
 --
 
-INSERT INTO `states` (`id`, `name_fr`, `name`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Hodh Echarghi', 'الحوض الشرقي', NULL, 1, NULL, NULL),
-(2, 'Hodh El Gharbi', 'الحوض الغربي', NULL, 1, NULL, NULL),
-(3, 'Assaba', 'لعصابة', NULL, 1, NULL, NULL),
-(4, 'Gorgol', 'كوركول', NULL, 1, NULL, NULL),
-(5, 'Brakna', 'لبراكنة', NULL, 1, NULL, NULL),
-(6, 'Trarza', 'الترارزة', NULL, 1, NULL, NULL),
-(7, 'Adrar', 'آدرار', NULL, 1, NULL, NULL),
-(8, 'D.Nouadhibou', 'داخلت انواذيبو', NULL, 1, NULL, NULL),
-(9, 'Tagant', 'تكانت', NULL, 1, NULL, NULL),
-(10, 'Guidimagha', 'كيدي ماغا', NULL, 1, NULL, NULL),
-(11, 'Tiris Zemmour', 'تيرس زمور', NULL, 1, NULL, NULL),
-(12, 'Inchiri', 'إنشيري', NULL, 1, NULL, NULL),
-(13, 'Nouakchott', 'نواكشوط', NULL, 1, NULL, NULL);
+INSERT INTO states (id, name_fr, name, created_at, updated_at) VALUES
+(1, 'Hodh Echarghi', 'الحوض الشرقي', NULL, NULL),
+(2, 'Hodh El Gharbi', 'الحوض الغربي', NULL, NULL),
+(3, 'Assaba', 'لعصابة', NULL, NULL),
+(4, 'Gorgol', 'كوركول', NULL, NULL),
+(5, 'Brakna', 'لبراكنة', NULL, NULL),
+(6, 'Trarza', 'الترارزة', NULL, NULL),
+(7, 'Adrar', 'آدرار', NULL, NULL),
+(8, 'D.Nouadhibou', 'داخلت انواذيبو', NULL, NULL),
+(9, 'Tagant', 'تكانت', NULL, NULL),
+(10, 'Guidimagha', 'كيدي ماغا', NULL, NULL),
+(11, 'Tiris Zemmour', 'تيرس زمور', NULL, NULL),
+(12, 'Inchiri', 'إنشيري', NULL, NULL),
+(13, 'Nouakchott', 'نواكشوط', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table users
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `nni` bigint(20) UNSIGNED NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `user_type` varchar(255) NOT NULL DEFAULT 'user',
-  `email` varchar(255) NOT NULL,
-  `whatsapp` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `city_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `state_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `region_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `notification_id` varchar(500) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE users (
+  id bigint  NOT NULL,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  nni bigint  NOT NULL,
+  phone varchar(255) NOT NULL,
+  user_type varchar(255) NOT NULL DEFAULT 'user',
+  email varchar(255) NOT NULL,
+  whatsapp varchar(255) NOT NULL,
+  email_verified_at timestamp NULL DEFAULT NULL,
+  password varchar(255) NOT NULL,
+  city_id bigint  DEFAULT NULL,
+  state_id bigint  DEFAULT NULL,
+  region_id bigint  DEFAULT NULL,
+  remember_token varchar(100) DEFAULT NULL,
+  created_at timestamp NULL DEFAULT NULL,
+  updated_at timestamp NULL DEFAULT NULL,
+  notification_id varchar(500) DEFAULT NULL
+) ;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table users
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (5, 'ahmed', 'nasereddin', 6439032, '32312910', 'manager', 'admin@gmail.com', '46674545', NULL, '$2y$10$IwrERS5YcrZ8wtrgnfETeOIYjTMzY2pYl..4pvN3no7M9TMWnAc6a', 601, 6, 60101, NULL, NULL, '2024-01-26 06:35:12', 'ex92OIisdEkti1Roh3dANG:APA91bF8AB1--1QaSAlxLU-o0wWHr79pk17PxeE-5U4rIqJ7gpZzu0-a3bPs44O1Dbp4BvOlIoRiP_bmnv3gq5cQoFBzgImZhUEbqtl0DZTioHfLEvAT0wApARXeuBHg_q_xc8VOJhiz'),
 (6, 'ali', 'mohamed', 12345678, '45674545', 'user', 'ali@gmail.com', '45679012', NULL, '$2y$10$f7gPRsjlEF4TIkzfp7Sv0utoV17.gPttT0qUWrU1oGyrv7hB3May.', 101, 1, 10101, NULL, '2022-09-27 05:18:12', '2023-02-22 16:01:35', ''),
 (8, 'ali', 'mohamed', 1234567, '46674545', 'user', 'ali_m@gmail.com', '45679015', NULL, '$2y$10$Lp1WuY95/VPIIEWVJBPR/Ou/2SPwMl5hyePNKUHRdskA3unTjyUPS', 1, 1, 1, NULL, '2022-09-27 05:20:08', '2024-03-14 13:30:29', NULL),
@@ -6075,7 +6067,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (19, 'محمدالامين', 'اعميرة', 1086588472, '46989434', 'user', 'mohamedlemineamaire60@gmail.com', '46989434', NULL, '$2y$10$P3hfs40n/nEXPbynqM8UT.YpbveloqQO8maTTRdOPUFZNTv24fDNu', NULL, NULL, NULL, NULL, '2022-11-04 15:53:10', '2023-09-16 09:16:45', 'cTHcAXKZTden7qOBL8a9a_:APA91bEv9F6cJN8_zvZ1Fl3iKs4pTPm0dSXD5AccAdUzddX5yyoggovZ_Hjijfla9I5R4VQEf_lhnfZcKlxElUghATm7sDSNuePS9WG129GO10XpBXqJr4JOyUOLnH5gzNtQoD-gQGI7'),
 (20, 'limame', 'mati', 3943993714, '32191902', 'user', 'l.elmouti@bmi.mr', '32191902', NULL, '$2y$10$gtPS2abAWoUMw35vI5W6ge2.oAdvNEhT9QsSMemhXlE2BMhaapjha', NULL, NULL, NULL, NULL, '2022-11-13 15:04:16', '2022-11-13 15:04:16', ''),
 (21, 'Aichana Med sidi', 'Med Ghoulam', 6051502917, '46354660', 'user', 'Aichanamedsidi@gmail.com', '22354660', NULL, '$2y$10$P90jcupjuPEdRUi8T4Jih.HxvXsavndTh8wC5d5JA40wsAPqkKw76', NULL, NULL, NULL, NULL, '2022-11-14 08:08:16', '2023-12-23 19:56:38', 'c_oyUAUfqUqvv4TkEYOBEt:APA91bESHS_JS9nfccdOwqm5mZwF1mEghX1V2ITT3k6IeZOXY6Gwa8bC8yFDlP924nT1dZdOqH6hqaJcr82FWfUObuQfnY1VvSjz4y-XzsAumxA5ALapFyCFNGL3Pfa6He9Y-fjJq3Yr'),
-(22, 'Salem', 'M\'BEIRICK', 2338172779, '26242077', 'user', 'salembeirick@gmail.com', '26242077', NULL, '$2y$10$WExUnJyX3gVC13wRjbvfH.eeDnLQQ8aScyV9GoJk01f2WASH6SD9q', NULL, NULL, NULL, NULL, '2022-11-14 10:28:48', '2022-11-14 10:28:48', ''),
+(22, 'Salem', 'MBEIRICK', 2338172779, '26242077', 'user', 'salembeirick@gmail.com', '26242077', NULL, '$2y$10$WExUnJyX3gVC13wRjbvfH.eeDnLQQ8aScyV9GoJk01f2WASH6SD9q', NULL, NULL, NULL, NULL, '2022-11-14 10:28:48', '2022-11-14 10:28:48', ''),
 (23, 'khadijetou', 'Abdel jelil', 2141867865, '22355810', 'user', 'nayeattou@gmail.com', '22355810', NULL, '$2y$10$jktONPCNefJse91dyj19Je2OlQ7f2Ya7u9sBrrcuncxxMm9j0Rsmi', NULL, NULL, NULL, NULL, '2022-11-14 17:09:23', '2022-11-14 17:09:23', ''),
 (24, 'Hamine', 'yacoub', 2091435916, '46487070', 'user', 'yacoubhamine.snde@gmail.com', '36381210', NULL, '$2y$10$/mEBJ0XgdCpdCcitfU7V2uC6fI.nR4V6v3eit7o0.15meFcZbqcIm', NULL, NULL, NULL, NULL, '2022-11-14 18:04:52', '2024-01-25 11:39:20', 'ckcvbN_hMkDetJ82qTHOZm:APA91bF_XqFU2AaUaZnf-vueVMgi0NVvBJUTGkX2zrVX1IMyEZBexB9wr8F92XUiK2Xh95mWB9t4fYxeGpKaG_nwLBdW1lDDgW-a0lJ9fGy2ayF5mz4D4v7SLT3JSs5ERYIQAYs25Uc7'),
 (25, '36054090', 'sidaty', 4172603993, '36054090', 'user', 'sidatymgs@gmail.com', '36054090', NULL, '1234567890', 1, 1, 1, NULL, '2022-11-14 19:13:26', '2022-12-14 10:19:04', ''),
@@ -6133,7 +6125,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (116, 'Sidi', 'Cheikh', 4567370616, '42470282', 'user', 'sidi@gmail.com', '42470282', NULL, '$2y$10$1LuabujZ6k31L/yzsHMIy.Rk7Gi4VVHdcf2FwnAf1YMW94tFoOrpu', NULL, NULL, NULL, NULL, '2023-03-24 15:37:42', '2023-03-24 15:37:42', 'cihDoaHqRhat1yMAWNhAmo:APA91bG6ueTZKF51ydfsR8EuBR5ioj3Guzl9GkJRtqf_B1JFpH0d4WwZk9By3h8p1WbZIh3p-yNqv42oEu6I-YooIN3LP25LFXtkFm0um7LZ7L3cjBaHheJWnlcldRqzeq_CJ38X6KhJ'),
 (117, 'Khadjetou Lalle', 'Sidi', 9807108080, '46323100', 'user', 'ridasidimohamednaseredin19@gmail.com', '46323100', NULL, '$2y$10$x68rKyUvchiyCH5Qmtjl1.JOEcU.tJBQ8/jajo7BB/Gm01eaB2zTm', NULL, NULL, NULL, NULL, '2023-03-24 19:04:20', '2023-03-24 19:04:20', 'eafimkMfSDe0bAMPTIVFse:APA91bHtPdm3u-KrVdqxaunj5RU3LIEcBAhOzFAMqOccCKzNRBCjOxPil40mZ444UtkOWSKhJPMkow_grCeEu2UV0yhgS_Jtve31WHAasfbIoH94Y4AxLQKIDE_3KKqUERU6-BMviU6L'),
 (118, 'mohamed Aly', 'Beye', 7985836662, '36291959', 'user', 'aly1990@gmail.com', '36291959', NULL, '$2y$10$J84tRwsbnembi7/CAIKlyOgCaAPSQJxR1VEojPSzFsMN11RhMvF7i', NULL, NULL, NULL, NULL, '2023-03-24 19:35:18', '2023-03-24 19:35:18', 'eafimkMfSDe0bAMPTIVFse:APA91bHtPdm3u-KrVdqxaunj5RU3LIEcBAhOzFAMqOccCKzNRBCjOxPil40mZ444UtkOWSKhJPMkow_grCeEu2UV0yhgS_Jtve31WHAasfbIoH94Y4AxLQKIDE_3KKqUERU6-BMviU6L'),
-(119, 'Sid\'elimine', 'Baba  Ahmed', 8812394420, '46420140', 'user', 'sidelemine63@gmail.com', '46420140', NULL, '$2y$10$8ejg.6EUfQY.GwS/L6JEE.9VPPqt6V7hIVXEmFyGRmvFsJAT7J0ra', NULL, NULL, NULL, NULL, '2023-03-28 07:55:02', '2023-03-28 07:55:02', 'dwNiCZ3dTgGUczOY6B5r6M:APA91bF3Vw4l3mKfK2ijbPS8uNisxrejAxheha3nUraUyo3oF6zwFguxwPMjPflgR5uODmVPnGD7E5t1kaToGmaMh6iFBU6Uw9Asr8TmtmExAVzzrgADjmdCG0rEG936o2wpzsGdVpp9'),
+(119, 'Sidelimine', 'Baba  Ahmed', 8812394420, '46420140', 'user', 'sidelemine63@gmail.com', '46420140', NULL, '$2y$10$8ejg.6EUfQY.GwS/L6JEE.9VPPqt6V7hIVXEmFyGRmvFsJAT7J0ra', NULL, NULL, NULL, NULL, '2023-03-28 07:55:02', '2023-03-28 07:55:02', 'dwNiCZ3dTgGUczOY6B5r6M:APA91bF3Vw4l3mKfK2ijbPS8uNisxrejAxheha3nUraUyo3oF6zwFguxwPMjPflgR5uODmVPnGD7E5t1kaToGmaMh6iFBU6Uw9Asr8TmtmExAVzzrgADjmdCG0rEG936o2wpzsGdVpp9'),
 (120, 'mohamedou', 'lkou', 8318227435, '22204540', 'user', 'mhmdwlywn4@gemil.com', '22204540', NULL, '$2y$10$x3R3L5YXKknzCf17MmdeIu0TSJK/9MeEvesEyrwAlre136jvbqROm', NULL, NULL, NULL, NULL, '2023-03-29 22:57:42', '2024-02-13 22:19:55', 'cBIWL-zbRUmAUjqprDEunn:APA91bEB5IGuHgJ-rwsKoKl3VIOAJUYXnSKMTnbWD9WdSUuHaJk6XcKRc_aGJR245_Wmlg8Im2HjbeFuO94RZnUeBrpWvYaqWiBtc96cUMz6q-0qajs0LGrL8mxYFiyPAexWhj_LJCLq'),
 (121, 'moulaye', 'alandida', 4861697425, '33507402', 'user', 'MoulayeBahah2000@gmail.com', '43507402', NULL, '$2y$10$9LcFniUjM0E4wUVZFzylB.zy04g8xO/UwWwMNPVEJOimKC5kK5RgG', NULL, NULL, NULL, NULL, '2023-03-30 21:54:06', '2023-03-30 21:54:06', 'cmPdR78GT_uMJgsS2xnOLF:APA91bExfAKPN6WSXVK72-5RyIMfn__WIQDazMAaWghx2ajAv2u1M7jq9ruxZgv9jgE54aI6_bDjW3YaNSR32bLVqgOk-MbnOYYmokQI-ef5k9g3yyqQBVy-9dQdLve3_wLdCZ2H0fwG'),
 (122, 'yarba', 'salem', 7780122554, '47790282', 'user', 'toujcdc@yahoo.fr', '36490101', NULL, '$2y$10$gn51BI7K6AFsV.qLO2Xr0.1o/0ivY.dM8ouLNRR2JV2UuCK6kWPQa', NULL, NULL, NULL, NULL, '2023-03-31 08:09:31', '2024-01-14 17:08:11', 'eFU9XlVpQ-mCPWzD5OhElR:APA91bHU-yFPMtFVUz3bTQw3nE3iuEapyhVCN2lV0KyP_KIp4Ufmfp3AvjIzztsftpKdr8rqr1MXezxlz-ea3ABQ0jyrNE8lhpjJH6Ra7beBD8qkSSMLd6LUheCm-sis4Nj960d1zWST'),
@@ -6154,7 +6146,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (166, 'احمید', 'احمید', 2425547857, '41414848', 'user', 'www.ahmeidaslama@gmail.com', '41414848', NULL, '$2y$10$acIqvKaqUIxAdbRBaio.SOtmhm2c9kbzCXtYvcy80ouz3Xx2uACwK', NULL, NULL, NULL, NULL, '2023-04-17 23:07:23', '2023-11-30 17:11:48', 'd_FL9R29RByz9chut5e_TF:APA91bFJUAj-wb6LFxWwzDTxI_iCKJFiZY_pU8bbHO-GEWUjTx8gWB1LGKmGsPpDGF0yFtlMVK88WUxRjalbMkDYQNNzESv7SrndEFZlh-YWfx5-kzJznFKUkkui-U91bjp4uVIYKuUY'),
 (167, 'Moussa', 'Demba', 1526819092, '49258030', 'user', 'moussa.ba@supnum.mr', '49258030', NULL, '$2y$10$ejHHoDZ/JliKZOLAHgsxr.vfWhbAhf94D/dMFLOb9UqdY1QAbDRjS', NULL, NULL, NULL, NULL, '2023-04-18 08:01:23', '2023-04-18 08:01:23', 'eEqwqPy1Shi0WAAgSA556B:APA91bGoNajXTh8sqRquFCUiaHDEZprSZJuy_SSUzz9l7n2CFVBpSTCckDeHbB8KBcj74mWCy9r3cPHBWdu_yz32_-DO63KDF3CEUh1Yq902fbm940jpCg6mAFYv5enGHzUB8wi3m3ul'),
 (173, 'El Moustapha', 'Ahmed Maaouiya', 8319959564, '46429371', 'user', 'moustavayna@gmail.com', '46429371', NULL, '$2y$10$sW0tDBCOFZdz099JCHGnfuCK2.m5b1CeQ2PLI.uM/GOVmVr8V8hEm', NULL, NULL, NULL, NULL, '2023-04-19 18:50:02', '2024-02-07 15:10:06', 'fBQ1rRzlTniCgQKw83A_ec:APA91bEhNxuFiLwMRUQ4CQCVod6h4nZDKMx3MwXBsU-gSiXAXHumErjKTWj7gByPJAISm5LAAmTJYQH4UTN3l-34TLljsvhtK1FB6LgC2jfrAPhNc_m3rzq9HUFUsBR8hL4_48Oia1jE'),
-(174, 'Mansour', 'N\'diaye', 1206368922, '41833016', 'user', 'mass20044@hotmail.fr', '41833016', NULL, '$2y$10$sb9IL1PrT5JFMplnc5nQpuaE0CHWconM/2XVG6OMRq/Ode.ceadtu', NULL, NULL, NULL, NULL, '2023-04-19 19:23:12', '2024-01-15 14:03:46', 'dDND2Hc2TDyzsGw88SogQM:APA91bHuD5ATuWSbrV-h91HiA7YHtNyQmr890Nac0TnwhJFdToM3w2oksmaKnSt4U1y8GyeNHtx2ohf8tn4F1ORCAyBRfSgr3CeURfWtO9iBYxY808BF6VE5XEwhaOQBC34sePlyibcD'),
+(174, 'Mansour', 'Ndiaye', 1206368922, '41833016', 'user', 'mass20044@hotmail.fr', '41833016', NULL, '$2y$10$sb9IL1PrT5JFMplnc5nQpuaE0CHWconM/2XVG6OMRq/Ode.ceadtu', NULL, NULL, NULL, NULL, '2023-04-19 19:23:12', '2024-01-15 14:03:46', 'dDND2Hc2TDyzsGw88SogQM:APA91bHuD5ATuWSbrV-h91HiA7YHtNyQmr890Nac0TnwhJFdToM3w2oksmaKnSt4U1y8GyeNHtx2ohf8tn4F1ORCAyBRfSgr3CeURfWtO9iBYxY808BF6VE5XEwhaOQBC34sePlyibcD'),
 (175, 'احمد طا لب', 'سيد محمد', 5633941779, '44323329', 'user', 'ahmedtalebahmedou2022@gmail.com', '44323329', NULL, '$2y$10$noPNKZ4aZlHgpAcamy/BP.ka.rCXRCNzrerDobrd1eWTHbIxil0qO', NULL, NULL, NULL, NULL, '2023-04-20 13:15:44', '2023-04-20 13:15:44', 'dbUup6wBQT2oXCigLq4_gS:APA91bHkFh63fnR3LW99cr_HyKC-bNheDimeoF5ZVk1f0uWEHDfvwa0ms4HH2Rh6PPeZrpNL_8EAhaiEFXMNqO01PXIr81zCwtQNqLhQdKY0uYhU4X68pmnjfO5xtf32z16XYNqJCGKH'),
 (176, 'سيد محمد', 'لقظف', 9680961811, '46501157', 'user', 'sidi78129@gmail.com', '+966569739138', NULL, '$2y$10$BleDWIRGmKcvO29lBcqFc.10t8BPTAWsJgvDwVVXs4mWOIEsGlyyC', NULL, NULL, NULL, NULL, '2023-04-20 13:20:51', '2023-04-20 13:20:51', 'edC2cLG3TUqjkhox3opeB7:APA91bEOgovhWyhB-y0lmrwCqpYBPUuKqg4z5N1R1_qdOKJ8FNe_eMGjlVZSOj0I1SJpXi2EMSmJn42icZRomgW4A482QaQAByjnk6utpdWVWaPSHPGofQeQpEP7EFVjDqXucvFoQxja'),
 (179, 'Toumena', 'Abdel kader', 7264871358, '46548662', 'user', 'twmnbdalqadr@gmail.com', '46548662', NULL, '$2y$10$K0r6neWSCaYnvQKcOR8icuSv4sbmZBubiHp3kOipEr0mNSvjESJPS', NULL, NULL, NULL, NULL, '2023-04-20 18:27:09', '2023-04-20 18:27:09', 'ebaN35HwR-arsXGAC0fZC1:APA91bGShOFl0iVBSwbyqMGsAkXBN5duqIixgw3JnzJ3Oa2qZQ1IO9yMXb_wMUPd5HLz2L1zVuDF4KUHPXFPdZA50BlF80DlAL2z6E8JDfBQlPieJSjHczp_Sg2GSxU0HH_wGXAzNcn_'),
@@ -6198,7 +6190,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (292, 'Ndiaye', 'kane', 5363008169, '46788383', 'user', 'nkane640@gmail.com', '46788383', NULL, '$2y$10$yMSF3aViLUoO1pZ3Zojc.ex9A8DtW884uv9DW.5v./OKhC9UU304S', NULL, NULL, NULL, NULL, '2023-05-11 14:50:29', '2023-05-11 14:50:29', 'ensMDZR3TJWpNYPJzo7ohp:APA91bEiXOZ-p9x-B95w4bg3m9Bi5kQLicOXmuUWEFcV8Ojksyz09_M-4AyA1nO-mPvR4jc9cH0Gs4Z8nas7D9mgxBBtn8fFjqsMSS9yziqpDuYqW7VZq_u2RABKsXFAhb74AN0Etr5B'),
 (293, 'Abderrahmane', 'El Mamoune', 9716530838, '36301036', 'user', 'oubbadbiddih@gmail.com', '+8613094647503', NULL, '$2y$10$0dZCb3FDxlNPkZgQXxUjQ.HAL/7u/CI2nuoc6gCZCKha8pxikUB9G', NULL, NULL, NULL, NULL, '2023-05-11 16:48:44', '2023-05-11 16:48:44', 'ecixOM1p6kjijzAo12f7pu:APA91bFeV-rUAhgXIq2Uj94dBUn1hNOXxl-6cRp90nX3z-RYbu6SfXhx_z4G_gLgaoD5RwI_4JLWJ1pmENbxbHB2h-ggEjzomd7lxZq-kXIgzBc2wp-rK5LDKzdy-zZuJzKvaJr1VugT'),
 (294, 'Moulaye Hachem', 'Sellami Sidi El Hafedh', 8235020059, '22772030', 'user', 'moulayehachem2021@gmail.com', '22772030', NULL, '$2y$10$dV2ZDcW8lLxR6scBnj6eK.mCG67JE3Sxkcq2VMHISqFnY8rc5FeNC', NULL, NULL, NULL, NULL, '2023-05-11 18:43:33', '2023-05-11 18:43:33', 'ecPssnasUkWekjidqib0qW:APA91bENKe0BiSoi6NLKkvgBIu7pEBMHuKBDy_2LuSw9NqkfCDmUe64jSmtonP-9ZjedS1g796QwrG7XvD1xJGaQaAzBT9XCB35SPEEOPRQ2xGZ1-BjXPpl2zY-18gzx06bZlPQfQHVb');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (295, 'Ely Cheikh', 'Berrou', 1548190908, '46491781', 'user', 'medberrou@yahoo.fr', '46491781', NULL, '$2y$10$ZrLLD3UaiD0Zp0CR.5MFQONfRCw./JnO8BNnxmFnwOuYYE2ikZHo2', NULL, NULL, NULL, NULL, '2023-05-11 20:16:56', '2023-05-11 20:16:56', 'f2PVTxJQIk3Kpq6bOLaNKt:APA91bHuPDOeDSWM8KrWiGBzhnpQXy7vSNWzDRVNCP_KbWWu6erPVCDwmIBnc2iEZbUdVe3CqkksfJe2IHCXJz1717sBUVAm2YKLhqmNsG6ulxd8Jk-dZJMoqHwBLn9pcOrn3EzErSup'),
 (296, 'Mohamed Lemine', 'Mahfoudh Abdel Vetah', 3297523343, '46909032', 'user', 'mlemine2232@yahoo.com', '37180505', NULL, '$2y$10$iItlVunwYLlZ25sPGMZA5eHsYja7njvTqNtMRruGR3NRmUFcoh6S2', NULL, NULL, NULL, NULL, '2023-05-12 02:44:59', '2023-05-12 02:44:59', 'cleJ20b3dUEKsEBD7Ey9XD:APA91bESA9KlQTsQZzSQwVgo-CaemWc0kSXJCB8Xve9IR409iPZmMIrcVF-EMp2BEDxxmqJ--BTb8MsHfWI_opzhajt-96QYwhTOod12MQyMl8bM0rtfIigOISCAJzgQC9kwboidjquP'),
 (297, 'عبد النور', 'الرملي', 5307660260, '46362109', 'user', 'anoirerramly@gmail.com', '46362109', NULL, '$2y$10$.Z/UKUpMenh8PoTL27XsUejXeuraSFCijHCIkruyQyESRj0gat2qS', NULL, NULL, NULL, NULL, '2023-05-12 08:52:05', '2023-05-12 08:52:05', 'fFzWs8fSRA68kmJN1-9IWh:APA91bGZZZblerwaeO5yy0rjo-4FVTSU1f5BkTgTYVTnYk0c1aVPiv7vbJW8SLABOhZwjVmvmBNCMP6t6iJzVHP6QALKG7fJ8Oscp3WuETqlvL4zVOdAzMem1fjylgR5FskCf9eEbgzt'),
@@ -6273,7 +6265,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (503, 'لمربط', 'تقي الله', 5824117263, '49524437', 'user', 'lemrabottmohamed@gmail.com', '49524437', NULL, '$2y$10$QKtiH8SbHbufbmwC3ZWwbOWHaU3mTmcIxZAjLJABDdmv1Xt7/igFu', NULL, NULL, NULL, NULL, '2023-06-12 07:33:16', '2023-12-19 12:56:53', 'fG6XYVYoTYeg6ac37Flrqg:APA91bFHHP2c1q_H8xCQhFocX1Yi8JySX4H6KNeC6-jHzGjCrw_D8iigQpGxBYrxqLbA89myDFUbIiSW3UuRQOV3OiYKzhrrVcWv-qSE1Rl6zV4gOR8Pya8civvXgdnvsCf-_f-dKaBk'),
 (504, 'mohamed vall', 'mohamed El Abd', 4130957528, '46736856', 'user', 'Mohammedmahmoud@gmail.com', '46736856', NULL, '$2y$10$wqtxaIZDo.ir5TFXCYI6zeiDgG/55BPRM8bGC4tYXS2G.MXIbTTl.', NULL, NULL, NULL, NULL, '2023-06-12 07:44:06', '2023-06-12 07:44:06', 'fgtnlIDiSAafA8h2cMjEzC:APA91bFvyMfRwmZl4r-oiXpgmMgWWs-Qzyav6jxFCVoxNgHxW8qSl4rrYuYvfsVwJXV6_LkyqOCBh60i30MRFKVm7hqablgTi-QnGNAriiQfagwuHwbBObTREGDeMqTZ4YkslBaldcRo'),
 (505, 'mohamed yahya', 'mohamed lemine', 2560337505, '37772527', 'user', 'medyahylemin@gmail.com', '37772527', NULL, '$2y$10$Llehuv4fOWEONU3E2H4pVekSL/Wa.TBMPQLKc5hW8ej49WmwB.vWG', NULL, NULL, NULL, NULL, '2023-06-12 13:32:45', '2023-06-12 13:32:45', 'd6QxW6iNJUWIgPhkRnyoJE:APA91bHoo6fKlVDXGV2gzj1y6QVEG7wVJ1sU3fkrzgVTdlrcjlzSYMSGwuYHkPbkNNvmpCG3TxBcTG4tJpcyLS3aCacbOVr_F9-I0BtUI6PwjzQf-dKkPygC3Z6BetqtwX12oYc4h9RU'),
-(506, 'sidi mohamed', 'sid\'ahmed', 6662732509, '47475742', 'user', 'sidimohamed1669@gmail.com', '47475742', NULL, '$2y$10$Rvl.kiy2g.C8hqMxF/EaC.PDmwsG9ZtWAJlp5uIbEK/35VrKZXJ9.', NULL, NULL, NULL, NULL, '2023-06-13 08:22:25', '2023-08-11 21:48:26', 'fT_nH3HBRgmIlLbQN3KGYP:APA91bF7ZqFzPfpmwzhIr83Jr1Ifcvv-t_Rs9Da0B8Wa85eGk4ew_HhYP5hYccRn72ki5N9E7JDYcpJubh86_Oz8mDTpKBETtlqGi_PtdBpifeHM54vuBEKfMs-Jamlv-Q7AAjZqNYvY'),
+(506, 'sidi mohamed', 'sidahmed', 6662732509, '47475742', 'user', 'sidimohamed1669@gmail.com', '47475742', NULL, '$2y$10$Rvl.kiy2g.C8hqMxF/EaC.PDmwsG9ZtWAJlp5uIbEK/35VrKZXJ9.', NULL, NULL, NULL, NULL, '2023-06-13 08:22:25', '2023-08-11 21:48:26', 'fT_nH3HBRgmIlLbQN3KGYP:APA91bF7ZqFzPfpmwzhIr83Jr1Ifcvv-t_Rs9Da0B8Wa85eGk4ew_HhYP5hYccRn72ki5N9E7JDYcpJubh86_Oz8mDTpKBETtlqGi_PtdBpifeHM54vuBEKfMs-Jamlv-Q7AAjZqNYvY'),
 (507, 'Aboubecrine', 'alweimine', 9338724083, '34750537', 'user', 'alweimineaboubecrine@gmail.com', '34750537', NULL, '$2y$10$kFSkezSelNHN1gB/OQdZR.2umqa7FMK.SfUM7b2yS3Wgx91Wkh/xC', NULL, NULL, NULL, NULL, '2023-06-14 09:23:16', '2023-06-14 09:23:16', 'cKkowRqHSiCHasyh-tqwXO:APA91bEFmh9Sh7NrXlcGjU7I68t7gK_-GGIfVN0vL1BcnDElro2ePAHNxga7Pn-XiNDllmY2tuD4EzvtzTRJ7x27UzSM7YXx3zNV45GzGyIt9U3wj7DxrvAGJdgeibfybC3wqjbPSelU'),
 (508, 'Med', 'Ahmed Ely', 1207035215, '46585863', 'user', 'ahmedely19@gmail.com', '36585863', NULL, '$2y$10$cPiKIpT3tK1OYrXT4ODVF.ZVY.lFg9ZpY5k6XgKSLABVtchuSR5t2', NULL, NULL, NULL, NULL, '2023-06-14 11:22:09', '2023-06-14 11:22:09', 'erpqQ_eISUeiBYysPx6c45:APA91bEFTn99YbLR70PCOg3lNO8Ub5H-fCNtep_aNU_HYR2pfR-B65EkCEeZq4aNatY8Ck9gHn7omceROyp-J1f3EP8JmTyB5ZqQwDjEEZlJO9qQVHEh1deLvQBmmlfLik-wYLATB0xM'),
 (509, 'mbacke', 'sene', 9772261606, '46915693', 'user', 'senembacke39@gmail.com', '46915693', NULL, '$2y$10$6dLy9c0bdOIsiA99PMrR2evzWCLnLgEfbO.xaVct6QFmn63NOPPn2', NULL, NULL, NULL, NULL, '2023-06-15 06:15:04', '2024-01-26 15:25:01', 'fkIBK78KTvCNKPxuODLCfP:APA91bF1peCRdQNJypFtehjukRyK3eN43aEVFGRy2RravPmjJILen02RJa2U8M6X5FOayLdhrMkuV4yRMAOZY8crs2lm-5l-SnSAtD6k8y9v6D3buXgB00e1dbQkGAWUjLdpb4ejAO-v'),
@@ -6321,7 +6313,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (581, 'ousmane', 'ba', 8628234100, '42852761', 'user', 'baousmane4680@icloud.com', '42852761', NULL, '$2y$10$gSNGxzovH1B2CnLeDPXUc.smiulHNgRwKsdm99nOFiWDTjIEAF1G.', NULL, NULL, NULL, NULL, '2023-07-13 11:04:19', '2023-07-13 11:04:19', 'c0iAostF-0pIgiHcTUqI5j:APA91bF9ryVGU-HyydRqcWVyuMCZ-c0XYXoud29WouMKFXXuP2GYA-iZ6etL43_0EBr2MPBfYfbAqNRFm-m_L2ypcroNH8snv4-870jWkU69kMXdPLm4UBBVf97VWZCltFGe85Rw5Ubn'),
 (588, 'Ahmed EL Aghel', 'EWAH', 2088106100, '36294990', 'user', 'ahmedelaghelewah@gmail.com', '36294990', NULL, '$2y$10$cOtwRB9kTMAqm62Ovaj4N.epLBsmD3aGPg7Ft.Bp9ehH4pSXkpVOq', NULL, NULL, NULL, NULL, '2023-07-13 13:56:40', '2024-01-21 12:20:00', 'c3WM6hf8S4mgwaJP3sFicO:APA91bE-N2G6anGnWy_GIcycU5t4HpAY96TnZmS_jpP8ssFK8YX9M2E4e_2qn-ySF6s_vDIjhw0NJ4jL_S82K5rlblXft9buZLb1N1FGfSuSAPFL5wPQAaTB_LmXTdm0uHDnP7IFOU3Z'),
 (589, 'Mohamedou', 'Dahi', 3653660492, '36381143', 'user', 'medoudahi@gmail.com', '36381143', NULL, '$2y$10$5.ebPyPcw9MHEQQpVbpVXu94uhze25sSOcfW3HKpeaqxBNr0RMpzG', NULL, NULL, NULL, NULL, '2023-07-13 17:26:59', '2023-07-13 17:26:59', 'db83f8IlSM-G7f39LHeSyd:APA91bHIdnZJDtaI9Y23EPyDRZVKdZ2O2Nc4jlzq-FciibXYi4mcpr5x83XcL2PSfRPN0wieuwgkwsNEWs16Hf-y37Xidnwe3ZpSY6pqUuqziDZXYVl_96PtGqlw9_JGiieQFRyWzMQJ');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (590, 'sidaty', 'ahmed', 7973454709, '36613021', 'user', 'sidatys@gmail.com', '36613021', NULL, '$2y$10$WJgwAmca4QmxGMzmVLQg.Of97FXOSpNz68fhVYhpqKvPL.T5nnYfy', NULL, NULL, NULL, NULL, '2023-07-14 14:04:31', '2023-07-14 14:04:31', 'cjaTeY2tQx6Q9sKs-WAeV0:APA91bES8s4vLZpz4sFAc_1QNB-rLV1q1HntieEyId1g0P0Z-fdnNmCui5xdRFolUGJPKZLzByzPiJkibPMBRVBVl4UgeL8OWSw_dEOQ12lssR38_6R2qwTOmyeX0gQGntGbOXmm8DCB'),
 (591, 'Abderrahim', 'Haimer', 1890231823, '46418005', 'user', 'abderrahimdounia54@gmail.com', '46418005', NULL, '$2y$10$1jzxtsKhnLt6nFKV.b1BFeMBV66AJUCCZ4G8NXdzuuTGW51xvfrn6', NULL, NULL, NULL, NULL, '2023-07-15 08:36:17', '2023-07-15 08:36:17', 'c0qrxe7RakPUqFGJAwfFgc:APA91bGorF0gdSz-Avfdt7obDLPDg2BqrrWTBuEB8oZMsRwRRp1vtVwmimyX_bMfjx0o6OCfa5wcFAg2A6y85zZV46_yQJbv5ELItuBkvtAE_L1x8NNbMLANpVYaUHrXhqUaIzhYTHGM'),
 (592, 'محمد', 'الطالب', 7776753065, '48514840', 'user', 'mouhamedtlb@gmail.com', '48514848', NULL, '$2y$10$UoVIPVSOc6TTxyXiiyVOvuox0P9hSBn7isXyuxzsFQ45mIlhPM9vW', NULL, NULL, NULL, NULL, '2023-07-15 17:44:03', '2024-01-03 21:46:46', 'dYZ7pFLubkiPnIqyVnHay4:APA91bHbzWBATPyOEwoDUwAr6izjSm9jIh-loGCerUtn2y_i6mbW5_F1svhsZkSZr1unMefiEfj9i04AWUZtQX1KEnvaAeeA6TipJO9uhsxq9lShBR__fHtT77K0O-nMp1k6eguvq3vN'),
@@ -6387,7 +6379,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (889, 'عيسى', 'المصطف', 5374063744, '48667227', 'user', 'willelmoktar22@gmail.com', '48667227', NULL, '$2y$10$Z9qwdaiv.KIncs9.xW2vwOn07q2dMQKAJA8XNZ2IvYJMsmWqotK1a', NULL, NULL, NULL, NULL, '2023-08-10 23:33:31', '2023-08-10 23:33:31', 'cI61eQMiTHyCGXifQLIy7s:APA91bGWbVTDNu_dYBcckLMGrkOdLDIBHnN08TPuYc7iYaBwERMysxZgCizChTENTKqh2jWgOAQ8mc_V4JiwarxGREd1KzUN7vRUZkbSrvdrZvtvlvwigHa7PStj2viA7SgudqVGPYH_'),
 (890, 'cheikh talebouya', 'abeyti', 6510495374, '37909098', 'user', 'datylemine@gmail.com', '37909098', NULL, '$2y$10$grzviSBhO8CMKiV6WXyhz.mze1.UTwPfyI1JnW6ja5DMN4bGalGCG', NULL, NULL, NULL, NULL, '2023-08-10 23:34:04', '2023-08-10 23:34:04', 'eICySZAMT-qHBFIyhgqVgm:APA91bGHzAUShFrH8TfuSDaqeUiou6_W2EbEdfhhqMlRbUSO9pk3Nk6WGCxim0t8jccNyAUF-vleDcV9yy6fa39NkNZIHFWaxP4JGh6qY22Vne3MOUXz3HpuDDcvb5IUk_naol3z_ksO'),
 (891, 'Mohamed Vall', 'Abdel Maleck', 2192374892, '38629119', 'user', 'mohamedvall.ma@gmail.com', '38629119', NULL, '$2y$10$xWuwYsdXCPvmdQY1hg/SEOIeHZHESVFyZn//a/qt8AjfXhDCO/NHK', NULL, NULL, NULL, NULL, '2023-08-10 23:39:25', '2023-08-10 23:39:25', 'f9xVBl-vRVKkNIWAy2I3-9:APA91bFpCOLMtsVD9xPw5rf_aKsNNC9XZIOsGLeutS6pRLgbe0aZEv3Cfpjx5KtVBVZK20xWEBobAuWB9hB9mM0HM4B6ZdH9AUwlFEAeUdBxAODO0Sahs48OG0xOGpT5tk4NIzpYB8Y8'),
-(892, 'Deh Sid\'El Moctar', 'TRAORÉ', 8356115053, '36181335', 'user', 'e-j1@hotmail.fr', '36181335', NULL, '$2y$10$j6PRcr7L5R2OIHA0LeMXDOQmPalAxq99Jfve14jnl8my.CMjtqgDu', NULL, NULL, NULL, NULL, '2023-08-10 23:39:33', '2023-08-10 23:39:33', 'exXG0Z4iRuWWWxU0j0406H:APA91bFzRPwWTt0RI5tzzeHEfejuwSw10EXIKuQ5I2b56DZwi68swnbzx9L0nJTuI4WaVyxld7xbQ_aMBlMOdAFLGBsgHdf03EfBCvzH19wlfMRdYUvLBnEVAuWvNoItkPQbPuoJ9lkt'),
+(892, 'Deh SidEl Moctar', 'TRAORÉ', 8356115053, '36181335', 'user', 'e-j1@hotmail.fr', '36181335', NULL, '$2y$10$j6PRcr7L5R2OIHA0LeMXDOQmPalAxq99Jfve14jnl8my.CMjtqgDu', NULL, NULL, NULL, NULL, '2023-08-10 23:39:33', '2023-08-10 23:39:33', 'exXG0Z4iRuWWWxU0j0406H:APA91bFzRPwWTt0RI5tzzeHEfejuwSw10EXIKuQ5I2b56DZwi68swnbzx9L0nJTuI4WaVyxld7xbQ_aMBlMOdAFLGBsgHdf03EfBCvzH19wlfMRdYUvLBnEVAuWvNoItkPQbPuoJ9lkt'),
 (893, 'abdellahi', 'Ahmed seiver', 3618679964, '36313246', 'user', 'ahmedseiverab@gmail.com', '36313246', NULL, '$2y$10$L.oANt2FrurP9k3T5L9NZOcijyAVKu4WaO5L2dgbiVj4FbFfk6EIW', NULL, NULL, NULL, NULL, '2023-08-10 23:43:43', '2023-08-13 16:24:28', 'cFcokkUFY0QinvYLArhRhI:APA91bFclS8_IHpJInzjT36mJ1Z1Ynw1AdN1WH5NsqKwt_hNLcTH5XzF8QEcmZ70-TcDtaQ7hjXSzMFmwR5uBw6YCCcZH5OapyR3EWkdG5w0NFiqKV84bSDt_MjRcmqQOjoTShOJz2_c'),
 (894, 'abada', 'bell', 1374487770, '42856099', 'user', 'aabad24@yahoo.com', '42856099', NULL, '$2y$10$gmpFWrS8Ocp3zGKEqsFcOuNdkKrY3.xDO7gq64ZJlr9./LRC3JIP6', NULL, NULL, NULL, NULL, '2023-08-10 23:44:10', '2023-08-10 23:44:10', 'fLjiSBz0qkMFixabzIbr78:APA91bEG9-PuWitlcIHcXG4dVEaS5SuLkECDMrN0lwzdXFLDnrh0xhBn_iVApxe413RsW-luED9iMR5xZ53patRR_CugPHdyuFM7O8xI3XtCfrf1_CFUsnfiXqEYjvTCaHOwzKjHWZL4'),
 (895, 'Ahmednah', 'Mohamed', 5899991342, '22185258', 'user', 'cci_tvz@yahoo.fr', '22185258', NULL, '$2y$10$eRsp4YHIeXvY9mutW0X9D.FpMb1SBVyJGCFsjE8s0/4Wrd6SApMGS', NULL, NULL, NULL, NULL, '2023-08-10 23:48:13', '2023-08-10 23:48:13', 'dpeo6eWpSj-yraGnRzLdXi:APA91bGQilELnjU9lvgzBIELfVRm31RUTb1L5KEqL5_2OtFDLe97VHrysgbg4vDV1L8UUAJKPe2AiKsK9ais3H7U-HBjhfaG7ecD1sQarRePiwEYEeKxezKLIVMtgXXppOwrHSotbOZB'),
@@ -6444,7 +6436,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (950, 'Tah', 'Mohamed', 3154952937, '27565051', 'user', 'tahmohamd27@icloud.com', '+22227565051', NULL, '$2y$10$Iav.Wt3oQ9EHFaUCAX1cxef.d8/QuGfT/6lNaqE.oCeZTo6wv2dca', NULL, NULL, NULL, NULL, '2023-08-11 01:32:44', '2023-08-11 01:32:44', 'cLm7A1fqq0Dih1CKEOEEsH:APA91bHyl_IC2M_Cu9GqqOnpEUXSKV00c2TuGvUPIVu7HKRRnap-bmxMtnOLSbv9xKQNCOR0q2FrPWrArTRl2azCHddNRVD_gIO31RzsREQRaKXWsuTTqCWlpnoH6n6q1NvZN3XqXd3k'),
 (951, 'محمد', 'آب', 9714252017, '33499020', 'user', 'mohamed.abe30@gmail.com', '33499020', NULL, '$2y$10$1OiUA2SnFp7/NJ9EqsrESeH9oKOk/24tVbp5hL3J3dvLfSgPhNIau', NULL, NULL, NULL, NULL, '2023-08-11 01:33:57', '2023-08-11 01:33:57', 'fqCyDWwN20lggeXHb5aSLO:APA91bFuUeHmqtAF4EYFMjetIp7DUVJfaPSxoveL0B614khudU8Thv-RuukPsPTW58Fw81rogyBVMUX3eMVaf8y3pUhy9AXGaP88MpIsRUVdapXTHGg3PJ73QP5nf7uKp_ZWCBlMmnpF'),
 (952, 'sidi', 'hanana', 1766747719, '46100222', 'user', 'si2f@live.fr', '‪+34 677 30 44 95‬', NULL, '$2y$10$k1O5X61cNgJOx/52ff3ZtOZKwvyyai.nBaZyKl0oFbftuWc7sOXTu', NULL, NULL, NULL, NULL, '2023-08-11 01:35:51', '2023-08-11 01:35:51', 'fy_mB4BVk0TakmPWiTPHMN:APA91bGNAldWwgbk0Lvi3CkKysRQGflXw0Gx2DwBsJIxAGcly2qZ8SnskBZhhoor-VJ7rQJ8dad1_5lM0T8_YatG95zUfTDM0byRd3Yalg902oK563nrssxFB1e-pc6QSkyQVezEB4lT');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (953, 'سيد محمد', 'سيد لمين', 1687945016, '46130844', 'user', 'sidaty337@gmai.com', '46130844', NULL, '$2y$10$UqGSkYtyH3iidEEUqUfcl.f6Q/y9Zz5hYXNWj.SagPvkWvdTEJ89e', NULL, NULL, NULL, NULL, '2023-08-11 01:38:06', '2023-08-11 01:38:06', 'dxIDJDg0Q8uWd5jnEkaVL8:APA91bHxEz9RxyPYOSjAQak4ljRF5ZXNY61vWl61J9Ze5sSnG7SefWo6Swi2Woy5QOHi2K4CITrfw0TFOEMy3jL9U0MT0ImhmITdbTRPP3FrUWvqyl0ZHItvN69JXCJuE4KeCbGuy4cq'),
 (954, 'Abdel Aziz beidiya', 'BEIDIYA', 5094022901, '20377772', 'user', 'aziz6327771@gmail.com', '20377772', NULL, '$2y$10$cCrfBCW5bQbbvSjgFySj0uerv2ANms17Emz4BWtzP1PpRRXfTLIw6', NULL, NULL, NULL, NULL, '2023-08-11 01:49:04', '2023-08-11 01:49:04', 'c5IRWeOg8UwXuUf0hg6U5w:APA91bE83d3LuEORvIfqDZQ_dWi54gyCHsbqbFtKCQZUPpsN4WuiumcjMRi3jz7i9dPVdoCg1lCrSjjI5G6o7uiFYQF6ovZ6FTIYFoxufTMgPz3h9DO-rgQmHBAt5aiw_ZVNEClxYFVE'),
 (955, 'Ahmed', 'beya', 6293217896, '37509595', 'user', 'ahmedhaibella95@gmail.com', '37509595', NULL, '$2y$10$syMcVyn4QsS3GIVhEnpHS.CpLWidaDThwWXstnRPK95Uk5ILxVt8i', NULL, NULL, NULL, NULL, '2023-08-11 01:59:20', '2023-08-11 01:59:20', 'ckdV4QogRFKETJQFslE2Vk:APA91bEy83_BeELxNoT2UG1D2cYR1Y_BIrc2FKJ5tpkYrcQt15JEV997wsilnGDsIqLWsc33rjs3s0dKoFroGK21CGAPJALAbbw_VeuRXzymrpct8CFwp_-7VrT6gfGBce2SBzh5348I'),
@@ -6551,7 +6543,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1056, 'محمد', 'سيد أحمد محمد', 5456611035, '36223110', 'user', 'medehssane@gmail.co.com', '36223110', NULL, '$2y$10$X9YYlkzT/UcLKiZz1RNua.m3Ubtm9HwzHwMTLeaIeybYvqYRQ4jza', NULL, NULL, NULL, NULL, '2023-08-11 07:26:30', '2023-08-11 07:26:30', 'fctf3lt-SwaG90O4OQueNM:APA91bGOBTW5_KNE1J4D7PAiZbRfCqUtzfmIQhErM4Fo8sKsqRPSYgmVzElSpbouwyFEGJ8nYTK8fvqSsEgoeWWXtwf3pGEoGWFpr_8YR1jXMIa0af2JTTZ4ZdDIDPYcG8Tlp2FHVOXY'),
 (1057, 'weddou', 'Maouloud N’Diack', 6441479486, '46469946', 'user', 'weddou1990@gmail.com', '46469946', NULL, '$2y$10$MZtRn2gKaaejQKpOshbbveFUAmR/0mCJ43eTIanL01sEgAm.S850i', NULL, NULL, NULL, NULL, '2023-08-11 07:26:36', '2023-08-11 07:26:36', 'eYgmcrGdSGij-TJflF3Qv7:APA91bHXj0Z26buHr42tyWrKJPNXH1cIFA3kR5rDJx-_tNuNXl3S3OeU2DkmZbCFNWkxFACRnWIE2ryp4FrWysdX2DCeFb97OTEmwdwMRohWhNZ8pKbCq7xDjSunnAigKr0LZyVINeTT'),
 (1058, 'دحان', 'امغر', 8789951336, '46404274', 'user', 'dahane240@gmail.com', '34404274', NULL, '$2y$10$U3OMLAhM/k.LItOENG634OdEQO6xZCheyo0foHnWH5Zl1aea4.9V6', NULL, NULL, NULL, NULL, '2023-08-11 07:28:30', '2024-02-08 22:08:58', 'dcKlBqJ_RWS2SpynYL-Z8A:APA91bFprES7cwWK64MXhsX77obeB6FrO7mhXf2qw1U2OD1QtX4DHG_LC1lf3L73UEUXleBoqavTPMukSx3UxI1tyUTE_yH3UyXVlJuNqs_UdIT90L9pLz-ct9Sorzu8-iVmuJMcWzFc'),
-(1059, 'BAH', 'M\'BEIH', 8792992965, '47429293', 'user', 'bahouldmohamed@yahoo.fr', '47429293', NULL, '$2y$10$ZcnVKZWEIwn.fkfe.w4HC.iUgoOpk9xUsXhzEYHl8/h2fzuBbD3vy', NULL, NULL, NULL, NULL, '2023-08-11 07:28:53', '2023-08-11 07:28:53', 'd_bBtxp2TkCyFNGSLSh-L8:APA91bGl5scuzoYOgyVotiHpLKKPBRhSdmKlWzHpKz_jvolAdDJIQ4MLycwLDMt9tyPoV2QBICjphXbxpP75j-3UJkELzjT8rKLl5QN4a4-QjI1gelRIsO7PK_M9Cgds3yElLWjtfvSx'),
+(1059, 'BAH', 'MBEIH', 8792992965, '47429293', 'user', 'bahouldmohamed@yahoo.fr', '47429293', NULL, '$2y$10$ZcnVKZWEIwn.fkfe.w4HC.iUgoOpk9xUsXhzEYHl8/h2fzuBbD3vy', NULL, NULL, NULL, NULL, '2023-08-11 07:28:53', '2023-08-11 07:28:53', 'd_bBtxp2TkCyFNGSLSh-L8:APA91bGl5scuzoYOgyVotiHpLKKPBRhSdmKlWzHpKz_jvolAdDJIQ4MLycwLDMt9tyPoV2QBICjphXbxpP75j-3UJkELzjT8rKLl5QN4a4-QjI1gelRIsO7PK_M9Cgds3yElLWjtfvSx'),
 (1060, 'ehmone', 'rahaly', 3381850487, '49804434', 'user', 'ehmeney@gmail.com', '49804434', NULL, '$2y$10$nWn0g96jcthKFhA3Rpd/OO0K04H6I6yp/SLh6e65dp9C4sXPzIovm', NULL, NULL, NULL, NULL, '2023-08-11 07:30:41', '2023-08-11 07:30:41', 'egt7h5tuRQCLrm1GIL-xl8:APA91bGnAYyPRlwKWr0vk_XSSlMutt2arZh8V_yBygdjf0DRcU0tVHGQJiGCr_kwXQNZqOiuUJr80r1Umg7PY40uRlGj6Ej3TG2ExchmEEw4NkxY0Q45I2Scv3FeaHWy5QejZhP2zg4J'),
 (1061, 'Brahim', 'Elgassri', 7786306983, '41111116', 'user', 'mbsit27@gmail.com', '+22241111116', NULL, '$2y$10$dBwPmW/twPoo0m7TC2uMdO/bvcnexBtBzsKEDb9OIP7kXsRZtqyGq', NULL, NULL, NULL, NULL, '2023-08-11 07:31:34', '2023-08-11 07:31:34', 'e4ARk9oxQeuSLVb4dpi1ey:APA91bGy7DoD3msmM1BpkB6qYOmK_ptrxxjlwWbwvoh3HwyOQNX2an0-3uHZC2NDJ6AGkdGp5_TR5J5R2TxG3NL6Z3pskOw8qBSXuUhkdOu_G9lBl8VBoHApsamkQJVyoEMQxVcBL64p'),
 (1062, 'محمد', 'سالم', 8661721022, '22227671', 'user', 'medsalem968@gmail.com', '22227671', NULL, '$2y$10$W3S.XYUB1SVzJosETC701O7.oBwmWfjvLa36k30n37jY.taiIZRby', NULL, NULL, NULL, NULL, '2023-08-11 07:31:49', '2023-08-11 07:31:49', 'eaDIHt5OQ1O_COvh7N-w43:APA91bGdjUu-4Uv7Am9DjlMkgDZl1F0Gea7-h_zH__wuNGNBsAinvbRXvl9mcak0dua0nUX-1gkC3ZSecpO9oxL_TUtAC6__YmxzeG5c89_CWBSwhXdhu0XO6vYKV-K6hZQoRBIo1Qzc'),
@@ -6567,7 +6559,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1072, 'elbekaye', 'abidine', 7002486358, '27363336', 'user', 'elbek83@yahoo.fr', '27363336', NULL, '$2y$10$81wqozs9UWklfW8GmQLJt.6yR3gg8coII/Wc4WrcZfSG0dIgDzf06', NULL, NULL, NULL, NULL, '2023-08-11 07:39:03', '2023-08-11 07:39:03', 'cWBU7xw-QaWOyuX5WXcnh-:APA91bGbmEjaRLnrAfS5lw4tPEykTWFueVA05sZW2xCCDfZqijO_bGspQRcIksIKmR1gnqPpxI9billGpfzEbtS5Z2i8jrL_XMpaI8Yij_Ap_5n6kSdQ5TZjmOgWYtm5yWC1NDCMM06z'),
 (1073, 'Elhacene', 'Levdhal', 1317432758, '27586020', 'user', 'hassenlavdal@gmail.com', '27586020', NULL, '$2y$10$cMZpg87u/PDx2gcrto7nSOw1XPq3BYMMF2cX6TpmwmnsGoQdcUz2C', NULL, NULL, NULL, NULL, '2023-08-11 07:39:32', '2023-08-11 07:39:32', 'ek8okJlGTj2r07NtUxeghj:APA91bFvQVIJaESnwPlsyUVJCj9QPU6_draTo9vgik8yaWjT-VCUmwQDSgvxJOdlkZtyZFPm0vEQ3VQBEyi_NEgrm3H1B6J_3inGQmv9XtgM8-0RtI8h6u_suPVGTu6f7n_f6p5kqVk9'),
 (1074, 'Menni', 'Elbah', 4151485056, '22303518', 'user', 'mounirbah@gmail.com', '22303518', NULL, '$2y$10$ZiG/LjLoQ9DeeVI31g2q4OqiTq8ag9pczTo7o.xOetX78lYjpqYD2', NULL, NULL, NULL, NULL, '2023-08-11 07:39:57', '2023-08-11 07:39:57', 'fBcEqLIdTKunaqXaD2BQzF:APA91bGM4dlW0uOcas7ziw22Z7MblZUYf_LDN0hMsKBHSvZ_-DYKfl10uEECcI0LdET3gB0w8kgq-MIy2NsFjqqfAenlV0FiXggPnWLPFJ_79ItKNUIGDiEcs2QXz4sNimUVBbFDE6K-');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1075, 'بشير', 'محمدالبشيى', 9520223790, '36888815', 'user', 'bechir.medahd@gmail', '36888815', NULL, '$2y$10$o0Qujmrp702yX7FxxrjKLObctJsBI.OwOLplQLtR0rUbjcahykzD2', NULL, NULL, NULL, NULL, '2023-08-11 07:40:33', '2023-08-11 07:40:33', 'fXzdnHjkTJy0BwYx6O01FQ:APA91bGPt0i86GyVL-p3SVFoD698q_df3AwiYcEk8XJX1zuSCGhkBW2y_6MEisfLeJf51A1XvBz3ZCEyq3uO9sHKRS9WqjSU1bQHFKTPegAQFBGv5FgxryG5vSy49rP7NlV1O1U9Plgn'),
 (1076, 'محمد', 'محم بوب', 9877904694, '37722492', 'user', 'maham1912@yahoo.com', '0022237722492', NULL, '$2y$10$zClamwDbVJs1W5d9Ibkc5.7dVOJlR2GmcTmU16x/caGkz3MyulXqm', NULL, NULL, NULL, NULL, '2023-08-11 07:40:50', '2023-08-11 07:40:50', 'eMJDutjjSl6Kr935KKSutx:APA91bE8g3F7VrKCL0_fghTq6hMMlrLHu4KU5uGuO3VJ0fC1CZEGq-nT-3_ZyAt8YKiwBlGuw-eV-MEI6GjFd383i5TVnfbFQzwKIqKIHLdhJvwrNZtIFtZxrt2WmMPCkQ4Aycd0rqAL'),
 (1077, 'الشيخ مفتاح', 'بلال', 9558094530, '36671216', 'user', 'cheikhmaetala@gmail.com', '36671216', NULL, '$2y$10$pQao0zy699XLTVz/sHKw7.4hSAIGIvH120yCjF0uECXc3.e61lZme', NULL, NULL, NULL, NULL, '2023-08-11 07:40:51', '2023-08-15 09:00:16', 'cPx1ZxNYR4m2c2wNDYU5_E:APA91bHpXjUXc8sJz8QpcneKwRXSepzmshyDdZ2C4gb58FohK-7S4GVBs9D6uNl10d-VZSKAoOg5qhn2bv6FBoLWLGSPb8aSAEpcBB1LmyJhiXBsfqGyoiN1exXMoN9l3I5Di0kuiis-'),
@@ -6581,7 +6573,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1085, 'naji', 'naji', 9406509235, '36622163', 'user', 'naji1975@gmail.com', '22902933', NULL, '$2y$10$5gEVRcoHkmuTpZGa0J3KUuzV922UOWZhxBVwIbrlUFWYscZPzYXWK', NULL, NULL, NULL, NULL, '2023-08-11 07:43:40', '2023-12-15 18:10:36', 'c2DBmFHITwWvd0d7UgAlBm:APA91bGB3Q5bCgSOxwvMBRSQhIt1NN2eCLlDD38rWwQT2MiLkt0aHqJ6uSKEdjrmhypEKM6fjoMX4sE0fY059-usTMlvbAgi-8CfI6odzGJkeQHK4eyHh6d-x6EN2kghGePCO2pJgdyd'),
 (1086, 'Mariem el Bembariye', 'HAIBALLA', 6381263535, '22909540', 'user', 'o.yacoub82@gmail.com', '48313100', NULL, '$2y$10$BHRG7AKQlIfD7ND0JrRRAuiLSQQrTEVgkjcLDmfvuZXEsR2r63AQW', NULL, NULL, NULL, NULL, '2023-08-11 07:44:53', '2023-08-11 07:44:53', 'd3Pymvb1fkktvtI5KfBfZd:APA91bGWVTshnQUa7zNHpsjRvAISNR3u-s9fsKm9lhVYcfnhke0BJjel6AkQ2UBXBOP7f36rs9EFlp3DeYrOElt3Pi8Iners0KXz4ll6U3zHuVL0wjO3LfIN8ih2DCo_woxMeoV4tfLu'),
 (1087, 'أحمد مولود اجدود', 'بار', 1668296793, '22347779', 'user', 'amedbar25@gmail.com', '222347779', NULL, '$2y$10$XuN.CJhCvVGLfPopuVPdde6GYkjmptiKjImQYdXaDiTV1gzNGDjFK', NULL, NULL, NULL, NULL, '2023-08-11 07:49:15', '2023-08-11 07:49:15', 'cy7U7TmHShOCbxgJTA8Zzp:APA91bHk2c2FXD9-TJqNEQfUNAoP5I4Zznq2Ow6ZKuirZncCypour-HptZUJYVzBKwtUqDVm80x8ONRrG6IVSA4BSaW_CfUqM9civXLeCqpX_S5aXju9V38n7IpxN5PXEFIpse9LtxB1'),
-(1088, 'Mohamed Vadel', 'M\'bareck', 1896708416, '47055024', 'user', 'medvedebaby@gmail.com', '+22247055024', NULL, '$2y$10$8LqRQfEki5m4F68RSTMwseP95hdLGaly3ePzKTpsMRw7itqa7ohUa', NULL, NULL, NULL, NULL, '2023-08-11 07:51:00', '2023-08-11 07:51:00', 'eABa0mO_RwC9sMkVIAKJas:APA91bHWJJRt4gnsBrcPzPK6Vu1WJTgGobKAa7VLUpiSSx79X8KfLJKOUAa1TsolKtvsJShTZfGWIOZN7ghzQeTj_v1fMNs48EDqsBLJHVB3A_i1OX_eAb9Twr9bwVvSGDBnh2ghUCx5'),
+(1088, 'Mohamed Vadel', 'Mbareck', 1896708416, '47055024', 'user', 'medvedebaby@gmail.com', '+22247055024', NULL, '$2y$10$8LqRQfEki5m4F68RSTMwseP95hdLGaly3ePzKTpsMRw7itqa7ohUa', NULL, NULL, NULL, NULL, '2023-08-11 07:51:00', '2023-08-11 07:51:00', 'eABa0mO_RwC9sMkVIAKJas:APA91bHWJJRt4gnsBrcPzPK6Vu1WJTgGobKAa7VLUpiSSx79X8KfLJKOUAa1TsolKtvsJShTZfGWIOZN7ghzQeTj_v1fMNs48EDqsBLJHVB3A_i1OX_eAb9Twr9bwVvSGDBnh2ghUCx5'),
 (1089, 'tolba', 'med', 7953660113, '42424455', 'user', 'med.tolba@rimatel.mr', '42424455', NULL, '$2y$10$4KSTbUfpJHTtlA6wFHLiWeYoeUBklOfYYc9r7q57cZ8afYo7w7IvS', NULL, NULL, NULL, NULL, '2023-08-11 07:51:58', '2023-08-11 07:51:58', 'fEGusUyM3EKhukxreG-bba:APA91bEvmGAh5HFGYmyq5K0RgRCrsEnz1jo_psWITLSUN3isSU-_v4pOvTOYthHnX-LleI-s-FcHdUsP2tV15vGd7trYp7S83pmeBQUeUrQ7h4p3ocI82FMqB_vrZvYPvPiYtuDlYjgT'),
 (1090, 'محمد محمود', 'عبيد', 4612391711, '41094028', 'user', 'medbechire1993@gmail.com', '41094028', NULL, '$2y$10$nRZM7/QilgKJe96pxTIpv.F28EIkRyipOlC1A7.unJR8358ZjyG9.', NULL, NULL, NULL, NULL, '2023-08-11 07:52:29', '2023-08-11 07:52:29', 'e82w648iRHSDc4BzR8ueHB:APA91bE3-H0kgwUNCLSC-amzyr9CiPFREezkbA9am86NpjYvj5UAQxNKdsfy1WgkfG3SzlaLQBET9UOGENyKf8FAEk2TudpkCGojywsQgFV3AQF-P6RawW6i1uqCyqS5zt5tCICg55RM'),
 (1091, 'Abdellahi', 'Taleb', 3182684946, '33616610', 'user', 'mada.sidi@gmail.com', '48616610', NULL, '$2y$10$yX9240N4basKGr8OvIQUb.PZYTjYCyYCBxosFEW2E70aGohTXhNAC', NULL, NULL, NULL, NULL, '2023-08-11 07:52:42', '2023-08-11 07:52:42', 'c_vbeRUATKa0VvSsKsiFgQ:APA91bHAAQ3UImpovY-B5gZ3hywKrdy-gZkIUD5gs7pTh2vNAk6kF06UJVEplPNBCOldn6puuQK5Bi0W2yE-V8KFjytkAsB5R_csKlHTQ_IIeHDp6Wx1qAZv46-fuIX92IrzfbVUdMFs'),
@@ -6690,7 +6682,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1194, 'احمدو', 'محمد', 2038555687, '46764010', 'user', 'ahmedou576@gmail.com', '20451595', NULL, '$2y$10$z1gB6tXNjsbugiL.QVhLge1e/aLvjrEhxtnxa1x/UGGgnKBiKs2sK', NULL, NULL, NULL, NULL, '2023-08-11 09:25:16', '2023-08-11 09:28:50', 'fRnlN4RbQ1qzWLgXLfQupW:APA91bFVM7Zy-M4fdzkLsYefzO7wGuUdXy3dh2AtK4aVeTJw86_jk0ih89VGLbIqO8BpQF9nEV6j5YND4NrHyxRP-HRG6qbZ4bIJC9vc6pnJuXYVKP1hcVlKtTLxRhD732o3Pw42HlF4'),
 (1195, 'Ahmed', 'DAH', 3185052425, '46482200', 'user', 'ouldah@yahoo.fr', '46482200', NULL, '$2y$10$UIssMcjBl.TbYOpz.yZW.u8n17z9fBsp9KgARYWNQo.tCa1tFqv6G', NULL, NULL, NULL, NULL, '2023-08-11 09:25:46', '2023-08-11 09:25:46', 'c3IcQwotQWKR5ScFQ6Gjg0:APA91bGgjVLhwq4noCw7-Wb7G6owgxrBxZ1NtwcmJ2wdf1kOL0a58qeAps9Z09dc_CBuKLtRViKDxZugvj-iMdu-n_vkz2HT5aquziGNoo-WkSVlXjuggtCGPlYfaeyfR6bkEKDXyzIm'),
 (1196, 'SID AHMED', 'HABIB', 1288467200, '26407770', 'user', 'sidmar25@gmail.com', '26407770', NULL, '$2y$10$G19grabFTrWqg/p2cP15aeEthXgUbzyPyO/O0wjgUXLgX8LqHHDA2', NULL, NULL, NULL, NULL, '2023-08-11 09:26:17', '2023-08-11 09:26:17', 'ffedaLlrZkntpFZiNAwB_Y:APA91bHa7u_UVKuFcPY_uOHWFzWyRC6byiliynZ6fNvS-iSCwwFxuTQn3ErxG8PQ2A_wbnSiv_gnWIODcIOcIQFGUyqtlh_wnMlZAgba2JED9bPlLKUMh7qSjxqxJNsvVkGSj2yz8_uX');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1197, 'احمد سالم', 'اعليوت', 8647115538, '46777551', 'user', 'aleyoutaahmed@gmail.com', '46777551', NULL, '$2y$10$6kcYy1vnQmUDtB3rAwAWteQDd6UPAmFcDxcIMdi8k9Hcpk1BLAWkK', NULL, NULL, NULL, NULL, '2023-08-11 09:26:28', '2023-08-11 09:26:28', 'cXkJxBJ0QK2xWezBqwkRz8:APA91bHntH_bAeVKUAkiD-K-mb5yNkCslhJiamBJJ6pWQ-kduGkHgX8hRVClkuzvHmChR8hANs2uU8OuDBkm-DbjjIQA1imcEcfUvRh7IkJYngo2RmmUy_8g_XJnsPpdPtMIdGJzMWRC'),
 (1198, 'المختار', 'لمانه', 1730521808, '41313819', 'user', 'moktar_68@hotmail.com', '41313819', NULL, '$2y$10$.LIWVQEupV3xm3pSIzl9d.NBymf13AqcAQE5qJQYKrvp.IGoP4leO', NULL, NULL, NULL, NULL, '2023-08-11 09:29:32', '2023-08-11 09:29:32', 'c4378wVwROCtXs71ePdmy5:APA91bEd_Ihk3QnMCEwBdfPKnDGNf-qoQof7cF3iU4F5nNws0ojkE_XN9uO9ARlqMjAFZWoywOXy9LEAYZo6VgPcmPZ9I6khAgvbaH-_CI4ngbvNF6OpODz9wChGNhl0rlqJltT1l5bW'),
 (1199, 'bah', 'ghlachi', 5559066509, '36341833', 'user', 'ghlachibah@gmail.com', '36341833', NULL, '$2y$10$Klq6MBHL1abKyjevkqswau00KXI8AUWUjFbIGiKJLGAI8P.3IfD06', NULL, NULL, NULL, NULL, '2023-08-11 09:29:37', '2023-08-11 09:29:37', 'cbzSRGpfRrS8OTTD6vNROM:APA91bHmh4uSP_dVc7gJnTjkb289i9WNuHrtnlcfGCx6_aLkk5pfQ84JyI7X_aYMCEVUnwmdAnM0Cos5BVELCWuIxXROKa4z3-BU_ygoCLV5Bw1sABkc3eJurh-UwFd2PAOt_OwMFgLw'),
@@ -6760,7 +6752,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1263, 'cherif ahmed', 'ahmed', 4857808210, '44715000', 'user', 'amylylla1976@gmail.com', '26304816', NULL, '$2y$10$Eb2SMF66UI/9cDcgObVNiOQqZNRSIMZumvYzPoggfvFTjIj6MgehW', NULL, NULL, NULL, NULL, '2023-08-11 10:25:01', '2023-08-11 10:30:42', 'f2QL0NuPTuSg20Ry74Qbp0:APA91bHxOTotuSZ1xbiO82ZhMJdETFYhiI3GmrkW-tn8_cncRtnPEKdFC5VNVObJG7V42ezm0_JAdbMjWGRy53mVfoCNvhBGT3IFwAb-IRYBDGsMwq1djX7EnF7NjKn0RUpZHsIqrZBB'),
 (1264, 'baba', 'elkori', 7468977885, '31001056', 'user', 'babamoubarack2@gmail.com', '31001056', NULL, '$2y$10$xVF/fBzZbGjbETrDzbSI.eplYCTQcbZD8rhSWIKbEyMkf0cBjkIPu', NULL, NULL, NULL, NULL, '2023-08-11 10:25:04', '2023-08-11 10:25:04', 'eh25A7_9RgmkzSNMQ1PGFX:APA91bGOSEg0sYYuQt4EGuLJjq7cYmpaVkCsy9E44yN1Ybj9jgjfyWg-EdAG39Uz39tPraaKAC7yNmtjBQ46TuNdg7DRFM3Fx-aN85t1nuLj55OIk13t7DxGRgxXEe91n6HxU0IH2KID'),
 (1265, 'sidi med', 'boukhari', 1047638510, '46045435', 'user', 'sdmohamed2014@gmail.com', '46045435', NULL, '$2y$10$f50uUIr8W628Qq92kVNd9.BmsZwMqeq5JdUUYizqR7fKPsaCKN8Sa', NULL, NULL, NULL, NULL, '2023-08-11 10:25:37', '2023-08-11 10:25:37', 'cTMrPOoXR723RYj1agZd2e:APA91bHJ9AJ3LnD__6LtZZa4Xidn21rkDD5xS0xfyiTHKsApmiFBRiAdubKD9COi-At7paXZhUIPfeL34Clu0bcx42HLQB5uiO9HEJ5cGAgomnMonY7YG6u8GVvMNc6wf_k9PEN_PLxe'),
-(1266, 'Zein Abidine', 'M\'bareck', 8018098086, '38252508', 'user', 'zeinabidine26@gmail.com', '38252508', NULL, '$2y$10$KnSBCmd8DZ6BeHRZbkXtCO.l.yneDu5lJfU8suCzqBtxVMfDA6sTS', NULL, NULL, NULL, NULL, '2023-08-11 10:26:07', '2023-08-11 10:26:07', 'cs4e_6nGT02yFDRnQiN4I3:APA91bEpnzR1qS2mclJpotSRbPeutGSpXO7Dab9511Fm6_iOJM3dVqNts8AQvOqVyH00A2Yd-8_rsosrXqiPtj6OPqn_fBx6MHrqQwUF-XFQbCDPpGhH5FBMNMHfLtfhPQ1WgCLAxdxj'),
+(1266, 'Zein Abidine', 'Mbareck', 8018098086, '38252508', 'user', 'zeinabidine26@gmail.com', '38252508', NULL, '$2y$10$KnSBCmd8DZ6BeHRZbkXtCO.l.yneDu5lJfU8suCzqBtxVMfDA6sTS', NULL, NULL, NULL, NULL, '2023-08-11 10:26:07', '2023-08-11 10:26:07', 'cs4e_6nGT02yFDRnQiN4I3:APA91bEpnzR1qS2mclJpotSRbPeutGSpXO7Dab9511Fm6_iOJM3dVqNts8AQvOqVyH00A2Yd-8_rsosrXqiPtj6OPqn_fBx6MHrqQwUF-XFQbCDPpGhH5FBMNMHfLtfhPQ1WgCLAxdxj'),
 (1267, 'سيداحمد', 'حمنه', 6470049672, '37766474', 'user', 'sidiahmedhamana@gmail.com', '37766474', NULL, '$2y$10$uFBLCt7/cvr0Ne8rjh/q6e0ENv7sOY7sKsUJrT8C7G9jOYjrKofdu', NULL, NULL, NULL, NULL, '2023-08-11 10:27:13', '2023-08-11 10:27:13', 'dze6Y2a0Reu5q1ITK8cH_Q:APA91bFMg2W3XpYC0Jq_uo-d0DzguMRUSr0_hdW_wtN2QmbEKDq7rX_KMlJIPr7nyNvT1N1W-qDjcFWie4Mmt2el19qsEnQ1Zh4mCVFsUIGRoXZfM-PSm25_5hduhAjDGiwXNmbahWJW'),
 (1268, 'محمدن', 'انيه', 1135079160, '46061314', 'user', 'mohamedenedyenih@gmail.com', '46061314', NULL, '$2y$10$p18ipqfSSN07qKUbN3SzmuYCIZOBZDp4Hrrpa0CJ5jD3ehKcOTPBu', NULL, NULL, NULL, NULL, '2023-08-11 10:27:15', '2023-08-11 10:27:15', 'cv_Boff0TVuTpTUd0NuHWf:APA91bEysYR1JSqHw7_duKw03Llhy2ZdJpEb7IJH2mYojqrKcZiuvZ5N3s_GnRPt41yRJVYerC7MMPpWzsAPt07TeZQMrtn3nSRprK9CB3dbtuY6Huh1ZMGXXMR7j9sbI1e_wQ6pJqvA'),
 (1269, 'اسحاق', 'الشيخ', 5800960841, '33939308', 'user', 'isha992015@gmail.com', '33939308', NULL, '$2y$10$ooGEplyoR7i0xMv0L5cgR.BWo/vXUPm4rc6/1dhYhq68CTvuRd1WK', NULL, NULL, NULL, NULL, '2023-08-11 10:28:51', '2023-08-11 10:28:51', 'fRWJeGODQGeJXJBBtORc9t:APA91bG5i2BKD7ckDgZxeLF1lHMVrOgWYLxH38dDv11RYxifQ2XlcgUzlNRpXfutT_4zQBJ7XZHrrEz-ltjriTjbRLDlw5hX1a2VXzAeoSva88ssDaSostNKYhZAewHR4YwtFN9yXSoh'),
@@ -6792,7 +6784,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1295, 'محمدي', 'دهاه', 9377327755, '37848492', 'user', 'mouhamdy@gmail.com', '37848492', NULL, '$2y$10$6dswEJ47lpiQv2lq5V1L6Oo2hxxATuDQihIwRHoIy.EEVmT0GwOri', NULL, NULL, NULL, NULL, '2023-08-11 10:57:24', '2023-08-11 10:57:24', 'e4dUREE6OE5mvzoj6byT9L:APA91bFtaVBQnMZrbjvnaG71aJkR-f0H37rGNcJGiJZKVDSyMWLfw7VS890pK1_Vtvb_SJpgRPtiMVFMDjCt2IxAtcD90dicO6HEYWxnuSiJ09pEfiVpeVTYrUgR5cXGxhwX8ana0jzt'),
 (1296, 'Sidimohamed', 'malick', 1953850631, '34303151', 'user', 'welmalick3242@gmail.com', '34303151', NULL, '$2y$10$433lR6FE2RO5Yki4WbwyhefUoYNpn8Pjcmiri/NyqIfoptPdhBRTa', NULL, NULL, NULL, NULL, '2023-08-11 10:58:18', '2023-08-11 10:58:18', 'caUwaNwC4k2ArJS1GhQlnt:APA91bFzLsXZTFLZPwhKlUx5ae3gZ6wnABW4iyRxH9xqUDGJnll_3vWVvcktA_G0qMheh0ocYPbXc9YOXZjHFtxTu0N3wipEyZOZ_OY2r5YAZeLojOOJuv-bBDi2uM_KwV7z6qC6cCAp'),
 (1297, 'Yaly', 'Mbareck', 5598808670, '46046396', 'user', 'yalyahmedm@gmail.com', '46046396', NULL, '$2y$10$Jw36EMdQywi/jlRo0YfSDueXn5zdBIQ.7irZVqpl9VPbiDQusKoQC', NULL, NULL, NULL, NULL, '2023-08-11 10:58:19', '2023-08-11 10:58:19', 'eSXfKXF4S8qmXSaxKTElD6:APA91bGV4MxtqnMqBnUZjUWU_w8R6oV-SfBLMp2P7vYNCdL0tWbyhcsWmYv_huN57MVBDgpDn7Z5vMJ3hbf0578rx3YGuO-HbOhPoI5sfGJOD2S99hrf1Y0eJXRRKDhRXRY7RvjAvD2Z'),
-(1298, 'chrif', 'd\'veiny', 4427344714, '49151035', 'user', 'cheikhchrif08@gmail.com', '49151035', NULL, '$2y$10$rAhqGPB7LwaN2S.HAT7F9.XWnU2bFsE1JHJnRyYVICh2vqEOrrGja', NULL, NULL, NULL, NULL, '2023-08-11 10:59:29', '2023-08-11 10:59:29', 'e8ZwvRz1QFyVYdHreTCRRP:APA91bHkUN6nMb92LOz3HGNVwJvWGnSZV3H6JDbXLWFfkqNZxEuM3k0X-q-tpzNNKxuUmRwjs3M6MDzg9jVRPWu1QoRJgzis6d-2GPG97Zy3scwbrQklq6ePNAV0Oop-dvca7Q-wd82M'),
+(1298, 'chrif', 'dveiny', 4427344714, '49151035', 'user', 'cheikhchrif08@gmail.com', '49151035', NULL, '$2y$10$rAhqGPB7LwaN2S.HAT7F9.XWnU2bFsE1JHJnRyYVICh2vqEOrrGja', NULL, NULL, NULL, NULL, '2023-08-11 10:59:29', '2023-08-11 10:59:29', 'e8ZwvRz1QFyVYdHreTCRRP:APA91bHkUN6nMb92LOz3HGNVwJvWGnSZV3H6JDbXLWFfkqNZxEuM3k0X-q-tpzNNKxuUmRwjs3M6MDzg9jVRPWu1QoRJgzis6d-2GPG97Zy3scwbrQklq6ePNAV0Oop-dvca7Q-wd82M'),
 (1299, 'Abdsamede Mohamed Mahmoud', 'samba', 5211582924, '41337322', 'user', 'medabdsamed32@gmail.com', '27779683', NULL, '$2y$10$ygtztzr3Fs7bqNvSLvPwqeC0d65a11f23jXl0EEwCnQ1Yd.S133Na', NULL, NULL, NULL, NULL, '2023-08-11 10:59:40', '2023-08-11 10:59:40', 'epnbdVZpTTKPIelVZFJ-15:APA91bGKeYr9qD1wcqyyqlUKezRd1dybeCfQyY1jp2PR7D9i2ComXg3T5eAEWUF0PoHY4N-3olqbCt6JTXXmkaAlv3fcSnwLsN7x8LJ4j8TbTSiiyszg-nqxEOoFA1ZhxASHNeqKo60Y'),
 (1300, 'عبدالله', 'بوبكر', 5722286081, '46705071', 'user', 'abdallahxa@gmail.com', '46705071', NULL, '$2y$10$qQ6rAudAEYsdoQ0k8Q/Xie0EMBq5LHTV342Rr5AdVs0qnlGflKeHO', NULL, NULL, NULL, NULL, '2023-08-11 11:00:43', '2023-08-11 11:00:43', 'c5fICT4tSxit1KEmTOqplI:APA91bHwRsVSoE3NwTvAWgut8Bg7i8e0ME3x7GeZiK3YNb_i3jHesPpmFdqsrVW2k43aYsAQyuFHxDOW_6BS2R8YwzwsrO_o4oLzm3rNjeHyvfBxsNEtPVL_lGCc8s7AXsU1K94Fl2y2'),
 (1301, 'محمد الحافظ عبد الله', 'بديد', 7525928331, '22817282', 'user', 'hafedhabdallahi@gmail.com', '22817282', NULL, '$2y$10$ZTNxZSXtj2DPoCKgdvUrmOV69RHho.EHRsCmLwGmRBABa.9e2uAVm', NULL, NULL, NULL, NULL, '2023-08-11 11:00:47', '2023-08-11 11:00:47', 'fZVaDZfqR4yjv-HKTfISZX:APA91bG0mOq_NcvrsvtKNXA_lSv1CM313Oy3U53to0emyWQUWDuUF-BC58cIh0cpvx2Yjak_6bL76Nt9zr6hGOjWnrsHg4tf5kxpQLtx81smexea7ToJXE9hI0ZTRiGFmFKolOxbbDRt'),
@@ -6813,10 +6805,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1316, 'Mohamed Vall', 'Jedou', 8430239155, '47405070', 'user', 'valijiddou@gmail.com', '47405070', NULL, '$2y$10$5lbMStJkV5Hgs29enzyPaeNj4RUzLvXc9luPDbEh28nBI/FjQVWFq', NULL, NULL, NULL, NULL, '2023-08-11 11:10:51', '2023-08-11 11:10:51', 'dkXkaFpKQdq1PWWyezaCKy:APA91bE9ObRsKP-29dIT8DyJ_V9HOKemGcpIWT36ybzcqg2bSMmBL8xWFLel4XCFZMU00HjqwYK1M7-Ei0L8X3AXzYDJYtLjngdtNc27H4IWGrGqf0t8xtoUL9pexW7MNlTdiLK65ox4'),
 (1317, 'fatimetou', 'elghazaly', 8097955179, '26683305', 'user', 'fatitaghazali@gmail.com', '26683305', NULL, '$2y$10$UIZ5Uj60NjGQVqHq3lkLnevXt400CPXF0jhKBuiiLU3Yj/7O2DpcK', NULL, NULL, NULL, NULL, '2023-08-11 11:11:41', '2023-08-11 11:11:41', 'djP6d21JQeillD0mDo0Qrl:APA91bHm-TbsSxe91M-xO7-vVc9Xsb0Ud5PLX0YsNTTaacipbd-Y08wI51Fm5EjUD7Km6yBwifkai05uszfigTclFWmz3XiRM6Uw5_ItIzZpLiA3ysYOlDG705EN5C4Kx-5HABO8FM5Z'),
 (1318, 'Mohamed ELMOUSTAPHA', 'MOUKSSA', 8571296458, '47004216', 'user', 'moustava@gmail.com', '00244943803621', NULL, '$2y$10$wFqNvOlLNzb12.Lz8YH8aePgqvGDIUsj7SVP8A3NuF.avFn6t9oMO', NULL, NULL, NULL, NULL, '2023-08-11 11:11:44', '2023-08-11 11:11:44', 'csn4hWoLSHCOiFPQDo6hqs:APA91bGiv7a_BafkxGD_Osu6mlnJPU0uzQLa99w85PtAE1bdGWjy6upVUcDaBajrtO_nI-REoJH4REpS9cG5WdnluV1Hr7cRL-hwdPyACVBY85ExlX-Rb_g8N2mxujoSlpo6VM9D0bqE');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1319, 'محمد محمود', 'محمد المختار', 5199572578, '27751516', 'user', 'Mhmwd317@gmail.com', '27751516', NULL, '$2y$10$f7eQyn0X3Nya2mpVhtvfAehbOJSbJtayDKkw9y7rSx4PcfsM7V4Pq', NULL, NULL, NULL, NULL, '2023-08-11 11:12:10', '2023-08-11 11:12:10', 'f0XqayVHRvuq2T1Ym26iU2:APA91bGPnjjjDdYPcC4Xmm-ZV6CfEGFNGwlVLYlzgCOofrLOzih6ecsA3LUdKw0roP6uAPxSpXj5oe7F-kGcGuQ5sehswMjcBX_rDLFZ5wlGSoJu-RRewBp-PPvyh4ANoza9k1cNFRBD'),
 (1320, 'محمد الراظي', 'ابيليل', 3152841926, '47473232', 'user', 'radhy3@gmail.fr', '47473232', NULL, '$2y$10$uJvCpRDS0ixdMVdeotK21u0a6VW62UCQoSo4g/FmeAlYVWXKGIzNG', NULL, NULL, NULL, NULL, '2023-08-11 11:12:49', '2024-01-04 17:28:33', 'f1jynR1URfqjbh-TSgK7uL:APA91bF1cb066OnsAuvQPprlnzyU6GntCybXgm7iwr-1iEcA6tuYeBSN1rhTBSF18Ma62YM6OgnKA9Q2qsCGJsFxVaffTbxIAqwzoqM9sr69AUM2gWuc4Vz-uEmSd9nks4VvFOUhWfEj'),
-(1321, 'Meden', 'H\'Meyade', 7412213679, '32505313', 'user', 'Ahmedoumeden24@gmail.com', '32505313', NULL, '$2y$10$/A7JgRv8abTO45W0ndn45.0089j7Tu2jvY10zEUttZ/rPWI75G1ia', NULL, NULL, NULL, NULL, '2023-08-11 11:13:11', '2023-08-11 11:13:11', 'ff3O2jI7SkC114da3A3DeA:APA91bHbRJo4ldapt5yWQgMdFTTHWE388ptp__g-SG3i5U7e92jVevVysUvrE--ty0ZxtejvUaBs1BzeiBhyLRP0e-PnZUGApjxhhsjhAF13qgI96U7g3n1nVoFcYMEFqImZ5BClir61'),
+(1321, 'Meden', 'HMeyade', 7412213679, '32505313', 'user', 'Ahmedoumeden24@gmail.com', '32505313', NULL, '$2y$10$/A7JgRv8abTO45W0ndn45.0089j7Tu2jvY10zEUttZ/rPWI75G1ia', NULL, NULL, NULL, NULL, '2023-08-11 11:13:11', '2023-08-11 11:13:11', 'ff3O2jI7SkC114da3A3DeA:APA91bHbRJo4ldapt5yWQgMdFTTHWE388ptp__g-SG3i5U7e92jVevVysUvrE--ty0ZxtejvUaBs1BzeiBhyLRP0e-PnZUGApjxhhsjhAF13qgI96U7g3n1nVoFcYMEFqImZ5BClir61'),
 (1322, 'Moustapha', 'EMINOU', 1398216007, '37457484', 'user', 'eminou12@gmail.com', '37457484', NULL, '$2y$10$TL6/0oH3kaIBoB6fFKudWeHyCnsk./.YG/liYqgqhAuZbhlAmQCBu', NULL, NULL, NULL, NULL, '2023-08-11 11:13:18', '2023-08-11 11:30:42', 'fnD8-IiuQ_SWVf1XB759L0:APA91bERSBB4_3iqCfrLrSHGcZdGz96k4lAes6m128Ie8ky6NEBrJ52KkCBiaLxAltTkU8QDE4jJ907SUPnaPLg6dSbwnpOJhJbY39y2NE-7V2WI045urD0ckXJ9E2b5vBcDqn92vVzf'),
 (1323, 'Mohamed Mahmoud', 'Issa', 7212592723, '26455521', 'user', 'aly.issa792@gmail.com', '26455521', NULL, '$2y$10$pYsPbofjZGvzF/FF0U/kwO2PGIi8sT1XbzA3OFyQSGnJtdo0rrIM2', NULL, NULL, NULL, NULL, '2023-08-11 11:13:44', '2024-01-27 12:41:49', 'dfsLDrYp50GqnBErwGCRmg:APA91bE2liODYVR6rmxwFcfc-wQxdZrl2hjSnvp3sinxogv8M1kC3DeetfP5fqJFa3deBxh_U9b3AO_AQCNA2aWCCDrWMgVp6yLCSJShFl3RW_Keuf4VoW94gioeWclUglPxVVgQ62m9'),
 (1324, 'mohamed', 'bouh', 5169398109, '32507080', 'user', 'barrbouh@gmal.com', '20507080', NULL, '$2y$10$azdeAmbGep.2qyxjBmnH3Ohu1CWI8Y.sYvJUbypFcgXpmZH89xiDy', NULL, NULL, NULL, NULL, '2023-08-11 11:15:27', '2023-08-11 11:15:27', 'f7n4KvJevELDjzzcmrL3ah:APA91bERiADFdVc_ND_AugvG-TtW9asimfHGJ_fe43i0UKSFnctfPmz_cr0wK3KhZ21T0um89vTzEDGNcyS6feq2DRN_ZSs1XFB6PpBSg6ekWIcmKPlzcWcjwNeJCwORiS7663y160fW'),
@@ -6936,7 +6928,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1438, 'brahim khali', 'mohamed el moctar', 8131247034, '36242418', 'user', 'khalile2019@outlook.fr', '36242418', NULL, '$2y$10$G3IAjK5wSZdFElnANVr9.OmZ6vjo1cfgSITqa/2KNBD.BZY68Bw4e', NULL, NULL, NULL, NULL, '2023-08-11 12:43:56', '2023-12-07 12:51:08', 'cHFKqs_ORVOa7Ut_xGnyKx:APA91bFAU9XWwyoUbxzX0GioCvM8q_UvMYPFUCTc6X8iiapAMJc5ZbBXsxsVGE9FPaw1W7HTMSfqJsslByD7oSL7jIHvMRrk_nh4Krq0j-21FHtyZORGO9wBu1jnd-Kkcgl9HnnE5tz2'),
 (1439, 'Ahmed', 'El Hadj', 1590261845, '36682826', 'user', 'ahmedelihadj1960@gmail.com', '36682826', NULL, '$2y$10$x8OO86LnAXMr5OWXIpjZ..DPW6vYFm08CAPPL43Yg2Pj4W5dvBy5y', NULL, NULL, NULL, NULL, '2023-08-11 12:44:45', '2023-08-11 12:44:45', 'cdtTSvu3ZUldq5x5hHDlzK:APA91bGWWEPxpah4TVqwpLzha5mGc1Nf_ZsARYJLy31lA1bEwa0R_eW7uoo4qOaxQbfgEyajrbaTTAghBS1Oh8SWx7ZxivP61dPbWQaVQh6SkgpsgFWK0Hht4Mw2bM8kXILNO7UDEEid'),
 (1440, 'brahim', 'mohamedabdallah', 2892671242, '43526730', 'user', 'mhmdallhabrahym@gmail.com', '43526730', NULL, '$2y$10$fdBn8xC/tmabz23ivjSnA.Lps7mqeEGfE7ThyD.CTIZbIm4kOJ1ty', NULL, NULL, NULL, NULL, '2023-08-11 12:46:24', '2024-01-12 14:39:06', 'fJhwqPxpQzyYcoWU9Ll5ky:APA91bH_2_h2MGXXp46r-NMuS4n6sH-FMHbKgS_e1SDU7b6VtTiUeDl-CYOrw7lVXqtZK8Uw8TUaIlwrLhlcRugB76FUodGmU4b8-R_8DMtG5vEOAb_ePW8p9eBkEM6a8kP08HiQ2zSi');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1441, 'lebatt', 'youba', 8931656308, '27766072', 'user', 'lebattnema@gmail.com', '27766072', NULL, '$2y$10$VIpLcFHpCgc05ZgcZxc71eFDEoMBaf0.LoiURYhxRrRR8.yAsdTR2', NULL, NULL, NULL, NULL, '2023-08-11 12:46:52', '2023-08-11 12:46:52', 'dNB_d_rGT82J1iZCWbgDKw:APA91bErN2652gkwD72CR0G4YWxKzoThtqJSsphP2qYw6svEkdMzDkSx4ics99zHvobzTpTH3KObpl0pAn7uEpildyDDbzf6gyUln-aDHTvtd-3FPrvsUz7OhwsYqGe_ZlAM3JmCT7CQ'),
 (1442, 'cheikh', 'sidi med', 6514621948, '36808079', 'user', 'cheikh101112@gmail.com', '36808079', NULL, '$2y$10$oMBpzWG0CVIgE1PT/S0hheDiCKWAmoaO7d.BuhCa60e0wdiizMM.i', NULL, NULL, NULL, NULL, '2023-08-11 12:47:38', '2023-08-11 12:47:38', 'e_KxPltYgUzUnY1K4MoLZF:APA91bFQ4-3bwkQCdioLniCxqXuVFh_u2cZ1_6LKOAsIvTOoWN7tTIvnPFup7jHLWfkZEi2_yZRRzyX0K1AIvLWAvxugzDkGlKoYm1ui5lhGYTJvInTJZ8vgUFhed1TINaYL4YvDADkp'),
 (1443, 'Zayed', 'Mohamed Lemin', 3995067027, '27372307', 'user', 'zayedmedlemin@gmail.com', '27342307', NULL, '$2y$10$LjREChU4hQKx5J0Jk/a1JunHGlpFwGzidnSwsr7e3sQbkYqGQLzZK', NULL, NULL, NULL, NULL, '2023-08-11 12:47:47', '2023-08-11 12:47:47', 'eaFbAtmwS9qRvlRYi6YhEI:APA91bE4r0cG3ENkXVAx-leo3VsR9M4zI7xd_0CNWt5GFgoMEw7Oyqumlt4HJfQQ4d4mdBwbKvkyb20sY7M-9dV26hGR4XstM_snmWgL5CnOmNYO3Q-CVAFcPPJD4qLfbRzL1faj9roc'),
@@ -6987,7 +6979,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1488, 'أحمدو', 'أحيمد', 8106875881, '22447470', 'user', 'ahmedbd2@gmail.com', '22447470', NULL, '$2y$10$9xFV7v2eUlG7Ind4xq0ky.nhXSAYtY3M3OtYaPNqzd3BMB71VDRAa', NULL, NULL, NULL, NULL, '2023-08-11 13:20:20', '2023-08-11 13:20:20', 'cgV0JUPcQQqG7piFOkjrAF:APA91bE8wyIT4hZMWFguWk6HOUoZTtZIp3F4q-dJbBmZc6Ne_x7TcjTq6tsK3RDE0IqTIAYm204mp-yjxIv_0vD-0MQnmil3GlredOtAXYENXg74ueaQUXCUycUGAgVtx08oFnVUpHmf'),
 (1489, 'Moulaye Esaîd', 'Ba Oumar', 1674098072, '36190007', 'user', 'baoumarmsd@gmail.com', '36190007', NULL, '$2y$10$qAmZm9kURP89wEfuR1esd.C0ASo1Mqk.azRmCMSbS2gxEMGnUZHFm', NULL, NULL, NULL, NULL, '2023-08-11 13:20:51', '2023-08-11 13:20:51', 'dxu2glsOT9etnd4-fXZAfG:APA91bEd_gDfUOdwVgfJ7SjkCRis26KbQ5nBW9mGLL3UkuExDjicEdeISozCCbXYMXhYZEw5Picic2vK2xtnvE5QfulF2Z_aEJpdzM22dm8gHJ-t06TmDVIXF7zfU7Yka3-I6VN9PQ9Z'),
 (1490, 'SIDIYA', 'Mohamed Mahmoud', 5632129431, '49292985', 'user', 'sidiyamma@gmail.com', '0022249292985', NULL, '$2y$10$L9hle7HqR9KNpjPq8RhYdejiZAtR6pTjL2raEwoPWcdTOYr6JZEy.', NULL, NULL, NULL, NULL, '2023-08-11 13:21:12', '2023-08-11 13:21:12', 'c4I-HzNfBEAovwsL7teQiS:APA91bHIEL1kAV5Vfpr2eacXbDoMpoRJgH8y4ER69ZyUlM5V5efN3fd5YDfXhVfjATPQxRXohVyHfrmnraED21Nt2cqbnwV-m2ZAMg5C-vDOBgIXhTGIeQP2v4KiCAARJAa9TEwEmH83'),
-(1491, 'abdellahi', 'taleb M\'hamed', 3776963109, '27717333', 'user', 'abdellahicheikh914@gmail.com', '20209163', NULL, '$2y$10$depiAeSSyJ7FGKYl3c4M/.A82asm2cticYDV/k8qzk7cY093u5txO', NULL, NULL, NULL, NULL, '2023-08-11 13:21:33', '2023-08-11 13:21:33', 'fY3dX1s8RMSZl2hrILuwAT:APA91bFeLMUcQfRtIjDAHQLLLkz6LgTdZnOubHwrbJ-k0mJTDX6LU4bHs2AYrL51sWSJWYqUAcljBWNvYI3d7yxqg79RMW_yeAxhNsYmlCty-_8-RLp5MPXI1C9kL4vOWt_2IxH4GTgf'),
+(1491, 'abdellahi', 'taleb Mhamed', 3776963109, '27717333', 'user', 'abdellahicheikh914@gmail.com', '20209163', NULL, '$2y$10$depiAeSSyJ7FGKYl3c4M/.A82asm2cticYDV/k8qzk7cY093u5txO', NULL, NULL, NULL, NULL, '2023-08-11 13:21:33', '2023-08-11 13:21:33', 'fY3dX1s8RMSZl2hrILuwAT:APA91bFeLMUcQfRtIjDAHQLLLkz6LgTdZnOubHwrbJ-k0mJTDX6LU4bHs2AYrL51sWSJWYqUAcljBWNvYI3d7yxqg79RMW_yeAxhNsYmlCty-_8-RLp5MPXI1C9kL4vOWt_2IxH4GTgf'),
 (1492, 'cheikh Mohamed', 'Mohamed Lemine', 9074902028, '46616604', 'user', 'cheikh.mfml@gmail.com', '38049832', NULL, '$2y$10$f4YyxkCZiWxYXP3GjrjDiOAmy02F1/.YPt5lrkZ/R8c5h6.vGOKdu', NULL, NULL, NULL, NULL, '2023-08-11 13:21:57', '2023-08-11 13:21:57', 'dppBzpjoSOun6JWoH__IxN:APA91bE9GikKkiXsiS6s6zGX1aQ7DSg5UOizx8nP0a0hax1hrvx89dlZHB6UTU5X5pvgl8JiXtP0DgOi12sPJ3tDf1FQUaHAPhZZwsg9kRAs36GmSEcoC64OOT7_hQzen2V0VRAQInLZ'),
 (1493, 'ahmed ammi', 'cheikh', 3198025593, '36626614', 'user', 'ammicheikh@icloud.com', '+79037489199', NULL, '$2y$10$bx9N7cH83uAsLwdFEYkwsezeBaHIK0OcUa1WuuFZueiCNzV1naPcy', NULL, NULL, NULL, NULL, '2023-08-11 13:22:29', '2023-08-11 13:22:29', 'f2FseOQLmEACtnq1YENPbF:APA91bFOH-33KU5lNRq370Gt05ytrnHxZxBF8hPfHsxV-e4AJbWwMXBf29ju0GM4MaakEt_733X0gATLWGiTuRYsIF4uazPVY8nkcI54lVDdaJRJ-VaAJ7O9BfssL6OfZy2bstwma9Ax'),
 (1494, 'عبدوتي', 'محمود', 9391978247, '46054683', 'user', 'abdouti2584@yahoo.fr', '46054683', NULL, '$2y$10$wybVR5GIXzpl2On.Roj2sOe05Of1ISwPovm6bQ92E5.bkHclgt2uG', NULL, NULL, NULL, NULL, '2023-08-11 13:23:54', '2023-08-11 13:23:54', 'fRHqkEq6Ra-qa0J-oBghGt:APA91bEJESlnxi8HP1YSnTjGxqGI9vuaWN7WG0adPHHybpCmrdEwpUz3nMVew7Hl-p4K3T2G5xpHB8OK19iKZz3_Ux7Cy_fVivaTXrFPOZhP5CfFr8YNLoJPUs8k0KwOef6LCKc1dcwr'),
@@ -7002,7 +6994,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1503, 'Sidi', 'Mohamed Vall', 7572912900, '36307367', 'user', 'mecotp@gmail.com', '36307367', NULL, '$2y$10$ivzYdcP346uWjdf3L8UlCOveyO5IxnwyIsIHtoQqnRIxqRf7uIGV.', NULL, NULL, NULL, NULL, '2023-08-11 13:29:47', '2023-08-11 13:29:47', 'd6T5X5ZbaUVRplSAI33uaS:APA91bEg_MLA_tJDmNg-55DPjTAH6duzK8bZiMx1MkfX18tAaQHGb3I7iimKSkLjnR7Nzb2POJJKjjW0yNa2oFqB8U-qE7ktdoMnhsCT2uKN2bZ1tUy_IKdYjlMY5Nnl9120xBob0HUa'),
 (1504, 'محمد', 'عبدالصمد', 5932520486, '48656783', 'user', 'mohamedabdallahi1987@gmail.com', '48656783', NULL, '$2y$10$C0NtA4rrRKLgC29v4bfyz.ABNo/UQMoheqqvddOF8WIAvOClnX3Bi', NULL, NULL, NULL, NULL, '2023-08-11 13:30:58', '2023-08-11 13:30:58', 'co_-57IOQ4ud_DKd_i20Nl:APA91bEsn06xfRDqFKRaoOvx097NvqVqkeHCjOxqKsks9cjoXfYeeLQIPExzWaANMe0bb13Vb_mFyizkdLaJdWkiefYwRRpwNljUkgKjOPDJCoKQik8ZwcXE4rujv4Ox8Jt0-G4IBgAo'),
 (1505, 'zeidane', 'jaavar', 6313477995, '41065595', 'user', 'javarzeidane@gmail.com', '41065595', NULL, '$2y$10$T5UxDfJM0jZ8gd7vDIggn.GzJhBz3IYp9XsJQfewi6IK72HLGXEWu', NULL, NULL, NULL, NULL, '2023-08-11 13:31:34', '2023-08-11 13:31:34', 'dIT5UwtcRrCIOf7yvHrHhF:APA91bEHbhk7czVnKlXRE8SvMNzdikBgQLebZYuljTTX0bdgWN6jW0OJ9mb983Qgyanq0F3TAkhd3QIa-2pRnTYdmYfqOnPDZGvvwaBLLUso5Z1216mSyKuE8kPWahjoriUDsfdO15eT'),
-(1506, 'sidi', 'M\'saboue', 7007655100, '36266767', 'user', 'sidimsaboue@gmail.com', '36266767', NULL, '$2y$10$j4bS7UPUJEjzuSBLpTYkwe2CrRC/5Bl4HvP.bli8cvTWpy8O3G4AK', NULL, NULL, NULL, NULL, '2023-08-11 13:32:43', '2023-08-11 13:32:43', 'c_SRfkbRQYCN_EsdjVZYSe:APA91bGGtTrEkUt-tR5ZgTFUZlUd0gy9VbmTykCWmFuEW7gWr2-9crIZrB3MXAEk6MkdvGdU1oIKT0coLAvOEVY3lcuUfVdP9fiDC4NLMN_LGmrn6J5A-1fC03QverjQlI6H54p_M3_l'),
+(1506, 'sidi', 'Msaboue', 7007655100, '36266767', 'user', 'sidimsaboue@gmail.com', '36266767', NULL, '$2y$10$j4bS7UPUJEjzuSBLpTYkwe2CrRC/5Bl4HvP.bli8cvTWpy8O3G4AK', NULL, NULL, NULL, NULL, '2023-08-11 13:32:43', '2023-08-11 13:32:43', 'c_SRfkbRQYCN_EsdjVZYSe:APA91bGGtTrEkUt-tR5ZgTFUZlUd0gy9VbmTykCWmFuEW7gWr2-9crIZrB3MXAEk6MkdvGdU1oIKT0coLAvOEVY3lcuUfVdP9fiDC4NLMN_LGmrn6J5A-1fC03QverjQlI6H54p_M3_l'),
 (1507, 'احمد', 'المختار', 2199905196, '27111137', 'user', 'aicha2711hada@gmail.com', '27111137', NULL, '$2y$10$MIm1uBUvrw7FcgkRF5U6L.EOvQdJtW/fMpG4O9bofmGoAAVucgnR.', NULL, NULL, NULL, NULL, '2023-08-11 13:33:29', '2024-02-10 13:27:41', 'eO7Alu7ZQV6mECeCkYhURo:APA91bEoPuLaDTe5t8JeqkPGCCkseSDU3uObua_C4BqxV0l7vdlx2RWdTMTSbnGIRSiOeQ-578LWgxtQg2KF00tcS_EpZK1bfTY7F9UmMOfQSXIIzmjYFvJfcap2jumLLmKFf-L8U4LQ'),
 (1508, 'إسلك', 'البو', 5032094609, '36212352', 'user', 'selkou022@gmail.com', '36212352', NULL, '$2y$10$KPNNKhTAl18uIa4sE5jG2.PvO6GhyRhTEwGFNs0KMPpqnhDP7C78K', NULL, NULL, NULL, NULL, '2023-08-11 13:34:20', '2023-08-11 13:34:20', 'dA_ZbuphRzSs-EmpcZ2uTl:APA91bGDuhDeCqjufXgN6GPhtW4yTOAWTZNAwUX6PbALT77qmAniaZejWvIvvzHHPzhVrMdWaNFpsWRjOYDwUvTo00hsGf_X1Mbb5ztoOsHjd3cTUpMoldz6rpT8S8vTMH_7HnTuJHpP'),
 (1509, 'البو محمد الشيخ', 'اعلي', 3322720742, '33111882', 'user', 'elbou76@gmail.com', '41816511', NULL, '$2y$10$Tyw53/27tm2pOKT7JX5b.uODWLs6QjKpsVTqBoU6sDckLGI7djbLm', NULL, NULL, NULL, NULL, '2023-08-11 13:35:16', '2023-08-11 13:35:16', 'dm5VApjbSDeN96tO4PWHFN:APA91bFQu8JyYFNsSKyT-TGYbk9tURa8tuTSSTRi-wWR1w01HnsYZZ7tGOW5Fwq9BWpC4gm5bcrEOWRiZdgsYOZzG9Kqlbf-3_hiLd0hOyR92TLS3Sm--D4ag5RDYKJtkE3QEP2WkkMm'),
@@ -7059,7 +7051,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1560, 'Mohamed Maouloud', 'Tekrour', 4003354707, '49039787', 'user', 'mohamedmewloud0@gmail.com', '32323042', NULL, '$2y$10$HSZMgdCEO./vz.wMX4CmiOhu2xNmzwwY4kwYRsgYIQ4vh0YTZThV.', NULL, NULL, NULL, NULL, '2023-08-11 14:20:33', '2023-08-11 14:20:33', 'c3C5XZuEgEUDlUS8E18BKO:APA91bGuwHMGKLjkvbOEv_ENC6ttwA2lOmORp7cZs-9lVDT8sN3tCEeMYPpmjG4stdyZxKYGE3O1ImBWe5XAtK-fxeDnxvwDI9PhkFTgbYFRzQ_S9uHkvGunJk1DstCYbMp4n5QPx7mD'),
 (1561, 'khalid', 'habiboullab', 6870126269, '37151530', 'user', 'khalidhabiboullah@gmail.com', '37151530', NULL, '$2y$10$OIOAOTFywG1nlFkZ9UQakO6iEnor2z74Kq6J2syNSsZPe2PRvgCyO', NULL, NULL, NULL, NULL, '2023-08-11 14:24:32', '2023-08-11 14:24:32', 'cG2f7eK9S8eOAJBAsY-TND:APA91bF4ByNMsaWtHWoANUn2Dbt404fXLuW4kBeh-jIVaZ9k6mEnZwni7sRF6X0BWtjImuQWFZvFReisfxaZV0Qg4qAFm3AZSnZmZWEGRQn7fsh_PM9aiS3AlWTKDOTpTvGLvZaUzk36'),
 (1562, 'Mohamed', 'Baba el hassene', 4796152876, '49705377', 'user', 'mesbh2143@gmail.com', '49705377', NULL, '$2y$10$JG.pMgcu2.p5l6UmDwEGouJrdBN4QecZag6eRMRnCfrU.WHhKQ7Qi', NULL, NULL, NULL, NULL, '2023-08-11 14:24:34', '2023-08-11 14:24:34', 'dLBToNM7PkJKsMHHIhLyYU:APA91bFAAX8CBDNUqlD1ETpPaBoo5lkCQh8s_Nzxo-aFkMLfdwGB_nOoVyPz-Nvt_mDdhUgDqWgdX5khtMgVRskrnhn3gJvIWhLaIv78pQ8oS3MCR8BzqxdKzp7dtgsdt4LDt3OiE04p');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1563, 'ahmed', 'mohamed moctar', 9958213128, '22300151', 'user', 'ahmed.mohamed.moctar@gmail.com', '22300151', NULL, '$2y$10$kZj7Ifhe3AGf1dhMJzVXr.Rk6SbCJi2NtUOgphfA61VKK2TvIbBzG', NULL, NULL, NULL, NULL, '2023-08-11 14:30:13', '2023-08-11 14:30:13', 'eHGilDWvRKKR6kUAteZtpH:APA91bG2KEfNpLzQFOS23zzsdkI8-klR-jURJw-kuA-wuKfvpWWSXcB3yvv8Yf7SNpV1gOsadFDsaFcKQXTCRZz6Lxm0RomZfz9juyIBDn4KocO7Q27DkaHTcDUAcSAe0JT36ub4bfiP'),
 (1564, 'saadna', 'baba', 1524422707, '22280976', 'user', 'saadna9g@gmail.com', '22280976', NULL, '$2y$10$uL7sL7h/7ffKBdGbDpHbhOQWXwTBW5cPTUdmHJrzk5ob6A00PN8AK', NULL, NULL, NULL, NULL, '2023-08-11 14:30:15', '2023-08-11 14:30:15', 'ccjDZerFRjuLcuA7QwunTK:APA91bG7NLLuHCEr75cMAa-U68T6VNqfEDnM6KWDmNwhKS1kEgaHaW9c_EcqN1cxEK-g3KqCvCs19NlLbYd3aDZKCe_wc9KILnPV6Q_17yNMsGbKU9RQPQzzgcTflVYr_Kd-5XWLRpaY'),
 (1565, 'Mohamed Mahmoud', 'Saîd', 7695135422, '36311290', 'user', 'mdmamar@gmail.com', '36311290', NULL, '$2y$10$yZFj8dVu5FJlPk97QiG2r.9iCkAnmVUQM0VJw41s5f9RelIRP2Vv2', NULL, NULL, NULL, NULL, '2023-08-11 14:30:54', '2023-08-11 14:30:54', 'efkWNoNOQiG3riBu4-w7nx:APA91bGy2EBJ38dWveACt4qgsiYWI_UuqK5-ouArWAA0eMAVcpBvz904DOR5dwH2gsHkE_F7CSa14om5rLi6QB5RG59Epj6Nk22meQY-K63rbNZSbMLiySJaN2Jlp6NvD-brDKsGc8Ae'),
@@ -7094,7 +7086,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1594, 'mouhamed', 'Moustapha', 2756613416, '36130167', 'user', 'mohamedabdelbaghy@gmail.com', '36130167', NULL, '$2y$10$X7cj4YLxYD2CGPEAC/l3EuF/w0mXxj../4V3UGrLvJdth25AXsHRm', NULL, NULL, NULL, NULL, '2023-08-11 15:02:16', '2023-08-11 15:02:16', 'en5GXwnFQSy77Ay9XIq7it:APA91bEIg8SOBnQKpKCLmJq6DE5Hkbxuc8BQackQRMMeXlsfIFd0ZiNxcvSc8tgleJ4KSnn8Bdrpi5uwes5jHENP1HBZH4JoBSJpO2-bE9C3isX1qK_bV_JbF5IIRopaBB8Atm5f6EzR'),
 (1595, 'Mohamed Yahya', 'Lehbib', 3203054849, '49551439', 'user', 'yahleh1975@gmail.com', '49551439', NULL, '$2y$10$SgpKvcXjYdRrPWqsgSc3v.mKB.ML39MeAbuoF2zG3GEhpIN/36/se', NULL, NULL, NULL, NULL, '2023-08-11 15:02:43', '2023-08-11 15:02:43', 'e-Es0YOVVEUGtcchWEhSW0:APA91bHg-BKJSp62Gm-nTXzpA2cNZP7gm5RtLDH9EBHZT3HS3t9M9v5MLGGElUT2FKfZgyEFtXjoJXOJKVauhuFfWXmtbDNaOtFmtdeJ_xPaSJpopyzDqZHhX3Cold1z0TuYhIOk6NA7'),
 (1596, 'ahmed salem', 'mouhamed sidi', 9905754170, '33164669', 'user', 'ahmeddemino5@gmail', '33164669', NULL, '$2y$10$1XEOLRMhIqDfjUQfrx9mWO1J/6aFHDrPm.sQEv7Dx59vThc2SCsk2', NULL, NULL, NULL, NULL, '2023-08-11 15:02:48', '2023-08-11 15:02:48', 'd0QmSKPPQ5uwnWR_WPsHZd:APA91bHeZKahsbBMrCe97ggUXNBGzBvE12XL8qZ-M1CudRWyBxXk087PsIU8e4pI3WFXE-HCw9Wu59PgPP7HxCEa31FwjWO8WjlIOWSL5k7OWjBBA85FLSFBbSXpUKEhfSFBhJ6kTNql'),
-(1597, 'D\'Ehane Hacene', 'Meye', 5651905112, '36176888', 'user', 'dahaneh5@gmail.com', '36176888', NULL, '$2y$10$nwi.HZrlzOQjL4/ShaXBv.ViHCrbBJ2TYtE9nmGaArwTrK0a4lj1m', NULL, NULL, NULL, NULL, '2023-08-11 15:03:08', '2023-08-11 15:03:08', 'fgiKjQ6GSa-QLUOVhE4p2S:APA91bH2O6YC_ohSk9kG4cJl6rdYBcGH2TIuJhFquqF-AqHfbv8uhvOv_9FVwqXxOOzj55YiX7Roy1Q_IR6jT5NSDstypFVX7iShLSbpikOP2b_RrHwJhuL4CIcQXId5NS6YN_imZTLA'),
+(1597, 'DEhane Hacene', 'Meye', 5651905112, '36176888', 'user', 'dahaneh5@gmail.com', '36176888', NULL, '$2y$10$nwi.HZrlzOQjL4/ShaXBv.ViHCrbBJ2TYtE9nmGaArwTrK0a4lj1m', NULL, NULL, NULL, NULL, '2023-08-11 15:03:08', '2023-08-11 15:03:08', 'fgiKjQ6GSa-QLUOVhE4p2S:APA91bH2O6YC_ohSk9kG4cJl6rdYBcGH2TIuJhFquqF-AqHfbv8uhvOv_9FVwqXxOOzj55YiX7Roy1Q_IR6jT5NSDstypFVX7iShLSbpikOP2b_RrHwJhuL4CIcQXId5NS6YN_imZTLA'),
 (1598, 'cheikh', 'Ahmed El Mokhtar', 2872968408, '32083377', 'user', 'cheikhm66@gmail.com', '32083377', NULL, '$2y$10$IIqPbjDFEHUatjLrGGHm2uD.2nqKrYDs3U8IcBcQihyti1YQZDsh6', NULL, NULL, NULL, NULL, '2023-08-11 15:04:36', '2023-08-11 15:04:36', 'fZ0Zx7V0T7GK_ogOTOZBhc:APA91bECnRpWHrLwFcsC77iIQEx-xmUq-sZMK41w4DOkwcaV5JvEFIPjUb_4JznhspNUc4l7K_2Us0BqjhNgpqIpPrL78QqlJgHAV72MSJDI5rFQdcB6Xjp-RjR1xxGknXuBidOzpJhJ'),
 (1599, 'Aminetou', 'Sidi med', 9833945361, '36565296', 'user', 'minyeemilia5@icloud.com', '36565296', NULL, '$2y$10$OI06IlhKNqiTNB0kKAbHc.5IDaLi5lSjqZTsSVpwqxmT2YLx04gUW', NULL, NULL, NULL, NULL, '2023-08-11 15:04:40', '2023-08-11 15:04:40', 'f3_dIfXXNEzIljhx74LOn0:APA91bG5xxYxXbpS4PwignGGYkqSo7eGWDwBjZdVxpUepZ8fvbw8NENQvHdB_7zyZN9S-9PUxnny-pCFCZslxeUzvlD_quznY7sHe3CPxLyRDO1s_OHPjXNNQbY0oGItM0hj6uSUoBzb'),
 (1600, 'mohamed', 'ahmeddou', 7038541161, '49000401', 'user', 'ahmeddoumohamed@gmail.com', '49000401', NULL, '$2y$10$HcDuqpCaWHAha7Xec9GdqeciPIg4TXbCgyCZiX95QUQamuw2TzrTq', NULL, NULL, NULL, NULL, '2023-08-11 15:04:51', '2023-08-11 15:04:51', 'c6JiATSVShyLTPAQDuge7X:APA91bEwp-CIfro8mA_ehLcZ030Z6FgH9CT7h9r67TsulaPvBfJLs0Z6kV8P9C_f2vzmltzE7IH74nMlTArMpFHqBPPUJsGgTuInZZbh3OI6ouaOflTFpj3lWxNoVFeivoOfAtQAsuQJ'),
@@ -7108,7 +7100,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1608, 'yahya', 'dje vall', 5981119426, '37503650', 'user', 'mohameddjeval3232@gmail.com', '37503650', NULL, '$2y$10$GGRBHOKuJZSkCletBNITyOiP6T5pFIrOXn.n1xOvntBgFCY5KnmG.', NULL, NULL, NULL, NULL, '2023-08-11 15:11:54', '2023-08-11 15:11:54', 'c9jbfP37x0GynkUlDQTlYZ:APA91bFVGYFqqhkvf5EzVLslvGgBTyBhRA5CMNfmCjxPaSojcRjt2LEfelV5_TiVHE-bQVIgOrKvqO_zzy6uhA9wlHTaey8jKAi05YyHZsWn0efGrMwES2TGW2wOYZ6_Yh8lxR7eU6z1'),
 (1609, 'ahmed', 'bamba', 7435807183, '22065074', 'user', 'ahmedkhaless134@gmail.com', '22065074', NULL, '$2y$10$idvVNSqNf1GdScKDIF84me893yi/mqyrBjbNYO2zcsjQnI/nb9vfq', NULL, NULL, NULL, NULL, '2023-08-11 15:12:14', '2023-08-11 15:12:14', 'fI-Bz6MgS0SddaejBfJFWk:APA91bECTVuqgI1ASrbJmNqXjwgxUJ1S06mTD50uMBrOad_QWxk6v08lAQFZY7w2Z9wPXM94S8blGaNHjBPINEVLarStK_G0UwZQYPxCE7QLcGVZPa7kGuwdEOAiomsu4L1mrsoNoEe2'),
 (1610, 'الشيخ محمد', 'بله', 5251897579, '34787822', 'user', 'cheikhmedsidina5@gmail.com', '34787822', NULL, '$2y$10$2AYpA46UqCCoErFgijvc8OlSTrwoMjyC.SXupXyGujtrWfnu5PHcq', NULL, NULL, NULL, NULL, '2023-08-11 15:12:34', '2023-08-11 15:12:34', 'eRHjKcYCeEqdvORvs-TEG1:APA91bE7KnfGwkronBZPAbNNa2Y5rvDJhFuK9zRCI5PYDLN9WIs48k9c19RfXNBxRq-7Zz5FeN9mXwFNhGZ2uEiHiCJ3bzp0SrRapedp9fFbi0HZlTg1d9iRAYYtTckpiDKRb-R5G4XM'),
-(1611, 'Mohamed', 'h\'madou', 5593132812, '41105023', 'user', 'med.abdellahi12@yahoo.com', '0033754444099', NULL, '$2y$10$BAEjEvW1BAqs5/TB43hgnuFwFPfhQdfVkUmL.RIcFGiCGGAjf/ecm', NULL, NULL, NULL, NULL, '2023-08-11 15:14:40', '2023-08-11 15:14:40', 'duoayKvgR9qzHtRq32fpWi:APA91bFSb9o7qRexYqjuXlGUM22dTAkua0rj6sPcGLa_Fi25vWXMGNZUVbE3VuSSX-f07lrFAGoKQmCs_uScpmL24yXhuChBcrzwz-eSZEYP_7PCPgLXJgO5H-aWqaJOfMJx_DXXmkFP'),
+(1611, 'Mohamed', 'hmadou', 5593132812, '41105023', 'user', 'med.abdellahi12@yahoo.com', '0033754444099', NULL, '$2y$10$BAEjEvW1BAqs5/TB43hgnuFwFPfhQdfVkUmL.RIcFGiCGGAjf/ecm', NULL, NULL, NULL, NULL, '2023-08-11 15:14:40', '2023-08-11 15:14:40', 'duoayKvgR9qzHtRq32fpWi:APA91bFSb9o7qRexYqjuXlGUM22dTAkua0rj6sPcGLa_Fi25vWXMGNZUVbE3VuSSX-f07lrFAGoKQmCs_uScpmL24yXhuChBcrzwz-eSZEYP_7PCPgLXJgO5H-aWqaJOfMJx_DXXmkFP'),
 (1612, 'med yahya', 'Abeidi', 3349598375, '44484000', 'user', 'medyahyaanac@gmail.com', '44484000', NULL, '$2y$10$18UPBkJGu295CW5LruDsC./KuMC7XrEAR2atvOD9b0sar9zWr4C6e', NULL, NULL, NULL, NULL, '2023-08-11 15:15:55', '2024-02-02 20:53:56', 'fhl9uAfzQ7C6FM5OnsY1U3:APA91bEXoO4mDOQqwke97M8NW5wc0A6PpeL-L1oV1W2TIS-IfTmv62sdHsCQdeO34Lgdu3cnVZOeWU2824m1DXa4owUFgRSyT03tlT9h92Zea4YsPiGNB6tcQWX3LXzUpYy1CMxAEsfO'),
 (1613, 'Mohamed bouya', 'soueidi', 8476887037, '44223379', 'user', 'smbouya@gmail.com', '44223379', NULL, '$2y$10$CSTyFdddSi4EP2sRe754cu/A78hsdawKy8M/f6aP5JQCR.go.S4d.', NULL, NULL, NULL, NULL, '2023-08-11 15:17:30', '2023-08-11 15:17:30', 'dPWD2DoKRT2920-QFMzU51:APA91bGoUAIIgohBRlC7Q5ORkO6oNfbQwzrsGfgpNZwTO860AD_p9MpXssRUcLSZU8QB_BEyCRqBTf4Sew4pvvcgx-jYhY3eBao4Fn8Y_hlr9vHnjhKURo3cWKQz9bFnClf3ZPfnalBL'),
 (1614, 'mohamedn', 'bebr', 8707632674, '46670108', 'user', 'mednbebe@gmail.com', '46670108', NULL, '$2y$10$gdNE/Usu/tXaeDY0BbNPcux6SzXOpL5uzHt.AdWoKRTo5WcC.VLUi', NULL, NULL, NULL, NULL, '2023-08-11 15:18:40', '2023-08-11 15:18:40', 'eoO3wy2eRH-PLtgvD8M7Yg:APA91bFKFGCwQ4sUFddbCx-9QCtVGpyzi8LmtYyOUtl5QzVs-Rfcg4zEjvUqFPJLKdOhy6aS-ZLFteQM-99Ji7NJTt8T9Yv81KDEEf7WsbMlhsM3rX9uRlxOEhw7hbvXgrl74IU0dNwV'),
@@ -7138,7 +7130,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1648, 'yahya', 'Mohamed', 7014552188, '41930140', 'user', 'yahyamed00222@gmailcom', '41930140', NULL, '$2y$10$e2XJsewfx02HDHN624Cs6.IbSwR6uFlect/icJsKLRtrrDOwM3HXG', NULL, NULL, NULL, NULL, '2023-08-11 15:58:38', '2023-08-11 15:58:38', 'cyjxsfhxEUX-jSztO38VEa:APA91bGlvh2JPZ7zmVPcPZTtu56vPTuxDi8AJ4uQ_u27prUc3bWpr-n4CFGbKCU3xpO1Qm52RqEu1vL3FYqwB7YaqaeVBNezP4XdzudlmD2Frwdu766cDsS1B7DO5IpAVRJ1LiswgiA7'),
 (1649, 'sidi mohamed', 'soueidi', 4834403080, '32425502', 'user', 'sidiswazou@gmail.com', '32425502', NULL, '$2y$10$Ev/HsOCXfH1Xk.M591lW3OyWXmDHF1cbxb7OYUmTSWb6mFreeEaQu', NULL, NULL, NULL, NULL, '2023-08-11 16:03:27', '2023-08-11 16:03:27', 'ekc21nXPQERXvxqqjBi-62:APA91bEebe6rFeRHOZ2XIiTrsLRTPxvd2C0Qr9L5xoOm0tKFAmxlygHquN7kAn3601lSGD6FX4-R2cS3Jkg2HTji7l_yS9WNXJKiCmRK5MP502XtfxtTnAsCnsY-4chRamMSKDavLtNW'),
 (1650, 'يعقوب', 'اعل', 8849096601, '42616918', 'user', 'yacoub1986@yahoo.fr', '42616918', NULL, '$2y$10$S/o7EeI7Z.1IuTUK1G8BK.qEuEevVy6GI7qhpb14ttfPunGMSVqLC', NULL, NULL, NULL, NULL, '2023-08-11 16:03:31', '2023-08-11 16:03:31', 'ePUphU06TyavPyVcpgWsPt:APA91bHyp0Mf4lgkjHYZlT8lKP8UZtWgVYmDrT3_qNlW4Y004d3CdqadGRx2bn3wElzmzty36y91GX9Lv-j_XQua14Va_UwH0ba1nXmKJzZoiW3nUPiiaAVdAX0SxiHU_Bvio2oVO8gc'),
-(1651, 'M\'hamed', 'Ahmedbedda', 5641623015, '46457445', 'user', 'mhamed.ahmedbedda@gmail.com', '46457445', NULL, '$2y$10$XGKzC.Val92I7zNUM.KFl.iw2pJWJNKeFbV6ypo4hLezpUwSJHSHm', NULL, NULL, NULL, NULL, '2023-08-11 16:06:03', '2023-08-11 16:06:03', 'fviV0OyTRQWapODD_mcIVS:APA91bGIJ9R-BNtHn25Gy9Ci4aRh89eaDa-VUtHlIIlAqX5Ggwc0Kaj0_BmODCiomEnCBXEaH5W4PEi3TCPhLwsdc6uhXTGn_GTUBOH9SpGwPVCzDUEjojM-zkK6Vo7UCtZPBttK5W0B'),
+(1651, 'Mhamed', 'Ahmedbedda', 5641623015, '46457445', 'user', 'mhamed.ahmedbedda@gmail.com', '46457445', NULL, '$2y$10$XGKzC.Val92I7zNUM.KFl.iw2pJWJNKeFbV6ypo4hLezpUwSJHSHm', NULL, NULL, NULL, NULL, '2023-08-11 16:06:03', '2023-08-11 16:06:03', 'fviV0OyTRQWapODD_mcIVS:APA91bGIJ9R-BNtHn25Gy9Ci4aRh89eaDa-VUtHlIIlAqX5Ggwc0Kaj0_BmODCiomEnCBXEaH5W4PEi3TCPhLwsdc6uhXTGn_GTUBOH9SpGwPVCzDUEjojM-zkK6Vo7UCtZPBttK5W0B'),
 (1652, 'إبراهيم', 'عمَّار', 7532103254, '48222873', 'user', 'brahimammar8888@gmail.com', '48222873', NULL, '$2y$10$blMNnOeAC281GaLEUk9bOuIqKldhGgaE.U5ROqd5AhAQwqoL2mkMS', NULL, NULL, NULL, NULL, '2023-08-11 16:07:39', '2023-08-11 16:07:39', 'dRrqRtA5RQeJi-1EXj0YL4:APA91bHPezjeQUBQXQvj4qCTVxC1PKkyxoJJtscJcaqvLplaPjH7PLJdn5BiwQ_N3o1uXiKtn5bxAWF2YQu7FnEdjoE4-x4HCLxEU2_JEi6CanXZMd8X03tySoAY-OyXRcepyBns3I4F'),
 (1653, 'Ahmed Salem', 'Hemdi', 9963283124, '48200826', 'user', 'medsalem58@gmail.com', '48200826', NULL, '$2y$10$0PpEbDC2j0kopKiLxUQRyego4rc4NYFdfze.Mjgne/MF0VGEoAt1a', NULL, NULL, NULL, NULL, '2023-08-11 16:08:01', '2023-08-11 16:08:01', 'fdHPO7kOTAqwEkHr3bLWYv:APA91bH4Mysrv28UdP8srd4jnN38nigXyXtBdjKITd6nahFMngYT9Jw2OvmlRYL-1JyQ1btX4BT_3k8AGcAT0hhn_XIbZRmHAtKRRLUj2HWrQPuxqKARl-7iJLEput6V13Oct6X6i-8Y'),
 (1654, 'ديدي', 'احمدجدز', 6401888160, '46061291', 'user', 'didiahmedjidau@gmail.com', '48248134', NULL, '$2y$10$4JrWaeZve33xQUJpan/E1e3yaDo4AHco4mEpw0dN8ph1i32Xz52va', NULL, NULL, NULL, NULL, '2023-08-11 16:08:03', '2023-08-11 16:08:03', 'ekUDp9B8RCusfQkVXoM6WI:APA91bH6266rXboeMtpirVoNaQsINLITzcizkIvX_M6Ca8LcOnoQub8WPriGUbsBV2cJj15lWTLzW2cmb_ELMxGq-DXAxzV8AyzT6s7x7nkWpkYGmLjzPIihs5mP3Gy2R73ZebBdnAE1'),
@@ -7182,7 +7174,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1692, 'ابراهيم', 'احمد', 2481947634, '22368835', 'user', 'brahimhmedda@gmail.com', '47368835', NULL, '$2y$10$DgUq52OJXlWTqLr1FR6hu.RZD7EnhPqzTM7WDyYhajhS59yvOJ63a', NULL, NULL, NULL, NULL, '2023-08-11 17:35:12', '2023-08-11 17:35:12', 'dKZ_sfjNRPySQ4ByxjJl27:APA91bHoqmbWl1Zl1-Twq2a8TltZjjRXf00VzLzEijp-QCY4JUBI1gfJeFJa7ZbJNNc8nk62Bz0kK_w1pYc0Gnj6nNuA6UtoYQitX4_O1xVcnao-JMCej23dD1EtS9xIABYxuRaJLGnP'),
 (1693, 'Mohamed', 'Bakar', 8573960272, '46116893', 'user', 'bacarmohamed@hotmail.com', '+22246116893', NULL, '$2y$10$xTp3kWvqK0UacB.fHE.IW.TBFHe/VR/ZOecchCmbzTXqURkR.wkZO', NULL, NULL, NULL, NULL, '2023-08-11 17:42:02', '2023-08-11 17:42:02', 'efUL8WlxWklauO1TfspBgk:APA91bHvum0QE-yt8HmzqR-j-ysRWGVk25YXMRznh7mGdPIXbArRquB_bNg54Orx19sZ-H_-B7ODKmpErkR6diUIHMn455jIHTuoe0tlHtEpjgiI2qNkS7U0e9wNskM34gEYONnlQJ4H'),
 (1694, 'emklthoum', 'aziz', 2529602182, '49462743', 'user', 'saydeleziz@gmail.com', '49462743', NULL, '$2y$10$LR7SN7k0lJ0GN0IgbRgBJOzedJcPcy2rpJ5Di16cdZxTTAZ4sh.3u', NULL, NULL, NULL, NULL, '2023-08-11 17:42:56', '2023-08-11 17:42:56', 'eycmIL2DSh2jlCki4ezuHO:APA91bF4QW4yjQdgwhf6uBzHmgCwKXvVQvQI0WPyB3btnvMalUTjlGIyRC-JIatTkKuREBXxlq23pcvWp2YBqKg05-vMC7kQY8B5oXBm1P3k7iIIsv-5gKoSWrfq46k48VJNE9uIk50g');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1695, 'eghbeirite', 'meiynna', 4761716809, '44770379', 'user', 'eghbeiritemohamedmahmoud@gmail.com', '26770379', NULL, '$2y$10$Isv57PumpmySkkprKfdXqejJDhEYNKtJBphENbbePU4KBQ1a9UH22', NULL, NULL, NULL, NULL, '2023-08-11 17:44:27', '2023-08-11 17:44:27', 'eMMO5z8dUkU_laL_bysZCw:APA91bFF2x06f-qkjE4UmMOMVHELj5oxFzvkkGI41DzurFyRJon5XWAMn8OLz52FP5ZxXOaG4k9nxMV6CEbzYBNQyOX--qS_8U0R9BpR93U_esIKz3Dpep6oQOyOVftZ5rEuAKOkRf00'),
 (1696, 'ahmedou', 'nourdine', 7291176788, '41336393', 'user', 'nouredineahmedou@gmail.com', '41336393', NULL, '$2y$10$BzItAiGL9p0Rc6aYhtYode69Dxl70ZQOUv1cYUiOcE3CqW/IN0oa.', NULL, NULL, NULL, NULL, '2023-08-11 17:55:25', '2023-08-11 17:55:25', 'eLwEwjWtKkWSu3I8KMIiUP:APA91bFXZIUutK55PKb0pVzcHwUb4zuUCA9BeRvmoEGuIDrl_2SpmOtH9CuG59Jb-2SjPIWAm0X8Ywzf68n-j89KrIKvKdY_kZZaf_Ly96EOUmTi6UG_tYJO2-9X4066dpY_hGeVw0-N'),
 (1697, 'Mohamed', 'Haye', 9687272049, '36312220', 'user', 'medhaye@gmail.com', '36312220', NULL, '$2y$10$yyhPR832wCV5IZfuFkPrS./05uMadjtvg2sW6uh0/QpLt8dB5z...', NULL, NULL, NULL, NULL, '2023-08-11 17:56:20', '2023-08-11 17:56:20', 'emcXm0KMRUqXur9iQvTexy:APA91bE-1lX5adbX1AeWQPAcofdDdP6qqRvSDlAFMhGuBfEm2a_EPWWLt36SMJrDf-TXv0aqH0Yw1tRMmlMvFckchpkeK5Dy87Gj574phhvYO4EdvEqvgtqNZeS3nCN0UeyAUs8Vt0Jr'),
@@ -7207,7 +7199,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1716, 'aicha', 'sidi', 3367834084, '30747474', 'user', 'aichouchaelemine@icloud.com', '30747474', NULL, '$2y$10$PePWkF6DCOTzBccXv3K93O/ZP8294dn4u9e4cD6ZJoEk6WFPL80Fa', NULL, NULL, NULL, NULL, '2023-08-11 18:28:09', '2023-08-11 18:28:09', 'fQWHOYjxDUy3iza2Fa9imo:APA91bEe0nmmQePk7sT-uaZu2BS40zHlhcltg9qmhJ89GMY8V1z4ketK_5YRz6Sz2hmKngJgzTSSeoI8vjoZlSTMUNHhjr9GtxIHX5NgABQQ3_g90OX-hLVo_9WK_Ol_b_Oze7V3wIBw'),
 (1717, 'Aliyen Eridha', 'El moctar', 1742271515, '49822616', 'user', 'Aliyenridha@gmail.com', '49822616', NULL, '$2y$10$BIzj55nIDKwLjEWL8ZOJBO7ewP2pn7c9dmFL7VIvGmnDJkeBiRRTi', NULL, NULL, NULL, NULL, '2023-08-11 18:29:07', '2023-08-11 18:29:07', 'c_tcMQjQMU9nuXn5X_BiOW:APA91bEoN7nM-pPsQyDVKHVcjZR_I2myq3yXd1Sw0fZvT1TPfgDRyepem9Q3uAjO5eoTaaJdE72Oe5Lw0FX6sPUB_BZJc3YTieMJ7pOM2YBTVtWi7eNJitMLR_vbypjq5GziOOxHc6__'),
 (1718, 'Isselkou', 'Abd El Wehab', 4756266476, '44579034', 'user', 'loodmed@gmail.com', '44515885', NULL, '$2y$10$qyz5QOHnQ83j7rZ9RqapjuoQJl6xaz4CYjWfKe6z7q32CMFcP8isG', NULL, NULL, NULL, NULL, '2023-08-11 18:30:14', '2023-08-11 18:30:14', 'ca0Li-JrSpagWXDhlms4cZ:APA91bG7Xyvhe9W4ZZXqNtMO9U34CE0G06Hj_XfjFe35Ikfz4FQzy0IP_yX2jhVXGpgE8UbA_0OePfteqEowM3tu8LAjqu5ONoCoMOyW-mIqSonyPF61hnQULOxzgpDRKwiK7k357IEp'),
-(1719, 'M\'Bouye', 'Taleb Boubacar', 5965879077, '26003500', 'user', 'ouldne3666@gmail.com', '26003500', NULL, '$2y$10$XQ7Wapwx5aSrFUgnoQJDI.wE427TjrlIL70X/VxnLbsL/.tcMhFEe', NULL, NULL, NULL, NULL, '2023-08-11 18:33:08', '2023-08-11 18:33:08', 'fa1BYaFEQV-zTfq5XudBxv:APA91bGMoFGXXcF6nsgsh_mPOJ7J5SjcDQec-RnIFPtuVYFTVMascPcNmTl91tLklBzphSIwnrYziYyksqDaDG1-Adol7fsEQDLpHiT2EvGwS61EzFlKOZq6BNyQXrWBStOzBzA3Q4AK'),
+(1719, 'MBouye', 'Taleb Boubacar', 5965879077, '26003500', 'user', 'ouldne3666@gmail.com', '26003500', NULL, '$2y$10$XQ7Wapwx5aSrFUgnoQJDI.wE427TjrlIL70X/VxnLbsL/.tcMhFEe', NULL, NULL, NULL, NULL, '2023-08-11 18:33:08', '2023-08-11 18:33:08', 'fa1BYaFEQV-zTfq5XudBxv:APA91bGMoFGXXcF6nsgsh_mPOJ7J5SjcDQec-RnIFPtuVYFTVMascPcNmTl91tLklBzphSIwnrYziYyksqDaDG1-Adol7fsEQDLpHiT2EvGwS61EzFlKOZq6BNyQXrWBStOzBzA3Q4AK'),
 (1720, 'ahmed', 'saleck', 6011383523, '41439681', 'user', 'ahmedsaleck3@gmail.com', '41439681', NULL, '$2y$10$p4jRguUiw4qpz7Vl09KQE.WYgxwEqp6IA89YQAY2qCpACCj3DTmpm', NULL, NULL, NULL, NULL, '2023-08-11 18:37:17', '2023-08-11 18:37:17', 'ewTNkD0lRuCzkxXzwalvYq:APA91bE5vofHr9yA9Dv7JTrnBlgAkuwswWQXmu3b_wWktLMZlynSSJu04rHhA-GdsmacaNkYhKnZ4anVuIzzF1cN2w8PZd4TFxJZdzI07GvhTW8waY57kY3Igrg5c9ZKxNHGWk5ZxPhO'),
 (1721, 'cheikh', 'Menny', 9799216451, '44444450', 'user', 'ouldmennycheikh@gmail.com', '44444450', NULL, '$2y$10$GAbmxQWDKsCUEpZd87yubuJkuE/03xVBA0nDj.NzhPoGuDFQsq2P2', NULL, NULL, NULL, NULL, '2023-08-11 18:38:13', '2023-08-11 18:38:13', 'cwHqTtHyg0WbspZm8P1wh_:APA91bFMd1u7QLZqus-wbKq2Bz7whDeJsC0cwTJ5LjkGT9Gi7mpbQAaupRkZJ_j2vfprUX8QA3IGK4dscJytfGRTZTsSgihnqC4jfSEiXXVtiufJS26SmakqzqFz1ToonZjfWX65eKOR'),
 (1722, 'mohamed', 'sidi', 1707187779, '48481555', 'user', 'medsidisaleck@gmail.com', '48481558', NULL, '$2y$10$WhZEeYKQBhWYlheq.8pSiuGmAiFaX440Q3KCEHLrxzdgvMiMPBwdi', NULL, NULL, NULL, NULL, '2023-08-11 18:41:35', '2023-08-11 18:41:35', 'fG_GkLvcRwSlkeRw2stga8:APA91bHqXGnaROEaz0VVYJ0-QloukoiItU6MP_8UzIjqlcw6uc75f8hDZCVr4F4z9X-PWij5ihQN1lh3UMUf3D1Zjx7PmBBHN-7DthVe64ZMn3w1DOSRYHRcoYE0-XlQ9HN5n5DC6Joq'),
@@ -7259,7 +7251,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1768, 'المصطفي', 'حمي', 2297072715, '31275242', 'user', 'hemeya16@gmail.com', '31275242', NULL, '$2y$10$5.SV5PhgiVaf9WRkP0IiP.iJvSyGYfNrahgPwR30sMl8NOE8t8o2W', NULL, NULL, NULL, NULL, '2023-08-11 21:21:28', '2023-08-11 21:21:28', 'fh0yO-HQTGqZPooZV3JumS:APA91bGMexFgTFYlKNzSpj9mi5L9OImYzxs92TGneSHSXgzCwyoDTHLh-eSJy7clp9OWKOPkXK2bIiNDQz-0Z03atum-3GrNuKkchkHhquGZKO-kjg9mBvbHkK4FNiuPRfECuJfHxeZR'),
 (1769, 'sidi Mbareck', 'Boukhary', 3441713552, '36355000', 'user', 'medmv@icloud.com', '44056748', NULL, '$2y$10$HujsW6calmBx4f1pFXXAquZorZv4OHrnHrmiaVTm8uka71iDehbya', NULL, NULL, NULL, NULL, '2023-08-11 21:31:59', '2023-08-11 21:31:59', 'ezGkOAUFZkBUq-vUiayjUe:APA91bGD4e98BoC88T3poRyZHM2rWp2p3M1-CvEwO8YNvmxByUiMSHYwTAq_6q8ZjPRVdcg5GxsKIYbhvkemf-kBHAUFrH5aJT6VOOWG3FHEBBWaNDkxivaiLMZy0EtWlZENdUYItCDF'),
 (1770, 'Tourad', 'Ishsgh', 3836444673, '20228704', 'user', 'touradishagh22@gmail.com', '0032471874534', NULL, '$2y$10$x5zYAaZWc0rkU8znFHtb1u0mogQSp94GwLjASoakls4THJ.3IoLl6', NULL, NULL, NULL, NULL, '2023-08-11 21:32:12', '2023-08-11 21:32:12', 'dpeCFXNZ4k7VleVn8JVEp9:APA91bGgv7XdJfnAH9s9BJvbM7RbBv0FgPsi83vYRiSzVAoA0HjzbWwDaB4fJOfsXHrObYAwz1xMg0qW7iMSutz-30rn-NtG5xfvWsR2J383zUVgkC2pXI3KTiANeR9anDAXF_eGJisL'),
-(1771, 'Sidi Mohamed', 'M\'beirik', 8050453406, '46537706', 'user', 'SidiEmbeirik@gmail.com', '46537706', NULL, '$2y$10$cWCaUEH/SlBME8RyU.MUueKlYFnHdIbt5017Ic5nKcvoVP1AieYaK', NULL, NULL, NULL, NULL, '2023-08-11 21:33:49', '2023-08-11 21:33:49', 'eK8clVQaRxKcW1bQ_t4TS7:APA91bHMS_NCvhUBEZY3-ELHrkcaRW5-GVZ76sb2ZwHjXkSNLaNLJtqHfkwChUoRROKsSJw4nG3aF_mgArOJCBrbhL5A38id9oyjhXZ8757GdoTJmnuBkvnthauumMcUgYNhlws7hKia'),
+(1771, 'Sidi Mohamed', 'Mbeirik', 8050453406, '46537706', 'user', 'SidiEmbeirik@gmail.com', '46537706', NULL, '$2y$10$cWCaUEH/SlBME8RyU.MUueKlYFnHdIbt5017Ic5nKcvoVP1AieYaK', NULL, NULL, NULL, NULL, '2023-08-11 21:33:49', '2023-08-11 21:33:49', 'eK8clVQaRxKcW1bQ_t4TS7:APA91bHMS_NCvhUBEZY3-ELHrkcaRW5-GVZ76sb2ZwHjXkSNLaNLJtqHfkwChUoRROKsSJw4nG3aF_mgArOJCBrbhL5A38id9oyjhXZ8757GdoTJmnuBkvnthauumMcUgYNhlws7hKia'),
 (1772, 'Amadou', 'cissé', 4655951792, '20000690', 'user', 'cisseahmadou1@gmail.com', '20000690', NULL, '$2y$10$SnpHwQy4.4L.xHBV/imYiOSQ13vQeChp5WjL3yqZAEdZEvFWMlyy6', NULL, NULL, NULL, NULL, '2023-08-11 21:37:17', '2023-08-11 21:37:17', 'd-2MW_Y8Q8SUTVJhQFP01P:APA91bE7-OTcKMvNw1fjQri-2IEFwBmNRwgCZUX6y5R8Qr9oVUvtWbSp-rcZY9AucC8u46aVS5jKG5OtMiXmHZlWyWoxDonqi0tkKwY1AnrBEjLCk3-gJQrGSR-WM1crCAoOVUqp-rP2'),
 (1773, 'الطيب', 'الدي', 4710686758, '36662386', 'user', 'Teyibatt2012@gmai.com', '46534361', NULL, '$2y$10$eS6rvcebBuoRG.jvDMsEE.KGzsSzgM62Xm0OPAUqC87miY/Pb2b52', NULL, NULL, NULL, NULL, '2023-08-11 21:41:11', '2023-08-11 21:41:11', 'eix2ByWESBCVJIDI3FDwZ6:APA91bHmJHahti2YqGf1b5tFUFfZrwT3MVWWIqwdRFutciLjwBHOSZiB5s25LTcMziamcuGCojdkC_wh5ME4CTevRLgd3cGyElKViXvJMNTjhvWQDgDLLZoxuDi3IaLCEdenLGqVKAwE'),
 (1776, 'ببان محمد', 'أجيد', 1504708427, '43001011', 'user', 'bebanemedjiyed@gmail.com', '34001010', NULL, '$2y$10$FV9Xms6KG.O8iwA9pAznr.l/d55nNzTMdBvZnX.Igx7JslJ1mlRtm', NULL, NULL, NULL, NULL, '2023-08-11 21:48:29', '2023-08-11 21:48:29', 'fJOd93PAR4qIpWS11eAVuh:APA91bHgmobnihCO4aHEonxaeLCo-wl0SVZRUbBUipl3wL6TwkLnQm0ZBDBiP7Jatbd5--4cCtEyaWluETnQhJAdqxeZlY8x2uj7MLd0AHzgeq3tWmJeIkuioO2GgJkT-FOXrBUx62mA'),
@@ -7272,7 +7264,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1783, 'elycheikh', 'mih', 9066821152, '46454475', 'user', 'elyah.mih@gmail.c', '46454472', NULL, '$2y$10$jI4fR7IpTjFe/nehZ.jXy.Mno6tavnZXbagHMMGYWfznqwEBENkHS', NULL, NULL, NULL, NULL, '2023-08-11 22:11:15', '2023-08-11 22:11:15', 'cvaWUVQNsUcgobaip-1c5v:APA91bEVe_mBk3xCEAnZyMLiFjie8a2cgYVj2S1eAmURg78FQg75RI1v5BvyHwrB88wDc4g5dcua_vof_6QKf3zpBCfdezL5XrawvZNaOYZ3b415ZGVWBmMFrIncr_vuPlUz6W48Fujv'),
 (1784, 'cheikh', 'cheikh M’bareck', 6119376339, '34341011', 'user', 'Inschaby@gmail.com', '34341011', NULL, '$2y$10$9IC3SrEay8K03J8y2uA/COEXkVP8lNWZWPkQydSjYwYP2NtEuSPuC', NULL, NULL, NULL, NULL, '2023-08-11 22:15:45', '2023-08-11 22:15:45', 'dX-1-yPZp0y1lHlKWr--lb:APA91bErDIKMe9GQMUBDmNDP8f645gQC9i_YTU1Vuy_xFiS1Vx0uyanyavBA7qb5k1VqTdimOrp4ZwIwSLFOFMLezLILsZQsHEqNak84fjD96UCeBfHXEBX35ZPZTAJ89OqIeCG-b-vw'),
 (1785, 'محمد يرب', 'لحبيب', 3063300256, '26980000', 'user', 'yarbayarba2016@gmail.com', '26961171', NULL, '$2y$10$jWQ5YsZ4pyuwDLU474OSf.4utNzy7EO6fmZcRc4To1zwaVZNoqpJe', NULL, NULL, NULL, NULL, '2023-08-11 22:23:22', '2023-08-11 22:23:22', 'f9POiy-aTu6_peqcCIgJxv:APA91bH_ddtfkCl4ATwGYEFuWMzfImLdw_OKf4wPq7BJDlbgc5DbkSRfn5RIrZAksbDcIV74cDREt4QAZ-EfZrDp0IxnfJ5sOOlhUGjXnRrf69Y4q9x7fBo1165v5sF2hnV4oIBcn5eP'),
-(1786, 'Ahmed Salem', 'Sid\'Ahmed', 2855913868, '46663389', 'user', 'sahmedsalem007@gmail.com', '46663389', NULL, '$2y$10$IpJlrl17dODmumwixlChtOBYzIceRRLllkjfYWlWUOUWXhgUzVp0G', NULL, NULL, NULL, NULL, '2023-08-11 22:25:38', '2023-08-11 22:25:38', 'eBlHbSGbTtCqlaSdxM3A5M:APA91bFvr765-3XXvYEIMGiG9tEi2fmCw6aZ6uMq6aVZfefCEtL9e5kQNXIBG1FEPzzUDDLIFebka60WkuNLv16ZJ65Lit-YagdnBkXJdQ3koXZ-Kq4-YybD214MwJ6X6772KY62veiO'),
+(1786, 'Ahmed Salem', 'SidAhmed', 2855913868, '46663389', 'user', 'sahmedsalem007@gmail.com', '46663389', NULL, '$2y$10$IpJlrl17dODmumwixlChtOBYzIceRRLllkjfYWlWUOUWXhgUzVp0G', NULL, NULL, NULL, NULL, '2023-08-11 22:25:38', '2023-08-11 22:25:38', 'eBlHbSGbTtCqlaSdxM3A5M:APA91bFvr765-3XXvYEIMGiG9tEi2fmCw6aZ6uMq6aVZfefCEtL9e5kQNXIBG1FEPzzUDDLIFebka60WkuNLv16ZJ65Lit-YagdnBkXJdQ3koXZ-Kq4-YybD214MwJ6X6772KY62veiO'),
 (1787, 'Deye', 'elada', 9693570356, '46969433', 'user', 'deyalade@yahoo.com', '5045091550', NULL, '$2y$10$nBuF/MxrnIebrZMHeLxy0OIQJazAk2djUOscT9kRM0NmpfzbmSa7K', NULL, NULL, NULL, NULL, '2023-08-11 22:32:52', '2023-08-11 22:32:52', 'fSujvDUj_UqplcfKSCzqNJ:APA91bGvCkM2wZQNF-2F5xp3t35RRLHQ_g5W84rBCLr98368WE0qbvHp-4-2Y6hmlQ9ISwsXECINFu5TPduNCOldO0cVW9lE99gZngHpnAT5w9hRN6u26qB1SrYPm6bVn4e5FKPztZq9'),
 (1788, 'عبد الرحمن', 'آب', 3698423276, '33462033', 'user', 'Abd2061@gmail.com', '33462033', NULL, '$2y$10$QiN5NGewrCREfxsnQb/1G.u8QXQZ4LwpWj.MjV5Z4reeezd9qMsEq', NULL, NULL, NULL, NULL, '2023-08-11 22:36:53', '2023-08-21 14:02:59', 'dul2ipi3RJ-eZ8J-xDR8cV:APA91bG0gFupV8VFec72MX5VCcmZNOIRDBfs5w81Mz11WF8RdUDv1EMpdxZQExndSDy0CaNhHDA3R9sd5cIZbRVC4dgWPoGLR0FQMVMSbx3mP7tGy1JNfe47zdx8EQlziDpAgVmtOYh1'),
 (1789, 'Mohamed', 'Lemin', 2605241909, '49374844', 'user', 'mo77lemin@gmail.com', '49374844', NULL, '$2y$10$QvcHZIeJBhLPDgKxRE1T3Omg50gmSVbzolC7CmSpSKyv1bIdwxoKe', NULL, NULL, NULL, NULL, '2023-08-11 22:37:59', '2023-08-11 22:37:59', 'eOx_1Rbh70QssyCLX_CufS:APA91bFPzyIBRo0rw58SxH9D-V2u6cf07gqR1Ui6PYd0I0r6jt7a6JP8Dn-vYnBgWVk9NCP6dJ1siMGYBaKNv_4AkYaZzIxZPJD7it43NdD3dKi8zo1mxnTc-rloFjW-7SWmro8Gh45x'),
@@ -7305,7 +7297,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1816, 'HMADA', 'Abd ELLATIF', 1862060307, '32238585', 'user', 'hmadales@gmail.com', '32238585', NULL, '$2y$10$n7LG.8lM48NkYWiMjqcEzebXd/8rlLBl2zQrh7mKeg3UGJyobKILG', NULL, NULL, NULL, NULL, '2023-08-12 03:15:30', '2023-08-12 03:15:30', 'c6ntAqJKskxBuKICzNFhMs:APA91bEpYzN0BZq0pvFpgFbL8HVBuFZ6SvFG0YMyGqur-B_nxFRJnwV-SRsgI2qchiWG-EBtn2pQ9k6xpWvdav5_f1UXFGJtX15X6rSfHjv8S07508bWT-3Xc2dSSPDJ4EFSiJjqt3zP'),
 (1817, 'Ahmedou', 'sidi', 9210278526, '36368681', 'user', 'Ahmedouba4@gmail.com', '36368681', NULL, '$2y$10$Gg8fGhSqHOg5V.pWPBZpuuy7qPYJVrJtsjRVMlrULmIqzEhRTSGOu', NULL, NULL, NULL, NULL, '2023-08-12 04:16:38', '2023-08-12 04:16:38', 'fuN_6s9jRX6pMi067F6U_v:APA91bEPCv0izfvlDcR8OB8jRQ4WuWOY_c_JxtiLJtWCXsIIFPBZAr5x--HkrI5pTs2P1Biocbg4svxMID_QGoLy1aMHx3o7mo1XbwWLa0G3H1Z9UqHqGwMapo6G7lEpN60E507VlxiA'),
 (1818, 'kerim', 'ebnou', 8040105834, '37194832', 'user', 'medelkerim@gmail.com', '37194832', NULL, '$2y$10$kQh/3bpaDqsLh3DsJrzlDeHJVj5xD5HegnhDQm4FK1d5EGBWqK1Km', NULL, NULL, NULL, NULL, '2023-08-12 04:23:56', '2023-08-12 04:23:56', 'cyAgeHfVTgqcN-meQUp-xr:APA91bGjZkxTYxMJMUtBmHzzRzNt0uVYuh6C204WE_K0nJI3cOWZpQSVS3eKs-JtjORHbyaPJ5RMf5IZZOOKuwq7kWtD1GPBa1NA96ybF9unf9q11dAer7gsjRYFFYe11nGxhderJD8K');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1819, 'باب عبدالله', 'الكوري', 3592066074, '38151525', 'user', 'lkorybabelkory@gmail.com', '43180232', NULL, '$2y$10$4kDxabjsbcwSMBe4WeR4eeQ8rRfmR2r5rbZ/bwk1aI2bpwgbd3kqS', NULL, NULL, NULL, NULL, '2023-08-12 05:08:06', '2023-08-12 05:08:06', 'fdzPrVnhQZW374c6VKfIQC:APA91bFs6sruC_UsVs3OI6Ms72LKieIzMuVenEZ22R33x1T3u1oT8iSkp-Xt4k5SqRgXRBj1P7EMrJs0--XpT3-1-U8k8TTd7308CsGkd3M-JkX4rdAVFrZOw0M0Uy-sojEPvzDsANvv'),
 (1820, 'wehbe', 'med moustapha', 6058128502, '36353308', 'user', 'w_boukhary@hotmail.fr', '36353308', NULL, '$2y$10$sbxHSfna6vy/IDdqa2TDj.xKeaJAVbMpSfBP9bwleRbe1u/BqQyMy', NULL, NULL, NULL, NULL, '2023-08-12 05:10:13', '2023-08-12 05:10:13', 'fayQhmGiSNypGFG99WHuNW:APA91bEE8qSKFBRr9F8ne6-2nd-8Ba8l2LMfyY6Gc_-DUONU9u5jQIFsMWbW3LOZOQDmjw5jThR8VR9vFdEvcapuw5uNaXexNEGJ9zm89QnR2HTlhAs5C1xTSP9ILImus1D8FdLBVQeS'),
 (1821, 'Abbe', 'Sidi Aly', 4630919196, '41624141', 'user', 'abbesidimed975@gmail.com', '41624141', NULL, '$2y$10$tK7B6d7/wxXfl5178j7pB.gOXPSaJFICnQwwrMOIcEqLFNU1gBKUW', NULL, NULL, NULL, NULL, '2023-08-12 05:12:40', '2023-08-12 05:12:40', 'cI7CEACWS3GBtvOmkE2fpF:APA91bFGp96GDRhmB_lDqNurkszI4cMQsh2LiD536liQgca2Q-qJpDJBRANjlJErzybsgnB0upc4UFg3qFPKbcHN-stswSkRertbA4l_bM5Go88t4stROPc9hHbhm1suJ1wies_JxlWH'),
@@ -7428,7 +7420,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (1961, 'ainina', 'Ahmed elhadi', 4152435365, '22728422', 'user', 'ainina.hadi@gmail.com', '36600452', NULL, '$2y$10$zHfbvnAoRDRtSm870JVHq.0yfT21Z4yDYUm.ynCPJFoxEojvgz1fi', NULL, NULL, NULL, NULL, '2023-08-12 13:56:28', '2023-08-12 13:56:28', 'el4TilADqUadsu2I4paqVf:APA91bH-LvqwxHWKKWpOmByn-R1MEqUbzarrSMJswLgWSuXuxwDoL6wO573eTlKMLa9nSEkndSPykKojL7pfv86l57tlS4O2Xay2qbV-n_ayCfAFthLDWde37qryiIbYmGaLPrOUbNwI'),
 (1962, 'ahmed salem', 'zeighoum', 6036590525, '44690369', 'user', 'zeighoumk@gmail.com', '36690369', NULL, '$2y$10$yDqF6O2azpqb8pN9qYqZmuJmzN2KMENXNDriAY1qFRbwP8lclOweK', NULL, NULL, NULL, NULL, '2023-08-12 13:58:54', '2023-08-12 13:58:54', 'cvrrq_GzU0i4n6rAFAHtWo:APA91bHkgBu8_uXaDpKdR19-XyoSo7pdDv_UKZuEe06h6SH9uhyg3JVFpJsaCU45nUIZB1BSZmYvlIIobxsur3d0tOXKkjCEPk19KV2Wj3LAtQADOs6P0zFypxgp1tHDL-ZZya6yaaaS'),
 (1963, 'brahim vall', 'Bilal Mahmoud', 9477285867, '46445917', 'user', 'bravabilal@yahoo.fr', '46445917', NULL, '$2y$10$sJWRj5FWHUOH52kRTjROzO3j4hrt/YTl4zyzYOEY2jFGgqucxLPWq', NULL, NULL, NULL, NULL, '2023-08-12 14:05:39', '2023-08-12 14:05:39', 'eP9k-r4mThW8bW8Vja-F3G:APA91bHupYhiiv1fcj2jshw9hI222d5rNDzm1KTBUwnw8yCujGFHAXf1hga3PJnVBZr0GFBGBJt1A7LNc-oiX1tHQrtjFdcaHTaKWKRvk57YU_1q_7K4T3xxnzV3e6rfByYP23usk-01');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (1964, 'el ghouteb', 'cheikh mohamed abdallahi', 2942048413, '26331686', 'user', 'kotobecheikh@gmail.com', '26331686', NULL, '$2y$10$19CowcXSFbdHTRuQlkoiC.IQSWG8Bm0PSbDOHlaLY12QvJqxpbDgS', NULL, NULL, NULL, NULL, '2023-08-12 14:06:06', '2023-08-12 14:06:06', 'fjPjrMjcTlyKE66M_KDcyp:APA91bGJ9y6NqxWwLukn4xQUkJsEH8oYb16inMW6E6Jp5vjQZ8WTtyM0z0nFLKvRjFG0GDXdaXwKGdMFJM4im29Al6dcIEGEmazAKXazsuzr8Agx9c58lh9Zrv10SKBtOSmuXTy_H3bj'),
 (1965, 'حمود', 'باب', 9522262633, '36576222', 'user', 'hamoud847@gmail.com', '36576222', NULL, '$2y$10$YQW7hCMvHvnkBVW2mbN1seYWq1h/kGwuCDLnFImrNmoN/w9Gg2cCq', NULL, NULL, NULL, NULL, '2023-08-12 14:08:14', '2023-08-12 14:08:14', 'ewrXfG_BSrilhoR4ZlJS0U:APA91bHOlr7o7OdY-ac4RyNfauyH2TTLumkiQWJrVIJf_WbPP2FupQ9TjZD57ek45Oay4jc_N9YpfXwt8GCf8uBbVkKzfwER7zpTdHdmVtahiX_vXbT3GpsGbiOoYgduwIW89d7hDX7x'),
 (1966, 'عبد الرحمن', 'فنين', 6059749178, '22653597', 'user', 'abda@gmail.com', '22653597', NULL, '$2y$10$TdynPo9HqhI2riSi8XMvaesoPcvWc1RK80KI61yjHSA26EaMtPPLy', NULL, NULL, NULL, NULL, '2023-08-12 14:15:35', '2023-08-12 14:15:35', 'dS-DpMlXTaiLHrdiSAFilm:APA91bGimNcztJfND0qfIERs9LZiuaahdm1m84hdsQipnCSFhwH8tQ-UlXT-Uyt7QdPzhVQcEh0JROmhXIju1WX56L3I1Rw5etyOaE0qcOwoZ7WPiPHt1wJjbkVBnFbjVSyzf3YJF5kZ'),
@@ -7551,7 +7543,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2135, 'Mohameden', 'Heibetoullah', 1861071004, '20020795', 'user', 'dahm4715@gmail.com', '20020795', NULL, '$2y$10$ZdtqFiB0pzF7CNkekodLM.yDQs0gNI85sgflMFT.fuWPVztj6xL5q', NULL, NULL, NULL, NULL, '2023-08-13 08:35:33', '2023-08-13 08:36:43', 'd6_0jSYpTAuIs3JVVbphQZ:APA91bH-K2Yo-G0H2p2f625UPq_0HMvPJcRF0ssCoHNYkj_1Vgfe6cRg469jCXNGWOReYBCTojD6bljk39GsgJ3m6K2AcI3VwG6cFrXDe8T6gh5j_z16FnPnRykmAZrOlLy-VHgZ7LJ1'),
 (2136, 'wadad', 'lehbîb', 4263052128, '36387106', 'user', 'wed.1831@gmail.com', '36387106', NULL, '$2y$10$ZX1O1M8QFDJhq9TQAebXw.CoznkSUiHGe3rwSUPHDz0pqSfETSmrG', NULL, NULL, NULL, NULL, '2023-08-13 08:41:01', '2023-08-13 08:41:01', 'ef-IEKD5QsSsAax4b2zMZ0:APA91bEeGG-4l5k1oDOcldrVnFSS1KVxTMMqyrQqgCDqHkWbV6XqCfXpFHvl0kRj5Hdt7vyk1MOYkaDKF9VMlBwFK55sYUdz4lXxUp7VOoH6KYZMO_knJBOL1ITpd-Vu27ZCQfCillHc'),
 (2137, 'بداه', 'اكي', 6149585437, '38636236', 'user', 'boudahahmedou58@gamil.com', '38636236', NULL, '$2y$10$i1qiy4.nfHWK2lDGGui/HOeO5YIcPuxqpotA3QOuxA7VI9CpSfvzu', NULL, NULL, NULL, NULL, '2023-08-13 08:48:55', '2023-08-13 08:48:55', 'cXmltYnSR-W_UmLHtC4V8y:APA91bErdDADYTUbQ1ViY3oh6WD07VVsGuv67LSAuQ8LvfEXtau-txrlE6DRQ0rrQjI7EoWfX6u5-hRAu5Z9W0CS029-2_6fU6Zo3z30EtsEWyzIugUpl_njvMRo10iYG26kjhiXgZPO');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (2140, 'ببان', 'حب', 9373900066, '48412916', 'user', 'medbabana@gmail.com', '48412916', NULL, '$2y$10$VBgIY8g3QkjPlnXGqB.VkuYnrMbJaIjTtoWCZbUARNEGI6qYRoh4S', NULL, NULL, NULL, NULL, '2023-08-13 08:53:37', '2023-08-13 08:53:37', 'fTwoGXt-Td2oXyxdt5FeTi:APA91bEPmZgQ3Ntv5II-Vv7KJqZWO-aseKt_0dTqM4kC96XynPJiwyKHPUgzzNmBEVGN1ufWMOdWeG08t5NkEgDqdHUZIYLDd7EFjlgQarXc3Exi_TJG_wICC6tDmav1fXi0Ayi-uDYw'),
 (2141, 'brahim', 'samb', 4189516040, '41587558', 'user', 'brahimsamb199@gmail.com', '41587558', NULL, '$2y$10$EkllmfqY7Y9IUxkzdADJXe9CVn70WzxOTLMrB3OmsjQZkoNd2cPUy', NULL, NULL, NULL, NULL, '2023-08-13 08:59:45', '2023-08-13 08:59:45', 'cORp0IO4ZkENuS7jvmBHzs:APA91bFbvzwaOzwkAXFJjozMLwkhPFekKMoxomyb4BjA5zLkxmCpdBETt4dR6ZC2iHgHVKR-8ps6FgdT7hzEVRGBO0Pp7HXaTwlh5oF2m1iXYo9bweyuNmJQvQCO6t4NQtuc1ccKyPV6'),
 (2142, 'mohamed', 'mkheitratt', 5686728791, '33030000', 'user', 'jemilejemile3@gmail.com', '34082017', NULL, '$2y$10$Eqh1aYdMj9mSNmUXpmI/3.lGfl/Cwfk1ueRqixCE82Iii9tKtcszO', NULL, NULL, NULL, NULL, '2023-08-13 09:03:57', '2023-08-13 09:35:05', 'dNjzGyscQDqc0yiSDxLNRM:APA91bEpxFYpFNSsPryAogV3EPan9gaueA8MQvPUXIAbvFmeVMIQaKvSWIHmqHhS6TPvZ_7IZDIJoKZyDq1FZaOp-N7Evn7jAZiUm0NgQ_-lB9sOYPWkBk5rqfQvx7r91s8FXXv-GlPE'),
@@ -7674,7 +7666,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2282, 'Bintou', 'ba', 5428340773, '27451107', 'user', 'bintouba703@gmail.com', '27451107', NULL, '$2y$10$UvNGlD.zEFz0Jw8K26xu/.ZBczY7lUtJN7BaooVr4DX9tNZYlU7/S', NULL, NULL, NULL, NULL, '2023-08-14 11:21:39', '2023-09-01 20:59:33', 'e5vfsxz4TtegrnDlPs3ol-:APA91bH5m6VY571StkZd9R1po_a36Tgwg9TPWksaligW_5BFRLFHncOwUQJphNQNKn0cEXxgToNBya_imWJRPgKuub8nEPNkGu912no8BAIYRoln4L5AuteBArBGKS9ahjM_ZNHD7m8T'),
 (2283, 'abdallahi', 'boubou', 9583813983, '49409815', 'user', 'abdallahiboubou06@gmail.com', '49409815', NULL, '$2y$10$tsigUto5yt4skbERvSY98.AqqDz5qjSzj6dupreqGfD75D8n/UYJq', NULL, NULL, NULL, NULL, '2023-08-14 11:21:41', '2023-08-14 11:21:41', 'dGqEHzj-QQOWba5Ovqg3t8:APA91bGp5b7TsSn53uv0-lPGOLUQULZt3S4Q4ccMaDKtjHhTIJmMjFGu0AemNKGHiUBAQWr5Dop_ooxfSBp2GZH4mi5ICcDfhaK1tuiGORO7s7EgPT2D0L6lZZzatM3Qpsf4Q8UJo6N0'),
 (2284, 'Abd El Aziz', 'Mohamed El Mamy', 1768635339, '36307869', 'user', 'welmamy@gmail.com', '36307869', NULL, '$2y$10$khX00ysShzG3nd/Tx5wNwerjNievUitwB56R8WnoPKI3lG0p085QO', NULL, NULL, NULL, NULL, '2023-08-14 11:31:11', '2023-08-14 11:31:11', 'dwp7RP_dgEmztl9LSRaDya:APA91bGHH1xDHOrzQmOYJV0J28wmRkf7nsitu35Wv7ZZgHV8wdsfHtnFMgisv91_ZpVlBIXKUud8kWnfBAT-9Zprw_BmyHRydIA1QobmArPvAGUg2FfCGgSeCKw2NM7bFIjgqemhF5FW');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (2285, 'Mbeirike', 'Ahmed', 4569323420, '34363622', 'user', 'fatimetouahmed37@gmail.com', '34363622', NULL, '$2y$10$SvR9gskI3wabjh//nrJjd.sAqIU4ZG5e/JxvzyFSK.80BpAqqPLDG', NULL, NULL, NULL, NULL, '2023-08-14 11:38:53', '2023-08-14 11:38:53', 'ddVsG7eiEETRu6u3xHMq4o:APA91bGRVkmVJ3rjJ6UWGJ-tOWDlwXmJLpyuzOkBlZZYCP9ofuX7wzv7RiWjZyx6fAkySbTzH-Yz1VfQ1zwniCtVphHREG3N2VdSJm4Y2JRFUOuKaDMwzsE5nGgdUNZIZIICl1F_7myz'),
 (2286, 'nenni', 'zeidane', 3610036003, '34784719', 'user', 'zeidanekhaliffa@gmail.com', '36672828', NULL, '$2y$10$FroRMaUi1pR/pmP5VtA3xOxhtvwwkZDlC3V2YWmFg2zeLJCeZ6mE.', NULL, NULL, NULL, NULL, '2023-08-14 11:42:14', '2023-08-14 11:42:14', 'duyGQrJDTweVKUJFyqXs29:APA91bGgg47ShmKZ9HyTXX0n4CaGOSCteWbXHfiHC_0xkBikTJ8IptVbLiQoWNMahPqEHwf7TzYk9bpMFasm1Ycm6uB1v_MEU7ECLWpaVqagIMgwJ60kjvX4HERfDlnFpkr1j8u6lLxz'),
 (2287, 'abdel vetah', 'sidi', 4961101279, '38373736', 'user', 'vet7ou@gmail.com', '38373736', NULL, '$2y$10$NF8fHthBo5qpXB4U7nMC1efEV6IHOjy6njpjCSWD2r7XpxKrsCYDq', NULL, NULL, NULL, NULL, '2023-08-14 12:17:32', '2024-02-07 11:54:21', 'cqN9evo7Qdi-qfmmCjLQRO:APA91bGBKDS9tdHgvdQwVGNsN-yeh-w8meIcoDDIxW5ShstNSjcs9D8glhDKVV-RxII7JwyakNa7y2sSA1ChSBWb8Iy6wOJMpOk95qZ4sAHYn8l513BOyfRu2W2sO_JLWsEK7cgOZaJ3'),
@@ -7691,7 +7683,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2298, 'mohamed moctar', 'mihamed Abdellahi', 6880824011, '47721617', 'user', 'mouttar07@gmail.com', '47721617', NULL, '$2y$10$bDZoA3/GJr69NTbj5RmN/.LZpuASxEl58GwafYZnvhDAcocDxUdFS', NULL, NULL, NULL, NULL, '2023-08-14 16:09:56', '2023-08-14 16:09:56', 'dDmXwtSDQWahUzaLTKXoTh:APA91bE4Rip2U8oUeOkodHWvFTxAZC5ud5XaN5PbFtnVSS55P9WQh5PG_nbflDW2lA_CMS3iWDgyjRRpz6cKNdpQ-TaWsqUDKvojle4vrWWKrjPw6WbyXQ91UBd3di-Sr7R6LMrEOv_M'),
 (2299, 'Mohamed El Vadell', 'Vadell', 8118181037, '34444554', 'user', 'medvadel479@gmail.com', '34444554', NULL, '$2y$10$qfxoAG7WG5QU2/vCD7XeOOCiZAdEeykcimKX2X4sLT6marYIVLfyC', NULL, NULL, NULL, NULL, '2023-08-14 17:52:20', '2023-08-14 17:52:20', 'e_BHtac-R8KlVogW8n0I5m:APA91bFVgvNnGRpdq_g9xt825WDgCcX3n285F8am4t3pPzuqz79ziZ5QPS0hJRyHwJDrZZuSAVIgNa8UBkOkWLk4EMAX0wFz4gVnia6riBM-sASErwjMZk2QBSbhGFzQQZj-02mV0RGp'),
 (2300, 'oussame', 'moktar', 9572864817, '34385280', 'user', 'oussamemoktar33@gmail.com', '34385280', NULL, '$2y$10$6ScBW/V/kwQjdpQV9Fplf.9V8RPbGUtHC3KETQrzbGricEywR1VhK', NULL, NULL, NULL, NULL, '2023-08-14 18:00:12', '2023-08-14 18:00:12', 'cUDGlAKASmyoH1sEKHduKd:APA91bHP4ml2S7P22RND4ISVdn-KeyK3WnnV2YYgccpaZCnEBA0qSAISdjLcX2CDXIBvV1TOVWNqOWySVy7HxsuinIg-T3pTq67mpMyXw0hDszRyIujg1cjfy47iTZZkv6k2MsGN0HId'),
-(2301, 'sid\'ahmed', 'etheimin', 9198739406, '34221161', 'user', 'mejdunktt@gmail.com', '34221161', NULL, '$2y$10$tE0ohRFZflkJ721WD6nzoOdDSgh9vH1xvQOIzhBtnYn1WSeA9mxCe', NULL, NULL, NULL, NULL, '2023-08-14 18:35:34', '2023-08-14 18:35:34', 'eSkaSDpsTVeyXZdlBVT0i7:APA91bF8ylBoeaqgx8MBnKpMpX8x7NzAh42GR4ASJrO6cLFnS3k-sE2KdjvMqEXiNf9VyLPGmTxLN6JoJ47eeBxe-mohNTWn2wKQogplkGiOsh6cb6qK-hxKbIC4dPSn2D2Vhk8cTgPo'),
+(2301, 'sidahmed', 'etheimin', 9198739406, '34221161', 'user', 'mejdunktt@gmail.com', '34221161', NULL, '$2y$10$tE0ohRFZflkJ721WD6nzoOdDSgh9vH1xvQOIzhBtnYn1WSeA9mxCe', NULL, NULL, NULL, NULL, '2023-08-14 18:35:34', '2023-08-14 18:35:34', 'eSkaSDpsTVeyXZdlBVT0i7:APA91bF8ylBoeaqgx8MBnKpMpX8x7NzAh42GR4ASJrO6cLFnS3k-sE2KdjvMqEXiNf9VyLPGmTxLN6JoJ47eeBxe-mohNTWn2wKQogplkGiOsh6cb6qK-hxKbIC4dPSn2D2Vhk8cTgPo'),
 (2302, 'الشيخ  معروف', 'احمدو', 1194566059, '36629347', 'user', 'cheikhmaarouf@gmail.com', '22451553', NULL, '$2y$10$lwwxxp64RfZTVOkZ5FF3B.W7ts0kIHABXTrwh3Cecs.7OY/1W0z3O', NULL, NULL, NULL, NULL, '2023-08-14 18:51:30', '2023-08-14 18:51:30', 'f_5jYwpETAOM4pG1lcY8Zd:APA91bFUJFoUQh9SHNdabJxYqL5x7Oh93xCkzie1mYPGNQKsomLC60PUOkBpilSm11jUGj7iDhd7TQC8oycLfaI4zkZIRnGJ-IoEMh4elHCCosZmdJBz7Dh6ynd-pkUdHLdAvX_NPd6T'),
 (2303, 'mohamed', 'maham', 9985729215, '38074707', 'user', 'mohamedmaham@icloud.com', '38074707', NULL, '$2y$10$JdmEVg3dVIKaaTfq4YTcQ.4KUfrHpptj4pZwoAdXCVltIxAxEOStO', NULL, NULL, NULL, NULL, '2023-08-14 18:56:05', '2023-08-14 18:56:05', 'fvXNW0oPFU4Aov1Gm84457:APA91bGJ7_51mcoOKyrw9tgSMEEPkFb1UUwCob33qWV4tp83dUK8ss9ygMR0-O9vPk4t47oz7cYhSIEUYYUnxTw7BrGoBPiPMUj_wM4Ut03pAnYoSLIggGnguZzTm7FXVnHAuF9lC2tc'),
 (2304, 'yahya', 'jedou', 2601450276, '27637391', 'user', 'Ya7ya.jedou@gmail.com', '27637391', NULL, '$2y$10$JDxczi5rh/ziucCH0oJYbet387N6u9ca/IosUt.HWMTs3TYnhMWgW', NULL, NULL, NULL, NULL, '2023-08-14 19:19:18', '2023-08-14 19:19:18', 'cPON-nILQIC2O6LrLh3hAJ:APA91bGFYlb-QWzx5V6Es3vDdc6I-iS_dQPtqXOhf8T7sba7sGNPYLnQlnkfafYN6_OXSvWZgfY8HUOBNnvAWfGF1GFut7o5Xw5IweLRGkh2aN5GIvqovHj7Z5TD_6VvCVXfhmsDUtbp'),
@@ -7797,7 +7789,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2427, 'cheikh', 'vahfou', 5499599592, '37656570', 'user', 'cheikhvahfou@gmail.com', '37656570', NULL, '$2y$10$aig2eQqAgesXGSYGv7Vi0O7zCy5uJqBpDVmNRrGZy9wCL8NhlyG9K', NULL, NULL, NULL, NULL, '2023-08-18 13:08:55', '2023-08-18 13:08:55', 'csbDFC5HTa6kvqNFB8IP_2:APA91bFSOnpB0qfsdFpv-8mvuuzemmPXszYjVTR_ZN8eVHA1T-ESPchP1x11tcwf6F3FAc0CDu0J7HyIPs3C6tPCYJo_ubqdwiQ_A2EVUIKLwYfoRLARxukptQOzGWiPCYDfKYQUN7fT'),
 (2428, 'محمد', 'خليل', 2282760365, '36232229', 'user', 'mdhalil145@gmail.com', '36232229', NULL, '$2y$10$ABAAANG/piEtoEkROspbi.qN44tepNDGN3yPDRpCD5ZdxkNZEgVje', NULL, NULL, NULL, NULL, '2023-08-18 13:15:11', '2023-08-18 13:15:11', 'fcmESj26RvS_dCDUBka2N1:APA91bEBZQwHVSzm19WX7dVLbytjuqpVL0wktC0asCp5EGY8uwge93U00VMEzTQrb9dsXYjvvyXvd783C6Bcvfo1lt2djj0jyUUIiQ_Mf9lSeDC-H2hJk2FUfaDOW66CD-W2zYQnwNVH'),
 (2429, 'Mohamed Yeslem', 'Ahmedou Lekweiry', 7406318116, '41715515', 'user', 'myeslem159@gmail.com', '41715515', NULL, '$2y$10$6mw.RLn5hEIJNbySocNd.uzeCf9oRcwnEjFMUetrrG/.83XJYfMRG', NULL, NULL, NULL, NULL, '2023-08-18 13:28:16', '2023-08-18 13:28:16', 'dIBJyOwvTBuxilvCvx2hQF:APA91bGL9J-PXMX7Jwbjd0n-LmpqWmnIjThogXosMD-Am0k9_3IrKWBxNegMFdSNJr--kBIYu-PAs50PTWLXUnLERCqq_quMuji2hgFfd49d75ODb-uoPjZcEIzXKfFLugB7LalxaunZ');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (2441, 'Hamoud', 'Lemraboutt', 7149108260, '42950725', 'user', 'aboutayba@gmail.com', '42950725', NULL, '$2y$10$bTcX9/dkruItCXD.OcH9WuxOuiDD/SoZAGLWh0vkTh7Ae0mP8bKm.', NULL, NULL, NULL, NULL, '2023-08-18 15:15:01', '2023-08-18 15:15:01', 'f984mSqDQcKv0XUjc7ckCg:APA91bFzLNM2qogQyrBmWrcslFE-9tiiKGcHytkp8gTQS0paBHCG2PpHYR-g-6FraF9xQ1IqkAYOH7n4Y3Mc-sxx4mHI4ZqKJmUwgtbQDp3ixzGHyJaxfa7dNJuu0TrJKEiUxWOYH1Ca'),
 (2442, 'mohamed lemmine', 'sidi', 8117493695, '22283570', 'user', 'minimohamedi032@gmail.com', '22283570', NULL, '$2y$10$ngjGYpkzJs6Kc1nthpIVNuNM6rgOKiqe5WCk98hEQ6kfWb9OyDHF2', NULL, NULL, NULL, NULL, '2023-08-18 15:56:24', '2023-08-18 15:56:24', 'cJa3l5msRhOP--kkNd0sGj:APA91bH-k5wLK4ziozp9oHJJ3Inodc5zVjcf_3rssn7VHSnq_93Yxs2eAq8uRQhCqCeU90xJE_MxVA4lWIa8Kf-xkYeQjLbNr6E-GudodUjx9vB_bAjZgFmP0NHe8gVB26ZcdG8HLGB9'),
 (2443, 'سيدي محمود', 'هنون', 1698512390, '41271315', 'user', 'babhnwn807@gmail.com', '27749898', NULL, '$2y$10$oqV9ooJRBLg8xr5mH1MS1edx9oV8kN138.KROZw4G8bpF9G/6OLGu', NULL, NULL, NULL, NULL, '2023-08-18 16:46:14', '2023-08-18 16:46:14', 'eMW17IomSQCENzF7A97GqL:APA91bF6heJrcJk_eiZ6FZaparoPQyB7tBMM2zWLFFqJJVg76EFZ9zw4P3Nlx9mQAUVtWu2zUMSPnUaeGpuyW8OleaPrBUngCTw_NTBCiSDC-0rYaEHoNSy86f8HTIR2eTachQHCaW1-'),
@@ -7858,7 +7850,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2524, 'eyde', 'mini', 9626701951, '48222125', 'user', 'naserhamed330@gmail.com', '48222125', NULL, '$2y$10$G8tO5tNw6E30l04RbT9.XeXXUJnJrY82SFwSsd0P.YXs3f8jGERC2', NULL, NULL, NULL, NULL, '2023-08-23 09:15:29', '2023-08-23 09:15:29', 'eufWglzlQtaF_agA4wT3gY:APA91bFF9Vlx5j5NNo_U3LvO3GjP2WKZUvM80P8re_Hb0mFTGDudL00gtcSFh2Niut_Q0fFWMqOgQAZAcmP1gPOSQUJ4G6DGEw21IHU6aNY-Vnl6WfSKs5RGl33BA5XVO9r88mJA_CKL'),
 (2525, 'vivi', 'Med vall', 7050572750, '46756689', 'user', 'vivimedmed65@gmail.com', '46756689', NULL, '$2y$10$fo/nRd8U79XR/GfaOvx7telRrlWp6tO/K7CCUvOm/8k9ODytJkhvi', NULL, NULL, NULL, NULL, '2023-08-23 09:33:38', '2023-08-23 09:33:38', 'cYrGMKoPSDa04sR1EF41n1:APA91bGa7UTtxo4bNxmfVO4lKzttkPcUGbFpQPelas71yQgzpIcodqlt3BcdJAapXlLxDIbqs9LSyRXxgHhBT1jPUK-daJ_eaHSzyghtiUnpZ_cQcTDm4BQgzc4qp6saMqLMGsSbDe2P'),
 (2526, 'ely', 'cheikh', 1745460972, '36831088', 'user', 'laghlale@gmail.com', '36831088', NULL, '$2y$10$1MKd68fyuYjf2PNyYFdcJefLwBOAccH2uLl1q5Z7w4D9oahjaDZOe', NULL, NULL, NULL, NULL, '2023-08-23 09:48:13', '2023-08-23 09:48:13', 'fV0ANn5XhkpDrXj28mo163:APA91bFPjXPqPwuDtflR9a4dF_s1_vLfXvVLOyvN_2k4VpAzSF7Ok2p_Vx-VwCwWMoH30OasH6b02QzU0_izDAr-ddlDFCeZNxihS_o3JsE3hi1JoZKeDcBDix7d3R4KJpwNeWGrvgGR'),
-(2527, 'moussa', 'H\'Meyada', 3273556971, '48883901', 'user', 'moussamdou@gmail.com', '48883901', NULL, '$2y$10$thADizyPtGCm3m6m3wwSh.DOTUGLRAF8atgl.7Ay3SVUtQB1RW/.q', NULL, NULL, NULL, NULL, '2023-08-23 11:56:09', '2023-08-23 11:56:09', 'c15pBVcdQ9SYU8F2p-_RPs:APA91bEaux8p7B7vJQXyBR0GkVP3XjPJMPI3LOZtERg4Nq94y-D1BvF-yaxNtPilt1HAPZoS5rm4lo6O1qMBHrpgWyE52970T6Om0CADSGjkB1Q8T8WkVtHEVNQcnr3PUb8zrTATrkHY'),
+(2527, 'moussa', 'HMeyada', 3273556971, '48883901', 'user', 'moussamdou@gmail.com', '48883901', NULL, '$2y$10$thADizyPtGCm3m6m3wwSh.DOTUGLRAF8atgl.7Ay3SVUtQB1RW/.q', NULL, NULL, NULL, NULL, '2023-08-23 11:56:09', '2023-08-23 11:56:09', 'c15pBVcdQ9SYU8F2p-_RPs:APA91bEaux8p7B7vJQXyBR0GkVP3XjPJMPI3LOZtERg4Nq94y-D1BvF-yaxNtPilt1HAPZoS5rm4lo6O1qMBHrpgWyE52970T6Om0CADSGjkB1Q8T8WkVtHEVNQcnr3PUb8zrTATrkHY'),
 (2528, 'سيد عثمان', 'سوله', 7075511450, '32313261', 'user', 'sidisoule87@gmail.com', '32313261', NULL, '$2y$10$FuSpGLCibD.GXxUWIYehyOsqotglbKuAz7K/SRB3vomMyAUhlNirq', NULL, NULL, NULL, NULL, '2023-08-23 18:21:21', '2023-08-23 18:21:21', 'fgioStXXTrOpbNQ8KAzr0m:APA91bET4nAfeSbBEb--A0bsQAsC-Jz7w4JhWGb0cj4bz6g4AW2xsn2isdPH2nap02CQ9cLe9thERw4-WMeCUVKnRdbHME5PvjiYSFi3PR6XN7ukjWaxVu4D6XlIkZXuo-py9Lrnpcki'),
 (2529, 'يب', 'البيظ', 5213393235, '46059741', 'user', 'yeba@gmail.com', '46857542', NULL, '$2y$10$Tg/Pz6R79DDxq/SzCm6cpeRr3W.iQOpSLJ7nsceFeGnePcHP01ZdS', NULL, NULL, NULL, NULL, '2023-08-23 19:54:23', '2023-08-23 19:54:23', 'dK3l2x_5SBWUBk3-TMFVz2:APA91bGIcSgoe4_-WdTOZvGniRf_6p2N2Wzlt1xjzLE6hjTkXojZ0VHw1H1w8Mf5ABlhOg6B1buxnb1vShTVDZ-5FdrjISOHQmBUyxBpEeTESEiYxhPB0l71owNhA3jcOP0a9vrzBscS'),
 (2530, 'Med Mahmoud', 'El Mouzdaf', 5808208487, '20999920', 'user', 'med.lemrabott1974@gmail.com', '20999920', NULL, '$2y$10$iRxlYBDHrznQYXkkhOtBtOGsCxzKBpq5.WTuxLOW.dgVp1ecbGV/O', NULL, NULL, NULL, NULL, '2023-08-24 10:18:18', '2023-08-24 10:18:18', 'fkozPSkwSK61-0oYxE5Kw1:APA91bG3EpL6hsSPtJdDLVsOjldwQjSqgXFmGBlkdF2sq17LYLkrrmHBv4FRqVzAv4QUelIqF1BVsX35lCqp30zQDKIMVzP8QOBmsbsdYDB-0DB-1uct7I8xIxpqE0Ks14q2gdBo1bUt'),
@@ -7882,9 +7874,9 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2570, 'nema', 'cheikh', 8184598780, '49141217', 'user', 'ni3mecmh@gmail.com', '49141217', NULL, '$2y$10$W5VZaWaC6nmsB0QxejLz.uVXoYNPrj.a3KH3YEpK12nV5LFNqHioK', NULL, NULL, NULL, NULL, '2023-08-28 14:58:32', '2023-08-28 14:58:32', 'eEgdJBhQSUoWkKFrIuf0KW:APA91bFriTeMyO-nVxATMidL-vVWpp3hoCSWnqwAGhPTK2UMIWlZ1yS9PRjXSLH1GMIioIsxnNLqdIWADHVGUt389UdYxHWQXuxjY67sKIyTYw8VseoBOhmtlcz4RQX_WjYqSUK2yogY'),
 (2571, 'محمد محمود', 'عبد الله', 4603525426, '46158585', 'user', 'medde77@gmail.com', '46158585', NULL, '$2y$10$E6tOcMgNJtNqnV3KVqxM7ucP/vlXQgbxwU.YBdjORIe9vnlo2PRty', NULL, NULL, NULL, NULL, '2023-08-28 15:48:52', '2023-08-28 15:48:52', 'e3Y2Hqk6Q-Cgt3Ws-Iqjkr:APA91bFstyB2_VcaxvJJsR7CDDM3vfnk8Ej1dhVngnxiL3NsR3w_xU2NOL1lJlk9sqkSFuyg0tPrAiV5BkbE2c2yai0CbZjri37ZtcCR09xBCx8ksxX-PdK6UplC-hqpWnFYJ94VwzNK'),
 (2572, 'Alioune', 'Aynina', 8282154978, '46526146', 'user', 'protocolda2016@gmail.com', '+22246526146', NULL, '$2y$10$Sbo4FteVPzxov6.cbNqoBu6TAnYCa74900Nr90zzWytJLGnOTPdei', NULL, NULL, NULL, NULL, '2023-08-28 16:33:40', '2024-01-04 19:28:39', 'ePuVWjRjSs2Vm6DRtf8LKZ:APA91bFre3NarMZN1EmNPQlgClomzX63g3-QvCfv3SBt1fkc07VQ6H8EhHtEyKiTpZud-2sMgN-iFx5DmYOR-kRoVjOLYRBpxZvIy0AXFA9ljTA2lSdpdMuv_alNH-m8TLOXpg-Ehnl7'),
-(2573, 'naha', 'Ely M\'Bi', 4405921488, '41684184', 'user', 'nnaharrim@gmail.com', '41684184', NULL, '$2y$10$3GDZF9A36QfhhdocPxQKxepPkKobIJg1bQS3XGMDfLUMzRayV0BTe', NULL, NULL, NULL, NULL, '2023-08-29 08:10:40', '2023-08-29 08:10:40', 'd-4jzTGEQ4CVAgxJbnY2NR:APA91bHSkgQL8su51voUX_DLVeRCoLsNWjP5fBYEXU2mSWUVA02V72UlMUhOtLOfwBIlk58hP6GuwsmhTNKcgSMvJCAEMjIPoTOGGAQyOeqLXCAymd1D9Mb2vexVFKXgzql5nCWQPlZJ'),
+(2573, 'naha', 'Ely MBi', 4405921488, '41684184', 'user', 'nnaharrim@gmail.com', '41684184', NULL, '$2y$10$3GDZF9A36QfhhdocPxQKxepPkKobIJg1bQS3XGMDfLUMzRayV0BTe', NULL, NULL, NULL, NULL, '2023-08-29 08:10:40', '2023-08-29 08:10:40', 'd-4jzTGEQ4CVAgxJbnY2NR:APA91bHSkgQL8su51voUX_DLVeRCoLsNWjP5fBYEXU2mSWUVA02V72UlMUhOtLOfwBIlk58hP6GuwsmhTNKcgSMvJCAEMjIPoTOGGAQyOeqLXCAymd1D9Mb2vexVFKXgzql5nCWQPlZJ'),
 (2574, 'Aichetou', 'El hady', 5332184285, '44224245', 'user', 'aichetouelhady@gmail.com', '22455040', NULL, '$2y$10$SwzW0dD.TvgJLyicT8WSReYXsCDEetfQHgH5POx8M4Jh10kVZw6gq', NULL, NULL, NULL, NULL, '2023-08-29 08:28:07', '2023-08-29 08:28:07', 'dsgRZgg4SGGUtHM2wXpq1d:APA91bEKTWshUchB_HIDvdXB0_GFe7kWGhuzSCHWnxqazz56lWvddm60kgp-vRs9XSdrj3QCdJGMX2PmHqQ6PX_b_IML2KojWRM1lpQG1OqmrQjmFfjbZcIyjdV2GbAj-8hhVtIt4O2O'),
-(2575, 'ahmed', 'N\'Tahah', 5725604354, '26219020', 'user', 'ahmedjilly11@gmail.com', '26219020', NULL, '$2y$10$kkf9dH6JL2dpyiTxhik49OMV0h93hVGj8Nv0/yCFLB0.09UIWhNqu', NULL, NULL, NULL, NULL, '2023-08-29 09:35:25', '2023-08-29 09:46:35', 'eJfmZjYESk6H8GbDvrCxXJ:APA91bG4dWzvyCydbyOZN56AeIgbIR5AhYOLEeBH0vH8yIAOHMRpTxNBYpG0Nb7IpFRPjS0BuIf88WsYbmnrNZIBtq2lU0LGJ5lV8_RNA3dCtwGs4xuY4Q8ZYMvdGG6vrXPXXyVVXe6a'),
+(2575, 'ahmed', 'NTahah', 5725604354, '26219020', 'user', 'ahmedjilly11@gmail.com', '26219020', NULL, '$2y$10$kkf9dH6JL2dpyiTxhik49OMV0h93hVGj8Nv0/yCFLB0.09UIWhNqu', NULL, NULL, NULL, NULL, '2023-08-29 09:35:25', '2023-08-29 09:46:35', 'eJfmZjYESk6H8GbDvrCxXJ:APA91bG4dWzvyCydbyOZN56AeIgbIR5AhYOLEeBH0vH8yIAOHMRpTxNBYpG0Nb7IpFRPjS0BuIf88WsYbmnrNZIBtq2lU0LGJ5lV8_RNA3dCtwGs4xuY4Q8ZYMvdGG6vrXPXXyVVXe6a'),
 (2576, 'Isselmou', 'kaye', 4248885666, '22337721', 'user', 'Isselmoukaye@gmail.com', '22337721', NULL, '$2y$10$jx0ODgWTM3tUEQ2LX8Xjie4kfnBOSvuppn1S8u3Yfl7m59oq3riQ2', NULL, NULL, NULL, NULL, '2023-08-29 09:45:15', '2023-08-29 09:45:15', 'dbdL0j6PSD6Zssgdf8gthp:APA91bGFL_7tflb3HwJzNTIij0KhAMt8FU0qO-T4vjvJn4HVBSaUIJzPn4RDZdqQPlXqngLI1XLtHHf03TB6938qZMQoaP-z7A57l6DCKEnOYjSV0_lyBgrnuFbQPH0fv10VHA8TYJDp'),
 (2577, 'abdoul jerim', 'fall', 9059347496, '46477730', 'user', 'abdoulkarimfall@yahoo.fr', '46477730', NULL, '$2y$10$7N/Z1.SeaTrNw3Oo63XkvecJvbNKLpwhFwQpqIdFv.LBxGVJusRYy', NULL, NULL, NULL, NULL, '2023-08-29 11:03:04', '2023-08-29 11:03:04', 'fkH86kf4S-a69IwaNSH9x_:APA91bElt19e-TgopCDopyCZ24AF9yweiiLjGXbvocX1DRz95efPHv1Iq9aKdWs8ZPzcnMup9AUfj4GPJvdAzJP4Ke6WvqR0B45Rcx1vTNw4KcVK3zRY7FB_4A9B2wMlINZVJanXNUSA'),
 (2578, 'Mohamed Yahya', 'BAH', 7351668025, '44044060', 'user', 'bmohamedyahya@gmail.com', '44044060', NULL, '$2y$10$DpuDmUij5L/QIcGDN9eJTumzi3NpmKdnAsYiIYDh6AA/RSZeLhhUK', NULL, NULL, NULL, NULL, '2023-08-29 11:09:05', '2023-08-29 11:09:05', 'ej_Be9QuSuKhF7S8NeyBIE:APA91bHL6bVX9UA6YjqKs48VpSVuX1phoMCIA4pu-qZG4PuHQlRmnUnu5ynfZjm7nbMCtc4rC4At07Ob4z2w9-nG9TFKEDncyrP5uOQzBoGqWXJPXlr6O2FZqUeTurrpNP1xK20_tc1T'),
@@ -7920,7 +7912,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2628, 'ولدأبوه', 'العادل', 7518009930, '22062683', 'user', 'welbboh@gmail.com', '22062683', NULL, '$2y$10$XMVbrcuwib4gJ6ptB/kmH.DE5tXY/Pl2JoD/YyV3P.RK6hZ.V4mzC', NULL, NULL, NULL, NULL, '2023-09-06 06:14:27', '2023-09-06 06:14:27', 'c4aHMNaeR3mI1djmOm2sXt:APA91bHtkEjiMDY9bo9UiWkG8AKbbse_FuXPVM8PZbcqzOURW3SKxPNCe0tYPqhgDbnQtD5VRC3erU3CSoVS-kJPN3EqePwfB9DnIVdWB9ENqYWJV6rWGJ2px0ufhgdkk-zE3ssV7iVH'),
 (2629, 'Nedi', 'ahmedou', 9021943908, '36248802', 'user', 'nedia7medou@gmail.com', '36248802', NULL, '$2y$10$pZDDMi6Xz6IMljmFquNrAOmHZovjGDBkxWGOpSQ1SYp.dzIQ0fc1e', NULL, NULL, NULL, NULL, '2023-09-06 10:14:58', '2023-09-06 10:14:58', 'd_ADeh0svEhHkXL7Aa-Dtl:APA91bH6aGJ-ovlRbddFu-veCGu-_2_3KeXJl3iQIfWwJ_H_QjGaQiusi2TrNkIJXQtYamcph2GnC0-x_Jyjhx8VzjeA2QX7RaaN8YfYguvB4IGKkuoJVBLnTBw8-v7Ml3hwHzQBA9SW'),
 (2630, 'Mohamed', 'chafi', 3285339658, '26461011', 'user', 'medchafi120@gmail.com', '26461011', NULL, '$2y$10$QQD5M1xf/tBKVGmEd2Ivj.GLAU7alh.9kdvmBCj2iNS5iO93xxGR2', NULL, NULL, NULL, NULL, '2023-09-06 11:13:50', '2023-09-06 11:13:50', 'cvVaerS0Rb-mPy98XO_OYE:APA91bEfQEu0U5EuHEJBDVO8338fmMzoQFXDMPp0JmQoDeqYIDORJKJytXmUVcWkpZ4290e4ykF-bnFTXmFaTe5ms76_gXY8Yf874hzm-hSOnhYN1nyUAVLFTyXt2Tg2pWGLLTOZribI');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (2631, 'Muhammedmahoudm', 'Muhammedmahoud', 2463453808, '46295060', 'user', 'mohmedmahmoudamed@gm', '46295060', NULL, '$2y$10$yTmND/AwaBSzVeQnfY9B9OCrhs.gziwPTc0Gpd07rUdzyGxuom5Oe', NULL, NULL, NULL, NULL, '2023-09-06 13:33:29', '2023-11-06 18:01:25', 'dRGBL33BQC-VKQEwuhvpit:APA91bGWdhM1hWUwdG7TnUKEgCSNVAhYfuXFs5QXO7HBbdqwRx6QGRKIQffPew07IbeAkOebvgXsWRRP72nEGY0QXvyw7GyYlYbs3kg50VxXzajg0asLRNGvbYmEjMCvT8S6EmAUQS2s'),
 (2632, 'mohamed', 'amarbeyou', 1729334625, '20024530', 'user', 'mohamhacen65@gmail.com', '20024530', NULL, '$2y$10$ua0kPwSdfRZ4GzhEcGV0VODpKdalsO3mG0hF0xX2nmVUFWw7eGJ3m', NULL, NULL, NULL, NULL, '2023-09-07 10:59:34', '2023-09-07 10:59:34', 'dUl3kTT-Sc-Gu6kpOFoxhR:APA91bFJmOfM1EfODfaYSVcRASDDAWyIH44VuR5HoY9-mJuYQY7ysX-l9W0OtgN3S6g5T8HZulEN_-VqJSR6iWIQKe5egk2tcwWdkK2YBJqTaDrZU7HpuoVNIGQi3e0H4Mk-_EMdsLbe'),
 (2633, 'mohaned abdarrshmane', 'moud', 9863546657, '46468246', 'user', 'elbou46@yshoo.fr', '46468246', NULL, '$2y$10$amdhZ8MqlWVHFbdWxMLBN.MEtIrrBh3f4b6g9UPet3TBE3MhHIKOe', NULL, NULL, NULL, NULL, '2023-09-07 11:06:14', '2023-09-07 11:06:14', 'duI2Az0PTZCncbUfQcyRpP:APA91bH3Z9SU3qgVPzAWEM16YeB7z2rR9Kdh50BRjbkZ6vZCpR8Cz5QRJMyFbgVudNBEWL8xixbiHVFfRl0IA4FiV1DMy5fex1bgOZXmriLYTPI_vPB18kutgzOfMFBWf-eky0gbS--E'),
@@ -7991,7 +7983,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2863, 'taleb', 'sidi el ghoem', 8658311278, '48770730', 'user', 'talebbaba22@gmail.com', '48770730', NULL, '$2y$10$aaZ4Oi1j4q4BC7HnkWct5uih/9T/bctDwRoBMp18/2rU3sFlcIPgO', NULL, NULL, NULL, NULL, '2023-11-10 10:32:28', '2023-11-10 10:32:28', 'd8bbcnudQVCSyXVvIwyzfh:APA91bFM3c7LYlP0MGvJ_9CTD0j_loYuPqcckOXWQsLNAFimWxMoN76yBlAR11sSN1vLOagN6onXRtSOnqdl-VtoE-7HDuEzEulMoJHLFJFQnGuDa6sCC9ks_ydRqacdwtNJi0zeDDaZ'),
 (2864, 'Meimine ghassimou', 'Mohamed Lemine', 1518553722, '33332200', 'user', 'ghassimoumeimine33@gmail.com', '33332200', NULL, '$2y$10$eZKtccQOdYb4a87YNip8lOGbTJxUHaGn2CSkQNZslimXtWCzmZvXW', NULL, NULL, NULL, NULL, '2023-11-10 11:16:22', '2023-12-27 11:30:08', 'fWnfmLTAQwyk7-vcZhfcrr:APA91bE4ppPg4riudJ8CHQ93WaAqa5lja6jN6COZeEccjctuh6wb9GZgZg-rNka6TUkHFVgL2NU3JgU7KJ0by_xrBk7lmmy6MxoAncEDs1Xw0V6BFpzCY5OehbiPyWjMK_aYdUONws_1'),
 (2865, 'Yacoub', 'memadi', 3635869334, '33460626', 'user', '7leich@gmail.com', '47270747', NULL, '$2y$10$CINofACgj6BzWEOtnLbOze1C/DHbGlgOAM/i.ivLqPJAredA2oefa', NULL, NULL, NULL, NULL, '2023-11-10 17:56:13', '2023-11-10 17:56:13', 'ctW2FkRBQ2SAbhnXczSvmH:APA91bH_h5sjwMNnV-4C5v74AqCRBszeTCoq4Q4DMrTQjI9AjwZDP6SGuMJGWR4jmZA2nizpixw79hxqURxekoQibNUOS9XYRKiRoMOdS5I_jnIrgghgJa9csNeLVZSMgR6A3pPfODbc'),
-(2866, 'Mohamed El Moctar', 'Ahmed G\'dalla', 1250595781, '36373927', 'user', 'moctar.gdalla@gmail.com', '22230960', NULL, '$2y$10$b9445xXOW8FmPCeYiIf1PO6446L4TGDGRbzUR93O3uWoFe9/LSKZy', NULL, NULL, NULL, NULL, '2023-11-10 18:18:48', '2023-11-10 18:18:48', 'f6y7ehOFRW69HgtqB3DUl9:APA91bFm5ez1rV-h8a1qAqkREi8a10MBOMaQWhaiefZOVErRLNhqudKtrpDWZG3Urmai2aWRKj4_WL9328jdFnEhR-6NqhvCcE8veShucBvQJEpydPdgQX5CxWSTPJbT3xPhgmcQiGu7'),
+(2866, 'Mohamed El Moctar', 'Ahmed Gdalla', 1250595781, '36373927', 'user', 'moctar.gdalla@gmail.com', '22230960', NULL, '$2y$10$b9445xXOW8FmPCeYiIf1PO6446L4TGDGRbzUR93O3uWoFe9/LSKZy', NULL, NULL, NULL, NULL, '2023-11-10 18:18:48', '2023-11-10 18:18:48', 'f6y7ehOFRW69HgtqB3DUl9:APA91bFm5ez1rV-h8a1qAqkREi8a10MBOMaQWhaiefZOVErRLNhqudKtrpDWZG3Urmai2aWRKj4_WL9328jdFnEhR-6NqhvCcE8veShucBvQJEpydPdgQX5CxWSTPJbT3xPhgmcQiGu7'),
 (2867, 'الغيث محمد لمبارك', 'الطالب صمبه', 6264776720, '32067475', 'user', 'elgheithmed@gmail.com', '47330749', NULL, '$2y$10$3sbTaAM12k2SzJFYGX1NbuR.BoQEZv6cFEpkaGQgWT4NX5Jc8vUum', NULL, NULL, NULL, NULL, '2023-11-10 21:20:43', '2023-11-10 21:20:43', 'eF_0ddsyRcCUlBiKOMyEMy:APA91bE-QU1-El3BSan82sij_WwZ4gB-9jK3Y1EB8rh5AUwSiRRFQiognSOyBxp8UO6D9FAMg2r3j2Cwovu4WwvGwRgbEj4pKcJorXMnRUh1hg32bm4g0MBjH0YbRg1GBTJVxDnOEu_6'),
 (2875, 'Ahmed', 'Ainina', 6722519041, '22416006', 'user', 'aainina@gmail.com', '+22246416006', NULL, '$2y$10$Ud09XP29ZNr.Y2hICi4IdeegisyKtFE58zDI5osZrlMvaQqUrChP.', NULL, NULL, NULL, NULL, '2023-11-11 11:53:22', '2023-11-11 11:53:22', 'e5F07kLES1KAdQpeL8akvM:APA91bEDQ9-iImz_xYVEaq1yeYeuPto4ISvS9SE4Gabi_pYTYEzoiHw6i5Du_JJv8LIL_-AVMgRS1tOu56Pa2i4lys1fW0mQ3ahunt8wXCZBp0cIbcRfDFrdY7WjdwqHlkr6yInJT2c0'),
 (2876, 'salah', 'khouna', 9302539979, '33009675', 'user', 'ahmeda6660@gmail.com', '33009675', NULL, '$2y$10$c7aiHLYTyGbB1jbRs03rTO4HPfWpcvCOfRmRAG6P45qcGMgNoRWuu', NULL, NULL, NULL, NULL, '2023-11-11 12:16:53', '2023-11-11 12:16:53', 'fZFqeYgRQKu5fDXvpfn_Q3:APA91bFL7M3J87ckLM4cUrqVeNXgjFsoKQfSoP27wu0TPFSv8QkFcbiv6MR1KDq04gFNxlcqXVi0RbPLZJsyxDbMhJwFPmblBH8J8Z5cD5-sVJ886i6NyQcQalLPHnUu6IV0nKsPlbDh'),
@@ -8008,7 +8000,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (2901, 'elemine', 'Lahrache', 8472097177, '36306122', 'user', 'leminemessalahrache@yahoo.fr', '36306122', NULL, '$2y$10$13quwEED.3SU7QHKpdzR0.84kGTDjeivmU44.YC.2j/WgcZ6LCSY2', NULL, NULL, NULL, NULL, '2023-11-14 20:41:22', '2023-12-25 09:51:00', 'eHjJcV2URoKThIgjVtMot3:APA91bHq9E6ev0IXHFE0CmPOC3Yjxibar6QFOydHJeSRYtgfeMppRlGkN_1TcFnx-JafOb13UHazv0mmlwKQT1UhW0O4l0LFQ7h49bhomMCgTDfXkwW_IP12yz5_PlDd5VJWhnk3779i'),
 (2908, 'أحمد', 'العبد', 6409812963, '34525253', 'user', 'Sidia6633@gmail.com', '47044765', NULL, '$2y$10$3m5EGkdc9FXPXrbW8MFquu2ZqiL.sVaVN53fB0OphFcIhnlW3bpDq', NULL, NULL, NULL, NULL, '2023-11-15 08:39:04', '2024-01-10 00:12:52', 'cZtjRWtLQ1S8f74HDkPrHw:APA91bFOhMsSXMrd5iMTB5Gy4cktGGL25YLt6wOHvHbBG9z-YKMnDgMwGc68OA-3AcvwP7rICIW8NCw5coIvpiNhYhv6GifF2ElTTUw8GGjwVD9qczWsBs75VUPpSnlSR9YH0HLN_F2o'),
 (2909, 'Mamadou', 'Camara', 5696147200, '46756378', 'user', 'madouca76@gmail.com', '46756378', NULL, '$2y$10$ynAPjOrSzwDAye6ImXU6TudOt8AKjVxLQJDnhd82cYOWQ1Z3Pfhca', NULL, NULL, NULL, NULL, '2023-11-15 12:01:14', '2023-11-15 12:01:14', 'eqSL9AhdQ1OpPDHxhZairr:APA91bFK31PjwyPTmkKgaGaqAWNYTx7UbZP6AcZ8UHgbRKv-24DNr0pMR9aHnu-LzmXr8Nsl0fXvcG3Bj4NUe4xiOF428yexba_cV8MTnBN3g1TTG07vPi3RDDW2OJGqflvGl01GWpcP'),
-(2910, 'moulaye\'chamakh', 'tneghmiche', 1314777189, '46038322', 'user', 'vjcjghfjvjfjgjcuvbg@gmail.com', '46038322', NULL, '$2y$10$F.uEbCy/HHEbGuGPWoQUsugjkCVPmiZxKBtYksYGpB7P0fyLvWADS', NULL, NULL, NULL, NULL, '2023-11-15 12:15:39', '2023-11-15 12:15:39', 'frIk4nGJRKuYsuystEQZz0:APA91bERw3GdeEjKIdXG1ntAfEJxi5bHFqffo5b5IZ1HE-BgulWccaEiRzQbqgiOgO06i3EMYMEue6Mdalfv5ufXHkpDxt_CILWJx8qcfAcRUYgJxFX9BWh5qbtBjgRGomVgSebPGZZm'),
+(2910, 'moulayechamakh', 'tneghmiche', 1314777189, '46038322', 'user', 'vjcjghfjvjfjgjcuvbg@gmail.com', '46038322', NULL, '$2y$10$F.uEbCy/HHEbGuGPWoQUsugjkCVPmiZxKBtYksYGpB7P0fyLvWADS', NULL, NULL, NULL, NULL, '2023-11-15 12:15:39', '2023-11-15 12:15:39', 'frIk4nGJRKuYsuystEQZz0:APA91bERw3GdeEjKIdXG1ntAfEJxi5bHFqffo5b5IZ1HE-BgulWccaEiRzQbqgiOgO06i3EMYMEue6Mdalfv5ufXHkpDxt_CILWJx8qcfAcRUYgJxFX9BWh5qbtBjgRGomVgSebPGZZm'),
 (2915, 'sow ba', 'binta', 9925375136, '46064930', 'user', 'binetasowba@yahoo.fr', '22246064930', NULL, '$2y$10$nctPVmG/l.wvckX3E7cOJe5iXN5Xls2nVwi7sedacsmYGSzb35h.u', NULL, NULL, NULL, NULL, '2023-11-15 13:57:14', '2023-11-15 14:53:11', 'c7nOKijf70Y0omL6Gj5wyW:APA91bGdjAvfnCNeRpeJzMTXmwjAzp1yr0xdnlt_J2dWSg5fGASSvatbPWlLpMRWj6W84t1lJ_5XRV-xxZ-O5Pwq60vFETBM3rEs86885f2cVNhWTe6UnWb4Extq0JV7ahklw_ArZKih'),
 (2942, 'aicha', 'Mohamed lemine', 9799436447, '22452512', 'user', 'aichamdlemine01@gmail.com', '28223492', NULL, '$2y$10$vWEVHgdr2AgE2JCDap.hF.REPtae.0Jv2XhL6V73FhUeOkts2pfCm', NULL, NULL, NULL, NULL, '2023-11-15 19:54:52', '2023-11-15 19:54:52', 'fgGfcK85QkO9DbEcjneTBh:APA91bGn3udC5S4mC1e5eoC86uR7vho97fEg-xRVvfO1nkZ9CCC2xEgE6ig0Mr-K8sO0WHMIMX7TE5a_BgG-VXu9EZCsFv71_7F8JxWLsmFUEgMcfudAC-KaViRunr0PFzZSlicwwtfF'),
 (3344, 'Muhammed abba', 'ahmedou vall', 2022709670, '46421478', 'user', 'medabba1980@gmail.com', '46421478', NULL, '$2y$10$3iEIdFEXH5XpuhsZ1WMpd.P2LwfjDtZqT.QrIF2.HaqJEttlsiclK', NULL, NULL, NULL, NULL, '2023-11-16 14:15:10', '2023-11-16 14:15:10', 'euekrvrCShW0JwqJ8_xF3Y:APA91bGZ83Y2hg7N5VT0n9qkYjlxtbuyY3INM-KDs09MiriXdugsL6HHrHuIsMHaX0xfzvalKAl8zb-2o83NT10zCfASKrVz3D_G6szlUmATetMP24qt_G2SlYs24j_SdJn8zLtd72Ii'),
@@ -8034,7 +8026,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (3397, 'محمد', 'محمود', 8272292309, '36220822', 'user', 'didalemrabott@gmail.mr', '36220822', NULL, '$2y$10$1Y1/qfU9O.l0U0zlM6HFWed3n9j/MkVFE/bGLzoAXdGkZPi9G5N3O', NULL, NULL, NULL, NULL, '2023-11-20 09:21:26', '2023-11-20 09:21:26', 'cTGD5WQzRumOj98bi4KiPs:APA91bH2MdQ1Eeav2erkF29AtDVCx-qonX6hE0B2TVuFaU1_7P980UvUwVNTLmGWi5pv4y6bzD2SLImlOwWh1CP9xwCp7qUUEsf2KgV95e-5hoV49zX443vJo2JzXxWV91AchXGpTu7h'),
 (3398, 'mahfoudha', 'El Hadrami', 1915700822, '33475737', 'user', 'mahfoudaelhadrami09@gmail.com', '33475737', NULL, '$2y$10$FEX3JQCu1UVTyY0jp5.iteOlirpJTHHr6P1BcBVZNza8AQOM2QjYS', NULL, NULL, NULL, NULL, '2023-11-20 10:58:57', '2023-11-20 10:58:57', 'cC4nqdrBikrwgb4KJYBbYp:APA91bH8fRk32PsBhWDfCmG6iMvtsrDpSDiOWNJnz7RefSInxjuZOdI107m6AXqv4LNl0_ipdkaIxSTK84hZGXlyb1_dEtdkw2yQYN5HpasVQFXcK7SD9bEcw8lOmwrQZCTbi03xkGW5'),
 (3399, 'hamath', 'ba', 1095481141, '48944272', 'user', '45hamath@gmail.com', '48944272', NULL, '$2y$10$KohHsCSn38fm/zzXb0XOgeLgeXBJoVy/BpdoYsYd6PWvaioQch/12', NULL, NULL, NULL, NULL, '2023-11-20 11:34:29', '2023-11-20 11:34:29', 'c6Z9vsmhQNedo-TObaZDFR:APA91bG5IYqUOiEj7F26DiXNYL-g-ionkYQAXFHbonxrfLbOob5T4wv8xvgjWgLK44MOo6x2f4Nn3hp9nTfYxBd_5kuc-SPEe8povQxshnPAWj0V5uZenXnPjIN7zJpHUkzwWxbiv9ZR'),
-(3416, 'alhassen ould isselmou', 'sid\'alaioua', 9351681440, '41083199', 'user', 'ouldisselmou80@gmail.com', '41083199', NULL, '$2y$10$0lvDaayf0bbXgIgtsZEXceP.WwIDqd4fHarEXIhsd96ZG84nQLcXm', NULL, NULL, NULL, NULL, '2023-11-21 12:48:27', '2023-11-21 12:48:27', 'dEK5JWMEQcmhZku8ZSR4Ek:APA91bEkDMOteMhGEY6ElBIQ92y2XWpHL57W7lWwRux2RG79YxrkElGCp8tSDfSYaVc6saSZqmhcZxqVe-tOFWwgSM18pCJMr3MyBL-rRzZ0xRzPOe1P4R74zoae-Y8ABgua5ga08i_3'),
+(3416, 'alhassen ould isselmou', 'sidalaioua', 9351681440, '41083199', 'user', 'ouldisselmou80@gmail.com', '41083199', NULL, '$2y$10$0lvDaayf0bbXgIgtsZEXceP.WwIDqd4fHarEXIhsd96ZG84nQLcXm', NULL, NULL, NULL, NULL, '2023-11-21 12:48:27', '2023-11-21 12:48:27', 'dEK5JWMEQcmhZku8ZSR4Ek:APA91bEkDMOteMhGEY6ElBIQ92y2XWpHL57W7lWwRux2RG79YxrkElGCp8tSDfSYaVc6saSZqmhcZxqVe-tOFWwgSM18pCJMr3MyBL-rRzZ0xRzPOe1P4R74zoae-Y8ABgua5ga08i_3'),
 (3440, 'Kerkoub', 'Mohamed', 1922795693, '22020640', 'user', 'medkerkoub@yahoo.fr', '0022236309050', NULL, '$2y$10$gN3f0Hk/ZAdxoS00FWWjxeNqJfJfMhQ3VThEb4tP/.lQxvXtSfo5G', NULL, NULL, NULL, NULL, '2023-11-21 17:54:11', '2023-11-21 17:54:11', 'fRp3MYpqeUSGiqEtkYPeFD:APA91bGtlvcyb2q88sta156iSE09iDvZwZdeVp2LNLGl9fDayeoBw5MQXH8_YVnk8B3el_c-IQsauIsgu4scoe0S-HV2B30KSJf5INQem_l_922rMV8ap8vC_sbaorJ8ZrfYAFt-sHac'),
 (3544, 'محمد', 'غالي', 4640019057, '42354050', 'user', 'ouldkhaly@gmail.com', '42354050', NULL, '$2y$10$x2mmiUAc78CQcNk6x9yVQuCD.FcOByPfa7MnThzw518ahZECgaHbu', NULL, NULL, NULL, NULL, '2023-11-22 10:22:31', '2023-11-22 10:22:31', 'fmASx-I4TzyNmBEI0ZcmN1:APA91bE4BMcMdI_gr6Ez0mUhuIW4nO6cEabWrDcZ8pIq3gW24GdyyED2KO1beVKWgxu83LKOBvyKbcJ_BatCtzlDSIZEl5y_fgFsyR94KpzXrT8hORrn1lI-l01BE6485H9-7LJT8zAI'),
 (3562, 'cheikhna', 'ABDEL WEDOUD', 9850776122, '44104064', 'user', 'cheikhna.abdelwedoud@gmail.com', '0033651684792', NULL, '$2y$10$GGPqFBBpeOiTI91c8Sf64ubKCD.0neZw7mZ7J9BtK8YoCmSKuaJfy', NULL, NULL, NULL, NULL, '2023-11-22 14:06:23', '2024-02-14 14:02:34', 'c_c_ZuSiSGKQr1pOPUEsUl:APA91bFQiiQAobxNaFOPwC4A2HeV4bsIMM351mn_QrL6UvqrDsaVh9DCb6x7NNqdjxFKoNNxL5JO_pItBTQbzme2WHdKO2wBCKr-U4FyjlE3NasFrcWV08wWAzZQRKV_Xrv-PUbYjRCo'),
@@ -8043,7 +8035,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (3587, 'mouhamed Abdallahi', 'sidi Mohamed Taleb', 6963902377, '36861961', 'user', '26abda@gmali.com', '36861961', NULL, '$2y$10$.CT8lyRQunFjAUbxaqyr3eMaMvib9hhhRSI7kac6MnLLTb5bObQMa', NULL, NULL, NULL, NULL, '2023-11-23 05:06:22', '2023-11-23 05:06:22', 'cEUyFgOnSLqRYhUebyI8PU:APA91bFUsIqx2ZPDgMU8uBJN5SSAiqiNHElz_FqGxfwuRd9oxD-TH3UA8mIH0GtA0Hf6RFfUpunAez-HpWhzPZY8UQJt843OPOLi3bwEwhEU3rTATs7BjjZzyyXOcDPvUh_AtP4ASxp1'),
 (3590, 'Diadie', 'Camara', 1309135766, '41727254', 'user', 'diadie283@gmail.com', '41727254', NULL, '$2y$10$TbhgBTcfgqDISRkbQnjSfecPvFWlGaNIBibRlRByAsBOUAQCgt5aS', NULL, NULL, NULL, NULL, '2023-11-23 11:53:45', '2024-01-23 15:36:25', 'e_IjECF2W01Vmsi6z6SViO:APA91bGP6jWrePcPTkWMXMp7rFa9LlmZNJZSgHJ4qkWXrsfCDylYCQsWOsxCHZpt3-ZkH5Op-RFIYWyKAnDKWMb1VhYhM8SUCzSroKaQt3EtZJ-6pZtDB5cKQ_CD0oS606TBGvCVvEqZ'),
 (3591, 'بكار', 'احمياد', 1154697119, '36644588', 'user', 'bacarhmeyada@gamil.com', '36644588', NULL, '$2y$10$zccvBBSN454BstqpTiy9p.pLnqsM.maXU0/2ThOwONf3A/HH0Qkty', NULL, NULL, NULL, NULL, '2023-11-23 12:37:25', '2023-11-23 12:37:25', 'cn92T4EZSxejAANFCgvOSb:APA91bGXHbhSYqVylixXgeKrQcdqnCZ0TkjcKqrK8ExmutTS9StKthEhs6Q4BxcjvFrhqucorMZMxPFMQRXIiGpygUrU28PN9ULJ5Tcpxnvp3hwGQ5g2YaDJIIf5JFIoLoVOt5h7AyPr');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (3596, 'mohamed', 'hamoud', 6918895444, '22157804', 'user', 'inchiri12@gmail.com', '22157804', NULL, '$2y$10$EYcp9O0fVs94ED/AKE19H.02CEWrSUe1s9ElGMQk8vRUdApOcN.Eu', NULL, NULL, NULL, NULL, '2023-11-23 13:46:31', '2023-11-23 13:46:31', 'fL0Kfi-sEEdPlwuz3z4Z_j:APA91bFISiuk3SUi1XdWR99fcdWzUomrjg9KlUYaWdd01YExLKQnxQos_R2lSSIzdI2pUVcea8h775umtbMNWYKvLg6L7EsLM2RGcgPDwaxT3W0kom-z5TT2FANVOnHLV8nZEtXD-Wtk'),
 (3674, 'sidna', 'gawi', 9985812344, '20677781', 'user', 'dahasidina@gmail.com', '20677781', NULL, '$2y$10$0K10pckG7dHw/CwfXVjDou7fJlaKhvQO/A/XeswQ2Y3VC1wbIPhdy', NULL, NULL, NULL, NULL, '2023-11-24 12:38:57', '2024-01-18 08:35:22', 'eN4YS9lRRV2JDmH-MbQgrs:APA91bEBfvNnIhVCyG982KxM_Ol0NX4mvnX5Uu2t3B1LlDA3oDihtFWZRStwcd5jXQ3QmHfRvCzJMZcETylmyBNsEQBOHuho8yAKpgK54abj5maobye2Nu13pAKAA8LNKyif_NF9jS-M'),
 (3808, 'Alassane', 'BA', 7482142434, '41799508', 'user', 'alassanba@yahoo.fr', '41799508', NULL, '$2y$10$vbqrPlD.3SiKbGr1w0l7SuUMuilX1HY53O4IlULnKWX6mCH2y3.ke', NULL, NULL, NULL, NULL, '2023-11-25 10:02:56', '2023-11-25 10:02:56', 'cRpUbI0jR72vJun_mwUEXe:APA91bHQB9JqNoXqTMsetN6VcdUGpj_y98BRMDk5mNhMuv-Cd7tDm6i_LGUwZXag6485Hj4i50OAC1ksC4JPBkJJidDoq3AdB6Y20xns9mjowYmnQRgMtggTHOrZuPDqHyiLFeY_iiU9'),
@@ -8079,7 +8071,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (4276, 'sakho', 'Abdoul kerim', 9220246828, '44213909', 'user', 'kawdoro@gmail.com', '44213909', NULL, '$2y$10$/1okirpolllR1BQ6tbANZe6g8wDyZUnQcC8JEfUV.i.2DUjjLHkxm', NULL, NULL, NULL, NULL, '2023-12-04 09:47:29', '2023-12-04 09:47:29', 'f8--L4RiSdaOwH8ufSlLvh:APA91bFzHaOaZJ9pfMRsCN6C-sgu-2bm11yB3ZK2QM9MtGr6CSI_c-MZSwqIAU47cKLC13fKO6JuvOvNOvfN1PEcjPvpmbjQhboLy8InPxe8_hpZ4SOy9P5g4h-X39M8xS19RXYqJ3UV'),
 (4280, 'sidi lemine', 'abdallahi', 2614451477, '44015656', 'user', 'sidi.lemine.bah@gmail.com', '44015656', NULL, '$2y$10$JbERG.UtSD2ycM9niqIUd.4bvWKUNLw73wSPSX4sh3CCNM/DoUBR2', NULL, NULL, NULL, NULL, '2023-12-04 11:42:08', '2023-12-04 11:42:08', 'cLc9SdsFTwa5RRfRlBSpl3:APA91bEYHX3lfQQun177Ygwb6S173SuPALoHB8hbG5VXc3v-urU8kQoqYbEuYOBaQk8wK6TKj3lnS198NVfGa1a0eUp2Tabs8oTPwM_xSYhE-a6TEYetKRUQBkwsnNcBsJ1OJEyXrX0m'),
 (4281, 'بوبكر محمدالمختار', 'اعليات', 5811529670, '37353505', 'user', 'chicomoktar@gmail.com', '37353505', NULL, '$2y$10$GrQGC8s4FvQ.RqYSQacj4OedBTP0AzkR25ZlU8ndO1fwcogPFhgp.', NULL, NULL, NULL, NULL, '2023-12-04 15:32:59', '2024-01-24 10:24:05', 'fYBBeiy2SIG6rfMocHSsEg:APA91bGNKulnfhIlrB5VK29XzYWG2ecrNeJ8XMsuIu2Sq23Fv5lF3k_vjwnQf1yINAIMhlH6ZIcgH678NQ1Bc5xg1ip2z5GXFo6HFAC6teHQHPf-SN7W5poz4OHtyRQF_y4VMlFqjs4m'),
-(4288, 'Ethmane sid\'ahmed', 'Dah', 9412231556, '46401680', 'user', 'ethmane@somelec.mr', '46401680', NULL, '$2y$10$wznsyJ9tOha2Gjbz926EJeRnium3Ve7b4qiFeyAob/lSIzH0kQLIm', NULL, NULL, NULL, NULL, '2023-12-05 10:17:53', '2023-12-05 10:17:53', 'cLzyeKDHQpKIs2JuCFaujq:APA91bEvD1m7JpkI60BErddKnUf2XxqM1BfjZ3-wjEYB3ayXuyjWdj5RRXgBXe79wmjQIKIHO5EWWG_OxLl4Nf9tqeDW-6be2ahBxWoGOkbQNEePyKvNiDcvVr11qnQwDz5-gw8jogFn'),
+(4288, 'Ethmane sidahmed', 'Dah', 9412231556, '46401680', 'user', 'ethmane@somelec.mr', '46401680', NULL, '$2y$10$wznsyJ9tOha2Gjbz926EJeRnium3Ve7b4qiFeyAob/lSIzH0kQLIm', NULL, NULL, NULL, NULL, '2023-12-05 10:17:53', '2023-12-05 10:17:53', 'cLzyeKDHQpKIs2JuCFaujq:APA91bEvD1m7JpkI60BErddKnUf2XxqM1BfjZ3-wjEYB3ayXuyjWdj5RRXgBXe79wmjQIKIHO5EWWG_OxLl4Nf9tqeDW-6be2ahBxWoGOkbQNEePyKvNiDcvVr11qnQwDz5-gw8jogFn'),
 (4289, 'الحضرامي', 'أحمد سيبوب', 6146610835, '46076249', 'user', 'elhadramitaherelhadrami@gmail.com', '46076249', NULL, '$2y$10$2iKD6NvHbvE8ZeWKw8d/oOfrflJ8Rq/7ozRKECyzhfQCCZVYTM5Eq', NULL, NULL, NULL, NULL, '2023-12-06 07:25:32', '2023-12-06 07:25:32', 'f9pzE3QuQ9KDE5De7s2bSG:APA91bGov7xgMvLce0u6E5bwFd_9v3Ti4hy8iVPOEvOUtlO6tsNEbPMsNuQRr86hTAyTMfIO9Bmgc7rgYbxjUsDi02LsR0I-IMctpOQAo7rc4cBCD970KIDt0wX560xlNuQbL3DtZ3cN'),
 (4290, 'mohamdeahmed', 'mbeide', 9944748752, '46777231', 'user', 'siddebeidi@gmail.com', '46777231', NULL, '$2y$10$Z3ThImKKCpqxK0r7fh8JpOkiafhB/LpqDikYv6NnqA9ID1HBXprbW', NULL, NULL, NULL, NULL, '2023-12-06 07:50:51', '2023-12-06 07:50:51', 'fzi2Bh1XTU2hawEqGiVbez:APA91bEfm4EXQarjKOA2yPlx6JQ9kNLcClnW-dON4MIL0D96BTdcCwofukRWFFtR4Ifpol6II1Dth56dCgK1DFXHPUD3nNW_QxeV9I0RUBzeJMc9qIaor8DMyJa9RwZp5CnYffsHIGNE'),
 (4291, 'ahmed mohameden', 'ahmedhou', 7463479828, '22357939', 'user', 'ahmeldhou@gmail.com', '22357939', NULL, '$2y$10$c/hfXnxBTp11TBWmej5/IOh3fexTqvmOnrFhP5IKgIwamekMekQgK', NULL, NULL, NULL, NULL, '2023-12-06 08:42:58', '2023-12-06 08:42:58', 'eHESAU_lTF6FaZzp8pMt3w:APA91bG2BdYkfpijq4hJhSWMvM6dfn1kh3VKa97Dfd3b4TTh2mukASsln07FudZyp5aq19pa8wzbf0whYNCjkIsWUKkQliBtVhFUF7JLrTvXpkwkKuWAKcQ7MoyFlDYWRBbmU4NRcZ-8'),
@@ -8102,12 +8094,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (4363, 'ESSalem', 'Tfeil', 1791256127, '46477578', 'user', 'salem.tfeil61@gmail.com', '46477578', NULL, '$2y$10$upel630xoR1mIjWRJ6puluKQ6k.An5MExGeoYcVNWNztnzDm/IfOq', NULL, NULL, NULL, NULL, '2023-12-11 10:39:05', '2023-12-11 10:39:05', 'd0w8AGx6SeSd9k_y-mrXon:APA91bHf-yogJRUmOSLLxgp3ILcWNr1sxhlS2eO_jOZs2MaBvmVLPXm6j28UI9D1nL8_Pjh_LFZ5GkzSwV4CrcsFU-VMoH2OD-2wsCeS-McZtH5t_eQrNTTe16cP8inlgVL5y35Yhx1t'),
 (4364, 'Moulaye', 'Ghassem', 6986521031, '41209173', 'user', 'fdfghg502@gmail.com', '41209173', NULL, '$2y$10$1.Qj1HV.C36nD7/Hhy6kseGcFg7MYHtOsisvh5BDIGTY8Norm0lha', NULL, NULL, NULL, NULL, '2023-12-11 10:44:00', '2023-12-11 10:44:00', 'e-MyA5gmT7ezZL4jEujMT5:APA91bHfXrttmj6IhxjmPhZLlByOSB4JNs324E8dtNwpKdKvjE4AKGCZmOjgNlsr0BIbe8CTnGLruXSnVN7DZJfZt58M3m-Tp6VRzddBZ90SNs4feJ57K-w1bXIPRSm9kg5qARrB930L'),
 (4365, 'teyib', 'elhassen', 6977159076, '49490079', 'user', 'teyeb.elhassen@gmail.com', '49490079', NULL, '$2y$10$q6TmHXFvl4kBAlpYQ9YQduuYTukG0/V.G///mH07evi96mlfqHpcm', NULL, NULL, NULL, NULL, '2023-12-11 11:16:37', '2023-12-11 11:16:37', 'fQ4B50U5TYKq5IHFQt1Skc:APA91bEgl6u1Gg8f5aWGjVZsYCRvhEnUdXO2IwdOzrgTUoXLai0SfJRSO-ssIPh9r7XHN8r6RQjcvPFHkSmwfnu0iVrwCn9Qrz8Krjb-0kwhuLZGxqS33wceHZQjnZmmizmAy3kE0s1v'),
-(4372, 'Ibrahima', 'Hamady N\'Diaye', 6681159405, '46470393', 'user', 'kalidoundeye82@gmail.com', '46470593', NULL, '$2y$10$n9oxXErHWILujEsxDXenSupf1B1KtJ0PWZNrsBZSB1P1kM7YFWBqK', NULL, NULL, NULL, NULL, '2023-12-11 11:52:32', '2023-12-19 10:36:24', 'd-thbV28T4SH68ZR2C3dVV:APA91bFUThZ3kdAVgzoWdCrXJTFc89r6z7IPzASkCLN206htqKRaJr6MuT2U76hNPNf43PBuG7kDRyYSVgbCCdgjyFeDsqV7FGOlWmHpmO4nqAET4xc0HbGyVSGOOHgc4ZEg0diixr5_'),
+(4372, 'Ibrahima', 'Hamady NDiaye', 6681159405, '46470393', 'user', 'kalidoundeye82@gmail.com', '46470593', NULL, '$2y$10$n9oxXErHWILujEsxDXenSupf1B1KtJ0PWZNrsBZSB1P1kM7YFWBqK', NULL, NULL, NULL, NULL, '2023-12-11 11:52:32', '2023-12-19 10:36:24', 'd-thbV28T4SH68ZR2C3dVV:APA91bFUThZ3kdAVgzoWdCrXJTFc89r6z7IPzASkCLN206htqKRaJr6MuT2U76hNPNf43PBuG7kDRyYSVgbCCdgjyFeDsqV7FGOlWmHpmO4nqAET4xc0HbGyVSGOOHgc4ZEg0diixr5_'),
 (4373, 'Nour Dine', 'Mohammed Yahya', 3078173363, '46333231', 'user', 'dinen7993@gmail.com', '46333231', NULL, '$2y$10$PRDo4WcHX/urcKfRSalD3.St2MntA6vP4uEgv9EFKKLKiLa5Hs3QW', NULL, NULL, NULL, NULL, '2023-12-11 12:35:40', '2023-12-11 12:35:40', 'd0v-WvbiTR-hhbmNgkD6WM:APA91bFFhEe58z3HjkpPxUYE8o09NJi1vX5NOEVpEl6LL69s_SotSvV5IV7NTfzyyjgcFWrcFimHZ1nBLM-U18f2v6TVjhI3vqy3Y4dYCmOjjY1VT2zzShLGWkBIrRx86X_7wR94WNI_'),
-(4374, 'Sid\'Ahmed', 'kassem', 1088198672, '26194040', 'user', 'kassemsidiahmed@gmail', '26194040', NULL, '$2y$10$wkbSp1Rjc/uYngw1EyXqAejWSCI3/PGTuVc2ipp9i8Bw.F8jQZ4N.', NULL, NULL, NULL, NULL, '2023-12-11 18:30:14', '2023-12-11 18:30:14', 'eHLQ1mOIQ3emh5KqqoesF1:APA91bFMDkKvufCC3lq7ioRaumeTMI3lylEVtRZmvnQ6HVeNKmTP2McgdLjYx8Up2Wa8TVVThF7D546tVoLckOlRK_f85TZeZUS2-EurIXOxIq2pPIAGAmf3QSRBBvIP2ERYZsIg-tqo'),
+(4374, 'SidAhmed', 'kassem', 1088198672, '26194040', 'user', 'kassemsidiahmed@gmail', '26194040', NULL, '$2y$10$wkbSp1Rjc/uYngw1EyXqAejWSCI3/PGTuVc2ipp9i8Bw.F8jQZ4N.', NULL, NULL, NULL, NULL, '2023-12-11 18:30:14', '2023-12-11 18:30:14', 'eHLQ1mOIQ3emh5KqqoesF1:APA91bFMDkKvufCC3lq7ioRaumeTMI3lylEVtRZmvnQ6HVeNKmTP2McgdLjYx8Up2Wa8TVVThF7D546tVoLckOlRK_f85TZeZUS2-EurIXOxIq2pPIAGAmf3QSRBBvIP2ERYZsIg-tqo'),
 (4375, 'tebou', 'sidi lemin', 6753891751, '46501258', 'user', 'doudou.abd@gmail.com', '46501258', NULL, '$2y$10$D6A0t6SQx3FVJoSPrhIAAuFqwrQhDEYgvrceop/re4.JHNaskev52', NULL, NULL, NULL, NULL, '2023-12-11 18:36:01', '2023-12-11 18:36:01', 'dzSOV7Z-nkYzuRdZ9icUGQ:APA91bEfOq5sGYsc-9B6mIEeqhTutL8WHEe_MJFVyIBYkzB-T-buLUyAWySs0AjWg2Gqh4xn3fyC0tAC380kBMDTApPi9t4zZGUfgToCkcRhKCAi0eQThfdk_zVzDqN6rPS3gcLlA6u8'),
 (4376, 'bahah', 'AKREICHE', 3733641648, '33331234', 'user', 'bahah.akreiche@orabank.net', '33331234', NULL, '$2y$10$QMRIwX7VLtKJYDdqTbOEFOaV2Y/DMxuBWJoRqBX7usXokO2zKV33y', NULL, NULL, NULL, NULL, '2023-12-11 18:36:53', '2023-12-11 18:36:53', 'diyPhGqIBUYnnA1wWaOg0S:APA91bFhx7ItdCx7IVMoSxk8CeVXDOfdQ0NO9o4PM9UvzkIZAN1TjsyHh8kLhRpISSEeXEx1EHPRRPxzeYnBfKjTkndZ4M9-d9Ep06XDREC-1nbsCgHQV38fplDWeTp6slzjrKgqSR7B'),
-(4385, 'mohamedou', 'saidou N\'diaye', 6981896362, '46872583', 'user', 'andalla159@hotmail.com', '46872583', NULL, '$2y$10$9NQxTN9hlrchJAl7gou6Oeut7W1LoqFaXw6NarePeF9hLkytR.FGG', NULL, NULL, NULL, NULL, '2023-12-12 08:17:45', '2023-12-12 08:17:45', 'csYxrXkpSSuH9LdDmljhKv:APA91bEjqyOotb1voJV2VbH8iXsk0cswqf1dUSq7Yc2Q3leCrLiZYC6eeVOuQYuaW6zll5Y1rW6lF-3XOa9rWW5XORQyRa8xOEu8qfA1tMAi28hy6NWxE_W_I5gIcSQNYcTvxDW6JeJY'),
+(4385, 'mohamedou', 'saidou Ndiaye', 6981896362, '46872583', 'user', 'andalla159@hotmail.com', '46872583', NULL, '$2y$10$9NQxTN9hlrchJAl7gou6Oeut7W1LoqFaXw6NarePeF9hLkytR.FGG', NULL, NULL, NULL, NULL, '2023-12-12 08:17:45', '2023-12-12 08:17:45', 'csYxrXkpSSuH9LdDmljhKv:APA91bEjqyOotb1voJV2VbH8iXsk0cswqf1dUSq7Yc2Q3leCrLiZYC6eeVOuQYuaW6zll5Y1rW6lF-3XOa9rWW5XORQyRa8xOEu8qfA1tMAi28hy6NWxE_W_I5gIcSQNYcTvxDW6JeJY'),
 (4388, 'الشيخ', 'ميني', 7006932159, '27711920', 'user', 'cheikhmini24@gmail.com', '42711920', NULL, '$2y$10$sHGhKz0J0wPdOIGClOQ4KuDZ50CbkzLs0OONywbYsXAAtsFytH9Ri', NULL, NULL, NULL, NULL, '2023-12-12 11:31:17', '2023-12-12 11:31:17', 'd1K3prjLRIu78Jhak4sHJP:APA91bGgLB5kuNW-JVUBo1JX3VXwCO93QEUyhmxHZbfvF3Cig6mBj8UuaKs7EK2e7pJbadH8tj6Ir4ke5ew4nHCsQl_kPd8-_bEYxSo2QzRinLfMpLx36YiPj6-vy03nybL8kkbQ86ER'),
 (4389, 'الغزال', 'أبشير', 9172086037, '46888666', 'user', 'ghazali.ahmed.88@gmail.com', '46888666', NULL, '$2y$10$KZsuOESbwUChRCd6V3CZneZmpcoNSd68uwuCoNyrwDwatoePS9B9S', NULL, NULL, NULL, NULL, '2023-12-12 14:50:41', '2023-12-12 14:50:41', 'f9RFoyYqROObFBcKfbDP0l:APA91bF0gYVdLQGCBRZT-I-PUgjktXjhQ1WRDf_tk4xUBEtkqimeZPdNYpOPUx0_MinKUhOI4B6_vmkWjPQ_olhEFHfbBLQfeT2XBtu8NCDTiv_Ms1ztE5ZzUNDRo8JmYQSkOn1LP-ub'),
 (4390, 'checked bechraye', 'semelaly', 3932162139, '49668888', 'user', 'sbecheray@gmail.com', '49668888', NULL, '$2y$10$tQ4AhD/ePFS9u7F5UBc6ruq33Gm9rko9Hs0sNYdxeLmHU6eec2m9W', NULL, NULL, NULL, NULL, '2023-12-12 16:16:41', '2023-12-12 16:16:41', 'fLsN1ecfRDmEAVWneXDNK_:APA91bH2YLYCJ8R48uN-cVEBfRXm4llPOhcv9zsE1jXynFpxIuALxL8B8Mbzph48po4WP7MKpbFJYLCW10BiTDB5BVwdxbuvx67Fs09YVqeO3nrGQhbjBlWUhRVo1zvOLKlNN-cVIZil'),
@@ -8124,7 +8116,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (4453, 'abdou', 'samba fall', 2975970671, '36304501', 'user', 'abdoufall5858@gmail.com', '36304501', NULL, '$2y$10$LE3CLbc0GnQDh9cFvCbbHe14S.iEaboeE/Ntj55itE0ZQbQDxQjBm', NULL, NULL, NULL, NULL, '2023-12-14 18:05:38', '2023-12-14 18:05:38', 'cdu9WfgCQKOAb_tbDeUK-Q:APA91bGWgK0lA-bT1uhrP1ZQCeJq5_a0VlT2aNc3pSKEGOnWqA5aUWI__mMhCHEPbz2lzqHteX9FTxoBGUx0CPd1QE3DJ45pbs7rc8QTgagWOrvAnmar2e2V-eJVyCexIel4jiKjGj6I'),
 (4454, 'mohamed vadel elbeig', 'messoud', 8432280811, '38385354', 'user', 'medvadelelbeig@gmail.com', '48385354', NULL, '$2y$10$guP19.cgkdlIyHbMrPMe7uQzzALecI5ZNa6BVFZlqdiWi5Pbo3Nj.', NULL, NULL, NULL, NULL, '2023-12-14 19:44:24', '2023-12-14 19:44:24', 'fQyQgxA5dk7Fha1R5BnDWt:APA91bGVmcqxtQXH5u5d-6RpZz_UBCw2yY1_NG3goJHeSVAbW7XZtAVrIO-6iKsfpCOUIeJiCTmjBz6yIdIsCaV_uy0Pb9NB88FCKwUXYGF5idyQy3MW19UxG5MNO3eWRUebu9aOsQ0M'),
 (4455, 'آسية', 'محفوظ أمين', 8786305979, '47806389', 'user', 'assiettou@gmail.com', '44700060', NULL, '$2y$10$uZt4oBnHWW0QjK/IhThhfONizIE3/6rMYIE6Ab6RqWJL/.fYtDtCO', NULL, NULL, NULL, NULL, '2023-12-14 20:36:27', '2024-01-18 14:37:58', 'fyrb4aigRDmR9qpxB92kr-:APA91bH32n2DtslnexGGhE73bVKovKhH6QTaW22qBGaYnGqgE8lxg9T9CsNtJTwQNS5DcDyXj3KdrAz6d79_cfgxE5zni5_JFuU3X_EMRvWOYtFtGQiL0qP7KQTYikrt0S-WcEozyEFL'),
-(4464, 'Mohamed El Mechry', 'R\'Hil', 3033178070, '46394382', 'user', 'aliounemed25@gmail.com', '46394382', NULL, '$2y$10$wDMojTcLmkCb274UgB4VSuUqyluPOlKgX4UXCH.6eeji0U5OuMR0C', NULL, NULL, NULL, NULL, '2023-12-14 22:05:58', '2023-12-14 22:05:58', 'ck8XazY0TU-4vq2GRMQida:APA91bEBOX-kOavNPIE9cqlFeKDONtrGhHSOuQ8qy2QH8-hjUX8NX9FmpoLMfIfpmxx1W7wdDK4fT5HdL0AgKiZrDMdekJffk7tJeewxoZN_pFmPl-2P5Rp_7Qmwt7TX95P252vsBcMa'),
+(4464, 'Mohamed El Mechry', 'RHil', 3033178070, '46394382', 'user', 'aliounemed25@gmail.com', '46394382', NULL, '$2y$10$wDMojTcLmkCb274UgB4VSuUqyluPOlKgX4UXCH.6eeji0U5OuMR0C', NULL, NULL, NULL, NULL, '2023-12-14 22:05:58', '2023-12-14 22:05:58', 'ck8XazY0TU-4vq2GRMQida:APA91bEBOX-kOavNPIE9cqlFeKDONtrGhHSOuQ8qy2QH8-hjUX8NX9FmpoLMfIfpmxx1W7wdDK4fT5HdL0AgKiZrDMdekJffk7tJeewxoZN_pFmPl-2P5Rp_7Qmwt7TX95P252vsBcMa'),
 (4465, 'المختار', 'أخشوم', 5155651657, '47492221', 'user', 'abidunsidi@gmail.com', '47492221', NULL, '$2y$10$0pTFMOSVGli8SFn1b5CUo.1Fl0fLNVNZDE0k4tb9MEVxMcpwhAFA2', NULL, NULL, NULL, NULL, '2023-12-15 01:27:37', '2024-01-27 14:42:23', 'clwTbtMvRwuzhhs0IsW7st:APA91bG-FkrVkyMUJMr1FN_kw4_OVmYfd45OFxn9u-N6kMwBu_NPr-6qNVCjlgpvs-hijEkuW4MWUMd-YZQhhnLSH0mHFAAW3AZCQrLdtdlASwde9CNEfxvo-OgiCu5fds5xMMkKDEjM'),
 (4466, 'hacen', 'Bouhamadi', 8663793233, '37385378', 'user', 'hacenn.amar@gmail.com', '37385378', NULL, '$2y$10$bjVvuTVF5hgLKEB.ZiV3qe2pBiheIzbVEgK3MeZseBjJihVRvEwdu', NULL, NULL, NULL, NULL, '2023-12-15 08:00:11', '2023-12-15 08:00:11', 'fqSU-TtKRS2MKlrfulxDWa:APA91bHF7JFeZmrp8dgYBohRAAoDIWGYq87QcSaTFQ2hR7qp7LYLCLF1smTlKqeTgE-h-X1oARskIRKR9IIrrHp1zX0bjFNvyWfwjss5_upXvDHUIE7ODQvjvV1udTFIRb1QUOkPe-oa'),
 (4471, 'alioune', 'mahmoud', 1804160910, '42847316', 'user', 'ouldoumarandalla7@gmail.com', '46744540', NULL, '$2y$10$mhpA5uYd6RYY/N.7MxzkaejaSdrd79wA64nhJi/r77hTjWZk1fTi6', NULL, NULL, NULL, NULL, '2023-12-15 08:06:53', '2023-12-15 08:06:53', 'fKzwaee_SgahcKhyuulNdN:APA91bHfx0_neeHjZNB--BjaP-Tw3n5OVqc6WVBKXCwZ3fK9FSTbdRijlGWOxxHCSOLbMXD_jFFRh8K9BEO47DMkQisa-egcFrp12dEaojticvCTiyryIV5BEIcI5doIMmSMLGt2nSdE'),
@@ -8166,7 +8158,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (4990, 'sidi moctar', 'Ahmedou', 7890154116, '48473784', 'user', 'moctar0909@gmail.com', '48473784', NULL, '$2y$10$yj4mFd7qcYc2/meYzzIZAOCldYjtp/m/vRinRziZKAw1Y8raXyM.y', NULL, NULL, NULL, NULL, '2023-12-26 20:39:53', '2023-12-26 20:39:53', 'fzVqkg5UTn2Q1s8ZEBxwbL:APA91bEGqGsr1jFo7SMcwByibrHBwuAfUNUqFK-sC3LqtkKCQy-LX03ph_ywzHLh6Ns-WH5c5fZC6YSjk6UNsBCoPMyVE2IhJeRN5tWq2_Soa0nQdyTxJT8_o1660Sf9WqmGYQMVqW0d'),
 (4991, 'moctar', 'Ndiaye', 7002478695, '46927592', 'user', 'ndiayemoctarmamadou@gmail.com', '46927592', NULL, '$2y$10$2kCE85ndvDjuWYulMFkq7uszRh9W/C6EwBmNNXAK5ZTi/PSaWUIIe', NULL, NULL, NULL, NULL, '2023-12-26 21:25:31', '2023-12-26 21:29:19', 'f9_iZstkTr2EhBTQRfSzS1:APA91bFIFk_TrQxg49-mAUbhI8lSd-QF28JnuCSMqVd_napsPlFThClOj-qf6c8sQatEyTSJ2JuGxB5k7P5hYOKK6tGieuVA-wJO27VMQoxBR8tvw2yI4b7veWTKhQiIK7WOluuiSrPV'),
 (4992, 'Mohamed Sidi', 'Ahmed Deyna', 2685980441, '37023512', 'user', 'babadeyna@gmail.com', '37023512', NULL, '$2y$10$4HVgG8l/A58qZMef8WwEHe3C07ppk17n17GwukEygmndVRt9NaJBe', NULL, NULL, NULL, NULL, '2023-12-26 22:15:35', '2023-12-27 06:30:00', 'eVz9JsmnQzmIcgEp6XHyJ_:APA91bH7o3MSB7xA5eB2pL4qNi2zVR694lWDUNO3SDw_LpCxn4qJ-F3YejBnenZlEL7v20NAqshLOhS9RY_oLrw9X2rRlBzql3-PMF_d5KT3PXeoGV7B1ZrhufzewITuXAUrfjWlKct-');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (4997, 'محمد خالد', 'سيدي', 4329740695, '37555545', 'user', 'sidikhaled462@gmail.com', '37555545', NULL, '$2y$10$XUb6cp2rCAxyxqSAYzDOc.pk8N7NJ2gYR22CR7z6E7FjULf/AdU8.', NULL, NULL, NULL, NULL, '2023-12-27 04:50:04', '2023-12-27 04:51:46', 'dl-cS9dbQ4WFPRyA0nNDGv:APA91bGRz7Khqr3OGS_Mzv_dQEswu_6H55Izu4h7sMQSIvbAodRsh_8EX-UcQnA-A_6Yq6FtWRPZxbHlVPZAJFQUdpNvx64AuslqO3r1f2NW-Up_0zd86zmgcnsA1MYGYZ_xlRAckE42'),
 (5002, 'yacoub', 'sidi', 3706004990, '43223027', 'user', 'yacoub28@gmail.com', '26271227', NULL, '$2y$10$CUa/xFhRmVDhMRqMxeXUTueMWBrEUtYrEcGOf8zDkxlZW4kN7R0aO', NULL, NULL, NULL, NULL, '2023-12-27 10:08:29', '2023-12-27 10:11:02', 'fcFDoKliTcKdXuGOCphUll:APA91bGLswXufo-sRvmFtz37viFS2TRcr1lmSzuThKgKJdkFSHtbLtoBsnkNdaHjE2n2plWRKj-Jo0TdOAxE5OysHfqiqF8wp8fsnIide3Rg47bRZsSQinRg8gHpF24-dQL-vrfnkqJa'),
 (5024, 'ghallatt mint issmail', 'kheiry', 6282711147, '48714423', 'user', 'ghallattkheiry@yahoo', '48714423', NULL, '$2y$10$gMsd.RhAD.X1YXCx0gAQO.yEPAbVY656BUzN8T/GFgIxlBH9lYXfu', NULL, NULL, NULL, NULL, '2023-12-27 10:48:51', '2024-02-14 19:41:06', 'fgIubFYXQW-wtH6zpGg3fL:APA91bH52wRpFzjFk82P6-J_-3iS3wXze1cjBTDN2noCT0i2lT9ThAjU7jUra7RTnKHAM9iXsYHC26szGqx6rClquOzegvaOh5gPNzB_TViEubWwZQDfWIn-3vpnVw8CdcfNRaTCFpRX'),
@@ -8196,7 +8188,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (5285, 'Mouhamed Alioune', 'Dieng', 3623910107, '46441776', 'user', 'mdieng615@gmail.com', '46441776', NULL, '$2y$10$b3FjlW/9xMSRyVbCzVdkOObRTr5K0/XI6ljvje.85SnumbmZQP97.', NULL, NULL, NULL, NULL, '2024-01-03 12:44:04', '2024-01-03 12:44:04', 'f89EA6AxR8W2Gxak5jeliJ:APA91bFGxjK_T4dtI-Q31nAyHE-fVRvmM4pVJIBhZXZTMhakepGminu1m6Z1cwRgUQZpEB6iLREfClyhryIlt6-1hy_tQBVcFKkQU4qFarjOc9UAehwjHKL5jwdZo-E-OOYWl7btJpmd'),
 (5294, 'محمد الامين', 'اعوسين', 5244928323, '36373703', 'user', 'mlemine1974@gmail.com', '36373703', NULL, '$2y$10$JhX6ALRXpANcUIzopp7rX.veHmJ5iluMw8AJE5grl7Z95TdXA./Xq', NULL, NULL, NULL, NULL, '2024-01-04 07:09:06', '2024-01-04 07:14:41', 'eo2c1wcPf0k_ogT6jA4V00:APA91bGNNK9Rvy5y6ITSVEn4izeyNoOSgtFaN85luyXhRnBSQqFny6ANiIv43b-HGWwhol_oMovaaKFriLrXJBTv5T8ywX6Jzzwsci9oFTOa-t5KFgfu02h3MkZBUeOhXyJThKokDk1h'),
 (5295, 'حماده', 'محم', 3372775458, '46714814', 'user', 'hamadaahmedmaham22@gmail.com', '46714814', NULL, '$2y$10$yuOGOnqGfnckoLEsups0ZuZmkl/AQnqd9Apv4GQn7fMVj7kAPgjim', NULL, NULL, NULL, NULL, '2024-01-04 07:23:02', '2024-01-06 17:22:40', 'eHRTj4NORYCjqXIJ63n5es:APA91bEcWRVxO-JfSAdtKc4ONKpZnStQ57WbvmwnSae4_E9Psf_UDwlVa1Dz6qAPbPq9r4drZxSb2roLi2C_nwraGDupdfGa5vgd6Di_vBoR3q5-NqU1MeJgl0YrVbt764cMA96gIzDF'),
-(5320, 'Mohamed', 'Mohamed M\'Barek', 3040665500, '22060206', 'user', 'md.mbarek89@gmail.com', '22060206', NULL, '$2y$10$7ZIfnY90cJbTSwe.G.be5udGvSZ.kjusWUrpcmgPSNyGGRrFAYPju', NULL, NULL, NULL, NULL, '2024-01-04 10:03:58', '2024-01-04 10:03:58', 'fzmWSGO4REqSiaZysRgr8p:APA91bFwVKYULKCPqRWSWeHI4WOBnpghOyeNNeudy0cjutQIGwJNqXPuwf0jucc0lhsQ_Q8ITr3FIWekZo2oMFoa9IXs8SwllvJKtbdLg-79XhJ9ID-5v_5EQUsV30eWccUrCNYNf4Mq'),
+(5320, 'Mohamed', 'Mohamed MBarek', 3040665500, '22060206', 'user', 'md.mbarek89@gmail.com', '22060206', NULL, '$2y$10$7ZIfnY90cJbTSwe.G.be5udGvSZ.kjusWUrpcmgPSNyGGRrFAYPju', NULL, NULL, NULL, NULL, '2024-01-04 10:03:58', '2024-01-04 10:03:58', 'fzmWSGO4REqSiaZysRgr8p:APA91bFwVKYULKCPqRWSWeHI4WOBnpghOyeNNeudy0cjutQIGwJNqXPuwf0jucc0lhsQ_Q8ITr3FIWekZo2oMFoa9IXs8SwllvJKtbdLg-79XhJ9ID-5v_5EQUsV30eWccUrCNYNf4Mq'),
 (5321, 'Mohamed', 'Lekhoueima', 9174597464, '43437009', 'user', 'benahmed86@gmail.com', '43437009', NULL, '$2y$10$dOB3HQdKx52cJToKMbHm.O5eowia/lkqC3fs/twbw4crGLzVAL00e', NULL, NULL, NULL, NULL, '2024-01-04 13:44:04', '2024-01-04 13:44:04', 'dHZaLvxD1XUjC264gQpRxs:APA91bFqX7muz9F0DKjJX7WBiqmDAfpvhRVTdft61qjaa5UeJMpBi3jaMZrdFGsYXU9D6Spezn6GZzxMaLD34fqHhejqfeYktRZ2ia0epZTSzndZGk93JMBcrA7yK8LtMi8KuKbiz3PY'),
 (5328, 'زينبا', 'بابتي', 5200826885, '46883824', 'user', 'protocolda2016@gmil.com', '46883824', NULL, '$2y$10$q8hTU/FLaMOyW8E4p3muDuyVlTqeN0zsB2I69jEVBlDJAkS5m3IC2', NULL, NULL, NULL, NULL, '2024-01-04 19:35:53', '2024-01-04 19:35:53', 'e5gBBGqh10m_q4QzAjTc5z:APA91bESufAjLSNOL5t2WE7-tPCpyRYLaLWlLAhdsNKmHVd2mbQXb0IJkDvCEax8XZWqjoZJywYyG4QGEJLzcoJQY1c0x9fKCoNl6ieM305Jit5pWJ8bb1UZHuCTZQH5DPIuZsiVJU_g'),
 (5329, 'med salem', 'beyrouk', 7315590718, '48160733', 'user', 'aychetouhamze@gmail.com', '48160733', NULL, '$2y$10$zaNwNLVpsGGY85Mb3IWFqe9Y1fp6qUmAo/9VZMhBn16eK21zkq5WW', NULL, NULL, NULL, NULL, '2024-01-04 21:07:23', '2024-01-04 21:07:23', 'e6jijsvURAiw9oFgo8FAMk:APA91bHUav_gehkos-EXK_iufPHQiJ80Xan4WHjf6Y8zb9uKntAPTKYwSMie0XKc-LEQ2ypZkivSewYXlubIxG6sJ0J2HscURpKP367JFG6yr9Syj1zUg5-Ui1zxS7UP3rd5AhV9ERlv'),
@@ -8289,7 +8281,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 (6660, 'Elhadrami', 'ELmorid', 1451091677, '31318000', 'user', 'hadramitaya88@gmail.com', '31318000', NULL, '$2y$10$WiCzEIYnQZJ/xb7hIAC4I.GgK3Zf.JSkYbs0BZJOgA05F1aoHKuya', NULL, NULL, NULL, NULL, '2024-02-13 14:34:20', '2024-02-13 14:34:20', 'exlqxA11X0FxgkXA9GBttJ:APA91bFDn7_gcI4NqsWYm2vUgJiHLL0k89cFJhWgMr1wlO84-guWAyNX9Lb2fBYurdj5SobAZjUDbsATbtaNfqxFMFxjqsQbg1EgBPNPhDR7qvzCqee9aj3REvP5zxlNM9ypIMO7ctcp'),
 (6675, 'Mohamed', 'Abd ESSELAM', 9905591113, '22360240', 'user', 'ingelcmohamed@gmail.com', '42912262', NULL, '$2y$10$VtT4tJJubHQDJ9BiLsFVROoMNwtOaOYcrVu2WVqbj9p8fFSNyW.fK', NULL, NULL, NULL, NULL, '2024-02-14 09:58:09', '2024-02-14 09:58:09', 'dqDbut6dekHzugt3DvNQff:APA91bFmbxSaAb3UPGyupOZdE70holzQrbqXgejXkcIo-5tda_KxWZ_-R-ys9bpYwgJx2GWQz-w60akAJGwSoe42i3yxbz-OZX7q6DgvyEMRbtX-EjZ2RMLHSLCB5lr1k1fxaIpsc3-n'),
 (6693, 'Sidi Mohamed', 'lefdhil', 4484434355, '46475321', 'user', 'fdhilrajel@gmail.com', '46475321', NULL, '$2y$10$FlTaDKxv9iVXiYNLVudu2.KSN4ZqpMV.j6w9yaITtkVxDuh2nWsJC', NULL, NULL, NULL, NULL, '2024-02-14 20:40:35', '2024-02-14 20:40:35', 'eyomGaxWQGat399fBdV6AL:APA91bEsh_RCprBFVHS7wuX43ab-HC7euzeFlyeiIG5aAh9QTwjLI58WgT99ZBGn2OZRczI7ybLJPTGp8lO_OnAoyKBTyGcj7Du89fvsEmDJJMQsb2WKoY4mPc2DbTvwqGsSN2RrEyys');
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type`, `email`, `whatsapp`, `email_verified_at`, `password`, `city_id`, `state_id`, `region_id`, `remember_token`, `created_at`, `updated_at`, `notification_id`) VALUES
+INSERT INTO users (id, first_name, last_name, nni, phone, user_type, email, whatsapp, email_verified_at, password, city_id, state_id, region_id, remember_token, created_at, updated_at, notification_id) VALUES
 (6694, 'Hiba', 'Mohamed Beiba', 9013915509, '34222261', 'user', 'hibamohamedbeiba@gmail.com', '0671423368', NULL, '$2y$10$ybewy4Yi5qXgSKvfC4Cn.Oa..OCNPYS1GrvaCtZPC2GK3kiTb8kv6', NULL, NULL, NULL, NULL, '2024-02-15 09:21:42', '2024-02-15 09:21:42', 'fBIkygUj30Bur8CLPIHt_b:APA91bEpoHt3n88iJXHKkbilaIM4SYXx5cqJH--_Bl4QA7_b2j7WqsoTZkFnsxJlXXhE7Sz-ZYN9li3sIa2yVdNPCwbTY-raVZJjtyd6UxStBlm4V40yg2yWzX1nx148u6oQfq8qNb4r'),
 (6699, 'taleb mostaph', 'el Bechir', 1829644653, '37987404', 'user', 'mostaphtaleb@gmail.com', '37987404', NULL, '$2y$10$oum0y5H7m9ve3YlT2gafxOHEA.MJ2Z6szRgrRYEDf46bg8LCkrDL2', NULL, NULL, NULL, NULL, '2024-02-15 10:56:08', '2024-02-15 10:56:08', 'dYLXUouvOkjRuro1zj6AMc:APA91bFiqB09_mhUPxWL3ZqYGsaIhi8eP_wFyCOcdoSw3U2apAlZcEsANR3DPTxD5gjJaDBrBNI_D5qwxbqyLw2OE0IJNMaVxiRCoPWetph2hOFe2Zp3Wjk_YeRgZRm3cbUR_UgPcm_6');
 
@@ -8298,171 +8290,184 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `nni`, `phone`, `user_type
 --
 
 --
--- Indexes for table `cities`
+-- Indexes for table states
 --
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cities_state_id_foreign` (`state_id`);
+ALTER TABLE states
+  ADD PRIMARY KEY (id);
+  
+--
+-- Indexes for table cities
+--
+ALTER TABLE cities
+  ADD PRIMARY KEY (id),
+  ADD CONSTRAINT fk_state_id FOREIGN KEY (state_id) REFERENCES states(id);
 
 --
--- Indexes for table `failed_jobs`
+-- Indexes for table failed_jobs
 --
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+ALTER TABLE failed_jobs
+  ADD PRIMARY KEY (id),
+  ADD  constraint failed_jobs_uuid_unique UNIQUE (uuid);
+
 
 --
--- Indexes for table `manager_regions`
+-- Indexes for table migrations
 --
-ALTER TABLE `manager_regions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `manager_regions_region_id_foreign` (`region_id`),
-  ADD KEY `manager_regions_user_id_foreign` (`user_id`);
+ALTER TABLE migrations
+  ADD PRIMARY KEY (id);
 
 --
--- Indexes for table `migrations`
+-- Indexes for table password_resets
 --
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
+CREATE INDEX password_resets_email_index ON password_resets (email);
+
+ALTER TABLE personal_access_tokens
+  ADD PRIMARY KEY (id);
+
+ALTER TABLE personal_access_tokens
+  ADD CONSTRAINT personal_access_tokens_token_unique UNIQUE (token);
+CREATE INDEX personal_access_tokens_tokenable_type_tokenable_id_index
+ON personal_access_tokens (tokenable_type, tokenable_id);
+--
+-- Indexes for table regions
+--
+ALTER TABLE regions
+  ADD PRIMARY KEY (id);
+CREATE INDEX regions_city_id_index ON regions (city_id);
+CREATE INDEX regions_state_id_index ON regions (state_id);
 
 --
--- Indexes for table `password_resets`
+-- Indexes for table reports
 --
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
+ALTER TABLE reports
+  ADD PRIMARY KEY (id);
+CREATE INDEX reports_city_id_index ON reports (city_id);
+CREATE INDEX reports_state_id_index ON reports (state_id);
+CREATE INDEX reports_user_id_index ON reports (user_id);
+CREATE INDEX reports_region_id_index ON reports (region_id);
+
+
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indexes for table users
 --
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
--- Indexes for table `regions`
---
-ALTER TABLE `regions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `regions_city_id_foreign` (`city_id`),
-  ADD KEY `regions_state_id_foreign` (`state_id`);
-
---
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `reports_city_id_foreign` (`city_id`),
-  ADD KEY `reports_state_id_foreign` (`state_id`),
-  ADD KEY `reports_user_id_foreign` (`user_id`),
-  ADD KEY `reports_region_id_foreign` (`region_id`);
-
---
--- Indexes for table `states`
---
-ALTER TABLE `states`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_nni_unique` (`nni`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD UNIQUE KEY `users_whatsapp_unique` (`whatsapp`),
-  ADD UNIQUE KEY `phone` (`phone`);
+ALTER TABLE users
+  ADD PRIMARY KEY (id),
+  ADD constraint users_nni_unique UNIQUE (nni),
+  ADD constraint users_email_unique UNIQUE (email);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `cities`
+-- AUTO_INCREMENT for table cities
 --
-ALTER TABLE `cities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2216;
+CREATE SEQUENCE cities_id_seq;
+ALTER TABLE cities
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('cities_id_seq');
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT for table failed_jobs
 --
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+CREATE SEQUENCE failed_jobs_id_seq;
+ALTER TABLE failed_jobs
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('failed_jobs_id_seq');
 
 --
--- AUTO_INCREMENT for table `manager_regions`
+-- AUTO_INCREMENT for table manager_regions
 --
-ALTER TABLE `manager_regions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+CREATE SEQUENCE manager_regions_id_seq;
+ALTER TABLE manager_regions
+ alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('manager_regions_id_seq');
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT for table migrations
 --
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+CREATE SEQUENCE migrations_id_seq;
+ALTER TABLE migrations
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('cities_id_seq');
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT for table personal_access_tokens
 --
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3573;
+CREATE SEQUENCE personal_access_tokens_id_seq;
+ALTER TABLE personal_access_tokens
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('personal_access_tokens_id_seq');
 
 --
--- AUTO_INCREMENT for table `regions`
+-- AUTO_INCREMENT for table regions
 --
-ALTER TABLE `regions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130910;
+CREATE SEQUENCE regions_id_seq;
+
+ALTER TABLE regions
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('regions_id_seq');
 
 --
--- AUTO_INCREMENT for table `reports`
+-- AUTO_INCREMENT for table reports
 --
-ALTER TABLE `reports`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2005;
+CREATE SEQUENCE reports_id_seq;
+ALTER TABLE reports
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('reports_id_seq');
 
 --
--- AUTO_INCREMENT for table `states`
+-- AUTO_INCREMENT for table states
 --
-ALTER TABLE `states`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=453;
+CREATE SEQUENCE states_id_seq;
+ALTER TABLE states
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('states_id_seq');
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table users
 --
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6719;
+CREATE SEQUENCE users_id_seq;
+ALTER TABLE users
+  alter id set data type bigint , ALTER COLUMN id SET NOT NULL ,ALTER COLUMN id SET DEFAULT nextval('users_id_seq');
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cities`
+-- Constraints for table cities
 --
-ALTER TABLE `cities`
-  ADD CONSTRAINT `cities_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE;
+ALTER TABLE cities
+  ADD CONSTRAINT cities_state_id_foreign FOREIGN KEY (state_id) REFERENCES states (id) ON DELETE CASCADE;
 
 --
--- Constraints for table `manager_regions`
+-- Constraints for table manager_regions
 --
-ALTER TABLE `manager_regions`
-  ADD CONSTRAINT `manager_regions_region_id_foreign` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `manager_regions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+-- Add foreign key constraints to manager_regions table
+ALTER TABLE manager_regions
+  ADD CONSTRAINT manager_regions_region_id_foreign FOREIGN KEY (region_id) REFERENCES regions (id) ON DELETE CASCADE,
+  ADD CONSTRAINT manager_regions_user_id_foreign FOREIGN KEY (user_id) REFERENCES users (id);
 
 --
--- Constraints for table `regions`
+-- Indexes for table manager_regions
 --
-ALTER TABLE `regions`
-  ADD CONSTRAINT `regions_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `regions_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE;
+-- Add primary key constraint to the manager_regions table
+ALTER TABLE manager_regions
+  ADD PRIMARY KEY (id);
+
+CREATE INDEX manager_regions_region_id_index ON manager_regions (region_id);
+CREATE INDEX manager_regions_user_id_index ON manager_regions (user_id);
+
 
 --
--- Constraints for table `reports`
+-- Constraints for table regions
 --
-ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_city_id_foreign` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reports_region_id_foreign` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reports_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reports_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE regions
+  ADD CONSTRAINT regions_city_id_foreign FOREIGN KEY (city_id) REFERENCES cities (id) ON DELETE CASCADE,
+  ADD CONSTRAINT regions_state_id_foreign FOREIGN KEY (state_id) REFERENCES states (id) ON DELETE CASCADE;
+
+--
+-- Constraints for table reports
+--
+ALTER TABLE reports
+  ADD CONSTRAINT reports_city_id_foreign FOREIGN KEY (city_id) REFERENCES cities (id) ON DELETE CASCADE,
+  ADD CONSTRAINT reports_region_id_foreign FOREIGN KEY (region_id) REFERENCES regions (id) ON DELETE CASCADE,
+  ADD CONSTRAINT reports_state_id_foreign FOREIGN KEY (state_id) REFERENCES states (id) ON DELETE CASCADE,
+  ADD CONSTRAINT reports_user_id_foreign FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
